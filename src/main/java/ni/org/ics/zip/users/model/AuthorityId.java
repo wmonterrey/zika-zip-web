@@ -21,6 +21,12 @@ public class AuthorityId implements Serializable {
 	public AuthorityId(){
 		
 	}
+	
+	public AuthorityId(String username, String authority) {
+		super();
+		this.username = username;
+		this.authority = authority;
+	}
 
 	public boolean equals(Object other) {
 		if ((this == other))
@@ -63,7 +69,7 @@ public class AuthorityId implements Serializable {
 
 	@Override
 	public String toString(){
-		return username+ " " + authority;
+		return username;
 	}
 
 }

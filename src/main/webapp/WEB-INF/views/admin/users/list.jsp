@@ -94,7 +94,6 @@
 									<th><spring:message code="enabled" /></th>
 									<th><spring:message code="userlock" /></th>
 									<th><spring:message code="usercred" /></th>
-									<th class="hidden-xs"><spring:message code="userroles" /></th>
 									<th><spring:message code="actions" /></th>
 								</tr>
 							</thead>
@@ -155,10 +154,6 @@
 											<td><span class="label label-danger"><spring:message code="yes" /></span></td>
 										</c:otherwise>
 									</c:choose>
-									<td class="hidden-xs">
-										<c:forEach var="rol" items="${usuario.authorities}">
-											<spring:message code="${rol.authId.authority}" />,  
-										</c:forEach></td>
 									<td>
 										<a href="${fn:escapeXml(usuarioUrl)}" class="btn btn-default btn-xs"><i class="fa fa-search"></i></a>
 										<a href="${fn:escapeXml(editUrl)}" class="btn btn-default btn-xs"><i class="fa fa-edit"></i></a>

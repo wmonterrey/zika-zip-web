@@ -1,5 +1,7 @@
 package ni.org.ics.zip.users.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -30,6 +32,30 @@ public class Authority extends BaseMetaData implements Auditable{
 	private AuthorityId authId;
 	private UserSistema user;
 	private Rol rol;
+	
+	public Authority() {
+	}
+	
+	public Authority(AuthorityId authId, UserSistema user, Rol rol) {
+		super();
+		this.authId = authId;
+		this.user = user;
+		this.rol = rol;
+	}
+	
+	public Authority(AuthorityId authId,
+			Date recordDate, String recordUser) {
+		super(recordDate, recordUser);
+		this.authId = authId;
+	}
+	
+	public Authority(AuthorityId authId,
+			UserSistema user, Rol rol,Date recordDate, String recordUser) {
+		super(recordDate, recordUser);
+		this.authId = authId;
+		this.user = user;
+		this.rol = rol;
+	}
 	
 	
 	@Id

@@ -1,14 +1,9 @@
 package ni.org.ics.zip.users.model;
 
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.IndexColumn;
 
 /**
  * Simple objeto de dominio que representa un rol
@@ -21,7 +16,6 @@ import org.hibernate.annotations.IndexColumn;
 @Table(name = "roles", catalog = "zika_zip")
 public class Rol {
 	private String authority;
-	private Set<Authority> authorities;
 	
 	@Id
 	@Column(name = "ROL", nullable = false, length =50)
@@ -31,12 +25,22 @@ public class Rol {
 	public void setAuthority(String authority) {
 		this.authority = authority;
 	}
-	@OneToMany(mappedBy = "rol")
-	@IndexColumn(name = "rol", base=1)
-	public Set<Authority> getAuthorities() {
-		return authorities;
+	@Override
+	public String toString(){
+		return authority;
 	}
-	public void setAuthorities(Set<Authority> authorities) {
-		this.authorities = authorities;
+	@Override
+	public boolean equals(Object other) {
+		
+		if ((this == other))
+			return true;
+		if ((other == null))
+			return false;
+		if (!(other instanceof Rol))
+			return false;
+		
+		Rol castOther = (Rol) other;
+
+		return (this.getAuthority().equals(castOther.getAuthority()));
 	}
 }

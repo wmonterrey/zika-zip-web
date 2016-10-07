@@ -24,34 +24,8 @@
 <div class="page-container">
 <jsp:include page="../fragments/bodyNavigation.jsp" />
 <!-- BEGIN CONTENT -->
-<c:set var="habilitar"><spring:message code="enable" /></c:set>
-<c:set var="deshabilitar"><spring:message code="disable" /></c:set>
-<c:set var="bloquear"><spring:message code="lock" /></c:set>
-<c:set var="desbloquear"><spring:message code="unlock" /></c:set>
-<c:set var="confirmar"><spring:message code="confirm" /></c:set>
-<c:set var="rolesString">
-	<c:forEach var="rol" items="${user.authorities}">
-		<spring:message code="${rol.authId.authority}" />, 
-	</c:forEach>
-</c:set>
-<spring:url value="/admin/users/edit/{username}" var="editUrl">
-	<spring:param name="username" value="${user.username}" />
-</spring:url>
-<spring:url value="/admin/users/chgpass/{username}" var="chgpassUrl">
-	<spring:param name="username" value="${user.username}" />
-</spring:url>
-<spring:url value="/admin/users/disable/{username}" var="disableUrl">
-	<spring:param name="username" value="${user.username}" />
-</spring:url>
-<spring:url value="/admin/users/enable/{username}" var="enableUrl">
-	<spring:param name="username" value="${user.username}" />
-</spring:url>
-<spring:url value="/admin/users/lock/{username}" var="lockUrl">
-	<spring:param name="username" value="${user.username}" />
-</spring:url>
-<spring:url value="/admin/users/unlock/{username}" var="unlockUrl">
-	<spring:param name="username" value="${user.username}" />
-</spring:url>
+<spring:url value="/users/editUser" var="editUrl" />
+<spring:url value="/users/chgpass" var="chgpassUrl" />
 <div class="page-content-wrapper">
 	<div class="page-content-wrapper">
 		<div class="page-content">
@@ -61,13 +35,13 @@
 				<div class="col-md-12">
 					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 					<h3 class="page-title">
-					<spring:message code="title" /> <small><spring:message code="adminusers" /></small>
+					<spring:message code="title" /> <small><spring:message code="profile" /></small>
 					</h3>
 					<ul class="page-breadcrumb breadcrumb">
 						<li>
 							<i class="fa fa-home"></i>
 							<a href="<spring:url value="/" htmlEscape="true "/>"><spring:message code="home" /></a>
-							<i class="fa fa-angle-right"></i> <a href="<spring:url value="/admin/users/" htmlEscape="true "/>"><spring:message code="adminusers" /></a> <i class="fa fa-angle-right"></i> <a href="<spring:url value="/admin/users/${user.username}" htmlEscape="true "/>">${user.username}</a>
+							<i class="fa fa-angle-right"></i> <a href="<spring:url value="/users/profile" htmlEscape="true "/>"><spring:message code="profile" /></a>
 						</li>
 					</ul>
 					<!-- END PAGE TITLE & BREADCRUMB-->
@@ -91,12 +65,6 @@
 						</div>
 						<div class="portlet-body">
 							<div class="table-toolbar">
-								<div class="btn-group">
-									<spring:url value="/admin/users/"	var="listUser"/>
-									<button id="lista_usuarios_new" onclick="location.href='${fn:escapeXml(listUser)}'" class="btn btn-info">
-									<spring:message code="adminusers" /> <i class="fa fa-reply"></i>
-									</button>
-								</div>
 								<div class="btn-group pull-right">
 									<button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><spring:message code="actions" /> <i class="fa fa-angle-down"></i>
 									</button>
@@ -107,30 +75,6 @@
 										<li>
 											<a href="${fn:escapeXml(chgpassUrl)}"><i class="fa fa-key"></i> <spring:message code="changepass" /></a>
 										</li>
-										<c:choose>
-											<c:when test="${user.enabled}">
-												<li>
-													<a data-toggle="modal" data-id= "${fn:escapeXml(disableUrl)}" class="desact"><i class="fa fa-trash-o"></i> <spring:message code="disable" /></a>
-												</li>
-											</c:when>
-											<c:otherwise>
-												<li>
-													<a data-toggle="modal" data-id= "${fn:escapeXml(enableUrl)}" class="act"><i class="fa fa-check"></i> <spring:message code="enable" /></a>
-												</li>
-											</c:otherwise>
-										</c:choose>
-										<c:choose>
-											<c:when test="${user.accountNonLocked}">
-												<li>
-													<a data-toggle="modal" data-id= "${fn:escapeXml(lockUrl)}" class="lock"><i class="fa fa-lock"></i> <spring:message code="lock" /></a>
-												</li>
-											</c:when>
-											<c:otherwise>
-												<li>
-													<a data-toggle="modal" data-id= "${fn:escapeXml(unlockUrl)}" class="unlock"><i class="fa fa-unlock"></i> <spring:message code="unlock" /></a>
-												</li>
-											</c:otherwise>
-										</c:choose>
 									</ul>
 								</div>
 							</div>
@@ -245,21 +189,6 @@
 									<div class="row">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3"><spring:message code="userroles" />:</label>
-												<div class="col-md-9">
-													<p class="form-control-static">
-														 <c:out value="${rolesString}" />
-													</p>
-												</div>
-											</div>
-										</div>
-										<!--/span-->
-									</div>
-									<!--/row-->
-									<!--/row-->
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
 												<label class="control-label col-md-3"><spring:message code="createdBy" />:</label>
 												<div class="col-md-9">
 													<p class="form-control-static">
@@ -350,6 +279,58 @@
 					<div class="portlet">
 						<div class="portlet-title">
 							<div class="caption">
+								<i class="fa fa-group"></i><spring:message code="userroles" />
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse"></a>
+								<a href="javascript:;" class="remove"></a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div class="table-toolbar2">
+								<div class="btn-group">
+								</div>
+							</div>
+							<div class="table-responsive">
+							<table class="table table-striped table-hover table-bordered" id="lista_roles">
+							<thead>
+								<tr>
+									<th><spring:message code="userroles" /></th>
+									<th><spring:message code="enabled" /></th>
+									<th><spring:message code="addedBy" /></th>
+									<th><spring:message code="dateAdded" /></th>
+								</tr>
+							</thead>
+							<c:forEach items="${rolesusuario}" var="rol">
+								<tr>
+									<td><spring:message code="${rol.rol.authority}" /></td>
+									<c:choose>
+										<c:when test="${rol.pasive=='0'.charAt(0)}">
+											<td><span class="label label-success"><spring:message code="yes" /></span></td>
+										</c:when>
+										<c:otherwise>
+											<td><span class="label label-danger"><spring:message code="no" /></span></td>
+										</c:otherwise>
+									</c:choose>
+									<td><c:out value="${rol.recordUser}" /></td>
+									<td><c:out value="${rol.recordDate}" /></td>
+								</tr>
+							</c:forEach>
+							</table>
+							</div>
+						</div>
+					</div>
+					<!-- END TABLE PORTLET-->
+				</div>
+			</div>
+			<!-- END ROW -->
+			<!-- START ROW -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN TABLE PORTLET-->
+					<div class="portlet">
+						<div class="portlet-title">
+							<div class="caption">
 								<i class="fa fa-key"></i><spring:message code="access" />
 							</div>
 							<div class="tools">
@@ -397,7 +378,7 @@
 					<div class="portlet">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-key"></i><spring:message code="audittrail" />
+								<i class="fa fa-pencil"></i><spring:message code="audittrail" />
 							</div>
 							<div class="tools">
 								<a href="javascript:;" class="collapse"></a>
@@ -413,6 +394,8 @@
 							<table class="table table-striped table-hover table-bordered" id="lista_cambios">
 							<thead>
 								<tr>
+									<th><spring:message code="entityClass" /></th>
+									<th><spring:message code="entityName" /></th>
 									<th><spring:message code="entityProperty" /></th>
 									<th><spring:message code="entityPropertyOldValue" /></th>
 									<th><spring:message code="entityPropertyNewValue" /></th>
@@ -422,6 +405,8 @@
 							</thead>
 							<c:forEach items="${bitacora}" var="cambio">
 								<tr>
+									<td><spring:message code="${cambio.entityClass}" /></td>
+									<td><c:out value="${cambio.entityName}" /></td>
 									<td><c:out value="${cambio.entityProperty}" /></td>
 									<td><c:out value="${cambio.entityPropertyOldValue}" /></td>
 									<td><c:out value="${cambio.entityPropertyNewValue}" /></td>
@@ -437,26 +422,6 @@
 				</div>
 			</div>
 			<!-- END ROW -->
-			<div class="modal fade" id="basic" tabindex="-1" data-role="basic" data-backdrop="static" data-aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" data-aria-hidden="true"></button>
-							<div id="titulo"><h2 class="modal-title"><c:out value="${user.username}" /></h2></div>
-						</div>
-						<div class="modal-body">
-							<input type="hidden" id="accionUrl"/>
-							<div id="cuerpo"></div>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="cancel" /></button>
-							<button type="button" class="btn btn-info" onclick="ejecutarAccion()"><spring:message code="ok" /></button>
-						</div>
-					</div>
-					<!-- /.modal-content -->
-				</div>
-				<!-- /.modal-dialog -->
-			</div>
 			<!-- END PAGE CONTENT-->
 		</div>
 	</div>
@@ -478,48 +443,13 @@
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
     $(function () {
-    	$("li.admin").removeClass("admin").addClass("active");
-        $("li.adminusers").removeClass("adminusers").addClass("active");
+    	$("li.start").addClass("active");
     });
 </script>
 <script>
 	jQuery(document).ready(function() {
 		App.init();
-		
-		$(".act").click(function(){ 
-			$('#accionUrl').val($(this).data('id'));
-        	$('#titulo').html('<h2 class="modal-title">'+"${confirmar}"+'</h2>');
-        	$('#cuerpo').html('<h3>'+"${habilitar}"+' '+$(this).data('id').substr($(this).data('id').lastIndexOf("/")+1)+'?</h3>');
-        	$('#basic').modal('show');
-        });
-        
-        $(".desact").click(function(){ 
-        	$('#accionUrl').val($(this).data('id'));
-        	$('#titulo').html('<h2 class="modal-title">'+"${confirmar}"+'</h2>');
-        	$('#cuerpo').html('<h3>'+"${deshabilitar}"+' '+$(this).data('id').substr($(this).data('id').lastIndexOf("/")+1)+'?</h3>');
-        	$('#basic').modal('show');
-        });
-        
-        $(".lock").click(function(){ 
-        	$('#accionUrl').val($(this).data('id'));
-        	$('#titulo').html('<h2 class="modal-title">'+"${confirmar}"+'</h2>');
-        	$('#cuerpo').html('<h3>'+"${bloquear}"+' '+$(this).data('id').substr($(this).data('id').lastIndexOf("/")+1)+'?</h3>');
-        	$('#basic').modal('show');
-        });
-        
-        $(".unlock").click(function(){ 
-        	$('#accionUrl').val($(this).data('id'));
-        	$('#titulo').html('<h2 class="modal-title">'+"${confirmar}"+'</h2>');
-        	$('#cuerpo').html('<h3>'+"${desbloquear}"+' '+$(this).data('id').substr($(this).data('id').lastIndexOf("/")+1)+'?</h3>');
-        	$('#basic').modal('show');
-        });
-        
 	});
-	
-    function ejecutarAccion() {
-		window.location.href = $('#accionUrl').val();		
-	}
-    
 </script>
 <!-- END JAVASCRIPTS -->
 </body>

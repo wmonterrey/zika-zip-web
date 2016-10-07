@@ -3,12 +3,39 @@ var EditUser = function () {
 	var handleMultiSelect = function () {
         $('#authorities').multiSelect();
     };
+    
+    var handlePasswordStrengthChecker = function () {
+        var initialized = false;
+        var input = $("#password");
+
+        input.keydown(function () {
+            if (initialized === false) {
+                // set base options
+                input.pwstrength({
+                    raisePower: 1.4,
+                    minChar: 8,
+                    verdicts: ["Weak", "Normal", "Medium", "Strong", "Very Strong"],
+                    showVerdicts:false,
+                    scores: [17, 26, 40, 50, 60]
+                });
+
+                // add your own rule to calculate the password strength
+                input.pwstrength("addRule", "demoRule", function (options, word, score) {
+                    return word.match(/[a-z].[0-9]/) && score;
+                }, 10, true);
+
+                // set as initialized 
+                initialized = true;
+            }
+        });
+    };
 
     return {
         //main function to initiate the module
         init: function (parametros) {
         	
             handleMultiSelect();
+            handlePasswordStrengthChecker();
             var form1 = $('#edit-user-form');
             var error1 = $('.alert-danger', form1);
             var success1 = $('.alert-success', form1);
@@ -21,7 +48,6 @@ var EditUser = function () {
                 errorElement: 'span', //default input error message container
                 errorClass: 'help-block', // default input error message class
                 focusInvalid: false, // do not focus the last invalid input
-                ignore: "",
                 rules: {
                 	username: {
                         minlength: 5,
@@ -41,9 +67,23 @@ var EditUser = function () {
                         noSpace:true,
                         email: true
                     },
+                    password: {
+                        minlength: 8,
+                        maxlength: 150,
+                        noSpace:true,
+                        required: true,
+                        pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[!@#$%^&*()?])).+$/
+                    },
+                    confirm_password: {
+                        minlength: 8,
+                        maxlength: 150,
+                        required: true,
+                        noSpace:true,
+                        equalTo: "#password"
+                    },
                     authorities: {
-                        required: true
-                    }
+                        required: false
+                    },
                 },
 
                 invalidHandler: function (event, validator) { //display error alert on form submit              

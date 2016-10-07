@@ -26,10 +26,12 @@ var ChgPass = function () {
         });
     };
 
-    var handleValidation = function() {
-        // for more info visit the official plugin documentation: 
-            // http://docs.jquery.com/Plugins/Validation
-
+    return {
+        //main function to initiate the module
+        init: function (parameters) {
+        	
+            
+            handlePasswordStrengthChecker();
             var form1 = $('#chg-pass-form');
             var error1 = $('.alert-danger', form1);
             var success1 = $('.alert-success', form1);
@@ -84,18 +86,39 @@ var ChgPass = function () {
                 submitHandler: function (form) {
                     success1.show();
                     error1.hide();
-                    chgPassUser();
+                    processUser();
                 }
             });
-
-    };
-
-    return {
-        //main function to initiate the module
-        init: function () {
-        	
-            handleValidation();
-            handlePasswordStrengthChecker();
+            
+            function processUser()
+        	{
+            	App.blockUI();
+        	    $.post( parameters.chgPassUrl
+        	            , form1.serialize()
+        	            , function( data )
+        	            {
+        	    			usuario = JSON.parse(data);
+        	    			if (usuario.username === undefined) {
+        						toastr.error(data);        						
+        					}
+        					else{
+        						$('#username').val(usuario.username);
+        						toastr.success(parameters.successmessage,usuario.username);
+        					}
+        	    			App.unblockUI();
+        	    			$('#username').val('');
+    	            		$('#password').val('');
+    	            		$('#confirm_password').val('');
+    	    				window.setTimeout(function(){
+    	    			        window.location.href = parameters.usuarioUrl;
+    	    			    }, 1500);
+        	            }
+        	            , 'text' )
+        		  		.fail(function(XMLHttpRequest, textStatus, errorThrown) {
+        		    		alert( "error:" + errorThrown);
+        		    		App.unblockUI();
+        		  		});
+        	}
             
             $(document).on('keypress','form input',function(event)
     		{                
