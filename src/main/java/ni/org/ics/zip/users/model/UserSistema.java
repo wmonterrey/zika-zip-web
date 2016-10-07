@@ -1,20 +1,15 @@
 package ni.org.ics.zip.users.model;
 
 import java.util.Date;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import ni.org.ics.zip.domain.audit.Auditable;
 
-import org.hibernate.annotations.IndexColumn;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Email;
 
@@ -43,7 +38,6 @@ public class UserSistema implements Auditable {
 	private Boolean accountNonLocked=true;
 	private String createdBy;
 	private String modifiedBy;
-	private Set<Authority> authorities;
 	
 	@Id
 	@Column(name = "NOMBRE_USUARIO", nullable = false, length =50)
@@ -118,14 +112,6 @@ public class UserSistema implements Auditable {
 	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}	
-	@OneToMany(mappedBy = "user", fetch=FetchType.EAGER)
-	@IndexColumn(name = "username", base=0)
-	public Set<Authority> getAuthorities() {
-		return authorities;
-	}
-	public void setAuthorities(Set<Authority> authorities) {
-		this.authorities = authorities;
-	}
 	@Column(name = "CUENTA_SINEXPIRAR", nullable = false)
 	public Boolean getAccountNonExpired() {
 		return accountNonExpired;

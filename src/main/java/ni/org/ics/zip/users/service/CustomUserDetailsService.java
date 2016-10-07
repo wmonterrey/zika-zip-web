@@ -37,7 +37,12 @@ public class CustomUserDetailsService implements UserDetailsService {
 		UserSistema userSistema = (UserSistema) query.uniqueResult();
 		if (userSistema!=null){
 			List<GrantedAuthority> authList = new ArrayList<GrantedAuthority>();
-			for (Authority auth : userSistema.getAuthorities()) {
+			query = session.createQuery("FROM Authority auth " +
+					"where auth.authId.username =:username and auth.pasive ='0'");
+			query.setParameter("username",username);
+			@SuppressWarnings("unchecked")
+			List<Authority> rolesusuario = query.list();
+			for (Authority auth : rolesusuario) {
 				authList.add(new SimpleGrantedAuthority(auth.toString()));
 			}
 			UserDetails user = new User(userSistema.getUsername(), userSistema.getPassword(),userSistema.getEnabled(), 

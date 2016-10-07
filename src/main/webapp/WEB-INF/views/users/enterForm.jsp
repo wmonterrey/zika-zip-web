@@ -11,7 +11,7 @@
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
-<jsp:include page="../../fragments/headTag.jsp" />
+<jsp:include page="../fragments/headTag.jsp" />
 <!-- BEGIN PAGE LEVEL STYLES -->
 <spring:url value="/resources/plugins/select2/select2_conquer.css" var="sel2css" />
 <link rel="stylesheet" type="text/css" href="${sel2css}"/>
@@ -23,29 +23,29 @@
 <!-- BEGIN BODY -->
 <body class="page-header-fixed page-sidebar-fixed page-footer-fixed">
 <!-- BEGIN HEADER -->
-<jsp:include page="../../fragments/bodyHeader.jsp" />
+<jsp:include page="../fragments/bodyHeader.jsp" />
 <!-- END HEADER -->
 <!-- BEGIN CONTAINER -->
 <div class="page-container">
-<jsp:include page="../../fragments/bodyNavigation.jsp" />
+<jsp:include page="../fragments/bodyNavigation.jsp" />
 <!-- BEGIN CONTENT -->
 <div class="page-content-wrapper">
 	<div class="page-content-wrapper">
 		<div class="page-content">
 			<!-- BEGIN STYLE CUSTOMIZER -->
-			<jsp:include page="../../fragments/bodyCustomizer.jsp" />
+			<jsp:include page="../fragments/bodyCustomizer.jsp" />
 			<!-- BEGIN PAGE HEADER-->
 			<div class="row">
 				<div class="col-md-12">
 					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 					<h3 class="page-title">
-					<spring:message code="title" /> <small><spring:message code="adminusers" /></small>
+					<spring:message code="title" /> <small><spring:message code="profile" /></small>
 					</h3>
 					<ul class="page-breadcrumb breadcrumb">
 						<li>
 							<i class="fa fa-home"></i>
 							<a href="<spring:url value="/" htmlEscape="true "/>"><spring:message code="home" /></a>
-							<i class="fa fa-angle-right"></i> <a href="<spring:url value="/admin/users/" htmlEscape="true "/>"><spring:message code="adminusers" /></a> <i class="fa fa-angle-right"></i> <a href="<spring:url value="/admin/users/edit/${user.username}" htmlEscape="true "/>">${user.username}</a>
+							<i class="fa fa-angle-right"></i> <a href="<spring:url value="/users/profile" htmlEscape="true "/>"><spring:message code="profile" /></a>
 						</li>
 					</ul>
 					<!-- END PAGE TITLE & BREADCRUMB-->
@@ -53,13 +53,6 @@
 			</div>
 			<!-- END PAGE HEADER-->
 			<!-- BEGIN PAGE CONTENT-->
-			<spring:url value="/admin/users/{username}"
-				var="usuarioUrl">
-				<spring:param name="username" value="${user.username}" />
-			</spring:url>
-			<c:set var="userUpdated"><spring:message code="user.updated" /></c:set>
-			<c:set var="errorProcess"><spring:message code="process.error" /></c:set>
-			
 			<div class="row">
 				<div class="col-md-12">
 					<div class="portlet">
@@ -124,57 +117,11 @@
 											</div>
 										</div>
 									</div>
-									<div id="divPass" class="form-group password-strength">
-										<label class="control-label col-md-3"><spring:message code="login.password" />
-										<span class="required">
-											 *
-										</span>
-										</label>
-										<div class="col-md-5">
-											<input id="password" name="password" type="password" class="form-control"/>
-											<span class="help-block">
-												 <spring:message code="Pattern.password.format" />
-											</span>
-										</div>
-									</div>
-									<div id="divPassRepeat" class="form-group">
-										<label class="control-label col-md-3"><spring:message code="password.repeat" />
-										<span class="required">
-											 *
-										</span>
-										</label>
-										<div class="col-md-5">
-											<input id="confirm_password" name="confirm_password" type="password" class="form-control"/>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3"><spring:message code="userroles" />
-										<span class="required">
-											 *
-										</span>
-										</label>
-										<div class="col-md-5">
-											<select multiple="multiple" class="multi-select" id="authorities" name="authorities">
-											<c:forEach items="${rolesusuario}" var="auth" varStatus="stat">
-												<c:set var="rolesUsuario" value="${stat.first ? '' : rolesUsuario} ${auth.authId.authority}" />
-											</c:forEach>
-											<c:forEach items="${roles}" var="rol">
-												<c:choose> 
-													<c:when test="${fn:contains(rolesUsuario, rol.authority)}">
-														<option selected value="${rol.authority}"><spring:message code="${rol.authority}" /></option>
-													</c:when>
-													<c:otherwise>
-														<option value="${rol.authority}"><spring:message code="${rol.authority}" /></option>
-													</c:otherwise>
-												</c:choose>
-											</c:forEach>
-											</select>
-										</div>
-									</div>
 								</div>
 								<div class="form-actions fluid">
 									<div class="col-md-offset-6 col-md-6">
 										<button id="guardar" type="submit" class="btn btn-success"><spring:message code="save" /></button>
+										<spring:url value="/users/profile" var="usuarioUrl" />
 						            	<a href="${fn:escapeXml(usuarioUrl)}" class="btn btn-danger"><spring:message code="end" /></a>
 									</div>
 								</div>
@@ -191,11 +138,11 @@
 </div>
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->
-<jsp:include page="../../fragments/bodyFooter.jsp" />
+<jsp:include page="../fragments/bodyFooter.jsp" />
 <!-- END FOOTER -->
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-<jsp:include page="../../fragments/corePlugins.jsp" />
-<jsp:include page="../../fragments/bodyUtils.jsp" />
+<jsp:include page="../fragments/corePlugins.jsp" />
+<jsp:include page="../fragments/bodyUtils.jsp" />
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <spring:url value="/resources/plugins/select2/select2.min.js" var="Select2" />
 <script type="text/javascript" src="${Select2}"></script>
@@ -222,35 +169,24 @@
 	<spring:param name="language" value="${pageContext.request.locale.language}" />
 </spring:url>				
 <script src="${Select2Loc}"/></script>
-<spring:url value="/admin/users/saveUser" var="saveUserUrl"></spring:url>
+<spring:url value="/users/saveUser" var="saveUserUrl"></spring:url>
 <c:set var="successmessage"><spring:message code="process.success" /></c:set>
 <c:set var="errormessage"><spring:message code="process.errors" /></c:set>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
     $(function () {
-    	$("li.users").removeClass("users").addClass("active");
+    	$("li.start").addClass("active");
     });
 </script>
 <script>
 	jQuery(document).ready(function() {
 		App.init();
+		$('#username').prop('readonly', true);
+		$('#completeName').focus();
 		var parametros = {saveUserUrl: "${saveUserUrl}", successmessage: "${successmessage}",
-				errormessage: "${errormessage}", selectMessage: "${selectMessage}"
+				errormessage: "${errormessage}"
 		};
 		EditUser.init(parametros);
-		
-		if ("${editando}") {
-			$('#divPass').hide();
-			$('#divPassRepeat').hide();
-			$('#username').prop('readonly', true);
-			$('#completeName').focus();
-		}
-		if ("${agregando}") {
-			$('#divPass').show();
-			$('#divPassRepeat').show();
-			$('#username').prop('readonly', false);
-			$('#username').focus();
-		}
 	});
 </script>
 <!-- END JAVASCRIPTS -->

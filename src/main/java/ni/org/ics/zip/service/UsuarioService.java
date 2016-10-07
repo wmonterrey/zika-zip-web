@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import ni.org.ics.zip.users.model.Authority;
 import ni.org.ics.zip.users.model.Rol;
 import ni.org.ics.zip.users.model.UserAccess;
 import ni.org.ics.zip.users.model.UserSistema;
@@ -146,6 +147,71 @@ public class UsuarioService {
 		Session session = sessionFactory.getCurrentSession();
 		// Create a Hibernate query (HQL)
 		Query query = session.createQuery("FROM Rol");
+		// Retrieve all
+		return  query.list();
+	}
+	
+	/**
+	 * Guarda un rol del usuario
+	 * 
+	 * 
+	 */
+	public void saveRoleUser(Authority rol) {
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(rol);
+	}
+	
+	/**
+	 * Regresa todos los roles de usuarios
+	 * 
+	 * @return una lista de <code>Rol</code>(es)
+	 */
+
+	@SuppressWarnings("unchecked")
+	public List<Authority> getRolesUsuario(String username) {
+		// Retrieve session from Hibernate
+		Session session = sessionFactory.getCurrentSession();
+		// Create a Hibernate query (HQL)
+		Query query = session.createQuery("FROM Authority auth " +
+				"where auth.authId.username =:username and auth.pasive ='0'");
+		query.setParameter("username",username);
+		// Retrieve all
+		return  query.list();
+	}
+	
+	/**
+	 * Regresa un rol del usuario
+	 * 
+	 * @return un <code>Authority</code>
+	 */
+
+	public Authority getRolUsuario(String username, String rol) {
+		// Retrieve session from Hibernate
+		Session session = sessionFactory.getCurrentSession();
+		// Create a Hibernate query (HQL)
+		Query query = session.createQuery("FROM Authority auth " +
+				"where auth.authId.username =:username and auth.authId.authority =:rol");
+		query.setParameter("username",username);
+		query.setParameter("rol",rol);
+		Authority rolUsuario = (Authority) query.uniqueResult();
+		// Retrieve 
+		return  rolUsuario;
+	}
+	
+	/**
+	 * Regresa todos los roles del usuario
+	 * 
+	 * @return una lista de <code>Rol</code>(es)
+	 */
+
+	@SuppressWarnings("unchecked")
+	public List<Authority> getRolesUsuarioTodos(String username) {
+		// Retrieve session from Hibernate
+		Session session = sessionFactory.getCurrentSession();
+		// Create a Hibernate query (HQL)
+		Query query = session.createQuery("FROM Authority auth " +
+				"where auth.authId.username =:username");
+		query.setParameter("username",username);
 		// Retrieve all
 		return  query.list();
 	}

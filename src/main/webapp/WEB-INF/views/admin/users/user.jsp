@@ -33,11 +33,6 @@
 <c:set var="bloquear"><spring:message code="lock" /></c:set>
 <c:set var="desbloquear"><spring:message code="unlock" /></c:set>
 <c:set var="confirmar"><spring:message code="confirm" /></c:set>
-<c:set var="rolesString">
-	<c:forEach var="rol" items="${user.authorities}">
-		<spring:message code="${rol.authId.authority}" />, 
-	</c:forEach>
-</c:set>
 <spring:url value="/admin/users/editUser/{username}" var="editUrl">
 	<spring:param name="username" value="${user.username}" />
 </spring:url>
@@ -249,21 +244,6 @@
 									<div class="row">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3"><spring:message code="userroles" />:</label>
-												<div class="col-md-9">
-													<p class="form-control-static">
-														 <c:out value="${rolesString}" />
-													</p>
-												</div>
-											</div>
-										</div>
-										<!--/span-->
-									</div>
-									<!--/row-->
-									<!--/row-->
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
 												<label class="control-label col-md-3"><spring:message code="createdBy" />:</label>
 												<div class="col-md-9">
 													<p class="form-control-static">
@@ -354,6 +334,58 @@
 					<div class="portlet">
 						<div class="portlet-title">
 							<div class="caption">
+								<i class="fa fa-group"></i><spring:message code="userroles" />
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse"></a>
+								<a href="javascript:;" class="remove"></a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div class="table-toolbar2">
+								<div class="btn-group">
+								</div>
+							</div>
+							<div class="table-responsive">
+							<table class="table table-striped table-hover table-bordered" id="lista_roles">
+							<thead>
+								<tr>
+									<th><spring:message code="userroles" /></th>
+									<th><spring:message code="enabled" /></th>
+									<th><spring:message code="addedBy" /></th>
+									<th><spring:message code="dateAdded" /></th>
+								</tr>
+							</thead>
+							<c:forEach items="${rolesusuario}" var="rol">
+								<tr>
+									<td><spring:message code="${rol.rol.authority}" /></td>
+									<c:choose>
+										<c:when test="${rol.pasive=='0'.charAt(0)}">
+											<td><span class="label label-success"><spring:message code="yes" /></span></td>
+										</c:when>
+										<c:otherwise>
+											<td><span class="label label-danger"><spring:message code="no" /></span></td>
+										</c:otherwise>
+									</c:choose>
+									<td><c:out value="${rol.recordUser}" /></td>
+									<td><c:out value="${rol.recordDate}" /></td>
+								</tr>
+							</c:forEach>
+							</table>
+							</div>
+						</div>
+					</div>
+					<!-- END TABLE PORTLET-->
+				</div>
+			</div>
+			<!-- END ROW -->
+			<!-- START ROW -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN TABLE PORTLET-->
+					<div class="portlet">
+						<div class="portlet-title">
+							<div class="caption">
 								<i class="fa fa-key"></i><spring:message code="access" />
 							</div>
 							<div class="tools">
@@ -401,7 +433,7 @@
 					<div class="portlet">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-key"></i><spring:message code="audittrail" />
+								<i class="fa fa-pencil"></i><spring:message code="audittrail" />
 							</div>
 							<div class="tools">
 								<a href="javascript:;" class="collapse"></a>
@@ -417,6 +449,8 @@
 							<table class="table table-striped table-hover table-bordered" id="lista_cambios">
 							<thead>
 								<tr>
+									<th><spring:message code="entityClass" /></th>
+									<th><spring:message code="entityName" /></th>
 									<th><spring:message code="entityProperty" /></th>
 									<th><spring:message code="entityPropertyOldValue" /></th>
 									<th><spring:message code="entityPropertyNewValue" /></th>
@@ -426,6 +460,8 @@
 							</thead>
 							<c:forEach items="${bitacora}" var="cambio">
 								<tr>
+									<td><spring:message code="${cambio.entityClass}" /></td>
+									<td><c:out value="${cambio.entityName}" /></td>
 									<td><c:out value="${cambio.entityProperty}" /></td>
 									<td><c:out value="${cambio.entityPropertyOldValue}" /></td>
 									<td><c:out value="${cambio.entityPropertyNewValue}" /></td>

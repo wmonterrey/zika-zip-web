@@ -133,7 +133,10 @@
 <script>
 	jQuery(document).ready(function() {
 		App.init();
-		ChgPass.init();
+		var parameters = {chgPassUrl: "${chgPassUrl}",
+				usuarioUrl: "${logoutUrl}",
+				};
+		ChgPass.init(parameters);
 		$('#password').focus();
 		// initialize session timeout settings
 		var parametros = {logoutUrl: "${logoutUrl}",
@@ -148,30 +151,6 @@
 				};
 		IdleTimeout.init(parametros);
 	});
-	function chgPassUser()
-	{
-	    $.post( '${fn:escapeXml(chgPassUrl)}'
-	            , $('#chg-pass-form').serialize()
-	            , function( data )
-	            {
-	    			if (data==$('#username').val()){
-	    				toastr.success("${passUpdated}", data);
-	    				$('#username').val('');
-	            		$('#password').val('');
-	            		$('#confirm_password').val('');
-	    				window.setTimeout(function(){
-	    			        window.location.href = "${logoutUrl}";
-	    			    }, 1500);
-	    			}
-	    			else{
-	    				toastr.error(data,"${errorProcess}");
-	    			}
-	            }
-	            , 'text' )
-		  		.fail(function(XMLHttpRequest, textStatus, errorThrown) {
-		    		alert( "error:" + errorThrown);
-		  		});
-	}
 </script>
 <!-- END JAVASCRIPTS -->
 </body>
