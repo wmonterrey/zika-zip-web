@@ -194,7 +194,7 @@ public class Zp01StudyEntrySectionE {
     private Integer seaParaDuration;
 
     @Id
-    @Column(name = "record_id", nullable = false)
+    @Column(name = "record_id", nullable = false, length = 25)
     public String getRecordId() {
         return recordId;
     }

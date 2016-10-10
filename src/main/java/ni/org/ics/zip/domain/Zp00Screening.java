@@ -48,7 +48,7 @@ public class Zp00Screening {
     private Date scrDateEntered;
 
     @Id
-    @Column(name = "record_id", nullable = false)
+    @Column(name = "record_id", nullable = false, length = 25)
     public String getRecordId() {
         return recordId;
     }

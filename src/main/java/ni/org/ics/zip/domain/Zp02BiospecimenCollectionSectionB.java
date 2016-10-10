@@ -95,7 +95,7 @@ public class Zp02BiospecimenCollectionSectionB {
     private Date bscCompleteDate3;
 
     @Id
-    @Column(name = "record_id", nullable = false)
+    @Column(name = "record_id", nullable = false, length = 25)
     public String getRecordId() {
         return recordId;
     }

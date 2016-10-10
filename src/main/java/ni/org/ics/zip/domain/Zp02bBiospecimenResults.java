@@ -22,7 +22,7 @@ public class Zp02bBiospecimenResults {
     private Date resEnteredDat;
 
     @Id
-    @Column(name = "record_id", nullable = false)
+    @Column(name = "record_id", nullable = false, length = 25)
     public String getRecordId() {
         return recordId;
     }

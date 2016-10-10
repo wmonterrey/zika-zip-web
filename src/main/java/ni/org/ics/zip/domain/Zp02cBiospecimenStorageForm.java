@@ -21,7 +21,7 @@ public class Zp02cBiospecimenStorageForm {
     private String stoSpecType;
 
     @Id
-    @Column(name = "record_id", nullable = false)
+    @Column(name = "record_id", nullable = false, length = 25)
     public String getRecordId() {
         return recordId;
     }

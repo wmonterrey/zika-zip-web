@@ -93,7 +93,7 @@ public class Zp01StudyEntrySectionFtoK {
 
 
     @Id
-    @Column(name = "record_id", nullable = false)
+    @Column(name = "record_id", nullable = false, length = 25)
     public String getRecordId() {
         return recordId;
     }

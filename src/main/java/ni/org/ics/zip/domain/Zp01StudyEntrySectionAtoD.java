@@ -55,7 +55,7 @@ public class Zp01StudyEntrySectionAtoD {
     private Float seaSdegreeYears;
 
     @Id
-    @Column(name = "record_id", nullable = false)
+    @Column(name = "record_id", nullable = false, length = 25)
     public String getRecordId() {
         return recordId;
     }
