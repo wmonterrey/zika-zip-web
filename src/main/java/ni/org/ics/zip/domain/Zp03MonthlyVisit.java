@@ -169,7 +169,7 @@ public class Zp03MonthlyVisit {
         this.recordId = recordId;
     }
 
-    @Column(name = "mon_visit_date", nullable = false)
+    @Column(name = "mon_visit_date", nullable = true)
     public Date getMonVisitDate() {
         return monVisitDate;
     }
@@ -178,7 +178,7 @@ public class Zp03MonthlyVisit {
         this.monVisitDate = monVisitDate;
     }
 
-    @Column(name = "mon_visit_type", nullable = false, length = 2)
+    @Column(name = "mon_visit_type", nullable = true, length = 2)
     public String getMonVisitType() {
         return monVisitType;
     }
@@ -187,7 +187,7 @@ public class Zp03MonthlyVisit {
         this.monVisitType = monVisitType;
     }
 
-    @Column(name = "mon_reason_missed", nullable = false, length = 2)
+    @Column(name = "mon_reason_missed", nullable = true, length = 2)
     public String getMonReasonMissed() {
         return monReasonMissed;
     }
@@ -196,7 +196,7 @@ public class Zp03MonthlyVisit {
         this.monReasonMissed = monReasonMissed;
     }
 
-    @Column(name = "mon_other_reschedu", nullable = false)
+    @Column(name = "mon_other_reschedu", nullable = true)
     public String getMonOtherReschedu() {
         return monOtherReschedu;
     }
@@ -205,7 +205,7 @@ public class Zp03MonthlyVisit {
         this.monOtherReschedu = monOtherReschedu;
     }
 
-    @Column(name = "mon_reason_unscheduled", nullable = false, length = 2)
+    @Column(name = "mon_reason_unscheduled", nullable = true, length = 2)
     public String getMonReasonUnscheduled() {
         return monReasonUnscheduled;
     }
@@ -214,7 +214,7 @@ public class Zp03MonthlyVisit {
         this.monReasonUnscheduled = monReasonUnscheduled;
     }
 
-    @Column(name = "mon_other_unscheduled", nullable = false)
+    @Column(name = "mon_other_unscheduled", nullable = true)
     public String getMonOtherUnscheduled() {
         return monOtherUnscheduled;
     }
@@ -223,7 +223,7 @@ public class Zp03MonthlyVisit {
         this.monOtherUnscheduled = monOtherUnscheduled;
     }
 
-    @Column(name = "mon_mother_wt", nullable = false)
+    @Column(name = "mon_mother_wt", nullable = true)
     public Float getMonMotherWt() {
         return monMotherWt;
     }
@@ -232,7 +232,7 @@ public class Zp03MonthlyVisit {
         this.monMotherWt = monMotherWt;
     }
 
-    @Column(name = "mon_wt_unit", nullable = false, length = 2)
+    @Column(name = "mon_wt_unit", nullable = true, length = 2)
     public String getMonWtUnit() {
         return monWtUnit;
     }
@@ -241,7 +241,7 @@ public class Zp03MonthlyVisit {
         this.monWtUnit = monWtUnit;
     }
 
-    @Column(name = "mon_systolic", nullable = false)
+    @Column(name = "mon_systolic", nullable = true)
     public Integer getMonSystolic() {
         return monSystolic;
     }
@@ -250,7 +250,7 @@ public class Zp03MonthlyVisit {
         this.monSystolic = monSystolic;
     }
 
-    @Column(name = "mon_diastolic", nullable = false)
+    @Column(name = "mon_diastolic", nullable = true)
     public Integer getMonDiastolic() {
         return monDiastolic;
     }
@@ -259,7 +259,7 @@ public class Zp03MonthlyVisit {
         this.monDiastolic = monDiastolic;
     }
 
-    @Column(name = "mon_temperature", nullable = false)
+    @Column(name = "mon_temperature", nullable = true)
     public Float getMonTemperature() {
         return monTemperature;
     }
@@ -268,7 +268,7 @@ public class Zp03MonthlyVisit {
         this.monTemperature = monTemperature;
     }
 
-    @Column(name = "mon_temp_unit", nullable = false, length = 2)
+    @Column(name = "mon_temp_unit", nullable = true, length = 2)
     public String getMonTempUnit() {
         return monTempUnit;
     }
@@ -277,7 +277,7 @@ public class Zp03MonthlyVisit {
         this.monTempUnit = monTempUnit;
     }
 
-    @Column(name = "mon_pregnancy_loss", nullable = false, length = 1)
+    @Column(name = "mon_pregnancy_loss", nullable = true, length = 1)
     public String getMonPregnancyLoss() {
         return monPregnancyLoss;
     }
@@ -286,7 +286,7 @@ public class Zp03MonthlyVisit {
         this.monPregnancyLoss = monPregnancyLoss;
     }
 
-    @Column(name = "mon_date_loss", nullable = false)
+    @Column(name = "mon_date_loss", nullable = true)
     public Date getMonDateLoss() {
         return monDateLoss;
     }
@@ -295,7 +295,7 @@ public class Zp03MonthlyVisit {
         this.monDateLoss = monDateLoss;
     }
 
-    @Column(name = "mon_persis_headache", nullable = false, length = 1)
+    @Column(name = "mon_persis_headache", nullable = true, length = 1)
     public String getMonPersisHeadache() {
         return monPersisHeadache;
     }
@@ -304,7 +304,7 @@ public class Zp03MonthlyVisit {
         this.monPersisHeadache = monPersisHeadache;
     }
 
-    @Column(name = "mon_dizziness", nullable = false, length = 1)
+    @Column(name = "mon_dizziness", nullable = true, length = 1)
     public String getMonDizziness() {
         return monDizziness;
     }
@@ -313,7 +313,7 @@ public class Zp03MonthlyVisit {
         this.monDizziness = monDizziness;
     }
 
-    @Column(name = "mon_nausea", nullable = false, length = 1)
+    @Column(name = "mon_nausea", nullable = true, length = 1)
     public String getMonNausea() {
         return monNausea;
     }
@@ -322,7 +322,7 @@ public class Zp03MonthlyVisit {
         this.monNausea = monNausea;
     }
 
-    @Column(name = "mon_vomiting", nullable = false, length = 1)
+    @Column(name = "mon_vomiting", nullable = true, length = 1)
     public String getMonVomiting() {
         return monVomiting;
     }
@@ -331,7 +331,7 @@ public class Zp03MonthlyVisit {
         this.monVomiting = monVomiting;
     }
 
-    @Column(name = "mon_lights", nullable = false, length = 1)
+    @Column(name = "mon_lights", nullable = true, length = 1)
     public String getMonLights() {
         return monLights;
     }
@@ -340,7 +340,7 @@ public class Zp03MonthlyVisit {
         this.monLights = monLights;
     }
 
-    @Column(name = "mon_lights_specify", nullable = false, length = 1)
+    @Column(name = "mon_lights_specify", nullable = true, length = 1)
     public String getMonLightsSpecify() {
         return monLightsSpecify;
     }
@@ -349,7 +349,7 @@ public class Zp03MonthlyVisit {
         this.monLightsSpecify = monLightsSpecify;
     }
 
-    @Column(name = "mon_swelling", nullable = false, length = 1)
+    @Column(name = "mon_swelling", nullable = true, length = 1)
     public String getMonSwelling() {
         return monSwelling;
     }
@@ -358,7 +358,7 @@ public class Zp03MonthlyVisit {
         this.monSwelling = monSwelling;
     }
 
-    @Column(name = "mon_fetal_movement", nullable = false, length = 1)
+    @Column(name = "mon_fetal_movement", nullable = true, length = 1)
     public String getMonFetalMovement() {
         return monFetalMovement;
     }
@@ -367,7 +367,7 @@ public class Zp03MonthlyVisit {
         this.monFetalMovement = monFetalMovement;
     }
 
-    @Column(name = "mon_move_usual", nullable = false, length = 1)
+    @Column(name = "mon_move_usual", nullable = true, length = 1)
     public String getMonMoveUsual() {
         return monMoveUsual;
     }
@@ -376,7 +376,7 @@ public class Zp03MonthlyVisit {
         this.monMoveUsual = monMoveUsual;
     }
 
-    @Column(name = "mon_move_decrease", nullable = false, length = 1)
+    @Column(name = "mon_move_decrease", nullable = true, length = 1)
     public String getMonMoveDecrease() {
         return monMoveDecrease;
     }
@@ -385,7 +385,7 @@ public class Zp03MonthlyVisit {
         this.monMoveDecrease = monMoveDecrease;
     }
 
-    @Column(name = "mon_contractions", nullable = false, length = 1)
+    @Column(name = "mon_contractions", nullable = true, length = 1)
     public String getMonContractions() {
         return monContractions;
     }
@@ -394,7 +394,7 @@ public class Zp03MonthlyVisit {
         this.monContractions = monContractions;
     }
 
-    @Column(name = "mon_contract_week", nullable = false)
+    @Column(name = "mon_contract_week", nullable = true)
     public Integer getMonContractWeek() {
         return monContractWeek;
     }
@@ -403,7 +403,7 @@ public class Zp03MonthlyVisit {
         this.monContractWeek = monContractWeek;
     }
 
-    @Column(name = "mon_contract_day", nullable = false)
+    @Column(name = "mon_contract_day", nullable = true)
     public Integer getMonContractDay() {
         return monContractDay;
     }
@@ -412,7 +412,7 @@ public class Zp03MonthlyVisit {
         this.monContractDay = monContractDay;
     }
 
-    @Column(name = "mon_contract_hour", nullable = false)
+    @Column(name = "mon_contract_hour", nullable = true)
     public Integer getMonContractHour() {
         return monContractHour;
     }
@@ -421,7 +421,7 @@ public class Zp03MonthlyVisit {
         this.monContractHour = monContractHour;
     }
 
-    @Column(name = "mon_contract_10min", nullable = false)
+    @Column(name = "mon_contract_10min", nullable = true)
     public Integer getMonContract10min() {
         return monContract10min;
     }
@@ -430,7 +430,7 @@ public class Zp03MonthlyVisit {
         this.monContract10min = monContract10min;
     }
 
-    @Column(name = "mon_vaginal_discharge", nullable = false, length = 1)
+    @Column(name = "mon_vaginal_discharge", nullable = true, length = 1)
     public String getMonVaginalDischarge() {
         return monVaginalDischarge;
     }
@@ -439,7 +439,7 @@ public class Zp03MonthlyVisit {
         this.monVaginalDischarge = monVaginalDischarge;
     }
 
-    @Column(name = "mon_charac_discharge", nullable = false, length = 2)
+    @Column(name = "mon_charac_discharge", nullable = true, length = 2)
     public String getMonCharacDischarge() {
         return monCharacDischarge;
     }
@@ -448,7 +448,7 @@ public class Zp03MonthlyVisit {
         this.monCharacDischarge = monCharacDischarge;
     }
 
-    @Column(name = "mon_bleeding", nullable = false, length = 1)
+    @Column(name = "mon_bleeding", nullable = true, length = 1)
     public String getMonBleeding() {
         return monBleeding;
     }
@@ -457,7 +457,7 @@ public class Zp03MonthlyVisit {
         this.monBleeding = monBleeding;
     }
 
-    @Column(name = "mon_bleeding_charac", nullable = false, length = 2)
+    @Column(name = "mon_bleeding_charac", nullable = true, length = 2)
     public String getMonBleedingCharac() {
         return monBleedingCharac;
     }
@@ -466,7 +466,7 @@ public class Zp03MonthlyVisit {
         this.monBleedingCharac = monBleedingCharac;
     }
 
-    @Column(name = "mon_uti_told", nullable = false, length = 1)
+    @Column(name = "mon_uti_told", nullable = true, length = 1)
     public String getMonUtiTold() {
         return monUtiTold;
     }
@@ -475,7 +475,7 @@ public class Zp03MonthlyVisit {
         this.monUtiTold = monUtiTold;
     }
 
-    @Column(name = "mon_prenatal_day", nullable = false, length = 2)
+    @Column(name = "mon_prenatal_day", nullable = true, length = 2)
     public String getMonPrenatalDay() {
         return monPrenatalDay;
     }
@@ -484,7 +484,7 @@ public class Zp03MonthlyVisit {
         this.monPrenatalDay = monPrenatalDay;
     }
 
-    @Column(name = "mon_prenatal_month", nullable = false, length = 2)
+    @Column(name = "mon_prenatal_month", nullable = true, length = 2)
     public String getMonPrenatalMonth() {
         return monPrenatalMonth;
     }
@@ -493,7 +493,7 @@ public class Zp03MonthlyVisit {
         this.monPrenatalMonth = monPrenatalMonth;
     }
 
-    @Column(name = "mon_prenatal_year", nullable = false, length = 4)
+    @Column(name = "mon_prenatal_year", nullable = true, length = 4)
     public String getMonPrenatalYear() {
         return monPrenatalYear;
     }
@@ -502,7 +502,7 @@ public class Zp03MonthlyVisit {
         this.monPrenatalYear = monPrenatalYear;
     }
 
-    @Column(name = "mon_fever_symptom", nullable = false, length = 1)
+    @Column(name = "mon_fever_symptom", nullable = true, length = 1)
     public String getMonFeverSymptom() {
         return monFeverSymptom;
     }
@@ -511,7 +511,7 @@ public class Zp03MonthlyVisit {
         this.monFeverSymptom = monFeverSymptom;
     }
 
-    @Column(name = "mon_rash", nullable = false, length = 1)
+    @Column(name = "mon_rash", nullable = true, length = 1)
     public String getMonRash() {
         return monRash;
     }
@@ -520,7 +520,7 @@ public class Zp03MonthlyVisit {
         this.monRash = monRash;
     }
 
-    @Column(name = "mon_itch", nullable = false, length = 1)
+    @Column(name = "mon_itch", nullable = true, length = 1)
     public String getMonItch() {
         return monItch;
     }
@@ -529,7 +529,7 @@ public class Zp03MonthlyVisit {
         this.monItch = monItch;
     }
 
-    @Column(name = "mon_rash_first", nullable = false, length = 2)
+    @Column(name = "mon_rash_first", nullable = true, length = 2)
     public String getMonRashFirst() {
         return monRashFirst;
     }
@@ -538,7 +538,7 @@ public class Zp03MonthlyVisit {
         this.monRashFirst = monRashFirst;
     }
 
-    @Column(name = "mon_rash_day", nullable = false, length = 2)
+    @Column(name = "mon_rash_day", nullable = true, length = 2)
     public String getMonRashDay() {
         return monRashDay;
     }
@@ -547,7 +547,7 @@ public class Zp03MonthlyVisit {
         this.monRashDay = monRashDay;
     }
 
-    @Column(name = "mon_rash_month", nullable = false, length = 2)
+    @Column(name = "mon_rash_month", nullable = true, length = 2)
     public String getMonRashMonth() {
         return monRashMonth;
     }
@@ -556,7 +556,7 @@ public class Zp03MonthlyVisit {
         this.monRashMonth = monRashMonth;
     }
 
-    @Column(name = "mon_rash_year", nullable = false, length = 4)
+    @Column(name = "mon_rash_year", nullable = true, length = 4)
     public String getMonRashYear() {
         return monRashYear;
     }
@@ -565,7 +565,7 @@ public class Zp03MonthlyVisit {
         this.monRashYear = monRashYear;
     }
 
-    @Column(name = "mon_rash_duration", nullable = false)
+    @Column(name = "mon_rash_duration", nullable = true)
     public Integer getMonRashDuration() {
         return monRashDuration;
     }
@@ -574,7 +574,7 @@ public class Zp03MonthlyVisit {
         this.monRashDuration = monRashDuration;
     }
 
-    @Column(name = "mon_rash_spread", nullable = false, length = 1)
+    @Column(name = "mon_rash_spread", nullable = true, length = 1)
     public String getMonRashSpread() {
         return monRashSpread;
     }
@@ -583,7 +583,7 @@ public class Zp03MonthlyVisit {
         this.monRashSpread = monRashSpread;
     }
 
-    @Column(name = "mon_spread_part", nullable = false, length = 2)
+    @Column(name = "mon_spread_part", nullable = true, length = 2)
     public String getMonSpreadPart() {
         return monSpreadPart;
     }
@@ -592,7 +592,7 @@ public class Zp03MonthlyVisit {
         this.monSpreadPart = monSpreadPart;
     }
 
-    @Column(name = "mon_fever_experience", nullable = false, length = 1)
+    @Column(name = "mon_fever_experience", nullable = true, length = 1)
     public String getMonFeverExperience() {
         return monFeverExperience;
     }
@@ -601,7 +601,7 @@ public class Zp03MonthlyVisit {
         this.monFeverExperience = monFeverExperience;
     }
 
-    @Column(name = "mon_temp_measure", nullable = false, length = 1)
+    @Column(name = "mon_temp_measure", nullable = true, length = 1)
     public String getMonTempMeasure() {
         return monTempMeasure;
     }
@@ -610,7 +610,7 @@ public class Zp03MonthlyVisit {
         this.monTempMeasure = monTempMeasure;
     }
 
-    @Column(name = "mon_high_temp", nullable = false)
+    @Column(name = "mon_high_temp", nullable = true)
     public Float getMonHighTemp() {
         return monHighTemp;
     }
@@ -619,7 +619,7 @@ public class Zp03MonthlyVisit {
         this.monHighTemp = monHighTemp;
     }
 
-    @Column(name = "mon_hightem_unit", nullable = false, length = 1)
+    @Column(name = "mon_hightem_unit", nullable = true, length = 1)
     public String getMonHightemUnit() {
         return monHightemUnit;
     }
@@ -628,7 +628,7 @@ public class Zp03MonthlyVisit {
         this.monHightemUnit = monHightemUnit;
     }
 
-    @Column(name = "mon_tempunknown", nullable = false, length = 1)
+    @Column(name = "mon_tempunknown", nullable = true, length = 1)
     public String getMonTempunknown() {
         return monTempunknown;
     }
@@ -637,7 +637,7 @@ public class Zp03MonthlyVisit {
         this.monTempunknown = monTempunknown;
     }
 
-    @Column(name = "mon_fever_day", nullable = false, length = 2)
+    @Column(name = "mon_fever_day", nullable = true, length = 2)
     public String getMonFeverDay() {
         return monFeverDay;
     }
@@ -646,7 +646,7 @@ public class Zp03MonthlyVisit {
         this.monFeverDay = monFeverDay;
     }
 
-    @Column(name = "mon_fever_month", nullable = false, length = 2)
+    @Column(name = "mon_fever_month", nullable = true, length = 2)
     public String getMonFeverMonth() {
         return monFeverMonth;
     }
@@ -655,7 +655,7 @@ public class Zp03MonthlyVisit {
         this.monFeverMonth = monFeverMonth;
     }
 
-    @Column(name = "mon_fever_year", nullable = false, length = 4)
+    @Column(name = "mon_fever_year", nullable = true, length = 4)
     public String getMonFeverYear() {
         return monFeverYear;
     }
@@ -664,7 +664,7 @@ public class Zp03MonthlyVisit {
         this.monFeverYear = monFeverYear;
     }
 
-    @Column(name = "mon_fever_duration", nullable = false)
+    @Column(name = "mon_fever_duration", nullable = true)
     public Integer getMonFeverDuration() {
         return monFeverDuration;
     }
@@ -673,7 +673,7 @@ public class Zp03MonthlyVisit {
         this.monFeverDuration = monFeverDuration;
     }
 
-    @Column(name = "mon_redeyes", nullable = false, length = 1)
+    @Column(name = "mon_redeyes", nullable = true, length = 1)
     public String getMonRedeyes() {
         return monRedeyes;
     }
@@ -682,7 +682,7 @@ public class Zp03MonthlyVisit {
         this.monRedeyes = monRedeyes;
     }
 
-    @Column(name = "mon_redeyes_day", nullable = false, length = 2)
+    @Column(name = "mon_redeyes_day", nullable = true, length = 2)
     public String getMonRedeyesDay() {
         return monRedeyesDay;
     }
@@ -691,7 +691,7 @@ public class Zp03MonthlyVisit {
         this.monRedeyesDay = monRedeyesDay;
     }
 
-    @Column(name = "mon_redeyes_month", nullable = false, length = 2)
+    @Column(name = "mon_redeyes_month", nullable = true, length = 2)
     public String getMonRedeyesMonth() {
         return monRedeyesMonth;
     }
@@ -700,7 +700,7 @@ public class Zp03MonthlyVisit {
         this.monRedeyesMonth = monRedeyesMonth;
     }
 
-    @Column(name = "mon_redeyes_year", nullable = false, length = 4)
+    @Column(name = "mon_redeyes_year", nullable = true, length = 4)
     public String getMonRedeyesYear() {
         return monRedeyesYear;
     }
@@ -709,7 +709,7 @@ public class Zp03MonthlyVisit {
         this.monRedeyesYear = monRedeyesYear;
     }
 
-    @Column(name = "mon_redeyes_duration", nullable = false)
+    @Column(name = "mon_redeyes_duration", nullable = true)
     public Integer getMonRedeyesDuration() {
         return monRedeyesDuration;
     }
@@ -718,7 +718,7 @@ public class Zp03MonthlyVisit {
         this.monRedeyesDuration = monRedeyesDuration;
     }
 
-    @Column(name = "mon_joint", nullable = false, length = 1)
+    @Column(name = "mon_joint", nullable = true, length = 1)
     public String getMonJoint() {
         return monJoint;
     }
@@ -727,7 +727,7 @@ public class Zp03MonthlyVisit {
         this.monJoint = monJoint;
     }
 
-    @Column(name = "mon_joint_day", nullable = false, length = 2)
+    @Column(name = "mon_joint_day", nullable = true, length = 2)
     public String getMonJointDay() {
         return monJointDay;
     }
@@ -736,7 +736,7 @@ public class Zp03MonthlyVisit {
         this.monJointDay = monJointDay;
     }
 
-    @Column(name = "mon_joint_month", nullable = false, length = 2)
+    @Column(name = "mon_joint_month", nullable = true, length = 2)
     public String getMonJointMonth() {
         return monJointMonth;
     }
@@ -745,7 +745,7 @@ public class Zp03MonthlyVisit {
         this.monJointMonth = monJointMonth;
     }
 
-    @Column(name = "mon_joint_year", nullable = false, length = 4)
+    @Column(name = "mon_joint_year", nullable = true, length = 4)
     public String getMonJointYear() {
         return monJointYear;
     }
@@ -754,7 +754,7 @@ public class Zp03MonthlyVisit {
         this.monJointYear = monJointYear;
     }
 
-    @Column(name = "mon_joint_duration", nullable = false)
+    @Column(name = "mon_joint_duration", nullable = true)
     public Integer getMonJointDuration() {
         return monJointDuration;
     }
@@ -763,7 +763,7 @@ public class Zp03MonthlyVisit {
         this.monJointDuration = monJointDuration;
     }
 
-    @Column(name = "mon_headache", nullable = false, length = 1)
+    @Column(name = "mon_headache", nullable = true, length = 1)
     public String getMonHeadache() {
         return monHeadache;
     }
@@ -772,7 +772,7 @@ public class Zp03MonthlyVisit {
         this.monHeadache = monHeadache;
     }
 
-    @Column(name = "mon_headache_day", nullable = false, length = 2)
+    @Column(name = "mon_headache_day", nullable = true, length = 2)
     public String getMonHeadacheDay() {
         return monHeadacheDay;
     }
@@ -781,7 +781,7 @@ public class Zp03MonthlyVisit {
         this.monHeadacheDay = monHeadacheDay;
     }
 
-    @Column(name = "mon_headache_month", nullable = false, length = 2)
+    @Column(name = "mon_headache_month", nullable = true, length = 2)
     public String getMonHeadacheMonth() {
         return monHeadacheMonth;
     }
@@ -790,7 +790,7 @@ public class Zp03MonthlyVisit {
         this.monHeadacheMonth = monHeadacheMonth;
     }
 
-    @Column(name = "mon_headache_year", nullable = false, length = 4)
+    @Column(name = "mon_headache_year", nullable = true, length = 4)
     public String getMonHeadacheYear() {
         return monHeadacheYear;
     }
@@ -799,7 +799,7 @@ public class Zp03MonthlyVisit {
         this.monHeadacheYear = monHeadacheYear;
     }
 
-    @Column(name = "mon_headache_duration", nullable = false)
+    @Column(name = "mon_headache_duration", nullable = true)
     public Integer getMonHeadacheDuration() {
         return monHeadacheDuration;
     }
@@ -808,7 +808,7 @@ public class Zp03MonthlyVisit {
         this.monHeadacheDuration = monHeadacheDuration;
     }
 
-    @Column(name = "mon_symptom_other", nullable = false, length = 1)
+    @Column(name = "mon_symptom_other", nullable = true, length = 1)
     public String getMonSymptomOther() {
         return monSymptomOther;
     }
@@ -817,7 +817,7 @@ public class Zp03MonthlyVisit {
         this.monSymptomOther = monSymptomOther;
     }
 
-    @Column(name = "mon_specify_symptom", nullable = false)
+    @Column(name = "mon_specify_symptom", nullable = true)
     public String getMonSpecifySymptom() {
         return monSpecifySymptom;
     }
@@ -826,7 +826,7 @@ public class Zp03MonthlyVisit {
         this.monSpecifySymptom = monSpecifySymptom;
     }
 
-    @Column(name = "mon_other_symptom", nullable = false)
+    @Column(name = "mon_other_symptom", nullable = true)
     public String getMonOtherSymptom() {
         return monOtherSymptom;
     }
@@ -835,7 +835,7 @@ public class Zp03MonthlyVisit {
         this.monOtherSymptom = monOtherSymptom;
     }
 
-    @Column(name = "mon_medicare", nullable = false)
+    @Column(name = "mon_medicare", nullable = true)
     public Boolean getMonMedicare() {
         return monMedicare;
     }
@@ -844,7 +844,7 @@ public class Zp03MonthlyVisit {
         this.monMedicare = monMedicare;
     }
 
-    @Column(name = "mon_care_day", nullable = false, length = 2)
+    @Column(name = "mon_care_day", nullable = true, length = 2)
     public String getMonCareDay() {
         return monCareDay;
     }
@@ -853,7 +853,7 @@ public class Zp03MonthlyVisit {
         this.monCareDay = monCareDay;
     }
 
-    @Column(name = "mon_care_month", nullable = false, length = 2)
+    @Column(name = "mon_care_month", nullable = true, length = 2)
     public String getMonCareMonth() {
         return monCareMonth;
     }
@@ -862,7 +862,7 @@ public class Zp03MonthlyVisit {
         this.monCareMonth = monCareMonth;
     }
 
-    @Column(name = "mon_care_year", nullable = false, length = 4)
+    @Column(name = "mon_care_year", nullable = true, length = 4)
     public String getMonCareYear() {
         return monCareYear;
     }
@@ -871,7 +871,7 @@ public class Zp03MonthlyVisit {
         this.monCareYear = monCareYear;
     }
 
-    @Column(name = "mon_care_facility", nullable = false, length = 25)
+    @Column(name = "mon_care_facility", nullable = true, length = 25)
     public String getMonCareFacility() {
         return monCareFacility;
     }
@@ -880,7 +880,7 @@ public class Zp03MonthlyVisit {
         this.monCareFacility = monCareFacility;
     }
 
-    @Column(name = "mon_hospitalized", nullable = false)
+    @Column(name = "mon_hospitalized", nullable = true)
     public Boolean getMonHospitalized() {
         return monHospitalized;
     }
@@ -889,7 +889,7 @@ public class Zp03MonthlyVisit {
         this.monHospitalized = monHospitalized;
     }
 
-    @Column(name = "mon_hospital", nullable = false, length = 25)
+    @Column(name = "mon_hospital", nullable = true, length = 25)
     public String getMonHospital() {
         return monHospital;
     }
@@ -898,7 +898,7 @@ public class Zp03MonthlyVisit {
         this.monHospital = monHospital;
     }
 
-    @Column(name = "mon_diag_rubella", nullable = false, length = 1)
+    @Column(name = "mon_diag_rubella", nullable = true, length = 1)
     public String getMonDiagRubella() {
         return monDiagRubella;
     }
@@ -907,7 +907,7 @@ public class Zp03MonthlyVisit {
         this.monDiagRubella = monDiagRubella;
     }
 
-    @Column(name = "mon_diag_dengue", nullable = false, length = 1)
+    @Column(name = "mon_diag_dengue", nullable = true, length = 1)
     public String getMonDiagDengue() {
         return monDiagDengue;
     }
@@ -916,7 +916,7 @@ public class Zp03MonthlyVisit {
         this.monDiagDengue = monDiagDengue;
     }
 
-    @Column(name = "mon_diag_chikung", nullable = false, length = 1)
+    @Column(name = "mon_diag_chikung", nullable = true, length = 1)
     public String getMonDiagChikung() {
         return monDiagChikung;
     }
@@ -925,7 +925,7 @@ public class Zp03MonthlyVisit {
         this.monDiagChikung = monDiagChikung;
     }
 
-    @Column(name = "mon_diag_zika", nullable = false, length = 1)
+    @Column(name = "mon_diag_zika", nullable = true, length = 1)
     public String getMonDiagZika() {
         return monDiagZika;
     }
@@ -934,7 +934,7 @@ public class Zp03MonthlyVisit {
         this.monDiagZika = monDiagZika;
     }
 
-    @Column(name = "mon_diag_cytome", nullable = false, length = 1)
+    @Column(name = "mon_diag_cytome", nullable = true, length = 1)
     public String getMonDiagCytome() {
         return monDiagCytome;
     }
@@ -943,7 +943,7 @@ public class Zp03MonthlyVisit {
         this.monDiagCytome = monDiagCytome;
     }
 
-    @Column(name = "mon_medicine", nullable = false)
+    @Column(name = "mon_medicine", nullable = true)
     public Boolean getMonMedicine() {
         return monMedicine;
     }
@@ -952,7 +952,7 @@ public class Zp03MonthlyVisit {
         this.monMedicine = monMedicine;
     }
 
-    @Column(name = "mon_medcine_name", nullable = false)
+    @Column(name = "mon_medcine_name", nullable = true)
     public String getMonMedcineName() {
         return monMedcineName;
     }
@@ -961,7 +961,7 @@ public class Zp03MonthlyVisit {
         this.monMedcineName = monMedcineName;
     }
 
-    @Column(name = "mon_symptom_diary", nullable = false, length = 1)
+    @Column(name = "mon_symptom_diary", nullable = true, length = 1)
     public String getMonSymptomDiary() {
         return monSymptomDiary;
     }
@@ -970,7 +970,7 @@ public class Zp03MonthlyVisit {
         this.monSymptomDiary = monSymptomDiary;
     }
 
-    @Column(name = "mon_guillainbarre", nullable = false, length = 1)
+    @Column(name = "mon_guillainbarre", nullable = true, length = 1)
     public String getMonGuillainbarre() {
         return monGuillainbarre;
     }
@@ -979,7 +979,7 @@ public class Zp03MonthlyVisit {
         this.monGuillainbarre = monGuillainbarre;
     }
 
-    @Column(name = "mon_tingling", nullable = false, length = 1)
+    @Column(name = "mon_tingling", nullable = true, length = 1)
     public String getMonTingling() {
         return monTingling;
     }
@@ -988,7 +988,7 @@ public class Zp03MonthlyVisit {
         this.monTingling = monTingling;
     }
 
-    @Column(name = "mon_tingling_arm", nullable = false, length = 1)
+    @Column(name = "mon_tingling_arm", nullable = true, length = 1)
     public String getMonTinglingArm() {
         return monTinglingArm;
     }
@@ -997,7 +997,7 @@ public class Zp03MonthlyVisit {
         this.monTinglingArm = monTinglingArm;
     }
 
-    @Column(name = "mon_tingling_leg", nullable = false, length = 1)
+    @Column(name = "mon_tingling_leg", nullable = true, length = 1)
     public String getMonTinglingLeg() {
         return monTinglingLeg;
     }
@@ -1006,7 +1006,7 @@ public class Zp03MonthlyVisit {
         this.monTinglingLeg = monTinglingLeg;
     }
 
-    @Column(name = "mon_tingling_hand", nullable = false, length = 1)
+    @Column(name = "mon_tingling_hand", nullable = true, length = 1)
     public String getMonTinglingHand() {
         return monTinglingHand;
     }
@@ -1015,7 +1015,7 @@ public class Zp03MonthlyVisit {
         this.monTinglingHand = monTinglingHand;
     }
 
-    @Column(name = "mon_tingling_foot", nullable = false, length = 1)
+    @Column(name = "mon_tingling_foot", nullable = true, length = 1)
     public String getMonTinglingFoot() {
         return monTinglingFoot;
     }
@@ -1024,7 +1024,7 @@ public class Zp03MonthlyVisit {
         this.monTinglingFoot = monTinglingFoot;
     }
 
-    @Column(name = "mon_tingling_face", nullable = false, length = 1)
+    @Column(name = "mon_tingling_face", nullable = true, length = 1)
     public String getMonTinglingFace() {
         return monTinglingFace;
     }
@@ -1033,7 +1033,7 @@ public class Zp03MonthlyVisit {
         this.monTinglingFace = monTinglingFace;
     }
 
-    @Column(name = "mon_tingling_other", nullable = false)
+    @Column(name = "mon_tingling_other", nullable = true)
     public String getMonTinglingOther() {
         return monTinglingOther;
     }
@@ -1042,7 +1042,7 @@ public class Zp03MonthlyVisit {
         this.monTinglingOther = monTinglingOther;
     }
 
-    @Column(name = "mon_sensation_min", nullable = false, length = 2)
+    @Column(name = "mon_sensation_min", nullable = true, length = 2)
     public String getMonSensationMin() {
         return monSensationMin;
     }
@@ -1051,7 +1051,7 @@ public class Zp03MonthlyVisit {
         this.monSensationMin = monSensationMin;
     }
 
-    @Column(name = "mon_sensation_hr", nullable = false, length = 2)
+    @Column(name = "mon_sensation_hr", nullable = true, length = 2)
     public String getMonSensationHr() {
         return monSensationHr;
     }
@@ -1060,7 +1060,7 @@ public class Zp03MonthlyVisit {
         this.monSensationHr = monSensationHr;
     }
 
-    @Column(name = "mon_senstaion_day", nullable = false, length = 2)
+    @Column(name = "mon_senstaion_day", nullable = true, length = 2)
     public String getMonSenstaionDay() {
         return monSenstaionDay;
     }
@@ -1069,7 +1069,7 @@ public class Zp03MonthlyVisit {
         this.monSenstaionDay = monSenstaionDay;
     }
 
-    @Column(name = "mon_injury", nullable = false)
+    @Column(name = "mon_injury", nullable = true)
     public Boolean getMonInjury() {
         return monInjury;
     }
@@ -1078,7 +1078,7 @@ public class Zp03MonthlyVisit {
         this.monInjury = monInjury;
     }
 
-    @Column(name = "mon_tingling_day", nullable = false, length = 2)
+    @Column(name = "mon_tingling_day", nullable = true, length = 2)
     public String getMonTinglingDay() {
         return monTinglingDay;
     }
@@ -1087,7 +1087,7 @@ public class Zp03MonthlyVisit {
         this.monTinglingDay = monTinglingDay;
     }
 
-    @Column(name = "mon_tingling_month", nullable = false, length = 2)
+    @Column(name = "mon_tingling_month", nullable = true, length = 2)
     public String getMonTinglingMonth() {
         return monTinglingMonth;
     }
@@ -1096,7 +1096,7 @@ public class Zp03MonthlyVisit {
         this.monTinglingMonth = monTinglingMonth;
     }
 
-    @Column(name = "mon_tingling_year", nullable = false, length = 4)
+    @Column(name = "mon_tingling_year", nullable = true, length = 4)
     public String getMonTinglingYear() {
         return monTinglingYear;
     }
@@ -1105,7 +1105,7 @@ public class Zp03MonthlyVisit {
         this.monTinglingYear = monTinglingYear;
     }
 
-    @Column(name = "mon_tingling_duration", nullable = false)
+    @Column(name = "mon_tingling_duration", nullable = true)
     public Integer getMonTinglingDuration() {
         return monTinglingDuration;
     }
@@ -1114,7 +1114,7 @@ public class Zp03MonthlyVisit {
         this.monTinglingDuration = monTinglingDuration;
     }
 
-    @Column(name = "mon_numbness", nullable = false, length = 1)
+    @Column(name = "mon_numbness", nullable = true, length = 1)
     public String getMonNumbness() {
         return monNumbness;
     }
@@ -1123,7 +1123,7 @@ public class Zp03MonthlyVisit {
         this.monNumbness = monNumbness;
     }
 
-    @Column(name = "mon_numb_arm", nullable = false, length = 1)
+    @Column(name = "mon_numb_arm", nullable = true, length = 1)
     public String getMonNumbArm() {
         return monNumbArm;
     }
@@ -1132,7 +1132,7 @@ public class Zp03MonthlyVisit {
         this.monNumbArm = monNumbArm;
     }
 
-    @Column(name = "mon_numb_leg", nullable = false, length = 1)
+    @Column(name = "mon_numb_leg", nullable = true, length = 1)
     public String getMonNumbLeg() {
         return monNumbLeg;
     }
@@ -1141,7 +1141,7 @@ public class Zp03MonthlyVisit {
         this.monNumbLeg = monNumbLeg;
     }
 
-    @Column(name = "mon_numb_hand", nullable = false, length = 1)
+    @Column(name = "mon_numb_hand", nullable = true, length = 1)
     public String getMonNumbHand() {
         return monNumbHand;
     }
@@ -1150,7 +1150,7 @@ public class Zp03MonthlyVisit {
         this.monNumbHand = monNumbHand;
     }
 
-    @Column(name = "mon_numb_foot", nullable = false, length = 1)
+    @Column(name = "mon_numb_foot", nullable = true, length = 1)
     public String getMonNumbFoot() {
         return monNumbFoot;
     }
@@ -1159,7 +1159,7 @@ public class Zp03MonthlyVisit {
         this.monNumbFoot = monNumbFoot;
     }
 
-    @Column(name = "mon_numb_face", nullable = false, length = 1)
+    @Column(name = "mon_numb_face", nullable = true, length = 1)
     public String getMonNumbFace() {
         return monNumbFace;
     }
@@ -1168,7 +1168,7 @@ public class Zp03MonthlyVisit {
         this.monNumbFace = monNumbFace;
     }
 
-    @Column(name = "mon_numb_other", nullable = false)
+    @Column(name = "mon_numb_other", nullable = true)
     public String getMonNumbOther() {
         return monNumbOther;
     }
@@ -1177,7 +1177,7 @@ public class Zp03MonthlyVisit {
         this.monNumbOther = monNumbOther;
     }
 
-    @Column(name = "mon_numb_day", nullable = false, length = 2)
+    @Column(name = "mon_numb_day", nullable = true, length = 2)
     public String getMonNumbDay() {
         return monNumbDay;
     }
@@ -1186,7 +1186,7 @@ public class Zp03MonthlyVisit {
         this.monNumbDay = monNumbDay;
     }
 
-    @Column(name = "mon_numb_month", nullable = false, length = 2)
+    @Column(name = "mon_numb_month", nullable = true, length = 2)
     public String getMonNumbMonth() {
         return monNumbMonth;
     }
@@ -1195,7 +1195,7 @@ public class Zp03MonthlyVisit {
         this.monNumbMonth = monNumbMonth;
     }
 
-    @Column(name = "mon_numb_year", nullable = false, length = 4)
+    @Column(name = "mon_numb_year", nullable = true, length = 4)
     public String getMonNumbYear() {
         return monNumbYear;
     }
@@ -1204,7 +1204,7 @@ public class Zp03MonthlyVisit {
         this.monNumbYear = monNumbYear;
     }
 
-    @Column(name = "mon_numb_duration", nullable = false)
+    @Column(name = "mon_numb_duration", nullable = true)
     public Integer getMonNumbDuration() {
         return monNumbDuration;
     }
@@ -1213,7 +1213,7 @@ public class Zp03MonthlyVisit {
         this.monNumbDuration = monNumbDuration;
     }
 
-    @Column(name = "mon_paralysis", nullable = false, length = 1)
+    @Column(name = "mon_paralysis", nullable = true, length = 1)
     public String getMonParalysis() {
         return monParalysis;
     }
@@ -1222,7 +1222,7 @@ public class Zp03MonthlyVisit {
         this.monParalysis = monParalysis;
     }
 
-    @Column(name = "mon_para_arm", nullable = false, length = 1)
+    @Column(name = "mon_para_arm", nullable = true, length = 1)
     public String getMonParaArm() {
         return monParaArm;
     }
@@ -1231,7 +1231,7 @@ public class Zp03MonthlyVisit {
         this.monParaArm = monParaArm;
     }
 
-    @Column(name = "mon_para_leg", nullable = false, length = 1)
+    @Column(name = "mon_para_leg", nullable = true, length = 1)
     public String getMonParaLeg() {
         return monParaLeg;
     }
@@ -1240,7 +1240,7 @@ public class Zp03MonthlyVisit {
         this.monParaLeg = monParaLeg;
     }
 
-    @Column(name = "mon_para_hand", nullable = false, length = 1)
+    @Column(name = "mon_para_hand", nullable = true, length = 1)
     public String getMonParaHand() {
         return monParaHand;
     }
@@ -1249,7 +1249,7 @@ public class Zp03MonthlyVisit {
         this.monParaHand = monParaHand;
     }
 
-    @Column(name = "mon_para_foot", nullable = false, length = 1)
+    @Column(name = "mon_para_foot", nullable = true, length = 1)
     public String getMonParaFoot() {
         return monParaFoot;
     }
@@ -1258,7 +1258,7 @@ public class Zp03MonthlyVisit {
         this.monParaFoot = monParaFoot;
     }
 
-    @Column(name = "mon_para_face", nullable = false, length = 1)
+    @Column(name = "mon_para_face", nullable = true, length = 1)
     public String getMonParaFace() {
         return monParaFace;
     }
@@ -1267,7 +1267,7 @@ public class Zp03MonthlyVisit {
         this.monParaFace = monParaFace;
     }
 
-    @Column(name = "mon_para_other", nullable = false)
+    @Column(name = "mon_para_other", nullable = true)
     public String getMonParaOther() {
         return monParaOther;
     }
@@ -1276,7 +1276,7 @@ public class Zp03MonthlyVisit {
         this.monParaOther = monParaOther;
     }
 
-    @Column(name = "mon_para_day", nullable = false, length = 2)
+    @Column(name = "mon_para_day", nullable = true, length = 2)
     public String getMonParaDay() {
         return monParaDay;
     }
@@ -1285,7 +1285,7 @@ public class Zp03MonthlyVisit {
         this.monParaDay = monParaDay;
     }
 
-    @Column(name = "mon_para_month", nullable = false, length = 2)
+    @Column(name = "mon_para_month", nullable = true, length = 2)
     public String getMonParaMonth() {
         return monParaMonth;
     }
@@ -1294,7 +1294,7 @@ public class Zp03MonthlyVisit {
         this.monParaMonth = monParaMonth;
     }
 
-    @Column(name = "mon_para_year", nullable = false, length = 4)
+    @Column(name = "mon_para_year", nullable = true, length = 4)
     public String getMonParaYear() {
         return monParaYear;
     }
@@ -1303,7 +1303,7 @@ public class Zp03MonthlyVisit {
         this.monParaYear = monParaYear;
     }
 
-    @Column(name = "mon_para_duration", nullable = false)
+    @Column(name = "mon_para_duration", nullable = true)
     public Integer getMonParaDuration() {
         return monParaDuration;
     }
@@ -1312,7 +1312,7 @@ public class Zp03MonthlyVisit {
         this.monParaDuration = monParaDuration;
     }
 
-    @Column(name = "mon_results_provided", nullable = false)
+    @Column(name = "mon_results_provided", nullable = true)
     public Boolean getMonResultsProvided() {
         return monResultsProvided;
     }
@@ -1321,7 +1321,7 @@ public class Zp03MonthlyVisit {
         this.monResultsProvided = monResultsProvided;
     }
 
-    @Column(name = "mon_counseling", nullable = false, length = 1)
+    @Column(name = "mon_counseling", nullable = true, length = 1)
     public String getMonCounseling() {
         return monCounseling;
     }
@@ -1330,7 +1330,7 @@ public class Zp03MonthlyVisit {
         this.monCounseling = monCounseling;
     }
 
-    @Column(name = "mon_results_other", nullable = false, length = 1)
+    @Column(name = "mon_results_other", nullable = true, length = 1)
     public String getMonResultsOther() {
         return monResultsOther;
     }
@@ -1339,7 +1339,7 @@ public class Zp03MonthlyVisit {
         this.monResultsOther = monResultsOther;
     }
 
-    @Column(name = "mon_oneweek_date", nullable = false)
+    @Column(name = "mon_oneweek_date", nullable = true)
     public Date getMonOneweekDate() {
         return monOneweekDate;
     }
@@ -1348,7 +1348,7 @@ public class Zp03MonthlyVisit {
         this.monOneweekDate = monOneweekDate;
     }
 
-    @Column(name = "mon_oneweek_time", nullable = false, length = 25)
+    @Column(name = "mon_oneweek_time", nullable = true, length = 25)
     public String getMonOneweekTime() {
         return monOneweekTime;
     }
@@ -1357,7 +1357,7 @@ public class Zp03MonthlyVisit {
         this.monOneweekTime = monOneweekTime;
     }
 
-    @Column(name = "mon_provide_sym", nullable = false)
+    @Column(name = "mon_provide_sym", nullable = true)
     public Boolean getMonProvideSym() {
         return monProvideSym;
     }
@@ -1366,7 +1366,7 @@ public class Zp03MonthlyVisit {
         this.monProvideSym = monProvideSym;
     }
 
-    @Column(name = "mon_reminder_preg", nullable = false)
+    @Column(name = "mon_reminder_preg", nullable = true)
     public Boolean getMonReminderPreg() {
         return monReminderPreg;
     }
@@ -1375,7 +1375,7 @@ public class Zp03MonthlyVisit {
         this.monReminderPreg = monReminderPreg;
     }
 
-    @Column(name = "mon_reminder_provided", nullable = false)
+    @Column(name = "mon_reminder_provided", nullable = true)
     public Boolean getMonReminderProvided() {
         return monReminderProvided;
     }
@@ -1384,7 +1384,7 @@ public class Zp03MonthlyVisit {
         this.monReminderProvided = monReminderProvided;
     }
 
-    @Column(name = "mon_next_date", nullable = false)
+    @Column(name = "mon_next_date", nullable = true)
     public Date getMonNextDate() {
         return monNextDate;
     }
@@ -1393,7 +1393,7 @@ public class Zp03MonthlyVisit {
         this.monNextDate = monNextDate;
     }
 
-    @Column(name = "mon_next_time", nullable = false, length = 25)
+    @Column(name = "mon_next_time", nullable = true, length = 25)
     public String getMonNextTime() {
         return monNextTime;
     }
@@ -1402,7 +1402,7 @@ public class Zp03MonthlyVisit {
         this.monNextTime = monNextTime;
     }
 
-    @Column(name = "mon_id_completing", nullable = false, length = 25)
+    @Column(name = "mon_id_completing", nullable = true, length = 25)
     public String getMonIdCompleting() {
         return monIdCompleting;
     }
@@ -1411,7 +1411,7 @@ public class Zp03MonthlyVisit {
         this.monIdCompleting = monIdCompleting;
     }
 
-    @Column(name = "mon_date_completed", nullable = false)
+    @Column(name = "mon_date_completed", nullable = true)
     public Date getMonDateCompleted() {
         return monDateCompleted;
     }
@@ -1420,7 +1420,7 @@ public class Zp03MonthlyVisit {
         this.monDateCompleted = monDateCompleted;
     }
 
-    @Column(name = "mon_id_reviewer", nullable = false, length = 25)
+    @Column(name = "mon_id_reviewer", nullable = true, length = 25)
     public String getMonIdReviewer() {
         return monIdReviewer;
     }
@@ -1429,7 +1429,7 @@ public class Zp03MonthlyVisit {
         this.monIdReviewer = monIdReviewer;
     }
 
-    @Column(name = "mon_date_reviewed", nullable = false)
+    @Column(name = "mon_date_reviewed", nullable = true)
     public Date getMonDateReviewed() {
         return monDateReviewed;
     }
@@ -1438,7 +1438,7 @@ public class Zp03MonthlyVisit {
         this.monDateReviewed = monDateReviewed;
     }
 
-    @Column(name = "mon_id_data_entry", nullable = false, length = 25)
+    @Column(name = "mon_id_data_entry", nullable = true, length = 25)
     public String getMonIdDataEntry() {
         return monIdDataEntry;
     }
@@ -1447,12 +1447,11 @@ public class Zp03MonthlyVisit {
         this.monIdDataEntry = monIdDataEntry;
     }
 
-    @Column(name = "mon_date_entered", nullable = false, length = 25)
+    @Column(name = "mon_date_entered", nullable = true, length = 25)
     public Date getMonDateEntered() {
         return monDateEntered;
     }
 
     public void setMonDateEntered(Date monDateEntered) {
         this.monDateEntered = monDateEntered;
-    }
-}
+    }}

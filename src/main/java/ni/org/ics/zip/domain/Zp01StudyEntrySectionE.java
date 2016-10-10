@@ -203,7 +203,7 @@ public class Zp01StudyEntrySectionE {
         this.recordId = recordId;
     }
 
-    @Column(name = "sea_diseases", nullable = false, length = 2)
+    @Column(name = "sea_diseases", nullable = true, length = 2)
     public String getSeaDiseases() {
         return seaDiseases;
     }
@@ -212,7 +212,7 @@ public class Zp01StudyEntrySectionE {
         this.seaDiseases = seaDiseases;
     }
 
-    @Column(name = "sea_other_specify", nullable = false)
+    @Column(name = "sea_other_specify", nullable = true)
     public String getSeaOtherSpecify() {
         return seaOtherSpecify;
     }
@@ -221,7 +221,7 @@ public class Zp01StudyEntrySectionE {
         this.seaOtherSpecify = seaOtherSpecify;
     }
 
-    @Column(name = "sea_hepatitis", nullable = false, length = 1)
+    @Column(name = "sea_hepatitis", nullable = true, length = 1)
     public String getSeaHepatitis() {
         return seaHepatitis;
     }
@@ -230,7 +230,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHepatitis = seaHepatitis;
     }
 
-    @Column(name = "sea_hepatitis_date1", nullable = false)
+    @Column(name = "sea_hepatitis_date1", nullable = true)
     public Date getSeaHepatitisDate1() {
         return seaHepatitisDate1;
     }
@@ -239,7 +239,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHepatitisDate1 = seaHepatitisDate1;
     }
 
-    @Column(name = "sea_hepatitis_date2", nullable = false)
+    @Column(name = "sea_hepatitis_date2", nullable = true)
     public Date getSeaHepatitisDate2() {
         return seaHepatitisDate2;
     }
@@ -248,7 +248,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHepatitisDate2 = seaHepatitisDate2;
     }
 
-    @Column(name = "sea_hepatitis_date3", nullable = false)
+    @Column(name = "sea_hepatitis_date3", nullable = true)
     public Date getSeaHepatitisDate3() {
         return seaHepatitisDate3;
     }
@@ -257,7 +257,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHepatitisDate3 = seaHepatitisDate3;
     }
 
-    @Column(name = "sea_measles", nullable = false, length = 1)
+    @Column(name = "sea_measles", nullable = true, length = 1)
     public String getSeaMeasles() {
         return seaMeasles;
     }
@@ -266,7 +266,7 @@ public class Zp01StudyEntrySectionE {
         this.seaMeasles = seaMeasles;
     }
 
-    @Column(name = "sea_measles_date1", nullable = false)
+    @Column(name = "sea_measles_date1", nullable = true)
     public Date getSeaMeaslesDate1() {
         return seaMeaslesDate1;
     }
@@ -275,7 +275,7 @@ public class Zp01StudyEntrySectionE {
         this.seaMeaslesDate1 = seaMeaslesDate1;
     }
 
-    @Column(name = "sea_measles_date2", nullable = false)
+    @Column(name = "sea_measles_date2", nullable = true)
     public Date getSeaMeaslesDate2() {
         return seaMeaslesDate2;
     }
@@ -284,7 +284,7 @@ public class Zp01StudyEntrySectionE {
         this.seaMeaslesDate2 = seaMeaslesDate2;
     }
 
-    @Column(name = "sea_measles_date3", nullable = false)
+    @Column(name = "sea_measles_date3", nullable = true)
     public Date getSeaMeaslesDate3() {
         return seaMeaslesDate3;
     }
@@ -293,7 +293,7 @@ public class Zp01StudyEntrySectionE {
         this.seaMeaslesDate3 = seaMeaslesDate3;
     }
 
-    @Column(name = "sea_chickenpox", nullable = false, length = 1)
+    @Column(name = "sea_chickenpox", nullable = true, length = 1)
     public String getSeaChickenpox() {
         return seaChickenpox;
     }
@@ -302,7 +302,7 @@ public class Zp01StudyEntrySectionE {
         this.seaChickenpox = seaChickenpox;
     }
 
-    @Column(name = "sea_chickenpox_date1", nullable = false)
+    @Column(name = "sea_chickenpox_date1", nullable = true)
     public Date getSeaChickenpoxDate1() {
         return seaChickenpoxDate1;
     }
@@ -311,7 +311,7 @@ public class Zp01StudyEntrySectionE {
         this.seaChickenpoxDate1 = seaChickenpoxDate1;
     }
 
-    @Column(name = "sea_chickenpox_date2", nullable = false)
+    @Column(name = "sea_chickenpox_date2", nullable = true)
     public Date getSeaChickenpoxDate2() {
         return seaChickenpoxDate2;
     }
@@ -320,7 +320,7 @@ public class Zp01StudyEntrySectionE {
         this.seaChickenpoxDate2 = seaChickenpoxDate2;
     }
 
-    @Column(name = "sea_chickenpox_date3", nullable = false)
+    @Column(name = "sea_chickenpox_date3", nullable = true)
     public Date getSeaChickenpoxDate3() {
         return seaChickenpoxDate3;
     }
@@ -329,7 +329,7 @@ public class Zp01StudyEntrySectionE {
         this.seaChickenpoxDate3 = seaChickenpoxDate3;
     }
 
-    @Column(name = "sea_influenza", nullable = false, length = 1)
+    @Column(name = "sea_influenza", nullable = true, length = 1)
     public String getSeaInfluenza() {
         return seaInfluenza;
     }
@@ -338,7 +338,7 @@ public class Zp01StudyEntrySectionE {
         this.seaInfluenza = seaInfluenza;
     }
 
-    @Column(name = "sea_influenza_date1", nullable = false)
+    @Column(name = "sea_influenza_date1", nullable = true)
     public Date getSeaInfluenzaDate1() {
         return seaInfluenzaDate1;
     }
@@ -347,7 +347,7 @@ public class Zp01StudyEntrySectionE {
         this.seaInfluenzaDate1 = seaInfluenzaDate1;
     }
 
-    @Column(name = "sea_influenza_date2", nullable = false)
+    @Column(name = "sea_influenza_date2", nullable = true)
     public Date getSeaInfluenzaDate2() {
         return seaInfluenzaDate2;
     }
@@ -356,7 +356,7 @@ public class Zp01StudyEntrySectionE {
         this.seaInfluenzaDate2 = seaInfluenzaDate2;
     }
 
-    @Column(name = "sea_influenza_date3", nullable = false)
+    @Column(name = "sea_influenza_date3", nullable = true)
     public Date getSeaInfluenzaDate3() {
         return seaInfluenzaDate3;
     }
@@ -365,7 +365,7 @@ public class Zp01StudyEntrySectionE {
         this.seaInfluenzaDate3 = seaInfluenzaDate3;
     }
 
-    @Column(name = "sea_yellow", nullable = false, length = 1)
+    @Column(name = "sea_yellow", nullable = true, length = 1)
     public String getSeaYellow() {
         return seaYellow;
     }
@@ -374,7 +374,7 @@ public class Zp01StudyEntrySectionE {
         this.seaYellow = seaYellow;
     }
 
-    @Column(name = "sea_yellow_date1", nullable = false)
+    @Column(name = "sea_yellow_date1", nullable = true)
     public Date getSeaYellowDate1() {
         return seaYellowDate1;
     }
@@ -383,7 +383,7 @@ public class Zp01StudyEntrySectionE {
         this.seaYellowDate1 = seaYellowDate1;
     }
 
-    @Column(name = "sea_yellow_date2", nullable = false)
+    @Column(name = "sea_yellow_date2", nullable = true)
     public Date getSeaYellowDate2() {
         return seaYellowDate2;
     }
@@ -392,7 +392,7 @@ public class Zp01StudyEntrySectionE {
         this.seaYellowDate2 = seaYellowDate2;
     }
 
-    @Column(name = "sea_yellow_date3", nullable = false)
+    @Column(name = "sea_yellow_date3", nullable = true)
     public Date getSeaYellowDate3() {
         return seaYellowDate3;
     }
@@ -401,7 +401,7 @@ public class Zp01StudyEntrySectionE {
         this.seaYellowDate3 = seaYellowDate3;
     }
 
-    @Column(name = "sea_dengue", nullable = false, length = 1)
+    @Column(name = "sea_dengue", nullable = true, length = 1)
     public String getSeaDengue() {
         return seaDengue;
     }
@@ -410,7 +410,7 @@ public class Zp01StudyEntrySectionE {
         this.seaDengue = seaDengue;
     }
 
-    @Column(name = "sea_dengue_date1", nullable = false)
+    @Column(name = "sea_dengue_date1", nullable = true)
     public Date getSeaDengueDate1() {
         return seaDengueDate1;
     }
@@ -419,7 +419,7 @@ public class Zp01StudyEntrySectionE {
         this.seaDengueDate1 = seaDengueDate1;
     }
 
-    @Column(name = "sea_dengue_date2", nullable = false)
+    @Column(name = "sea_dengue_date2", nullable = true)
     public Date getSeaDengueDate2() {
         return seaDengueDate2;
     }
@@ -428,7 +428,7 @@ public class Zp01StudyEntrySectionE {
         this.seaDengueDate2 = seaDengueDate2;
     }
 
-    @Column(name = "sea_dengue_date3", nullable = false)
+    @Column(name = "sea_dengue_date3", nullable = true)
     public Date getSeaDengueDate3() {
         return seaDengueDate3;
     }
@@ -437,7 +437,7 @@ public class Zp01StudyEntrySectionE {
         this.seaDengueDate3 = seaDengueDate3;
     }
 
-    @Column(name = "sea_vac_other", nullable = false, length = 1)
+    @Column(name = "sea_vac_other", nullable = true, length = 1)
     public String getSeaVacOther() {
         return seaVacOther;
     }
@@ -446,7 +446,7 @@ public class Zp01StudyEntrySectionE {
         this.seaVacOther = seaVacOther;
     }
 
-    @Column(name = "sea_vacother_specify", nullable = false)
+    @Column(name = "sea_vacother_specify", nullable = true)
     public String getSeaVacotherSpecify() {
         return seaVacotherSpecify;
     }
@@ -455,7 +455,7 @@ public class Zp01StudyEntrySectionE {
         this.seaVacotherSpecify = seaVacotherSpecify;
     }
 
-    @Column(name = "sea_other_date1", nullable = false)
+    @Column(name = "sea_other_date1", nullable = true)
     public Date getSeaOtherDate1() {
         return seaOtherDate1;
     }
@@ -464,7 +464,7 @@ public class Zp01StudyEntrySectionE {
         this.seaOtherDate1 = seaOtherDate1;
     }
 
-    @Column(name = "sea_other_date2", nullable = false)
+    @Column(name = "sea_other_date2", nullable = true)
     public Date getSeaOtherDate2() {
         return seaOtherDate2;
     }
@@ -473,7 +473,7 @@ public class Zp01StudyEntrySectionE {
         this.seaOtherDate2 = seaOtherDate2;
     }
 
-    @Column(name = "sea_other_date3", nullable = false)
+    @Column(name = "sea_other_date3", nullable = true)
     public Date getSeaOtherDate3() {
         return seaOtherDate3;
     }
@@ -482,7 +482,7 @@ public class Zp01StudyEntrySectionE {
         this.seaOtherDate3 = seaOtherDate3;
     }
 
-    @Column(name = "sea_rubella", nullable = false, length = 1)
+    @Column(name = "sea_rubella", nullable = true, length = 1)
     public String getSeaRubella() {
         return seaRubella;
     }
@@ -491,7 +491,7 @@ public class Zp01StudyEntrySectionE {
         this.seaRubella = seaRubella;
     }
 
-    @Column(name = "sea_rubella_date1", nullable = false)
+    @Column(name = "sea_rubella_date1", nullable = true)
     public Date getSeaRubellaDate1() {
         return seaRubellaDate1;
     }
@@ -500,7 +500,7 @@ public class Zp01StudyEntrySectionE {
         this.seaRubellaDate1 = seaRubellaDate1;
     }
 
-    @Column(name = "sea_rubella_date2", nullable = false)
+    @Column(name = "sea_rubella_date2", nullable = true)
     public Date getSeaRubellaDate2() {
         return seaRubellaDate2;
     }
@@ -509,7 +509,7 @@ public class Zp01StudyEntrySectionE {
         this.seaRubellaDate2 = seaRubellaDate2;
     }
 
-    @Column(name = "sea_rubella_date3", nullable = false)
+    @Column(name = "sea_rubella_date3", nullable = true)
     public Date getSeaRubellaDate3() {
         return seaRubellaDate3;
     }
@@ -518,7 +518,7 @@ public class Zp01StudyEntrySectionE {
         this.seaRubellaDate3 = seaRubellaDate3;
     }
 
-    @Column(name = "sea_rubella_doc", nullable = false)
+    @Column(name = "sea_rubella_doc", nullable = true)
     public Boolean getSeaRubellaDoc() {
         return seaRubellaDoc;
     }
@@ -527,7 +527,7 @@ public class Zp01StudyEntrySectionE {
         this.seaRubellaDoc = seaRubellaDoc;
     }
 
-    @Column(name = "sea_cmv", nullable = false, length = 1)
+    @Column(name = "sea_cmv", nullable = true, length = 1)
     public String getSeaCmv() {
         return seaCmv;
     }
@@ -536,7 +536,7 @@ public class Zp01StudyEntrySectionE {
         this.seaCmv = seaCmv;
     }
 
-    @Column(name = "sea_cmv_date1", nullable = false)
+    @Column(name = "sea_cmv_date1", nullable = true)
     public Date getSeaCmvDate1() {
         return seaCmvDate1;
     }
@@ -545,7 +545,7 @@ public class Zp01StudyEntrySectionE {
         this.seaCmvDate1 = seaCmvDate1;
     }
 
-    @Column(name = "sea_cmv_date2", nullable = false)
+    @Column(name = "sea_cmv_date2", nullable = true)
     public Date getSeaCmvDate2() {
         return seaCmvDate2;
     }
@@ -554,7 +554,7 @@ public class Zp01StudyEntrySectionE {
         this.seaCmvDate2 = seaCmvDate2;
     }
 
-    @Column(name = "sea_cmv_date3", nullable = false)
+    @Column(name = "sea_cmv_date3", nullable = true)
     public Date getSeaCmvDate3() {
         return seaCmvDate3;
     }
@@ -563,7 +563,7 @@ public class Zp01StudyEntrySectionE {
         this.seaCmvDate3 = seaCmvDate3;
     }
 
-    @Column(name = "sea_cmv_doc", nullable = false)
+    @Column(name = "sea_cmv_doc", nullable = true)
     public Boolean getSeaCmvDoc() {
         return seaCmvDoc;
     }
@@ -572,7 +572,7 @@ public class Zp01StudyEntrySectionE {
         this.seaCmvDoc = seaCmvDoc;
     }
 
-    @Column(name = "sea_herpes", nullable = false, length = 1)
+    @Column(name = "sea_herpes", nullable = true, length = 1)
     public String getSeaHerpes() {
         return seaHerpes;
     }
@@ -581,7 +581,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHerpes = seaHerpes;
     }
 
-    @Column(name = "sea_herpes_date1", nullable = false)
+    @Column(name = "sea_herpes_date1", nullable = true)
     public Date getSeaHerpesDate1() {
         return seaHerpesDate1;
     }
@@ -590,7 +590,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHerpesDate1 = seaHerpesDate1;
     }
 
-    @Column(name = "sea_herpes_date2", nullable = false)
+    @Column(name = "sea_herpes_date2", nullable = true)
     public Date getSeaHerpesDate2() {
         return seaHerpesDate2;
     }
@@ -599,7 +599,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHerpesDate2 = seaHerpesDate2;
     }
 
-    @Column(name = "sea_herpes_date3", nullable = false)
+    @Column(name = "sea_herpes_date3", nullable = true)
     public Date getSeaHerpesDate3() {
         return seaHerpesDate3;
     }
@@ -608,7 +608,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHerpesDate3 = seaHerpesDate3;
     }
 
-    @Column(name = "sea_herpes_doc", nullable = false)
+    @Column(name = "sea_herpes_doc", nullable = true)
     public Boolean getSeaHerpesDoc() {
         return seaHerpesDoc;
     }
@@ -617,7 +617,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHerpesDoc = seaHerpesDoc;
     }
 
-    @Column(name = "sea_parvovirus", nullable = false, length = 1)
+    @Column(name = "sea_parvovirus", nullable = true, length = 1)
     public String getSeaParvovirus() {
         return seaParvovirus;
     }
@@ -626,7 +626,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParvovirus = seaParvovirus;
     }
 
-    @Column(name = "sea_parvovirus_date1", nullable = false)
+    @Column(name = "sea_parvovirus_date1", nullable = true)
     public Date getSeaParvovirusDate1() {
         return seaParvovirusDate1;
     }
@@ -635,7 +635,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParvovirusDate1 = seaParvovirusDate1;
     }
 
-    @Column(name = "sea_parvovirus_date2", nullable = false)
+    @Column(name = "sea_parvovirus_date2", nullable = true)
     public Date getSeaParvovirusDate2() {
         return seaParvovirusDate2;
     }
@@ -644,7 +644,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParvovirusDate2 = seaParvovirusDate2;
     }
 
-    @Column(name = "sea_parvovirus_date3", nullable = false)
+    @Column(name = "sea_parvovirus_date3", nullable = true)
     public Date getSeaParvovirusDate3() {
         return seaParvovirusDate3;
     }
@@ -653,7 +653,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParvovirusDate3 = seaParvovirusDate3;
     }
 
-    @Column(name = "sea_parvovirus_doc", nullable = false)
+    @Column(name = "sea_parvovirus_doc", nullable = true)
     public Boolean getSeaParvovirusDoc() {
         return seaParvovirusDoc;
     }
@@ -662,7 +662,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParvovirusDoc = seaParvovirusDoc;
     }
 
-    @Column(name = "sea_toxoplasmosis", nullable = false, length = 1)
+    @Column(name = "sea_toxoplasmosis", nullable = true, length = 1)
     public String getSeaToxoplasmosis() {
         return seaToxoplasmosis;
     }
@@ -671,7 +671,7 @@ public class Zp01StudyEntrySectionE {
         this.seaToxoplasmosis = seaToxoplasmosis;
     }
 
-    @Column(name = "sea_toxoplasmosis_date1", nullable = false)
+    @Column(name = "sea_toxoplasmosis_date1", nullable = true)
     public Date getSeaToxoplasmosisDate1() {
         return seaToxoplasmosisDate1;
     }
@@ -680,7 +680,7 @@ public class Zp01StudyEntrySectionE {
         this.seaToxoplasmosisDate1 = seaToxoplasmosisDate1;
     }
 
-    @Column(name = "sea_toxoplasmosis_date2", nullable = false)
+    @Column(name = "sea_toxoplasmosis_date2", nullable = true)
     public Date getSeaToxoplasmosisDate2() {
         return seaToxoplasmosisDate2;
     }
@@ -689,7 +689,7 @@ public class Zp01StudyEntrySectionE {
         this.seaToxoplasmosisDate2 = seaToxoplasmosisDate2;
     }
 
-    @Column(name = "sea_toxoplasmosis_date3", nullable = false)
+    @Column(name = "sea_toxoplasmosis_date3", nullable = true)
     public Date getSeaToxoplasmosisDate3() {
         return seaToxoplasmosisDate3;
     }
@@ -698,7 +698,7 @@ public class Zp01StudyEntrySectionE {
         this.seaToxoplasmosisDate3 = seaToxoplasmosisDate3;
     }
 
-    @Column(name = "sea_toxoplasmosis_doc", nullable = false)
+    @Column(name = "sea_toxoplasmosis_doc", nullable = true)
     public Boolean getSeaToxoplasmosisDoc() {
         return seaToxoplasmosisDoc;
     }
@@ -707,7 +707,7 @@ public class Zp01StudyEntrySectionE {
         this.seaToxoplasmosisDoc = seaToxoplasmosisDoc;
     }
 
-    @Column(name = "sea_syphillis", nullable = false, length = 1)
+    @Column(name = "sea_syphillis", nullable = true, length = 1)
     public String getSeaSyphillis() {
         return seaSyphillis;
     }
@@ -716,7 +716,7 @@ public class Zp01StudyEntrySectionE {
         this.seaSyphillis = seaSyphillis;
     }
 
-    @Column(name = "sea_syphillis_date1", nullable = false)
+    @Column(name = "sea_syphillis_date1", nullable = true)
     public Date getSeaSyphillisDate1() {
         return seaSyphillisDate1;
     }
@@ -725,7 +725,7 @@ public class Zp01StudyEntrySectionE {
         this.seaSyphillisDate1 = seaSyphillisDate1;
     }
 
-    @Column(name = "sea_syphillis_date2", nullable = false)
+    @Column(name = "sea_syphillis_date2", nullable = true)
     public Date getSeaSyphillisDate2() {
         return seaSyphillisDate2;
     }
@@ -734,7 +734,7 @@ public class Zp01StudyEntrySectionE {
         this.seaSyphillisDate2 = seaSyphillisDate2;
     }
 
-    @Column(name = "sea_syphillis_date3", nullable = false)
+    @Column(name = "sea_syphillis_date3", nullable = true)
     public Date getSeaSyphillisDate3() {
         return seaSyphillisDate3;
     }
@@ -743,7 +743,7 @@ public class Zp01StudyEntrySectionE {
         this.seaSyphillisDate3 = seaSyphillisDate3;
     }
 
-    @Column(name = "sea_syphillis_doc", nullable = false)
+    @Column(name = "sea_syphillis_doc", nullable = true)
     public Boolean getSeaSyphillisDoc() {
         return seaSyphillisDoc;
     }
@@ -752,7 +752,7 @@ public class Zp01StudyEntrySectionE {
         this.seaSyphillisDoc = seaSyphillisDoc;
     }
 
-    @Column(name = "sea_hiv", nullable = false, length = 1)
+    @Column(name = "sea_hiv", nullable = true, length = 1)
     public String getSeaHiv() {
         return seaHiv;
     }
@@ -761,7 +761,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHiv = seaHiv;
     }
 
-    @Column(name = "sea_hiv_date1", nullable = false)
+    @Column(name = "sea_hiv_date1", nullable = true)
     public Date getSeaHivDate1() {
         return seaHivDate1;
     }
@@ -770,7 +770,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHivDate1 = seaHivDate1;
     }
 
-    @Column(name = "sea_hiv_date2", nullable = false)
+    @Column(name = "sea_hiv_date2", nullable = true)
     public Date getSeaHivDate2() {
         return seaHivDate2;
     }
@@ -779,7 +779,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHivDate2 = seaHivDate2;
     }
 
-    @Column(name = "sea_hiv_date3", nullable = false)
+    @Column(name = "sea_hiv_date3", nullable = true)
     public Date getSeaHivDate3() {
         return seaHivDate3;
     }
@@ -788,7 +788,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHivDate3 = seaHivDate3;
     }
 
-    @Column(name = "sea_hiv_doc", nullable = false)
+    @Column(name = "sea_hiv_doc", nullable = true)
     public Boolean getSeaHivDoc() {
         return seaHivDoc;
     }
@@ -797,7 +797,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHivDoc = seaHivDoc;
     }
 
-    @Column(name = "sea_zika", nullable = false, length = 1)
+    @Column(name = "sea_zika", nullable = true, length = 1)
     public String getSeaZika() {
         return seaZika;
     }
@@ -806,7 +806,7 @@ public class Zp01StudyEntrySectionE {
         this.seaZika = seaZika;
     }
 
-    @Column(name = "sea_zika_date1", nullable = false)
+    @Column(name = "sea_zika_date1", nullable = true)
     public Date getSeaZikaDate1() {
         return seaZikaDate1;
     }
@@ -815,7 +815,7 @@ public class Zp01StudyEntrySectionE {
         this.seaZikaDate1 = seaZikaDate1;
     }
 
-    @Column(name = "sea_zika_date2", nullable = false)
+    @Column(name = "sea_zika_date2", nullable = true)
     public Date getSeaZikaDate2() {
         return seaZikaDate2;
     }
@@ -824,7 +824,7 @@ public class Zp01StudyEntrySectionE {
         this.seaZikaDate2 = seaZikaDate2;
     }
 
-    @Column(name = "sea_zika_date3", nullable = false)
+    @Column(name = "sea_zika_date3", nullable = true)
     public Date getSeaZikaDate3() {
         return seaZikaDate3;
     }
@@ -833,7 +833,7 @@ public class Zp01StudyEntrySectionE {
         this.seaZikaDate3 = seaZikaDate3;
     }
 
-    @Column(name = "sea_zika_doc", nullable = false)
+    @Column(name = "sea_zika_doc", nullable = true)
     public Boolean getSeaZikaDoc() {
         return seaZikaDoc;
     }
@@ -842,7 +842,7 @@ public class Zp01StudyEntrySectionE {
         this.seaZikaDoc = seaZikaDoc;
     }
 
-    @Column(name = "sea_chikung", nullable = false, length = 1)
+    @Column(name = "sea_chikung", nullable = true, length = 1)
     public String getSeaChikung() {
         return seaChikung;
     }
@@ -851,7 +851,7 @@ public class Zp01StudyEntrySectionE {
         this.seaChikung = seaChikung;
     }
 
-    @Column(name = "sea_chikung_date1", nullable = false)
+    @Column(name = "sea_chikung_date1", nullable = true)
     public Date getSeaChikungDate1() {
         return seaChikungDate1;
     }
@@ -860,7 +860,7 @@ public class Zp01StudyEntrySectionE {
         this.seaChikungDate1 = seaChikungDate1;
     }
 
-    @Column(name = "sea_chikung_date2", nullable = false)
+    @Column(name = "sea_chikung_date2", nullable = true)
     public Date getSeaChikungDate2() {
         return seaChikungDate2;
     }
@@ -869,7 +869,7 @@ public class Zp01StudyEntrySectionE {
         this.seaChikungDate2 = seaChikungDate2;
     }
 
-    @Column(name = "sea_chikung_date3", nullable = false)
+    @Column(name = "sea_chikung_date3", nullable = true)
     public Date getSeaChikungDate3() {
         return seaChikungDate3;
     }
@@ -878,7 +878,7 @@ public class Zp01StudyEntrySectionE {
         this.seaChikungDate3 = seaChikungDate3;
     }
 
-    @Column(name = "sea_chikung_doc", nullable = false)
+    @Column(name = "sea_chikung_doc", nullable = true)
     public Boolean getSeaChikungDoc() {
         return seaChikungDoc;
     }
@@ -887,7 +887,7 @@ public class Zp01StudyEntrySectionE {
         this.seaChikungDoc = seaChikungDoc;
     }
 
-    @Column(name = "sea_influ_infect", nullable = false, length = 1)
+    @Column(name = "sea_influ_infect", nullable = true, length = 1)
     public String getSeaInfluInfect() {
         return seaInfluInfect;
     }
@@ -896,7 +896,7 @@ public class Zp01StudyEntrySectionE {
         this.seaInfluInfect = seaInfluInfect;
     }
 
-    @Column(name = "sea_influe_infect_date1", nullable = false)
+    @Column(name = "sea_influe_infect_date1", nullable = true)
     public Date getSeaInflueInfectDate1() {
         return seaInflueInfectDate1;
     }
@@ -905,7 +905,7 @@ public class Zp01StudyEntrySectionE {
         this.seaInflueInfectDate1 = seaInflueInfectDate1;
     }
 
-    @Column(name = "sea_influ_infect_date2", nullable = false)
+    @Column(name = "sea_influ_infect_date2", nullable = true)
     public Date getSeaInfluInfectDate2() {
         return seaInfluInfectDate2;
     }
@@ -914,7 +914,7 @@ public class Zp01StudyEntrySectionE {
         this.seaInfluInfectDate2 = seaInfluInfectDate2;
     }
 
-    @Column(name = "sea_influ_infect_date3", nullable = false)
+    @Column(name = "sea_influ_infect_date3", nullable = true)
     public Date getSeaInfluInfectDate3() {
         return seaInfluInfectDate3;
     }
@@ -923,7 +923,7 @@ public class Zp01StudyEntrySectionE {
         this.seaInfluInfectDate3 = seaInfluInfectDate3;
     }
 
-    @Column(name = "sea_influ_infect_doc", nullable = false)
+    @Column(name = "sea_influ_infect_doc", nullable = true)
     public Boolean getSeaInfluInfectDoc() {
         return seaInfluInfectDoc;
     }
@@ -932,7 +932,7 @@ public class Zp01StudyEntrySectionE {
         this.seaInfluInfectDoc = seaInfluInfectDoc;
     }
 
-    @Column(name = "sea_dengue_infect", nullable = false, length = 1)
+    @Column(name = "sea_dengue_infect", nullable = true, length = 1)
     public String getSeaDengueInfect() {
         return seaDengueInfect;
     }
@@ -941,7 +941,7 @@ public class Zp01StudyEntrySectionE {
         this.seaDengueInfect = seaDengueInfect;
     }
 
-    @Column(name = "sea_dengue_infect_date1", nullable = false)
+    @Column(name = "sea_dengue_infect_date1", nullable = true)
     public Date getSeaDengueInfectDate1() {
         return seaDengueInfectDate1;
     }
@@ -950,7 +950,7 @@ public class Zp01StudyEntrySectionE {
         this.seaDengueInfectDate1 = seaDengueInfectDate1;
     }
 
-    @Column(name = "sea_dengue_infect_date2", nullable = false)
+    @Column(name = "sea_dengue_infect_date2", nullable = true)
     public Date getSeaDengueInfectDate2() {
         return seaDengueInfectDate2;
     }
@@ -959,7 +959,7 @@ public class Zp01StudyEntrySectionE {
         this.seaDengueInfectDate2 = seaDengueInfectDate2;
     }
 
-    @Column(name = "sea_dengue_infect_date3", nullable = false)
+    @Column(name = "sea_dengue_infect_date3", nullable = true)
     public Date getSeaDengueInfectDate3() {
         return seaDengueInfectDate3;
     }
@@ -968,7 +968,7 @@ public class Zp01StudyEntrySectionE {
         this.seaDengueInfectDate3 = seaDengueInfectDate3;
     }
 
-    @Column(name = "sea_dengue_infect_doc", nullable = false)
+    @Column(name = "sea_dengue_infect_doc", nullable = true)
     public Boolean getSeaDengueInfectDoc() {
         return seaDengueInfectDoc;
     }
@@ -977,7 +977,7 @@ public class Zp01StudyEntrySectionE {
         this.seaDengueInfectDoc = seaDengueInfectDoc;
     }
 
-    @Column(name = "sea_fever_symptom", nullable = false, length = 1)
+    @Column(name = "sea_fever_symptom", nullable = true, length = 1)
     public String getSeaFeverSymptom() {
         return seaFeverSymptom;
     }
@@ -986,7 +986,7 @@ public class Zp01StudyEntrySectionE {
         this.seaFeverSymptom = seaFeverSymptom;
     }
 
-    @Column(name = "sea_rash", nullable = false, length = 1)
+    @Column(name = "sea_rash", nullable = true, length = 1)
     public String getSeaRash() {
         return seaRash;
     }
@@ -995,7 +995,7 @@ public class Zp01StudyEntrySectionE {
         this.seaRash = seaRash;
     }
 
-    @Column(name = "sea_itch", nullable = false, length = 1)
+    @Column(name = "sea_itch", nullable = true, length = 1)
     public String getSeaItch() {
         return seaItch;
     }
@@ -1004,7 +1004,7 @@ public class Zp01StudyEntrySectionE {
         this.seaItch = seaItch;
     }
 
-    @Column(name = "sea_rash_first", nullable = false, length = 2)
+    @Column(name = "sea_rash_first", nullable = true, length = 2)
     public String getSeaRashFirst() {
         return seaRashFirst;
     }
@@ -1013,7 +1013,7 @@ public class Zp01StudyEntrySectionE {
         this.seaRashFirst = seaRashFirst;
     }
 
-    @Column(name = "sea_rash_day", nullable = false, length = 2)
+    @Column(name = "sea_rash_day", nullable = true, length = 2)
     public String getSeaRashDay() {
         return seaRashDay;
     }
@@ -1022,7 +1022,7 @@ public class Zp01StudyEntrySectionE {
         this.seaRashDay = seaRashDay;
     }
 
-    @Column(name = "sea_rash_month", nullable = false, length = 2)
+    @Column(name = "sea_rash_month", nullable = true, length = 2)
     public String getSeaRashMonth() {
         return seaRashMonth;
     }
@@ -1031,7 +1031,7 @@ public class Zp01StudyEntrySectionE {
         this.seaRashMonth = seaRashMonth;
     }
 
-    @Column(name = "sea_rash_year", nullable = false, length = 4)
+    @Column(name = "sea_rash_year", nullable = true, length = 4)
     public String getSeaRashYear() {
         return seaRashYear;
     }
@@ -1040,7 +1040,7 @@ public class Zp01StudyEntrySectionE {
         this.seaRashYear = seaRashYear;
     }
 
-    @Column(name = "sea_rash_duration", nullable = false)
+    @Column(name = "sea_rash_duration", nullable = true)
     public Integer getSeaRashDuration() {
         return seaRashDuration;
     }
@@ -1049,7 +1049,7 @@ public class Zp01StudyEntrySectionE {
         this.seaRashDuration = seaRashDuration;
     }
 
-    @Column(name = "sea_rash_spread", nullable = false, length = 1)
+    @Column(name = "sea_rash_spread", nullable = true, length = 1)
     public String getSeaRashSpread() {
         return seaRashSpread;
     }
@@ -1058,7 +1058,7 @@ public class Zp01StudyEntrySectionE {
         this.seaRashSpread = seaRashSpread;
     }
 
-    @Column(name = "sea_spread_part", nullable = false, length = 2)
+    @Column(name = "sea_spread_part", nullable = true, length = 2)
     public String getSeaSpreadPart() {
         return seaSpreadPart;
     }
@@ -1067,7 +1067,7 @@ public class Zp01StudyEntrySectionE {
         this.seaSpreadPart = seaSpreadPart;
     }
 
-    @Column(name = "sea_fever_experience", nullable = false, length = 1)
+    @Column(name = "sea_fever_experience", nullable = true, length = 1)
     public String getSeaFeverExperience() {
         return seaFeverExperience;
     }
@@ -1076,7 +1076,7 @@ public class Zp01StudyEntrySectionE {
         this.seaFeverExperience = seaFeverExperience;
     }
 
-    @Column(name = "sea_temp_measure", nullable = false, length = 1)
+    @Column(name = "sea_temp_measure", nullable = true, length = 1)
     public String getSeaTempMeasure() {
         return seaTempMeasure;
     }
@@ -1085,7 +1085,7 @@ public class Zp01StudyEntrySectionE {
         this.seaTempMeasure = seaTempMeasure;
     }
 
-    @Column(name = "sea_high_temp", nullable = false)
+    @Column(name = "sea_high_temp", nullable = true)
     public Float getSeaHighTemp() {
         return seaHighTemp;
     }
@@ -1094,7 +1094,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHighTemp = seaHighTemp;
     }
 
-    @Column(name = "sea_hightem_unit", nullable = false, length = 1)
+    @Column(name = "sea_hightem_unit", nullable = true, length = 1)
     public String getSeaHightemUnit() {
         return seaHightemUnit;
     }
@@ -1103,7 +1103,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHightemUnit = seaHightemUnit;
     }
 
-    @Column(name = "sea_tempunknown", nullable = false, length = 1)
+    @Column(name = "sea_tempunknown", nullable = true, length = 1)
     public String getSeaTempunknown() {
         return seaTempunknown;
     }
@@ -1112,7 +1112,7 @@ public class Zp01StudyEntrySectionE {
         this.seaTempunknown = seaTempunknown;
     }
 
-    @Column(name = "sea_fever_day", nullable = false, length = 2)
+    @Column(name = "sea_fever_day", nullable = true, length = 2)
     public String getSeaFeverDay() {
         return seaFeverDay;
     }
@@ -1121,7 +1121,7 @@ public class Zp01StudyEntrySectionE {
         this.seaFeverDay = seaFeverDay;
     }
 
-    @Column(name = "sea_fever_month", nullable = false, length = 2)
+    @Column(name = "sea_fever_month", nullable = true, length = 2)
     public String getSeaFeverMonth() {
         return seaFeverMonth;
     }
@@ -1130,7 +1130,7 @@ public class Zp01StudyEntrySectionE {
         this.seaFeverMonth = seaFeverMonth;
     }
 
-    @Column(name = "sea_fever_year", nullable = false, length = 4)
+    @Column(name = "sea_fever_year", nullable = true, length = 4)
     public String getSeaFeverYear() {
         return seaFeverYear;
     }
@@ -1139,7 +1139,7 @@ public class Zp01StudyEntrySectionE {
         this.seaFeverYear = seaFeverYear;
     }
 
-    @Column(name = "sea_fever_duration", nullable = false)
+    @Column(name = "sea_fever_duration", nullable = true)
     public Integer getSeaFeverDuration() {
         return seaFeverDuration;
     }
@@ -1148,7 +1148,7 @@ public class Zp01StudyEntrySectionE {
         this.seaFeverDuration = seaFeverDuration;
     }
 
-    @Column(name = "sea_redeyes", nullable = false, length = 1)
+    @Column(name = "sea_redeyes", nullable = true, length = 1)
     public String getSeaRedeyes() {
         return seaRedeyes;
     }
@@ -1157,7 +1157,7 @@ public class Zp01StudyEntrySectionE {
         this.seaRedeyes = seaRedeyes;
     }
 
-    @Column(name = "sea_redeyes_day", nullable = false, length = 2)
+    @Column(name = "sea_redeyes_day", nullable = true, length = 2)
     public String getSeaRedeyesDay() {
         return seaRedeyesDay;
     }
@@ -1166,7 +1166,7 @@ public class Zp01StudyEntrySectionE {
         this.seaRedeyesDay = seaRedeyesDay;
     }
 
-    @Column(name = "sea_redeyes_month", nullable = false, length = 2)
+    @Column(name = "sea_redeyes_month", nullable = true, length = 2)
     public String getSeaRedeyesMonth() {
         return seaRedeyesMonth;
     }
@@ -1175,7 +1175,7 @@ public class Zp01StudyEntrySectionE {
         this.seaRedeyesMonth = seaRedeyesMonth;
     }
 
-    @Column(name = "sea_redeyes_year", nullable = false, length = 4)
+    @Column(name = "sea_redeyes_year", nullable = true, length = 4)
     public String getSeaRedeyesYear() {
         return seaRedeyesYear;
     }
@@ -1184,7 +1184,7 @@ public class Zp01StudyEntrySectionE {
         this.seaRedeyesYear = seaRedeyesYear;
     }
 
-    @Column(name = "sea_redeyes_duration", nullable = false)
+    @Column(name = "sea_redeyes_duration", nullable = true)
     public Integer getSeaRedeyesDuration() {
         return seaRedeyesDuration;
     }
@@ -1193,7 +1193,7 @@ public class Zp01StudyEntrySectionE {
         this.seaRedeyesDuration = seaRedeyesDuration;
     }
 
-    @Column(name = "sea_occur_same", nullable = false, length = 1)
+    @Column(name = "sea_occur_same", nullable = true, length = 1)
     public String getSeaOccurSame() {
         return seaOccurSame;
     }
@@ -1202,7 +1202,7 @@ public class Zp01StudyEntrySectionE {
         this.seaOccurSame = seaOccurSame;
     }
 
-    @Column(name = "sea_same_symptom", nullable = false, length = 1)
+    @Column(name = "sea_same_symptom", nullable = true, length = 1)
     public String getSeaSameSymptom() {
         return seaSameSymptom;
     }
@@ -1211,7 +1211,7 @@ public class Zp01StudyEntrySectionE {
         this.seaSameSymptom = seaSameSymptom;
     }
 
-    @Column(name = "sea_joint", nullable = false, length = 1)
+    @Column(name = "sea_joint", nullable = true, length = 1)
     public String getSeaJoint() {
         return seaJoint;
     }
@@ -1220,7 +1220,7 @@ public class Zp01StudyEntrySectionE {
         this.seaJoint = seaJoint;
     }
 
-    @Column(name = "sea_joint_day", nullable = false, length = 2)
+    @Column(name = "sea_joint_day", nullable = true, length = 2)
     public String getSeaJointDay() {
         return seaJointDay;
     }
@@ -1229,7 +1229,7 @@ public class Zp01StudyEntrySectionE {
         this.seaJointDay = seaJointDay;
     }
 
-    @Column(name = "sea_joint_month", nullable = false, length = 2)
+    @Column(name = "sea_joint_month", nullable = true, length = 2)
     public String getSeaJointMonth() {
         return seaJointMonth;
     }
@@ -1238,7 +1238,7 @@ public class Zp01StudyEntrySectionE {
         this.seaJointMonth = seaJointMonth;
     }
 
-    @Column(name = "sea_joint_year", nullable = false, length = 4)
+    @Column(name = "sea_joint_year", nullable = true, length = 4)
     public String getSeaJointYear() {
         return seaJointYear;
     }
@@ -1247,7 +1247,7 @@ public class Zp01StudyEntrySectionE {
         this.seaJointYear = seaJointYear;
     }
 
-    @Column(name = "sea_joint_duration", nullable = false)
+    @Column(name = "sea_joint_duration", nullable = true)
     public Integer getSeaJointDuration() {
         return seaJointDuration;
     }
@@ -1256,7 +1256,7 @@ public class Zp01StudyEntrySectionE {
         this.seaJointDuration = seaJointDuration;
     }
 
-    @Column(name = "sea_headache", nullable = false, length = 1)
+    @Column(name = "sea_headache", nullable = true, length = 1)
     public String getSeaHeadache() {
         return seaHeadache;
     }
@@ -1265,7 +1265,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHeadache = seaHeadache;
     }
 
-    @Column(name = "sea_headache_day", nullable = false, length = 2)
+    @Column(name = "sea_headache_day", nullable = true, length = 2)
     public String getSeaHeadacheDay() {
         return seaHeadacheDay;
     }
@@ -1274,7 +1274,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHeadacheDay = seaHeadacheDay;
     }
 
-    @Column(name = "sea_headache_month", nullable = false, length = 2)
+    @Column(name = "sea_headache_month", nullable = true, length = 2)
     public String getSeaHeadacheMonth() {
         return seaHeadacheMonth;
     }
@@ -1283,7 +1283,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHeadacheMonth = seaHeadacheMonth;
     }
 
-    @Column(name = "sea_headache_year", nullable = false, length = 4)
+    @Column(name = "sea_headache_year", nullable = true, length = 4)
     public String getSeaHeadacheYear() {
         return seaHeadacheYear;
     }
@@ -1292,7 +1292,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHeadacheYear = seaHeadacheYear;
     }
 
-    @Column(name = "sea_headache_duration", nullable = false)
+    @Column(name = "sea_headache_duration", nullable = true)
     public Integer getSeaHeadacheDuration() {
         return seaHeadacheDuration;
     }
@@ -1301,7 +1301,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHeadacheDuration = seaHeadacheDuration;
     }
 
-    @Column(name = "sea_symptom_other", nullable = false, length = 1)
+    @Column(name = "sea_symptom_other", nullable = true, length = 1)
     public String getSeaSymptomOther() {
         return seaSymptomOther;
     }
@@ -1310,7 +1310,7 @@ public class Zp01StudyEntrySectionE {
         this.seaSymptomOther = seaSymptomOther;
     }
 
-    @Column(name = "sea_specify_symptom", nullable = false, length = 2)
+    @Column(name = "sea_specify_symptom", nullable = true, length = 2)
     public String getSeaSpecifySymptom() {
         return seaSpecifySymptom;
     }
@@ -1319,7 +1319,7 @@ public class Zp01StudyEntrySectionE {
         this.seaSpecifySymptom = seaSpecifySymptom;
     }
 
-    @Column(name = "sea_other_symptom", nullable = false)
+    @Column(name = "sea_other_symptom", nullable = true)
     public String getSeaOtherSymptom() {
         return seaOtherSymptom;
     }
@@ -1328,7 +1328,7 @@ public class Zp01StudyEntrySectionE {
         this.seaOtherSymptom = seaOtherSymptom;
     }
 
-    @Column(name = "sea_medicare", nullable = false, length = 1)
+    @Column(name = "sea_medicare", nullable = true, length = 1)
     public Boolean getSeaMedicare() {
         return seaMedicare;
     }
@@ -1337,7 +1337,7 @@ public class Zp01StudyEntrySectionE {
         this.seaMedicare = seaMedicare;
     }
 
-    @Column(name = "sea_care_day", nullable = false, length = 2)
+    @Column(name = "sea_care_day", nullable = true, length = 2)
     public String getSeaCareDay() {
         return seaCareDay;
     }
@@ -1346,7 +1346,7 @@ public class Zp01StudyEntrySectionE {
         this.seaCareDay = seaCareDay;
     }
 
-    @Column(name = "sea_care_month", nullable = false, length = 2)
+    @Column(name = "sea_care_month", nullable = true, length = 2)
     public String getSeaCareMonth() {
         return seaCareMonth;
     }
@@ -1355,7 +1355,7 @@ public class Zp01StudyEntrySectionE {
         this.seaCareMonth = seaCareMonth;
     }
 
-    @Column(name = "sea_care_year", nullable = false, length = 4)
+    @Column(name = "sea_care_year", nullable = true, length = 4)
     public String getSeaCareYear() {
         return seaCareYear;
     }
@@ -1364,7 +1364,7 @@ public class Zp01StudyEntrySectionE {
         this.seaCareYear = seaCareYear;
     }
 
-    @Column(name = "sea_care_facility", nullable = false, length = 10)
+    @Column(name = "sea_care_facility", nullable = true, length = 10)
     public String getSeaCareFacility() {
         return seaCareFacility;
     }
@@ -1373,7 +1373,7 @@ public class Zp01StudyEntrySectionE {
         this.seaCareFacility = seaCareFacility;
     }
 
-    @Column(name = "sea_hospitalized", nullable = false)
+    @Column(name = "sea_hospitalized", nullable = true)
     public Boolean getSeaHospitalized() {
         return seaHospitalized;
     }
@@ -1382,7 +1382,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHospitalized = seaHospitalized;
     }
 
-    @Column(name = "sea_hospital", nullable = false, length = 10)
+    @Column(name = "sea_hospital", nullable = true, length = 10)
     public String getSeaHospital() {
         return seaHospital;
     }
@@ -1391,7 +1391,7 @@ public class Zp01StudyEntrySectionE {
         this.seaHospital = seaHospital;
     }
 
-    @Column(name = "sea_diag_rubella", nullable = false, length = 1)
+    @Column(name = "sea_diag_rubella", nullable = true, length = 1)
     public String getSeaDiagRubella() {
         return seaDiagRubella;
     }
@@ -1400,7 +1400,7 @@ public class Zp01StudyEntrySectionE {
         this.seaDiagRubella = seaDiagRubella;
     }
 
-    @Column(name = "sea_diag_dengue", nullable = false, length = 1)
+    @Column(name = "sea_diag_dengue", nullable = true, length = 1)
     public String getSeaDiagDengue() {
         return seaDiagDengue;
     }
@@ -1409,7 +1409,7 @@ public class Zp01StudyEntrySectionE {
         this.seaDiagDengue = seaDiagDengue;
     }
 
-    @Column(name = "sea_diag_chikung", nullable = false, length = 1)
+    @Column(name = "sea_diag_chikung", nullable = true, length = 1)
     public String getSeaDiagChikung() {
         return seaDiagChikung;
     }
@@ -1418,7 +1418,7 @@ public class Zp01StudyEntrySectionE {
         this.seaDiagChikung = seaDiagChikung;
     }
 
-    @Column(name = "sea_diag_zika", nullable = false, length = 1)
+    @Column(name = "sea_diag_zika", nullable = true, length = 1)
     public String getSeaDiagZika() {
         return seaDiagZika;
     }
@@ -1427,7 +1427,7 @@ public class Zp01StudyEntrySectionE {
         this.seaDiagZika = seaDiagZika;
     }
 
-    @Column(name = "sea_diag_cytome", nullable = false, length = 1)
+    @Column(name = "sea_diag_cytome", nullable = true, length = 1)
     public String getSeaDiagCytome() {
         return seaDiagCytome;
     }
@@ -1436,7 +1436,7 @@ public class Zp01StudyEntrySectionE {
         this.seaDiagCytome = seaDiagCytome;
     }
 
-    @Column(name = "sea_medicine", nullable = false)
+    @Column(name = "sea_medicine", nullable = true)
     public Boolean getSeaMedicine() {
         return seaMedicine;
     }
@@ -1445,7 +1445,7 @@ public class Zp01StudyEntrySectionE {
         this.seaMedicine = seaMedicine;
     }
 
-    @Column(name = "sea_medcine_name", nullable = false)
+    @Column(name = "sea_medcine_name", nullable = true)
     public String getSeaMedcineName() {
         return seaMedcineName;
     }
@@ -1454,7 +1454,7 @@ public class Zp01StudyEntrySectionE {
         this.seaMedcineName = seaMedcineName;
     }
 
-    @Column(name = "sea_guillainbarre", nullable = false)
+    @Column(name = "sea_guillainbarre", nullable = true)
     public Boolean getSeaGuillainbarre() {
         return seaGuillainbarre;
     }
@@ -1463,7 +1463,7 @@ public class Zp01StudyEntrySectionE {
         this.seaGuillainbarre = seaGuillainbarre;
     }
 
-    @Column(name = "sea_tingling", nullable = false)
+    @Column(name = "sea_tingling", nullable = true)
     public Boolean getSeaTingling() {
         return seaTingling;
     }
@@ -1472,7 +1472,7 @@ public class Zp01StudyEntrySectionE {
         this.seaTingling = seaTingling;
     }
 
-    @Column(name = "sea_tingling_arm", nullable = false, length = 1)
+    @Column(name = "sea_tingling_arm", nullable = true, length = 1)
     public String getSeaTinglingArm() {
         return seaTinglingArm;
     }
@@ -1481,7 +1481,7 @@ public class Zp01StudyEntrySectionE {
         this.seaTinglingArm = seaTinglingArm;
     }
 
-    @Column(name = "sea_tingling_leg", nullable = false, length = 1)
+    @Column(name = "sea_tingling_leg", nullable = true, length = 1)
     public String getSeaTinglingLeg() {
         return seaTinglingLeg;
     }
@@ -1490,7 +1490,7 @@ public class Zp01StudyEntrySectionE {
         this.seaTinglingLeg = seaTinglingLeg;
     }
 
-    @Column(name = "sea_tingling_hand", nullable = false, length = 1)
+    @Column(name = "sea_tingling_hand", nullable = true, length = 1)
     public String getSeaTinglingHand() {
         return seaTinglingHand;
     }
@@ -1499,7 +1499,7 @@ public class Zp01StudyEntrySectionE {
         this.seaTinglingHand = seaTinglingHand;
     }
 
-    @Column(name = "sea_tingling_foot", nullable = false, length = 1)
+    @Column(name = "sea_tingling_foot", nullable = true, length = 1)
     public String getSeaTinglingFoot() {
         return seaTinglingFoot;
     }
@@ -1508,7 +1508,7 @@ public class Zp01StudyEntrySectionE {
         this.seaTinglingFoot = seaTinglingFoot;
     }
 
-    @Column(name = "sea_tingling_face", nullable = false, length = 1)
+    @Column(name = "sea_tingling_face", nullable = true, length = 1)
     public String getSeaTinglingFace() {
         return seaTinglingFace;
     }
@@ -1517,7 +1517,7 @@ public class Zp01StudyEntrySectionE {
         this.seaTinglingFace = seaTinglingFace;
     }
 
-    @Column(name = "sea_tingling_other", nullable = false)
+    @Column(name = "sea_tingling_other", nullable = true)
     public String getSeaTinglingOther() {
         return seaTinglingOther;
     }
@@ -1526,7 +1526,7 @@ public class Zp01StudyEntrySectionE {
         this.seaTinglingOther = seaTinglingOther;
     }
 
-    @Column(name = "sea_sensation_min", nullable = false, length = 2)
+    @Column(name = "sea_sensation_min", nullable = true, length = 2)
     public String getSeaSensationMin() {
         return seaSensationMin;
     }
@@ -1535,7 +1535,7 @@ public class Zp01StudyEntrySectionE {
         this.seaSensationMin = seaSensationMin;
     }
 
-    @Column(name = "sea_sensation_hr", nullable = false, length = 2)
+    @Column(name = "sea_sensation_hr", nullable = true, length = 2)
     public String getSeaSensationHr() {
         return seaSensationHr;
     }
@@ -1544,7 +1544,7 @@ public class Zp01StudyEntrySectionE {
         this.seaSensationHr = seaSensationHr;
     }
 
-    @Column(name = "sea_senstaion_day", nullable = false, length = 2)
+    @Column(name = "sea_senstaion_day", nullable = true, length = 2)
     public String getSeaSenstaionDay() {
         return seaSenstaionDay;
     }
@@ -1553,7 +1553,7 @@ public class Zp01StudyEntrySectionE {
         this.seaSenstaionDay = seaSenstaionDay;
     }
 
-    @Column(name = "sea_injury", nullable = false)
+    @Column(name = "sea_injury", nullable = true)
     public Boolean getSeaInjury() {
         return seaInjury;
     }
@@ -1562,7 +1562,7 @@ public class Zp01StudyEntrySectionE {
         this.seaInjury = seaInjury;
     }
 
-    @Column(name = "sea_tingling_day", nullable = false, length = 2)
+    @Column(name = "sea_tingling_day", nullable = true, length = 2)
     public String getSeaTinglingDay() {
         return seaTinglingDay;
     }
@@ -1571,7 +1571,7 @@ public class Zp01StudyEntrySectionE {
         this.seaTinglingDay = seaTinglingDay;
     }
 
-    @Column(name = "sea_tingling_month", nullable = false, length = 2)
+    @Column(name = "sea_tingling_month", nullable = true, length = 2)
     public String getSeaTinglingMonth() {
         return seaTinglingMonth;
     }
@@ -1580,7 +1580,7 @@ public class Zp01StudyEntrySectionE {
         this.seaTinglingMonth = seaTinglingMonth;
     }
 
-    @Column(name = "sea_tingling_year", nullable = false, length = 4)
+    @Column(name = "sea_tingling_year", nullable = true, length = 4)
     public String getSeaTinglingYear() {
         return seaTinglingYear;
     }
@@ -1589,7 +1589,7 @@ public class Zp01StudyEntrySectionE {
         this.seaTinglingYear = seaTinglingYear;
     }
 
-    @Column(name = "sea_tingling_duration", nullable = false)
+    @Column(name = "sea_tingling_duration", nullable = true)
     public Integer getSeaTinglingDuration() {
         return seaTinglingDuration;
     }
@@ -1598,7 +1598,7 @@ public class Zp01StudyEntrySectionE {
         this.seaTinglingDuration = seaTinglingDuration;
     }
 
-    @Column(name = "sea_numbness", nullable = false)
+    @Column(name = "sea_numbness", nullable = true)
     public Boolean getSeaNumbness() {
         return seaNumbness;
     }
@@ -1607,7 +1607,7 @@ public class Zp01StudyEntrySectionE {
         this.seaNumbness = seaNumbness;
     }
 
-    @Column(name = "sea_numb_arm", nullable = false, length = 1)
+    @Column(name = "sea_numb_arm", nullable = true, length = 1)
     public String getSeaNumbArm() {
         return seaNumbArm;
     }
@@ -1616,7 +1616,7 @@ public class Zp01StudyEntrySectionE {
         this.seaNumbArm = seaNumbArm;
     }
 
-    @Column(name = "sea_numb_leg", nullable = false, length = 1)
+    @Column(name = "sea_numb_leg", nullable = true, length = 1)
     public String getSeaNumbLeg() {
         return seaNumbLeg;
     }
@@ -1625,7 +1625,7 @@ public class Zp01StudyEntrySectionE {
         this.seaNumbLeg = seaNumbLeg;
     }
 
-    @Column(name = "sea_numb_hand", nullable = false, length = 1)
+    @Column(name = "sea_numb_hand", nullable = true, length = 1)
     public String getSeaNumbHand() {
         return seaNumbHand;
     }
@@ -1634,7 +1634,7 @@ public class Zp01StudyEntrySectionE {
         this.seaNumbHand = seaNumbHand;
     }
 
-    @Column(name = "sea_numb_foot", nullable = false, length = 1)
+    @Column(name = "sea_numb_foot", nullable = true, length = 1)
     public String getSeaNumbFoot() {
         return seaNumbFoot;
     }
@@ -1643,7 +1643,7 @@ public class Zp01StudyEntrySectionE {
         this.seaNumbFoot = seaNumbFoot;
     }
 
-    @Column(name = "sea_numb_face", nullable = false, length = 1)
+    @Column(name = "sea_numb_face", nullable = true, length = 1)
     public String getSeaNumbFace() {
         return seaNumbFace;
     }
@@ -1652,7 +1652,7 @@ public class Zp01StudyEntrySectionE {
         this.seaNumbFace = seaNumbFace;
     }
 
-    @Column(name = "sea_numb_other", nullable = false)
+    @Column(name = "sea_numb_other", nullable = true)
     public String getSeaNumbOther() {
         return seaNumbOther;
     }
@@ -1661,7 +1661,7 @@ public class Zp01StudyEntrySectionE {
         this.seaNumbOther = seaNumbOther;
     }
 
-    @Column(name = "sea_numb_day", nullable = false, length = 2)
+    @Column(name = "sea_numb_day", nullable = true, length = 2)
     public String getSeaNumbDay() {
         return seaNumbDay;
     }
@@ -1670,7 +1670,7 @@ public class Zp01StudyEntrySectionE {
         this.seaNumbDay = seaNumbDay;
     }
 
-    @Column(name = "sea_numb_month", nullable = false, length = 2)
+    @Column(name = "sea_numb_month", nullable = true, length = 2)
     public String getSeaNumbMonth() {
         return seaNumbMonth;
     }
@@ -1679,7 +1679,7 @@ public class Zp01StudyEntrySectionE {
         this.seaNumbMonth = seaNumbMonth;
     }
 
-    @Column(name = "sea_numb_year", nullable = false, length = 4)
+    @Column(name = "sea_numb_year", nullable = true, length = 4)
     public String getSeaNumbYear() {
         return seaNumbYear;
     }
@@ -1688,7 +1688,7 @@ public class Zp01StudyEntrySectionE {
         this.seaNumbYear = seaNumbYear;
     }
 
-    @Column(name = "sea_numb_duration", nullable = false)
+    @Column(name = "sea_numb_duration", nullable = true)
     public Integer getSeaNumbDuration() {
         return seaNumbDuration;
     }
@@ -1697,7 +1697,7 @@ public class Zp01StudyEntrySectionE {
         this.seaNumbDuration = seaNumbDuration;
     }
 
-    @Column(name = "sea_paralysis", nullable = false)
+    @Column(name = "sea_paralysis", nullable = true)
     public Boolean getSeaParalysis() {
         return seaParalysis;
     }
@@ -1706,7 +1706,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParalysis = seaParalysis;
     }
 
-    @Column(name = "sea_para_arm", nullable = false, length = 1)
+    @Column(name = "sea_para_arm", nullable = true, length = 1)
     public String getSeaParaArm() {
         return seaParaArm;
     }
@@ -1715,7 +1715,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParaArm = seaParaArm;
     }
 
-    @Column(name = "sea_para_leg", nullable = false, length = 1)
+    @Column(name = "sea_para_leg", nullable = true, length = 1)
     public String getSeaParaLeg() {
         return seaParaLeg;
     }
@@ -1724,7 +1724,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParaLeg = seaParaLeg;
     }
 
-    @Column(name = "sea_para_hand", nullable = false, length = 1)
+    @Column(name = "sea_para_hand", nullable = true, length = 1)
     public String getSeaParaHand() {
         return seaParaHand;
     }
@@ -1733,7 +1733,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParaHand = seaParaHand;
     }
 
-    @Column(name = "sea_para_foot", nullable = false, length = 1)
+    @Column(name = "sea_para_foot", nullable = true, length = 1)
     public String getSeaParaFoot() {
         return seaParaFoot;
     }
@@ -1742,7 +1742,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParaFoot = seaParaFoot;
     }
 
-    @Column(name = "sea_para_face", nullable = false, length = 1)
+    @Column(name = "sea_para_face", nullable = true, length = 1)
     public String getSeaParaFace() {
         return seaParaFace;
     }
@@ -1751,7 +1751,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParaFace = seaParaFace;
     }
 
-    @Column(name = "sea_para_other", nullable = false)
+    @Column(name = "sea_para_other", nullable = true)
     public String getSeaParaOther() {
         return seaParaOther;
     }
@@ -1760,7 +1760,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParaOther = seaParaOther;
     }
 
-    @Column(name = "sea_para_day", nullable = false, length = 2)
+    @Column(name = "sea_para_day", nullable = true, length = 2)
     public String getSeaParaDay() {
         return seaParaDay;
     }
@@ -1769,7 +1769,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParaDay = seaParaDay;
     }
 
-    @Column(name = "sea_para_month", nullable = false, length = 2)
+    @Column(name = "sea_para_month", nullable = true, length = 2)
     public String getSeaParaMonth() {
         return seaParaMonth;
     }
@@ -1778,7 +1778,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParaMonth = seaParaMonth;
     }
 
-    @Column(name = "sea_para_year", nullable = false, length = 4)
+    @Column(name = "sea_para_year", nullable = true, length = 4)
     public String getSeaParaYear() {
         return seaParaYear;
     }
@@ -1787,7 +1787,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParaYear = seaParaYear;
     }
 
-    @Column(name = "sea_para_duration", nullable = false)
+    @Column(name = "sea_para_duration", nullable = true)
     public Integer getSeaParaDuration() {
         return seaParaDuration;
     }

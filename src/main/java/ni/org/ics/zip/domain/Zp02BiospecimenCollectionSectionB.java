@@ -104,7 +104,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.recordId = recordId;
     }
 
-    @Column(name = "bsc_dov", nullable = false)
+    @Column(name = "bsc_dov", nullable = true)
     public Date getBscDov() {
         return bscDov;
     }
@@ -113,7 +113,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscDov = bscDov;
     }
 
-    @Column(name = "bsc_mat_bld_col", nullable = false)
+    @Column(name = "bsc_mat_bld_col", nullable = true)
     public Boolean getBscMatBldCol() {
         return bscMatBldCol;
     }
@@ -122,7 +122,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldCol = bscMatBldCol;
     }
 
-    @Column(name = "bsc_mat_bld_rsn", nullable = false, length = 1)
+    @Column(name = "bsc_mat_bld_rsn", nullable = true, length = 1)
     public String getBscMatBldRsn() {
         return bscMatBldRsn;
     }
@@ -131,7 +131,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldRsn = bscMatBldRsn;
     }
 
-    @Column(name = "bsc_mat_bld_specify", nullable = false)
+    @Column(name = "bsc_mat_bld_specify", nullable = true)
     public String getBscMatBldSpecify() {
         return bscMatBldSpecify;
     }
@@ -140,7 +140,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldSpecify = bscMatBldSpecify;
     }
 
-    @Column(name = "bsc_mat_bld_typ_1", nullable = false, length = 1)
+    @Column(name = "bsc_mat_bld_typ_1", nullable = true, length = 1)
     public String getBscMatBldTyp1() {
         return bscMatBldTyp1;
     }
@@ -149,7 +149,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldTyp1 = bscMatBldTyp1;
     }
 
-    @Column(name = "bsc_mat_bld_id_1", nullable = false, length = 25)
+    @Column(name = "bsc_mat_bld_id_1", nullable = true, length = 25)
     public String getBscMatBldId1() {
         return bscMatBldId1;
     }
@@ -158,7 +158,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldId1 = bscMatBldId1;
     }
 
-    @Column(name = "bsc_mat_bld_vol_1", nullable = false)
+    @Column(name = "bsc_mat_bld_vol_1", nullable = true)
     public Integer getBscMatBldVol1() {
         return bscMatBldVol1;
     }
@@ -167,7 +167,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldVol1 = bscMatBldVol1;
     }
 
-    @Column(name = "bsc_mat_bld_typ_2", nullable = false, length = 1)
+    @Column(name = "bsc_mat_bld_typ_2", nullable = true, length = 1)
     public String getBscMatBldTyp2() {
         return bscMatBldTyp2;
     }
@@ -176,7 +176,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldTyp2 = bscMatBldTyp2;
     }
 
-    @Column(name = "bsc_mat_bld_id_2", nullable = false, length = 25)
+    @Column(name = "bsc_mat_bld_id_2", nullable = true, length = 25)
     public String getBscMatBldId2() {
         return bscMatBldId2;
     }
@@ -185,7 +185,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldId2 = bscMatBldId2;
     }
 
-    @Column(name = "bsc_mat_bld_vol_2", nullable = false)
+    @Column(name = "bsc_mat_bld_vol_2", nullable = true)
     public Integer getBscMatBldVol2() {
         return bscMatBldVol2;
     }
@@ -194,7 +194,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldVol2 = bscMatBldVol2;
     }
 
-    @Column(name = "bsc_mat_bld_typ_3", nullable = false, length = 1)
+    @Column(name = "bsc_mat_bld_typ_3", nullable = true, length = 1)
     public String getBscMatBldTyp3() {
         return bscMatBldTyp3;
     }
@@ -203,7 +203,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldTyp3 = bscMatBldTyp3;
     }
 
-    @Column(name = "bsc_mat_bld_id_3", nullable = false, length = 25)
+    @Column(name = "bsc_mat_bld_id_3", nullable = true, length = 25)
     public String getBscMatBldId3() {
         return bscMatBldId3;
     }
@@ -212,7 +212,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldId3 = bscMatBldId3;
     }
 
-    @Column(name = "bsc_mat_bld_vol_3", nullable = false)
+    @Column(name = "bsc_mat_bld_vol_3", nullable = true)
     public Integer getBscMatBldVol3() {
         return bscMatBldVol3;
     }
@@ -221,7 +221,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldVol3 = bscMatBldVol3;
     }
 
-    @Column(name = "bsc_mat_bld_typ_4", nullable = false, length = 1)
+    @Column(name = "bsc_mat_bld_typ_4", nullable = true, length = 1)
     public String getBscMatBldTyp4() {
         return bscMatBldTyp4;
     }
@@ -230,7 +230,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldTyp4 = bscMatBldTyp4;
     }
 
-    @Column(name = "bsc_mat_bld_id_4", nullable = false, length = 25)
+    @Column(name = "bsc_mat_bld_id_4", nullable = true, length = 25)
     public String getBscMatBldId4() {
         return bscMatBldId4;
     }
@@ -239,7 +239,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldId4 = bscMatBldId4;
     }
 
-    @Column(name = "bsc_mat_bld_vol_4", nullable = false)
+    @Column(name = "bsc_mat_bld_vol_4", nullable = true)
     public Integer getBscMatBldVol4() {
         return bscMatBldVol4;
     }
@@ -248,7 +248,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldVol4 = bscMatBldVol4;
     }
 
-    @Column(name = "bsc_mat_bld_typ_5", nullable = false, length = 1)
+    @Column(name = "bsc_mat_bld_typ_5", nullable = true, length = 1)
     public String getBscMatBldTyp5() {
         return bscMatBldTyp5;
     }
@@ -257,7 +257,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldTyp5 = bscMatBldTyp5;
     }
 
-    @Column(name = "bsc_mat_bld_id_5", nullable = false, length = 25)
+    @Column(name = "bsc_mat_bld_id_5", nullable = true, length = 25)
     public String getBscMatBldId5() {
         return bscMatBldId5;
     }
@@ -266,7 +266,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldId5 = bscMatBldId5;
     }
 
-    @Column(name = "bsc_mat_bld_vol_5", nullable = false)
+    @Column(name = "bsc_mat_bld_vol_5", nullable = true)
     public Integer getBscMatBldVol5() {
         return bscMatBldVol5;
     }
@@ -275,7 +275,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldVol5 = bscMatBldVol5;
     }
 
-    @Column(name = "bsc_mat_bld_typ_6", nullable = false, length = 1)
+    @Column(name = "bsc_mat_bld_typ_6", nullable = true, length = 1)
     public String getBscMatBldTyp6() {
         return bscMatBldTyp6;
     }
@@ -284,7 +284,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldTyp6 = bscMatBldTyp6;
     }
 
-    @Column(name = "bsc_mat_bld_id_6", nullable = false, length = 25)
+    @Column(name = "bsc_mat_bld_id_6", nullable = true, length = 25)
     public String getBscMatBldId6() {
         return bscMatBldId6;
     }
@@ -293,7 +293,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldId6 = bscMatBldId6;
     }
 
-    @Column(name = "bsc_mat_bld_vol_6", nullable = false)
+    @Column(name = "bsc_mat_bld_vol_6", nullable = true)
     public Integer getBscMatBldVol6() {
         return bscMatBldVol6;
     }
@@ -302,7 +302,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldVol6 = bscMatBldVol6;
     }
 
-    @Column(name = "bsc_mat_bld_typ_7", nullable = false, length = 1)
+    @Column(name = "bsc_mat_bld_typ_7", nullable = true, length = 1)
     public String getBscMatBldTyp7() {
         return bscMatBldTyp7;
     }
@@ -311,7 +311,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldTyp7 = bscMatBldTyp7;
     }
 
-    @Column(name = "bsc_mat_bld_id_7", nullable = false, length = 25)
+    @Column(name = "bsc_mat_bld_id_7", nullable = true, length = 25)
     public String getBscMatBldId7() {
         return bscMatBldId7;
     }
@@ -320,7 +320,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldId7 = bscMatBldId7;
     }
 
-    @Column(name = "bsc_mat_bld_vol_7", nullable = false)
+    @Column(name = "bsc_mat_bld_vol_7", nullable = true)
     public Integer getBscMatBldVol7() {
         return bscMatBldVol7;
     }
@@ -329,7 +329,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldVol7 = bscMatBldVol7;
     }
 
-    @Column(name = "bsc_mat_bld_typ_8", nullable = false, length = 1)
+    @Column(name = "bsc_mat_bld_typ_8", nullable = true, length = 1)
     public String getBscMatBldTyp8() {
         return bscMatBldTyp8;
     }
@@ -338,7 +338,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldTyp8 = bscMatBldTyp8;
     }
 
-    @Column(name = "bsc_mat_bld_id_8", nullable = false, length = 25)
+    @Column(name = "bsc_mat_bld_id_8", nullable = true, length = 25)
     public String getBscMatBldId8() {
         return bscMatBldId8;
     }
@@ -347,7 +347,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldId8 = bscMatBldId8;
     }
 
-    @Column(name = "bsc_mat_bld_vol_8", nullable = false)
+    @Column(name = "bsc_mat_bld_vol_8", nullable = true)
     public Integer getBscMatBldVol8() {
         return bscMatBldVol8;
     }
@@ -356,7 +356,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldVol8 = bscMatBldVol8;
     }
 
-    @Column(name = "bsc_mat_bld_tot_vol", nullable = false)
+    @Column(name = "bsc_mat_bld_tot_vol", nullable = true)
     public Integer getBscMatBldTotVol() {
         return bscMatBldTotVol;
     }
@@ -365,7 +365,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldTotVol = bscMatBldTotVol;
     }
 
-    @Column(name = "bsc_mat_bld_time", nullable = false, length = 50)
+    @Column(name = "bsc_mat_bld_time", nullable = true, length = 50)
     public String getBscMatBldTime() {
         return bscMatBldTime;
     }
@@ -374,7 +374,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldTime = bscMatBldTime;
     }
 
-    @Column(name = "bsc_mat_bld_com", nullable = false)
+    @Column(name = "bsc_mat_bld_com", nullable = true)
     public String getBscMatBldCom() {
         return bscMatBldCom;
     }
@@ -383,7 +383,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatBldCom = bscMatBldCom;
     }
 
-    @Column(name = "bsc_mat_slva_col", nullable = false)
+    @Column(name = "bsc_mat_slva_col", nullable = true)
     public Boolean getBscMatSlvaCol() {
         return bscMatSlvaCol;
     }
@@ -392,7 +392,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatSlvaCol = bscMatSlvaCol;
     }
 
-    @Column(name = "bsc_mat_slva_rsn", nullable = false, length = 1)
+    @Column(name = "bsc_mat_slva_rsn", nullable = true, length = 1)
     public String getBscMatSlvaRsn() {
         return bscMatSlvaRsn;
     }
@@ -401,7 +401,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatSlvaRsn = bscMatSlvaRsn;
     }
 
-    @Column(name = "bsc_mat_slva_specify", nullable = false)
+    @Column(name = "bsc_mat_slva_specify", nullable = true)
     public String getBscMatSlvaSpecify() {
         return bscMatSlvaSpecify;
     }
@@ -410,7 +410,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatSlvaSpecify = bscMatSlvaSpecify;
     }
 
-    @Column(name = "bsc_mat_slva_id", nullable = false, length = 25)
+    @Column(name = "bsc_mat_slva_id", nullable = true, length = 25)
     public String getBscMatSlvaId() {
         return bscMatSlvaId;
     }
@@ -419,7 +419,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatSlvaId = bscMatSlvaId;
     }
 
-    @Column(name = "bsc_mat_slva_time", nullable = false, length = 50)
+    @Column(name = "bsc_mat_slva_time", nullable = true, length = 50)
     public String getBscMatSlvaTime() {
         return bscMatSlvaTime;
     }
@@ -428,7 +428,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatSlvaTime = bscMatSlvaTime;
     }
 
-    @Column(name = "bsc_mat_slva_com", nullable = false)
+    @Column(name = "bsc_mat_slva_com", nullable = true)
     public String getBscMatSlvaCom() {
         return bscMatSlvaCom;
     }
@@ -437,7 +437,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatSlvaCom = bscMatSlvaCom;
     }
 
-    @Column(name = "bsc_mat_vag_col", nullable = false)
+    @Column(name = "bsc_mat_vag_col", nullable = true)
     public Boolean getBscMatVagCol() {
         return bscMatVagCol;
     }
@@ -446,7 +446,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatVagCol = bscMatVagCol;
     }
 
-    @Column(name = "bsc_mat_vag_rsn", nullable = false, length = 1)
+    @Column(name = "bsc_mat_vag_rsn", nullable = true, length = 1)
     public String getBscMatVagRsn() {
         return bscMatVagRsn;
     }
@@ -455,7 +455,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatVagRsn = bscMatVagRsn;
     }
 
-    @Column(name = "bsc_mat_vag_specify", nullable = false)
+    @Column(name = "bsc_mat_vag_specify", nullable = true)
     public String getBscMatVagSpecify() {
         return bscMatVagSpecify;
     }
@@ -464,7 +464,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatVagSpecify = bscMatVagSpecify;
     }
 
-    @Column(name = "bsc_mat_vag_id", nullable = false, length = 25)
+    @Column(name = "bsc_mat_vag_id", nullable = true, length = 25)
     public String getBscMatVagId() {
         return bscMatVagId;
     }
@@ -473,7 +473,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatVagId = bscMatVagId;
     }
 
-    @Column(name = "bsc_mat_vag_time", nullable = false, length = 50)
+    @Column(name = "bsc_mat_vag_time", nullable = true, length = 50)
     public String getBscMatVagTime() {
         return bscMatVagTime;
     }
@@ -482,7 +482,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatVagTime = bscMatVagTime;
     }
 
-    @Column(name = "bsc_mat_vag_com", nullable = false)
+    @Column(name = "bsc_mat_vag_com", nullable = true)
     public String getBscMatVagCom() {
         return bscMatVagCom;
     }
@@ -491,7 +491,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatVagCom = bscMatVagCom;
     }
 
-    @Column(name = "bsc_mat_vst_urn_col", nullable = false)
+    @Column(name = "bsc_mat_vst_urn_col", nullable = true)
     public Boolean getBscMatVstUrnCol() {
         return bscMatVstUrnCol;
     }
@@ -500,7 +500,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatVstUrnCol = bscMatVstUrnCol;
     }
 
-    @Column(name = "bsc_mat_vst_urn_rsn", nullable = false, length = 1)
+    @Column(name = "bsc_mat_vst_urn_rsn", nullable = true, length = 1)
     public String getBscMatVstUrnRsn() {
         return bscMatVstUrnRsn;
     }
@@ -509,7 +509,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatVstUrnRsn = bscMatVstUrnRsn;
     }
 
-    @Column(name = "bsc_mat_vst_urn_specify", nullable = false)
+    @Column(name = "bsc_mat_vst_urn_specify", nullable = true)
     public String getBscMatVstUrnSpecify() {
         return bscMatVstUrnSpecify;
     }
@@ -518,7 +518,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatVstUrnSpecify = bscMatVstUrnSpecify;
     }
 
-    @Column(name = "bsc_mat_vst_urn_id", nullable = false, length = 25)
+    @Column(name = "bsc_mat_vst_urn_id", nullable = true, length = 25)
     public String getBscMatVstUrnId() {
         return bscMatVstUrnId;
     }
@@ -527,7 +527,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatVstUrnId = bscMatVstUrnId;
     }
 
-    @Column(name = "bsc_mat_vst_urn_time", nullable = false, length = 50)
+    @Column(name = "bsc_mat_vst_urn_time", nullable = true, length = 50)
     public String getBscMatVstUrnTime() {
         return bscMatVstUrnTime;
     }
@@ -536,7 +536,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatVstUrnTime = bscMatVstUrnTime;
     }
 
-    @Column(name = "bsc_mat_vst_urn_com", nullable = false)
+    @Column(name = "bsc_mat_vst_urn_com", nullable = true)
     public String getBscMatVstUrnCom() {
         return bscMatVstUrnCom;
     }
@@ -545,7 +545,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatVstUrnCom = bscMatVstUrnCom;
     }
 
-    @Column(name = "bsc_mat_hom_urn_col", nullable = false)
+    @Column(name = "bsc_mat_hom_urn_col", nullable = true)
     public Boolean getBscMatHomUrnCol() {
         return bscMatHomUrnCol;
     }
@@ -554,7 +554,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnCol = bscMatHomUrnCol;
     }
 
-    @Column(name = "bsc_mat_hom_urn_rsn", nullable = false, length = 1)
+    @Column(name = "bsc_mat_hom_urn_rsn", nullable = true, length = 1)
     public String getBscMatHomUrnRsn() {
         return bscMatHomUrnRsn;
     }
@@ -563,7 +563,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnRsn = bscMatHomUrnRsn;
     }
 
-    @Column(name = "bsc_mat_hom_urn_specify", nullable = false)
+    @Column(name = "bsc_mat_hom_urn_specify", nullable = true)
     public String getBscMatHomUrnSpecify() {
         return bscMatHomUrnSpecify;
     }
@@ -572,7 +572,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnSpecify = bscMatHomUrnSpecify;
     }
 
-    @Column(name = "bsc_mat_hom_urn_num", nullable = false)
+    @Column(name = "bsc_mat_hom_urn_num", nullable = true)
     public Integer getBscMatHomUrnNum() {
         return bscMatHomUrnNum;
     }
@@ -581,7 +581,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnNum = bscMatHomUrnNum;
     }
 
-    @Column(name = "bsc_mat_hom_urn_id1", nullable = false, length = 25)
+    @Column(name = "bsc_mat_hom_urn_id1", nullable = true, length = 25)
     public String getBscMatHomUrnId1() {
         return bscMatHomUrnId1;
     }
@@ -590,7 +590,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnId1 = bscMatHomUrnId1;
     }
 
-    @Column(name = "bsc_mat_hom_urn_dat1", nullable = false)
+    @Column(name = "bsc_mat_hom_urn_dat1", nullable = true)
     public Date getBscMatHomUrnDat1() {
         return bscMatHomUrnDat1;
     }
@@ -599,7 +599,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnDat1 = bscMatHomUrnDat1;
     }
 
-    @Column(name = "bsc_mat_hom_urn_time1", nullable = false, length = 50)
+    @Column(name = "bsc_mat_hom_urn_time1", nullable = true, length = 50)
     public String getBscMatHomUrnTime1() {
         return bscMatHomUrnTime1;
     }
@@ -608,7 +608,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnTime1 = bscMatHomUrnTime1;
     }
 
-    @Column(name = "bsc_mat_hom_urn_com1", nullable = false)
+    @Column(name = "bsc_mat_hom_urn_com1", nullable = true)
     public String getBscMatHomUrnCom1() {
         return bscMatHomUrnCom1;
     }
@@ -617,7 +617,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnCom1 = bscMatHomUrnCom1;
     }
 
-    @Column(name = "bsc_mat_hom_urn_id2", nullable = false, length = 25)
+    @Column(name = "bsc_mat_hom_urn_id2", nullable = true, length = 25)
     public String getBscMatHomUrnId2() {
         return bscMatHomUrnId2;
     }
@@ -626,7 +626,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnId2 = bscMatHomUrnId2;
     }
 
-    @Column(name = "bsc_mat_hom_urn_dat2", nullable = false)
+    @Column(name = "bsc_mat_hom_urn_dat2", nullable = true)
     public Date getBscMatHomUrnDat2() {
         return bscMatHomUrnDat2;
     }
@@ -635,7 +635,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnDat2 = bscMatHomUrnDat2;
     }
 
-    @Column(name = "bsc_mat_hom_urn_time2", nullable = false, length = 50)
+    @Column(name = "bsc_mat_hom_urn_time2", nullable = true, length = 50)
     public String getBscMatHomUrnTime2() {
         return bscMatHomUrnTime2;
     }
@@ -644,7 +644,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnTime2 = bscMatHomUrnTime2;
     }
 
-    @Column(name = "bsc_mat_hom_urn_com2", nullable = false)
+    @Column(name = "bsc_mat_hom_urn_com2", nullable = true)
     public String getBscMatHomUrnCom2() {
         return bscMatHomUrnCom2;
     }
@@ -653,7 +653,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnCom2 = bscMatHomUrnCom2;
     }
 
-    @Column(name = "bsc_mat_hom_urn_id3", nullable = false, length = 25)
+    @Column(name = "bsc_mat_hom_urn_id3", nullable = true, length = 25)
     public String getBscMatHomUrnId3() {
         return bscMatHomUrnId3;
     }
@@ -662,7 +662,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnId3 = bscMatHomUrnId3;
     }
 
-    @Column(name = "bsc_mat_hom_urn_dat3", nullable = false)
+    @Column(name = "bsc_mat_hom_urn_dat3", nullable = true)
     public Date getBscMatHomUrnDat3() {
         return bscMatHomUrnDat3;
     }
@@ -671,7 +671,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnDat3 = bscMatHomUrnDat3;
     }
 
-    @Column(name = "bsc_mat_hom_urn_time3", nullable = false, length = 50)
+    @Column(name = "bsc_mat_hom_urn_time3", nullable = true, length = 50)
     public String getBscMatHomUrnTime3() {
         return bscMatHomUrnTime3;
     }
@@ -680,7 +680,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnTime3 = bscMatHomUrnTime3;
     }
 
-    @Column(name = "bsc_mat_hom_urn_com3", nullable = false)
+    @Column(name = "bsc_mat_hom_urn_com3", nullable = true)
     public String getBscMatHomUrnCom3() {
         return bscMatHomUrnCom3;
     }
@@ -689,7 +689,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnCom3 = bscMatHomUrnCom3;
     }
 
-    @Column(name = "bsc_mat_hom_urn_id4", nullable = false, length = 25)
+    @Column(name = "bsc_mat_hom_urn_id4", nullable = true, length = 25)
     public String getBscMatHomUrnId4() {
         return bscMatHomUrnId4;
     }
@@ -698,7 +698,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnId4 = bscMatHomUrnId4;
     }
 
-    @Column(name = "bsc_mat_hom_urn_dat4", nullable = false)
+    @Column(name = "bsc_mat_hom_urn_dat4", nullable = true)
     public Date getBscMatHomUrnDat4() {
         return bscMatHomUrnDat4;
     }
@@ -707,7 +707,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnDat4 = bscMatHomUrnDat4;
     }
 
-    @Column(name = "bsc_mat_hom_urn_time4", nullable = false, length = 50)
+    @Column(name = "bsc_mat_hom_urn_time4", nullable = true, length = 50)
     public String getBscMatHomUrnTime4() {
         return bscMatHomUrnTime4;
     }
@@ -716,7 +716,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnTime4 = bscMatHomUrnTime4;
     }
 
-    @Column(name = "bsc_mat_hom_urn_com4", nullable = false)
+    @Column(name = "bsc_mat_hom_urn_com4", nullable = true)
     public String getBscMatHomUrnCom4() {
         return bscMatHomUrnCom4;
     }
@@ -725,7 +725,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatHomUrnCom4 = bscMatHomUrnCom4;
     }
 
-    @Column(name = "bsc_mat_other_col", nullable = false)
+    @Column(name = "bsc_mat_other_col", nullable = true)
     public Boolean getBscMatOtherCol() {
         return bscMatOtherCol;
     }
@@ -734,7 +734,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatOtherCol = bscMatOtherCol;
     }
 
-    @Column(name = "bsc_mat_other_type", nullable = false, length = 1)
+    @Column(name = "bsc_mat_other_type", nullable = true, length = 1)
     public String getBscMatOtherType() {
         return bscMatOtherType;
     }
@@ -743,7 +743,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatOtherType = bscMatOtherType;
     }
 
-    @Column(name = "bsc_mat_other_type_specify", nullable = false)
+    @Column(name = "bsc_mat_other_type_specify", nullable = true)
     public String getBscMatOtherTypeSpecify() {
         return bscMatOtherTypeSpecify;
     }
@@ -752,7 +752,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatOtherTypeSpecify = bscMatOtherTypeSpecify;
     }
 
-    @Column(name = "bsc_person1", nullable = false, length = 50)
+    @Column(name = "bsc_person1", nullable = true, length = 50)
     public String getBscPerson1() {
         return bscPerson1;
     }
@@ -761,7 +761,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscPerson1 = bscPerson1;
     }
 
-    @Column(name = "bsc_complete_date1", nullable = false)
+    @Column(name = "bsc_complete_date1", nullable = true)
     public Date getBscCompleteDate1() {
         return bscCompleteDate1;
     }
@@ -770,7 +770,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscCompleteDate1 = bscCompleteDate1;
     }
 
-    @Column(name = "bsc_person2", nullable = false, length = 50)
+    @Column(name = "bsc_person2", nullable = true, length = 50)
     public String getBscPerson2() {
         return bscPerson2;
     }
@@ -779,7 +779,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscPerson2 = bscPerson2;
     }
 
-    @Column(name = "bsc_complete_date2", nullable = false)
+    @Column(name = "bsc_complete_date2", nullable = true)
     public Date getBscCompleteDate2() {
         return bscCompleteDate2;
     }
@@ -788,7 +788,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscCompleteDate2 = bscCompleteDate2;
     }
 
-    @Column(name = "bsc_person3", nullable = false, length = 50)
+    @Column(name = "bsc_person3", nullable = true, length = 50)
     public String getBscPerson3() {
         return bscPerson3;
     }
@@ -797,7 +797,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscPerson3 = bscPerson3;
     }
 
-    @Column(name = "bsc_complete_date3", nullable = false)
+    @Column(name = "bsc_complete_date3", nullable = true)
     public Date getBscCompleteDate3() {
         return bscCompleteDate3;
     }

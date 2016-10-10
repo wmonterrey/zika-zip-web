@@ -39,7 +39,7 @@ public class Zp02cBiospecimenStorageForm {
         this.bscId = bscId;
     }
 
-    @Column(name = "sto_stored_dat", nullable = false)
+    @Column(name = "sto_stored_dat", nullable = true)
     public Date getStoStoredDat() {
         return stoStoredDat;
     }
@@ -48,7 +48,7 @@ public class Zp02cBiospecimenStorageForm {
         this.stoStoredDat = stoStoredDat;
     }
 
-    @Column(name = "sto_subj_type", nullable = false, length = 2)
+    @Column(name = "sto_subj_type", nullable = true, length = 2)
     public String getStoSubjType() {
         return stoSubjType;
     }
@@ -57,7 +57,7 @@ public class Zp02cBiospecimenStorageForm {
         this.stoSubjType = stoSubjType;
     }
 
-    @Column(name = "sto_spec_type", nullable = false, length = 2)
+    @Column(name = "sto_spec_type", nullable = true, length = 2)
     public String getStoSpecType() {
         return stoSpecType;
     }

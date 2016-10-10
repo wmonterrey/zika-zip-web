@@ -40,7 +40,7 @@ public class Zp02bBiospecimenResults {
         this.bscId = bscId;
     }
 
-    @Column(name = "res_test_typ", nullable = false, length = 2)
+    @Column(name = "res_test_typ", nullable = true, length = 2)
     public String getResTestTyp() {
         return resTestTyp;
     }
@@ -49,7 +49,7 @@ public class Zp02bBiospecimenResults {
         this.resTestTyp = resTestTyp;
     }
 
-    @Column(name = "res_conduct_dat", nullable = false)
+    @Column(name = "res_conduct_dat", nullable = true)
     public Date getResConductDat() {
         return resConductDat;
     }
@@ -58,7 +58,7 @@ public class Zp02bBiospecimenResults {
         this.resConductDat = resConductDat;
     }
 
-    @Column(name = "res_result", nullable = false, length = 2)
+    @Column(name = "res_result", nullable = true, length = 2)
     public String getResResult() {
         return resResult;
     }
@@ -67,7 +67,7 @@ public class Zp02bBiospecimenResults {
         this.resResult = resResult;
     }
 
-    @Column(name = "res_entered_dat", nullable = false)
+    @Column(name = "res_entered_dat", nullable = true)
     public Date getResEnteredDat() {
         return resEnteredDat;
     }

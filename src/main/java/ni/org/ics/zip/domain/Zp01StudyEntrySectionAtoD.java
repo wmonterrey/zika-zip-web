@@ -64,7 +64,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.recordId = recordId;
     }
 
-    @Column(name = "sea_vdate", nullable = false)
+    @Column(name = "sea_vdate", nullable = true)
     public Date getSeaVdate() {
         return seaVdate;
     }
@@ -73,7 +73,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaVdate = seaVdate;
     }
 
-    @Column(name = "sea_ptdate", nullable = false)
+    @Column(name = "sea_ptdate", nullable = true)
     public Date getSeaPtdate() {
         return seaPtdate;
     }
@@ -82,7 +82,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaPtdate = seaPtdate;
     }
 
-    @Column(name = "sea_tresults", nullable = false)
+    @Column(name = "sea_tresults", nullable = true)
     public String getSeaTresults() {
         return seaTresults;
     }
@@ -91,7 +91,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaTresults = seaTresults;
     }
 
-    @Column(name = "sea_lmpdate", nullable = false)
+    @Column(name = "sea_lmpdate", nullable = true)
     public Date getSeaLmpdate() {
         return seaLmpdate;
     }
@@ -100,7 +100,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaLmpdate = seaLmpdate;
     }
 
-    @Column(name = "sea_lmpunknown", nullable = false, length = 1)
+    @Column(name = "sea_lmpunknown", nullable = true, length = 1)
     public String getSeaLmpunknown() {
         return seaLmpunknown;
     }
@@ -109,7 +109,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaLmpunknown = seaLmpunknown;
     }
 
-    @Column(name = "sea_ga_week", nullable = false)
+    @Column(name = "sea_ga_week", nullable = true)
     public Integer getSeaGaWeek() {
         return seaGaWeek;
     }
@@ -118,7 +118,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaGaWeek = seaGaWeek;
     }
 
-    @Column(name = "sea_ga_day", nullable = false)
+    @Column(name = "sea_ga_day", nullable = true)
     public Integer getSeaGaDay() {
         return seaGaDay;
     }
@@ -127,7 +127,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaGaDay = seaGaDay;
     }
 
-    @Column(name = "sea_edd_lmp", nullable = false)
+    @Column(name = "sea_edd_lmp", nullable = true)
     public Date getSeaEddLmp() {
         return seaEddLmp;
     }
@@ -136,7 +136,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaEddLmp = seaEddLmp;
     }
 
-    @Column(name = "sea_triultrasound", nullable = false)
+    @Column(name = "sea_triultrasound", nullable = true)
     public Boolean getSeaTriultrasound() {
         return seaTriultrasound;
     }
@@ -145,7 +145,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaTriultrasound = seaTriultrasound;
     }
 
-    @Column(name = "sea_ultravailable", nullable = false)
+    @Column(name = "sea_ultravailable", nullable = true)
     public Boolean getSeaUltravailable() {
         return seaUltravailable;
     }
@@ -154,7 +154,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaUltravailable = seaUltravailable;
     }
 
-    @Column(name = "sea_ultra_day", nullable = false, length = 2)
+    @Column(name = "sea_ultra_day", nullable = true, length = 2)
     public String getSeaUltraDay() {
         return seaUltraDay;
     }
@@ -163,7 +163,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaUltraDay = seaUltraDay;
     }
 
-    @Column(name = "sea_ultra_month", nullable = false, length = 2)
+    @Column(name = "sea_ultra_month", nullable = true, length = 2)
     public String getSeaUltraMonth() {
         return seaUltraMonth;
     }
@@ -172,7 +172,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaUltraMonth = seaUltraMonth;
     }
 
-    @Column(name = "sea_ultra_year", nullable = false, length = 4)
+    @Column(name = "sea_ultra_year", nullable = true, length = 4)
     public String getSeaUltraYear() {
         return seaUltraYear;
     }
@@ -181,7 +181,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaUltraYear = seaUltraYear;
     }
 
-    @Column(name = "sea_agweeks", nullable = false)
+    @Column(name = "sea_agweeks", nullable = true)
     public Integer getSeaAgweeks() {
         return seaAgweeks;
     }
@@ -190,7 +190,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaAgweeks = seaAgweeks;
     }
 
-    @Column(name = "sea_agdays", nullable = false)
+    @Column(name = "sea_agdays", nullable = true)
     public Integer getSeaAgdays() {
         return seaAgdays;
     }
@@ -199,7 +199,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaAgdays = seaAgdays;
     }
 
-    @Column(name = "sea_edd", nullable = false)
+    @Column(name = "sea_edd", nullable = true)
     public Date getSeaEdd() {
         return seaEdd;
     }
@@ -208,7 +208,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaEdd = seaEdd;
     }
 
-    @Column(name = "sea_edd_used", nullable = false)
+    @Column(name = "sea_edd_used", nullable = true)
     public String getSeaEddUsed() {
         return seaEddUsed;
     }
@@ -217,7 +217,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaEddUsed = seaEddUsed;
     }
 
-    @Column(name = "sea_pre_wt", nullable = false)
+    @Column(name = "sea_pre_wt", nullable = true)
     public Float getSeaPreWt() {
         return seaPreWt;
     }
@@ -226,7 +226,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaPreWt = seaPreWt;
     }
 
-    @Column(name = "sea_prewt_unit", nullable = false)
+    @Column(name = "sea_prewt_unit", nullable = true)
     public String getSeaPrewtUnit() {
         return seaPrewtUnit;
     }
@@ -235,7 +235,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaPrewtUnit = seaPrewtUnit;
     }
 
-    @Column(name = "sea_cur_ht", nullable = false)
+    @Column(name = "sea_cur_ht", nullable = true)
     public Float getSeaCurHt() {
         return seaCurHt;
     }
@@ -244,7 +244,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaCurHt = seaCurHt;
     }
 
-    @Column(name = "sea_curht_unit", nullable = false)
+    @Column(name = "sea_curht_unit", nullable = true)
     public String getSeaCurhtUnit() {
         return seaCurhtUnit;
     }
@@ -253,7 +253,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaCurhtUnit = seaCurhtUnit;
     }
 
-    @Column(name = "sea_mother_wt", nullable = false)
+    @Column(name = "sea_mother_wt", nullable = true)
     public Float getSeaMotherWt() {
         return seaMotherWt;
     }
@@ -262,7 +262,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaMotherWt = seaMotherWt;
     }
 
-    @Column(name = "sea_motherwt_unit", nullable = false)
+    @Column(name = "sea_motherwt_unit", nullable = true)
     public String getSeaMotherwtUnit() {
         return seaMotherwtUnit;
     }
@@ -271,7 +271,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaMotherwtUnit = seaMotherwtUnit;
     }
 
-    @Column(name = "sea_hem", nullable = false)
+    @Column(name = "sea_hem", nullable = true)
     public Float getSeaHem() {
         return seaHem;
     }
@@ -280,7 +280,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaHem = seaHem;
     }
 
-    @Column(name = "sea_systolic", nullable = false)
+    @Column(name = "sea_systolic", nullable = true)
     public Integer getSeaSystolic() {
         return seaSystolic;
     }
@@ -289,7 +289,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaSystolic = seaSystolic;
     }
 
-    @Column(name = "sea_diastolic", nullable = false)
+    @Column(name = "sea_diastolic", nullable = true)
     public Integer getSeaDiastolic() {
         return seaDiastolic;
     }
@@ -298,7 +298,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaDiastolic = seaDiastolic;
     }
 
-    @Column(name = "sea_temp", nullable = false)
+    @Column(name = "sea_temp", nullable = true)
     public Float getSeaTemp() {
         return seaTemp;
     }
@@ -307,7 +307,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaTemp = seaTemp;
     }
 
-    @Column(name = "sea_tmp_unit", nullable = false)
+    @Column(name = "sea_tmp_unit", nullable = true)
     public String getSeaTmpUnit() {
         return seaTmpUnit;
     }
@@ -316,7 +316,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaTmpUnit = seaTmpUnit;
     }
 
-    @Column(name = "sea_city", nullable = false)
+    @Column(name = "sea_city", nullable = true)
     public String getSeaCity() {
         return seaCity;
     }
@@ -325,7 +325,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaCity = seaCity;
     }
 
-    @Column(name = "sea_state", nullable = false)
+    @Column(name = "sea_state", nullable = true)
     public String getSeaState() {
         return seaState;
     }
@@ -334,7 +334,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaState = seaState;
     }
 
-    @Column(name = "sea_country", nullable = false)
+    @Column(name = "sea_country", nullable = true)
     public String getSeaCountry() {
         return seaCountry;
     }
@@ -343,7 +343,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaCountry = seaCountry;
     }
 
-    @Column(name = "sea_live", nullable = false)
+    @Column(name = "sea_live", nullable = true)
     public Boolean getSeaLive() {
         return seaLive;
     }
@@ -352,7 +352,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaLive = seaLive;
     }
 
-    @Column(name = "sea_age_leave", nullable = false)
+    @Column(name = "sea_age_leave", nullable = true)
     public Integer getSeaAgeLeave() {
         return seaAgeLeave;
     }
@@ -361,7 +361,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaAgeLeave = seaAgeLeave;
     }
 
-    @Column(name = "sea_leavena", nullable = false, length = 1)
+    @Column(name = "sea_leavena", nullable = true, length = 1)
     public String getSeaLeavena() {
         return seaLeavena;
     }
@@ -370,7 +370,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaLeavena = seaLeavena;
     }
 
-    @Column(name = "sea_mstatus", nullable = false, length = 2)
+    @Column(name = "sea_mstatus", nullable = true, length = 2)
     public String getSeaMstatus() {
         return seaMstatus;
     }
@@ -379,7 +379,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaMstatus = seaMstatus;
     }
 
-    @Column(name = "sea_race", nullable = false, length = 2)
+    @Column(name = "sea_race", nullable = true, length = 2)
     public String getSeaRace() {
         return seaRace;
     }
@@ -388,7 +388,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaRace = seaRace;
     }
 
-    @Column(name = "sea_ethnicity_other", nullable = false)
+    @Column(name = "sea_ethnicity_other", nullable = true)
     public String getSeaEthnicityOther() {
         return seaEthnicityOther;
     }
@@ -397,7 +397,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaEthnicityOther = seaEthnicityOther;
     }
 
-    @Column(name = "sea_degree_you", nullable = false, length = 2)
+    @Column(name = "sea_degree_you", nullable = true, length = 2)
     public String getSeaDegreeYou() {
         return seaDegreeYou;
     }
@@ -406,7 +406,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaDegreeYou = seaDegreeYou;
     }
 
-    @Column(name = "sea_ydegree_years", nullable = false)
+    @Column(name = "sea_ydegree_years", nullable = true)
     public Float getSeaYdegreeYears() {
         return seaYdegreeYears;
     }
@@ -415,7 +415,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaYdegreeYears = seaYdegreeYears;
     }
 
-    @Column(name = "sea_degree_spouse", nullable = false, length = 2)
+    @Column(name = "sea_degree_spouse", nullable = true, length = 2)
     public String getSeaDegreeSpouse() {
         return seaDegreeSpouse;
     }
@@ -424,7 +424,7 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaDegreeSpouse = seaDegreeSpouse;
     }
 
-    @Column(name = "sea_sdegree_years", nullable = false)
+    @Column(name = "sea_sdegree_years", nullable = true)
     public Float getSeaSdegreeYears() {
         return seaSdegreeYears;
     }
