@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Manejo de las solicitudes a la aplicación mediante JSON
+ * Manejo de las solicitudes a la aplicación mediante JSON para el formulario Zp00Screening
  * Created by FIRSTICT on 10/11/2016.
  * V1.0
  */
@@ -62,5 +62,4 @@ public class Zp00ScreeningController {
         }
         return "Datos recibidos!";
     }
-
 }
