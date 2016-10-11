@@ -1,10 +1,16 @@
 package ni.org.ics.zip;
 
+import javax.annotation.Resource;
+
+import ni.org.ics.zip.service.UsuarioService;
+import ni.org.ics.zip.users.model.UserSistema;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/*")
 public class HomeController {
+	@Resource(name="usuarioService")
+	private UsuarioService usuarioService;
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -44,12 +52,6 @@ public class HomeController {
 	public String noEncontrado() { 
 		return "404";
 	}
-    
-    @RequestMapping(value = "/movil/ingreso", method = RequestMethod.GET, produces = "application/json")
-    public @ResponseBody String getMessage() {
-    	logger.info("Accessando a la aplicacion");
-    	return "Acceso a la aplicación concedido por el servidor.";
-    }
     
 	@RequestMapping( value="keepsession")
 	public @ResponseBody String keepSession()
