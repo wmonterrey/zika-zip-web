@@ -11,7 +11,7 @@ import java.util.Date;
  * V1.0
  */
 @Entity
-@Table(name = "zp00_screening", catalog = "zika_zip")
+@Table(name = "zp01_study_entry_section_e", catalog = "zika_zip")
 public class Zp01StudyEntrySectionE {
 
     private String recordId;
