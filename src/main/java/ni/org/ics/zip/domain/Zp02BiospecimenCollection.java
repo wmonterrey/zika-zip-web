@@ -17,7 +17,7 @@ public class Zp02BiospecimenCollection {
     private String recordId;
     private Date bscDov;
     private String bscVisit;
-    private Boolean bscMatBldCol;
+    private String bscMatBldCol;
     private String bscMatBldRsn;
     private String bscMatBldSpecify;
     private String bscMatBldTyp1;
@@ -47,25 +47,25 @@ public class Zp02BiospecimenCollection {
     private Integer bscMatBldTotVol;
     private String bscMatBldTime;
     private String bscMatBldCom;
-    private Boolean bscMatSlvaCol;
+    private String bscMatSlvaCol;
     private String bscMatSlvaRsn;
     private String bscMatSlvaSpecify;
     private String bscMatSlvaId;
     private String bscMatSlvaTime;
     private String bscMatSlvaCom;
-    private Boolean bscMatVagCol;
+    private String bscMatVagCol;
     private String bscMatVagRsn;
     private String bscMatVagSpecify;
     private String bscMatVagId;
     private String bscMatVagTime;
     private String bscMatVagCom;
-    private Boolean bscMatVstUrnCol;
+    private String bscMatVstUrnCol;
     private String bscMatVstUrnRsn;
     private String bscMatVstUrnSpecify;
     private String bscMatVstUrnId;
     private String bscMatVstUrnTime;
     private String bscMatVstUrnCom;
-    private Boolean bscMatHomUrnCol;
+    private String bscMatHomUrnCol;
     private String bscMatHomUrnRsn;
     private String bscMatHomUrnSpecify;
     private Integer bscMatHomUrnNum;
@@ -85,43 +85,43 @@ public class Zp02BiospecimenCollection {
     private Date bscMatHomUrnDat4;
     private String bscMatHomUrnTime4;
     private String bscMatHomUrnCom4;
-    private Boolean bscMatOtherCol;
+    private String bscMatOtherCol;
     private String bscMatOtherType; //multiple
     private String bscMatOtherTypeSpecify;
-    private Boolean bscMatAmfCol;
+    private String bscMatAmfCol;
     private String bscMatAmfRsn;
     private String bscMatAmfSpecify;
     private String bscMatAmfId;
     private Float bscMatAmfAmount;
     private String bscMatAmfTime;
     private String bscMatAmfCom;
-    private Boolean bscMatCordCol;
+    private String bscMatCordCol;
     private String bscMatCordRsn;
     private String bscMatCordSpecify;
     private String bscMatCordId;
     private String bscMatCordTime;
     private Float bscMatCordAmount;
     private String bscMatCordCom;
-    private Boolean bscMatPlacenCol;
+    private String bscMatPlacenCol;
     private String bscMatPlacenRsn;
     private String bscMatPlacenSpecify;
     private String bscMatPlacenCircum;
     private String bscMatPlacenId;
     private String bscMatPlacenTime;
     private String bscMatPlacenCom;
-    private Boolean bscMatBreastmCol;
+    private String bscMatBreastmCol;
     private String bscMatBreastmRsn;
     private String bscMatBreastmSpecify;
     private String bscMatBreastmId;
     private String bscMatBreastmTime;
     private Float bscMatBreastmAmount;
     private String bscMatBreastmCom;
-    private Boolean bscMatMiscarr;
-    private Boolean bscMatFetaltCol;
+    private String bscMatMiscarr;
+    private String bscMatFetaltCol;
     private String bscMatFetaltId;
     private String bscMatFetaltTime;
     private String bscMatFetaltCom;
-    private Boolean bscMatdBreastmCol;
+    private String bscMatdBreastmCol;
     private String bscMatdBreastmRsn;
     private String bscMatdBreastmSpecify;
     private String bscMatdBreastmId;
@@ -163,12 +163,12 @@ public class Zp02BiospecimenCollection {
         this.bscVisit = bscVisit;
     }
 
-    @Column(name = "bsc_mat_bld_col", nullable = true)
-    public Boolean getBscMatBldCol() {
+    @Column(name = "bsc_mat_bld_col", nullable = true, length = 1)
+    public String getBscMatBldCol() {
         return bscMatBldCol;
     }
 
-    public void setBscMatBldCol(Boolean bscMatBldCol) {
+    public void setBscMatBldCol(String bscMatBldCol) {
         this.bscMatBldCol = bscMatBldCol;
     }
 
@@ -433,12 +433,12 @@ public class Zp02BiospecimenCollection {
         this.bscMatBldCom = bscMatBldCom;
     }
 
-    @Column(name = "bsc_mat_slva_col", nullable = true)
-    public Boolean getBscMatSlvaCol() {
+    @Column(name = "bsc_mat_slva_col", nullable = true, length = 1)
+    public String getBscMatSlvaCol() {
         return bscMatSlvaCol;
     }
 
-    public void setBscMatSlvaCol(Boolean bscMatSlvaCol) {
+    public void setBscMatSlvaCol(String bscMatSlvaCol) {
         this.bscMatSlvaCol = bscMatSlvaCol;
     }
 
@@ -487,12 +487,12 @@ public class Zp02BiospecimenCollection {
         this.bscMatSlvaCom = bscMatSlvaCom;
     }
 
-    @Column(name = "bsc_mat_vag_col", nullable = true)
-    public Boolean getBscMatVagCol() {
+    @Column(name = "bsc_mat_vag_col", nullable = true, length = 1)
+    public String getBscMatVagCol() {
         return bscMatVagCol;
     }
 
-    public void setBscMatVagCol(Boolean bscMatVagCol) {
+    public void setBscMatVagCol(String bscMatVagCol) {
         this.bscMatVagCol = bscMatVagCol;
     }
 
@@ -541,12 +541,12 @@ public class Zp02BiospecimenCollection {
         this.bscMatVagCom = bscMatVagCom;
     }
 
-    @Column(name = "bsc_mat_vst_urn_col", nullable = true)
-    public Boolean getBscMatVstUrnCol() {
+    @Column(name = "bsc_mat_vst_urn_col", nullable = true, length = 1)
+    public String getBscMatVstUrnCol() {
         return bscMatVstUrnCol;
     }
 
-    public void setBscMatVstUrnCol(Boolean bscMatVstUrnCol) {
+    public void setBscMatVstUrnCol(String bscMatVstUrnCol) {
         this.bscMatVstUrnCol = bscMatVstUrnCol;
     }
 
@@ -595,12 +595,12 @@ public class Zp02BiospecimenCollection {
         this.bscMatVstUrnCom = bscMatVstUrnCom;
     }
 
-    @Column(name = "bsc_mat_hom_urn_col", nullable = true)
-    public Boolean getBscMatHomUrnCol() {
+    @Column(name = "bsc_mat_hom_urn_col", nullable = true, length = 1)
+    public String getBscMatHomUrnCol() {
         return bscMatHomUrnCol;
     }
 
-    public void setBscMatHomUrnCol(Boolean bscMatHomUrnCol) {
+    public void setBscMatHomUrnCol(String bscMatHomUrnCol) {
         this.bscMatHomUrnCol = bscMatHomUrnCol;
     }
 
@@ -775,12 +775,12 @@ public class Zp02BiospecimenCollection {
         this.bscMatHomUrnCom4 = bscMatHomUrnCom4;
     }
 
-    @Column(name = "bsc_mat_other_col", nullable = true)
-    public Boolean getBscMatOtherCol() {
+    @Column(name = "bsc_mat_other_col", nullable = true, length = 1)
+    public String getBscMatOtherCol() {
         return bscMatOtherCol;
     }
 
-    public void setBscMatOtherCol(Boolean bscMatOtherCol) {
+    public void setBscMatOtherCol(String bscMatOtherCol) {
         this.bscMatOtherCol = bscMatOtherCol;
     }
 
@@ -802,12 +802,12 @@ public class Zp02BiospecimenCollection {
         this.bscMatOtherTypeSpecify = bscMatOtherTypeSpecify;
     }
 
-    @Column(name = "bsc_mat_amf_col", nullable = true)
-    public Boolean getBscMatAmfCol() {
+    @Column(name = "bsc_mat_amf_col", nullable = true, length = 1)
+    public String getBscMatAmfCol() {
         return bscMatAmfCol;
     }
 
-    public void setBscMatAmfCol(Boolean bscMatAmfCol) {
+    public void setBscMatAmfCol(String bscMatAmfCol) {
         this.bscMatAmfCol = bscMatAmfCol;
     }
 
@@ -865,12 +865,12 @@ public class Zp02BiospecimenCollection {
         this.bscMatAmfCom = bscMatAmfCom;
     }
 
-    @Column(name = "bsc_mat_cord_col", nullable = true)
-    public Boolean getBscMatCordCol() {
+    @Column(name = "bsc_mat_cord_col", nullable = true, length = 1)
+    public String getBscMatCordCol() {
         return bscMatCordCol;
     }
 
-    public void setBscMatCordCol(Boolean bscMatCordCol) {
+    public void setBscMatCordCol(String bscMatCordCol) {
         this.bscMatCordCol = bscMatCordCol;
     }
 
@@ -928,12 +928,12 @@ public class Zp02BiospecimenCollection {
         this.bscMatCordCom = bscMatCordCom;
     }
 
-    @Column(name = "bsc_mat_placen_col", nullable = true)
-    public Boolean getBscMatPlacenCol() {
+    @Column(name = "bsc_mat_placen_col", nullable = true, length = 1)
+    public String getBscMatPlacenCol() {
         return bscMatPlacenCol;
     }
 
-    public void setBscMatPlacenCol(Boolean bscMatPlacenCol) {
+    public void setBscMatPlacenCol(String bscMatPlacenCol) {
         this.bscMatPlacenCol = bscMatPlacenCol;
     }
 
@@ -991,12 +991,12 @@ public class Zp02BiospecimenCollection {
         this.bscMatPlacenCom = bscMatPlacenCom;
     }
 
-    @Column(name = "bsc_mat_breastm_col", nullable = true)
-    public Boolean getBscMatBreastmCol() {
+    @Column(name = "bsc_mat_breastm_col", nullable = true, length = 1)
+    public String getBscMatBreastmCol() {
         return bscMatBreastmCol;
     }
 
-    public void setBscMatBreastmCol(Boolean bscMatBreastmCol) {
+    public void setBscMatBreastmCol(String bscMatBreastmCol) {
         this.bscMatBreastmCol = bscMatBreastmCol;
     }
 
@@ -1054,21 +1054,21 @@ public class Zp02BiospecimenCollection {
         this.bscMatBreastmCom = bscMatBreastmCom;
     }
 
-    @Column(name = "bsc_mat_miscarr", nullable = true)
-    public Boolean getBscMatMiscarr() {
+    @Column(name = "bsc_mat_miscarr", nullable = true, length = 1)
+    public String getBscMatMiscarr() {
         return bscMatMiscarr;
     }
 
-    public void setBscMatMiscarr(Boolean bscMatMiscarr) {
+    public void setBscMatMiscarr(String bscMatMiscarr) {
         this.bscMatMiscarr = bscMatMiscarr;
     }
 
-    @Column(name = "bsc_mat_fetalt_col", nullable = true)
-    public Boolean getBscMatFetaltCol() {
+    @Column(name = "bsc_mat_fetalt_col", nullable = true, length = 1)
+    public String getBscMatFetaltCol() {
         return bscMatFetaltCol;
     }
 
-    public void setBscMatFetaltCol(Boolean bscMatFetaltCol) {
+    public void setBscMatFetaltCol(String bscMatFetaltCol) {
         this.bscMatFetaltCol = bscMatFetaltCol;
     }
 
@@ -1099,12 +1099,12 @@ public class Zp02BiospecimenCollection {
         this.bscMatFetaltCom = bscMatFetaltCom;
     }
 
-    @Column(name = "bsc_matd_breastm_col", nullable = true)
-    public Boolean getBscMatdBreastmCol() {
+    @Column(name = "bsc_matd_breastm_col", nullable = true, length = 1)
+    public String getBscMatdBreastmCol() {
         return bscMatdBreastmCol;
     }
 
-    public void setBscMatdBreastmCol(Boolean bscMatdBreastmCol) {
+    public void setBscMatdBreastmCol(String bscMatdBreastmCol) {
         this.bscMatdBreastmCol = bscMatdBreastmCol;
     }
 

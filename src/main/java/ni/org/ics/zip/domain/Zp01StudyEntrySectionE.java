@@ -50,57 +50,57 @@ public class Zp01StudyEntrySectionE {
     private Date seaRubellaDate1;
     private Date seaRubellaDate2;
     private Date seaRubellaDate3;
-    private Boolean seaRubellaDoc;
+    private String seaRubellaDoc;
     private String seaCmv;
     private Date seaCmvDate1;
     private Date seaCmvDate2;
     private Date seaCmvDate3;
-    private Boolean seaCmvDoc;
+    private String seaCmvDoc;
     private String seaHerpes;
     private Date seaHerpesDate1;
     private Date seaHerpesDate2;
     private Date seaHerpesDate3;
-    private Boolean seaHerpesDoc;
+    private String seaHerpesDoc;
     private String seaParvovirus;
     private Date seaParvovirusDate1;
     private Date seaParvovirusDate2;
     private Date seaParvovirusDate3;
-    private Boolean seaParvovirusDoc;
+    private String seaParvovirusDoc;
     private String seaToxoplasmosis;
     private Date seaToxoplasmosisDate1;
     private Date seaToxoplasmosisDate2;
     private Date seaToxoplasmosisDate3;
-    private Boolean seaToxoplasmosisDoc;
+    private String seaToxoplasmosisDoc;
     private String seaSyphillis;
     private Date seaSyphillisDate1;
     private Date seaSyphillisDate2;
     private Date seaSyphillisDate3;
-    private Boolean seaSyphillisDoc;
+    private String seaSyphillisDoc;
     private String seaHiv;
     private Date seaHivDate1;
     private Date seaHivDate2;
     private Date seaHivDate3;
-    private Boolean seaHivDoc;
+    private String seaHivDoc;
     private String seaZika;
     private Date seaZikaDate1;
     private Date seaZikaDate2;
     private Date seaZikaDate3;
-    private Boolean seaZikaDoc;
+    private String seaZikaDoc;
     private String seaChikung;
     private Date seaChikungDate1;
     private Date seaChikungDate2;
     private Date seaChikungDate3;
-    private Boolean seaChikungDoc;
+    private String seaChikungDoc;
     private String seaInfluInfect;
     private Date seaInflueInfectDate1;
     private Date seaInfluInfectDate2;
     private Date seaInfluInfectDate3;
-    private Boolean seaInfluInfectDoc;
+    private String seaInfluInfectDoc;
     private String seaDengueInfect;
     private Date seaDengueInfectDate1;
     private Date seaDengueInfectDate2;
     private Date seaDengueInfectDate3;
-    private Boolean seaDengueInfectDoc;
+    private String seaDengueInfectDoc;
     private String seaFeverSymptom;
     private String seaRash;
     private String seaItch;
@@ -140,22 +140,22 @@ public class Zp01StudyEntrySectionE {
     private String seaSymptomOther;
     private String seaSpecifySymptom;//multiple
     private String seaOtherSymptom;
-    private Boolean seaMedicare;
+    private String seaMedicare;
     private String seaCareDay;
     private String seaCareMonth;
     private String seaCareYear;
     private String seaCareFacility;
-    private Boolean seaHospitalized;
+    private String seaHospitalized;
     private String seaHospital;
     private String seaDiagRubella;
     private String seaDiagDengue;
     private String seaDiagChikung;
     private String seaDiagZika;
     private String seaDiagCytome;
-    private Boolean seaMedicine;
+    private String seaMedicine;
     private String seaMedcineName;
-    private Boolean seaGuillainbarre;
-    private Boolean seaTingling;
+    private String seaGuillainbarre;
+    private String seaTingling;
     private String seaTinglingArm;//multiple
     private String seaTinglingLeg;//multiple
     private String seaTinglingHand;//multiple
@@ -165,12 +165,12 @@ public class Zp01StudyEntrySectionE {
     private String seaSensationMin;
     private String seaSensationHr;
     private String seaSenstaionDay;
-    private Boolean seaInjury;
+    private String seaInjury;
     private String seaTinglingDay;
     private String seaTinglingMonth;
     private String seaTinglingYear;
     private Integer seaTinglingDuration;
-    private Boolean seaNumbness;
+    private String seaNumbness;
     private String seaNumbArm;//multiple
     private String seaNumbLeg;//multiple
     private String seaNumbHand;//multiple
@@ -181,7 +181,7 @@ public class Zp01StudyEntrySectionE {
     private String seaNumbMonth;
     private String seaNumbYear;
     private Integer seaNumbDuration;
-    private Boolean seaParalysis;
+    private String seaParalysis;
     private String seaParaArm;//multiple
     private String seaParaLeg;//multiple
     private String seaParaHand;//multiple
@@ -518,12 +518,12 @@ public class Zp01StudyEntrySectionE {
         this.seaRubellaDate3 = seaRubellaDate3;
     }
 
-    @Column(name = "sea_rubella_doc", nullable = true)
-    public Boolean getSeaRubellaDoc() {
+    @Column(name = "sea_rubella_doc", nullable = true, length = 1)
+    public String getSeaRubellaDoc() {
         return seaRubellaDoc;
     }
 
-    public void setSeaRubellaDoc(Boolean seaRubellaDoc) {
+    public void setSeaRubellaDoc(String seaRubellaDoc) {
         this.seaRubellaDoc = seaRubellaDoc;
     }
 
@@ -563,12 +563,12 @@ public class Zp01StudyEntrySectionE {
         this.seaCmvDate3 = seaCmvDate3;
     }
 
-    @Column(name = "sea_cmv_doc", nullable = true)
-    public Boolean getSeaCmvDoc() {
+    @Column(name = "sea_cmv_doc", nullable = true, length = 1)
+    public String getSeaCmvDoc() {
         return seaCmvDoc;
     }
 
-    public void setSeaCmvDoc(Boolean seaCmvDoc) {
+    public void setSeaCmvDoc(String seaCmvDoc) {
         this.seaCmvDoc = seaCmvDoc;
     }
 
@@ -608,12 +608,12 @@ public class Zp01StudyEntrySectionE {
         this.seaHerpesDate3 = seaHerpesDate3;
     }
 
-    @Column(name = "sea_herpes_doc", nullable = true)
-    public Boolean getSeaHerpesDoc() {
+    @Column(name = "sea_herpes_doc", nullable = true, length = 1)
+    public String getSeaHerpesDoc() {
         return seaHerpesDoc;
     }
 
-    public void setSeaHerpesDoc(Boolean seaHerpesDoc) {
+    public void setSeaHerpesDoc(String seaHerpesDoc) {
         this.seaHerpesDoc = seaHerpesDoc;
     }
 
@@ -653,12 +653,12 @@ public class Zp01StudyEntrySectionE {
         this.seaParvovirusDate3 = seaParvovirusDate3;
     }
 
-    @Column(name = "sea_parvovirus_doc", nullable = true)
-    public Boolean getSeaParvovirusDoc() {
+    @Column(name = "sea_parvovirus_doc", nullable = true, length = 1)
+    public String getSeaParvovirusDoc() {
         return seaParvovirusDoc;
     }
 
-    public void setSeaParvovirusDoc(Boolean seaParvovirusDoc) {
+    public void setSeaParvovirusDoc(String seaParvovirusDoc) {
         this.seaParvovirusDoc = seaParvovirusDoc;
     }
 
@@ -698,12 +698,12 @@ public class Zp01StudyEntrySectionE {
         this.seaToxoplasmosisDate3 = seaToxoplasmosisDate3;
     }
 
-    @Column(name = "sea_toxoplasmosis_doc", nullable = true)
-    public Boolean getSeaToxoplasmosisDoc() {
+    @Column(name = "sea_toxoplasmosis_doc", nullable = true, length = 1)
+    public String getSeaToxoplasmosisDoc() {
         return seaToxoplasmosisDoc;
     }
 
-    public void setSeaToxoplasmosisDoc(Boolean seaToxoplasmosisDoc) {
+    public void setSeaToxoplasmosisDoc(String seaToxoplasmosisDoc) {
         this.seaToxoplasmosisDoc = seaToxoplasmosisDoc;
     }
 
@@ -743,12 +743,12 @@ public class Zp01StudyEntrySectionE {
         this.seaSyphillisDate3 = seaSyphillisDate3;
     }
 
-    @Column(name = "sea_syphillis_doc", nullable = true)
-    public Boolean getSeaSyphillisDoc() {
+    @Column(name = "sea_syphillis_doc", nullable = true, length = 1)
+    public String getSeaSyphillisDoc() {
         return seaSyphillisDoc;
     }
 
-    public void setSeaSyphillisDoc(Boolean seaSyphillisDoc) {
+    public void setSeaSyphillisDoc(String seaSyphillisDoc) {
         this.seaSyphillisDoc = seaSyphillisDoc;
     }
 
@@ -788,12 +788,12 @@ public class Zp01StudyEntrySectionE {
         this.seaHivDate3 = seaHivDate3;
     }
 
-    @Column(name = "sea_hiv_doc", nullable = true)
-    public Boolean getSeaHivDoc() {
+    @Column(name = "sea_hiv_doc", nullable = true, length = 1)
+    public String getSeaHivDoc() {
         return seaHivDoc;
     }
 
-    public void setSeaHivDoc(Boolean seaHivDoc) {
+    public void setSeaHivDoc(String seaHivDoc) {
         this.seaHivDoc = seaHivDoc;
     }
 
@@ -833,12 +833,12 @@ public class Zp01StudyEntrySectionE {
         this.seaZikaDate3 = seaZikaDate3;
     }
 
-    @Column(name = "sea_zika_doc", nullable = true)
-    public Boolean getSeaZikaDoc() {
+    @Column(name = "sea_zika_doc", nullable = true, length = 1)
+    public String getSeaZikaDoc() {
         return seaZikaDoc;
     }
 
-    public void setSeaZikaDoc(Boolean seaZikaDoc) {
+    public void setSeaZikaDoc(String seaZikaDoc) {
         this.seaZikaDoc = seaZikaDoc;
     }
 
@@ -878,12 +878,12 @@ public class Zp01StudyEntrySectionE {
         this.seaChikungDate3 = seaChikungDate3;
     }
 
-    @Column(name = "sea_chikung_doc", nullable = true)
-    public Boolean getSeaChikungDoc() {
+    @Column(name = "sea_chikung_doc", nullable = true, length = 1)
+    public String getSeaChikungDoc() {
         return seaChikungDoc;
     }
 
-    public void setSeaChikungDoc(Boolean seaChikungDoc) {
+    public void setSeaChikungDoc(String seaChikungDoc) {
         this.seaChikungDoc = seaChikungDoc;
     }
 
@@ -923,12 +923,12 @@ public class Zp01StudyEntrySectionE {
         this.seaInfluInfectDate3 = seaInfluInfectDate3;
     }
 
-    @Column(name = "sea_influ_infect_doc", nullable = true)
-    public Boolean getSeaInfluInfectDoc() {
+    @Column(name = "sea_influ_infect_doc", nullable = true, length = 1)
+    public String getSeaInfluInfectDoc() {
         return seaInfluInfectDoc;
     }
 
-    public void setSeaInfluInfectDoc(Boolean seaInfluInfectDoc) {
+    public void setSeaInfluInfectDoc(String seaInfluInfectDoc) {
         this.seaInfluInfectDoc = seaInfluInfectDoc;
     }
 
@@ -968,12 +968,12 @@ public class Zp01StudyEntrySectionE {
         this.seaDengueInfectDate3 = seaDengueInfectDate3;
     }
 
-    @Column(name = "sea_dengue_infect_doc", nullable = true)
-    public Boolean getSeaDengueInfectDoc() {
+    @Column(name = "sea_dengue_infect_doc", nullable = true, length = 1)
+    public String getSeaDengueInfectDoc() {
         return seaDengueInfectDoc;
     }
 
-    public void setSeaDengueInfectDoc(Boolean seaDengueInfectDoc) {
+    public void setSeaDengueInfectDoc(String seaDengueInfectDoc) {
         this.seaDengueInfectDoc = seaDengueInfectDoc;
     }
 
@@ -1329,11 +1329,11 @@ public class Zp01StudyEntrySectionE {
     }
 
     @Column(name = "sea_medicare", nullable = true, length = 1)
-    public Boolean getSeaMedicare() {
+    public String getSeaMedicare() {
         return seaMedicare;
     }
 
-    public void setSeaMedicare(Boolean seaMedicare) {
+    public void setSeaMedicare(String seaMedicare) {
         this.seaMedicare = seaMedicare;
     }
 
@@ -1373,12 +1373,12 @@ public class Zp01StudyEntrySectionE {
         this.seaCareFacility = seaCareFacility;
     }
 
-    @Column(name = "sea_hospitalized", nullable = true)
-    public Boolean getSeaHospitalized() {
+    @Column(name = "sea_hospitalized", nullable = true, length = 1)
+    public String getSeaHospitalized() {
         return seaHospitalized;
     }
 
-    public void setSeaHospitalized(Boolean seaHospitalized) {
+    public void setSeaHospitalized(String seaHospitalized) {
         this.seaHospitalized = seaHospitalized;
     }
 
@@ -1436,12 +1436,12 @@ public class Zp01StudyEntrySectionE {
         this.seaDiagCytome = seaDiagCytome;
     }
 
-    @Column(name = "sea_medicine", nullable = true)
-    public Boolean getSeaMedicine() {
+    @Column(name = "sea_medicine", nullable = true, length = 1)
+    public String getSeaMedicine() {
         return seaMedicine;
     }
 
-    public void setSeaMedicine(Boolean seaMedicine) {
+    public void setSeaMedicine(String seaMedicine) {
         this.seaMedicine = seaMedicine;
     }
 
@@ -1454,21 +1454,21 @@ public class Zp01StudyEntrySectionE {
         this.seaMedcineName = seaMedcineName;
     }
 
-    @Column(name = "sea_guillainbarre", nullable = true)
-    public Boolean getSeaGuillainbarre() {
+    @Column(name = "sea_guillainbarre", nullable = true, length = 1)
+    public String getSeaGuillainbarre() {
         return seaGuillainbarre;
     }
 
-    public void setSeaGuillainbarre(Boolean seaGuillainbarre) {
+    public void setSeaGuillainbarre(String seaGuillainbarre) {
         this.seaGuillainbarre = seaGuillainbarre;
     }
 
-    @Column(name = "sea_tingling", nullable = true)
-    public Boolean getSeaTingling() {
+    @Column(name = "sea_tingling", nullable = true, length = 1)
+    public String getSeaTingling() {
         return seaTingling;
     }
 
-    public void setSeaTingling(Boolean seaTingling) {
+    public void setSeaTingling(String seaTingling) {
         this.seaTingling = seaTingling;
     }
 
@@ -1553,12 +1553,12 @@ public class Zp01StudyEntrySectionE {
         this.seaSenstaionDay = seaSenstaionDay;
     }
 
-    @Column(name = "sea_injury", nullable = true)
-    public Boolean getSeaInjury() {
+    @Column(name = "sea_injury", nullable = true, length = 1)
+    public String getSeaInjury() {
         return seaInjury;
     }
 
-    public void setSeaInjury(Boolean seaInjury) {
+    public void setSeaInjury(String seaInjury) {
         this.seaInjury = seaInjury;
     }
 
@@ -1598,12 +1598,12 @@ public class Zp01StudyEntrySectionE {
         this.seaTinglingDuration = seaTinglingDuration;
     }
 
-    @Column(name = "sea_numbness", nullable = true)
-    public Boolean getSeaNumbness() {
+    @Column(name = "sea_numbness", nullable = true, length = 1)
+    public String getSeaNumbness() {
         return seaNumbness;
     }
 
-    public void setSeaNumbness(Boolean seaNumbness) {
+    public void setSeaNumbness(String seaNumbness) {
         this.seaNumbness = seaNumbness;
     }
 
@@ -1697,12 +1697,12 @@ public class Zp01StudyEntrySectionE {
         this.seaNumbDuration = seaNumbDuration;
     }
 
-    @Column(name = "sea_paralysis", nullable = true)
-    public Boolean getSeaParalysis() {
+    @Column(name = "sea_paralysis", nullable = true, length = 1)
+    public String getSeaParalysis() {
         return seaParalysis;
     }
 
-    public void setSeaParalysis(Boolean seaParalysis) {
+    public void setSeaParalysis(String seaParalysis) {
         this.seaParalysis = seaParalysis;
     }
 

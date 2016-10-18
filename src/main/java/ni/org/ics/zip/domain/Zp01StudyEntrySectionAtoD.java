@@ -20,8 +20,8 @@ public class Zp01StudyEntrySectionAtoD {
     private Integer seaGaWeek;
     private Integer seaGaDay;
     private Date seaEddLmp;
-    private Boolean seaTriultrasound;
-    private Boolean seaUltravailable;
+    private String seaTriultrasound;
+    private String seaUltravailable;
     private String seaUltraDay;
     private String seaUltraMonth;
     private String seaUltraYear;
@@ -43,7 +43,7 @@ public class Zp01StudyEntrySectionAtoD {
     private String seaCity;
     private String seaState;
     private String seaCountry;
-    private Boolean seaLive;
+    private String seaLive;
     private Integer seaAgeLeave;
     private String seaLeavena;
     private String seaMstatus;
@@ -136,21 +136,21 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaEddLmp = seaEddLmp;
     }
 
-    @Column(name = "sea_triultrasound", nullable = true)
-    public Boolean getSeaTriultrasound() {
+    @Column(name = "sea_triultrasound", nullable = true, length = 1)
+    public String getSeaTriultrasound() {
         return seaTriultrasound;
     }
 
-    public void setSeaTriultrasound(Boolean seaTriultrasound) {
+    public void setSeaTriultrasound(String seaTriultrasound) {
         this.seaTriultrasound = seaTriultrasound;
     }
 
-    @Column(name = "sea_ultravailable", nullable = true)
-    public Boolean getSeaUltravailable() {
+    @Column(name = "sea_ultravailable", nullable = true, length = 1)
+    public String getSeaUltravailable() {
         return seaUltravailable;
     }
 
-    public void setSeaUltravailable(Boolean seaUltravailable) {
+    public void setSeaUltravailable(String seaUltravailable) {
         this.seaUltravailable = seaUltravailable;
     }
 
@@ -343,12 +343,12 @@ public class Zp01StudyEntrySectionAtoD {
         this.seaCountry = seaCountry;
     }
 
-    @Column(name = "sea_live", nullable = true)
-    public Boolean getSeaLive() {
+    @Column(name = "sea_live", nullable = true, length = 1)
+    public String getSeaLive() {
         return seaLive;
     }
 
-    public void setSeaLive(Boolean seaLive) {
+    public void setSeaLive(String seaLive) {
         this.seaLive = seaLive;
     }
 

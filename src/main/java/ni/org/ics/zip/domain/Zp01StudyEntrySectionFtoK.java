@@ -32,27 +32,27 @@ public class Zp01StudyEntrySectionFtoK {
     private Date seaDeliveryDate1;
     private Integer seaGage1;
     private String seaOutcome1;
-    private Boolean seaBdefects1;
+    private String seaBdefects1;
     private Date seaDeliveryDate2;
     private Integer seaGage2;
     private String seaOutcome2;
-    private Boolean seaBdefects2;
+    private String seaBdefects2;
     private Date seaDeliveryDate3;
     private Integer seaGage3;
     private String seaOutcome3;
-    private Boolean seaBdefects3;
+    private String seaBdefects3;
     private Date seaDeliveryDate4;
     private Integer seaGage4;
     private String seaOutcome4;
-    private Boolean seaBdefects4;
+    private String seaBdefects4;
     private Date seaDeliveryDate5;
     private Integer seaGage5;
     private String seaOutcome5;
-    private Boolean seaBdefects5;
+    private String seaBdefects5;
     private Date seaDeliveryDate6;
     private Integer seaGage6;
     private String seaOutcome6;
-    private Boolean seaBdefects6;
+    private String seaBdefects6;
     private String seaPersisHeadache;
     private String seaDizziness;
     private String seaNausea;
@@ -246,12 +246,12 @@ public class Zp01StudyEntrySectionFtoK {
         this.seaOutcome1 = seaOutcome1;
     }
 
-    @Column(name = "sea_bdefects1", nullable = true)
-    public Boolean getSeaBdefects1() {
+    @Column(name = "sea_bdefects1", nullable = true, length = 1)
+    public String getSeaBdefects1() {
         return seaBdefects1;
     }
 
-    public void setSeaBdefects1(Boolean seaBdefects1) {
+    public void setSeaBdefects1(String seaBdefects1) {
         this.seaBdefects1 = seaBdefects1;
     }
 
@@ -282,12 +282,12 @@ public class Zp01StudyEntrySectionFtoK {
         this.seaOutcome2 = seaOutcome2;
     }
 
-    @Column(name = "sea_bdefects2", nullable = true)
-    public Boolean getSeaBdefects2() {
+    @Column(name = "sea_bdefects2", nullable = true, length = 1)
+    public String getSeaBdefects2() {
         return seaBdefects2;
     }
 
-    public void setSeaBdefects2(Boolean seaBdefects2) {
+    public void setSeaBdefects2(String seaBdefects2) {
         this.seaBdefects2 = seaBdefects2;
     }
 
@@ -318,12 +318,12 @@ public class Zp01StudyEntrySectionFtoK {
         this.seaOutcome3 = seaOutcome3;
     }
 
-    @Column(name = "sea_bdefects3", nullable = true)
-    public Boolean getSeaBdefects3() {
+    @Column(name = "sea_bdefects3", nullable = true, length = 1)
+    public String getSeaBdefects3() {
         return seaBdefects3;
     }
 
-    public void setSeaBdefects3(Boolean seaBdefects3) {
+    public void setSeaBdefects3(String seaBdefects3) {
         this.seaBdefects3 = seaBdefects3;
     }
 
@@ -354,12 +354,12 @@ public class Zp01StudyEntrySectionFtoK {
         this.seaOutcome4 = seaOutcome4;
     }
 
-    @Column(name = "sea_bdefects4", nullable = true)
-    public Boolean getSeaBdefects4() {
+    @Column(name = "sea_bdefects4", nullable = true, length = 1)
+    public String getSeaBdefects4() {
         return seaBdefects4;
     }
 
-    public void setSeaBdefects4(Boolean seaBdefects4) {
+    public void setSeaBdefects4(String seaBdefects4) {
         this.seaBdefects4 = seaBdefects4;
     }
 
@@ -390,12 +390,12 @@ public class Zp01StudyEntrySectionFtoK {
         this.seaOutcome5 = seaOutcome5;
     }
 
-    @Column(name = "sea_bdefects5", nullable = true)
-    public Boolean getSeaBdefects5() {
+    @Column(name = "sea_bdefects5", nullable = true, length = 1)
+    public String getSeaBdefects5() {
         return seaBdefects5;
     }
 
-    public void setSeaBdefects5(Boolean seaBdefects5) {
+    public void setSeaBdefects5(String seaBdefects5) {
         this.seaBdefects5 = seaBdefects5;
     }
 
@@ -426,12 +426,12 @@ public class Zp01StudyEntrySectionFtoK {
         this.seaOutcome6 = seaOutcome6;
     }
 
-    @Column(name = "sea_bdefects6", nullable = true)
-    public Boolean getSeaBdefects6() {
+    @Column(name = "sea_bdefects6", nullable = true, length = 1)
+    public String getSeaBdefects6() {
         return seaBdefects6;
     }
 
-    public void setSeaBdefects6(Boolean seaBdefects6) {
+    public void setSeaBdefects6(String seaBdefects6) {
         this.seaBdefects6 = seaBdefects6;
     }
 

@@ -89,19 +89,19 @@ public class Zp03MonthlyVisit {
     private String monSymptomOther;
     private String monSpecifySymptom;//multiple
     private String monOtherSymptom;
-    private Boolean monMedicare;
+    private String monMedicare;
     private String monCareDay;
     private String monCareMonth;
     private String monCareYear;
     private String monCareFacility;
-    private Boolean monHospitalized;
+    private String monHospitalized;
     private String monHospital;
     private String monDiagRubella;
     private String monDiagDengue;
     private String monDiagChikung;
     private String monDiagZika;
     private String monDiagCytome;
-    private Boolean monMedicine;
+    private String monMedicine;
     private String monMedcineName;
     private String monSymptomDiary;
     private String monGuillainbarre;
@@ -115,7 +115,7 @@ public class Zp03MonthlyVisit {
     private String monSensationMin;
     private String monSensationHr;
     private String monSenstaionDay;
-    private Boolean monInjury;
+    private String monInjury;
     private String monTinglingDay;
     private String monTinglingMonth;
     private String monTinglingYear;
@@ -142,14 +142,14 @@ public class Zp03MonthlyVisit {
     private String monParaMonth;
     private String monParaYear;
     private Integer monParaDuration;
-    private Boolean monResultsProvided;
+    private String monResultsProvided;
     private String monCounseling;
     private String monResultsOther;
     private Date monOneweekDate;
     private String monOneweekTime;
-    private Boolean monProvideSym;
-    private Boolean monReminderPreg;
-    private Boolean monReminderProvided;
+    private String monProvideSym;
+    private String monReminderPreg;
+    private String monReminderProvided;
     private Date monNextDate;
     private String monNextTime;
     private String monIdCompleting;
@@ -835,12 +835,12 @@ public class Zp03MonthlyVisit {
         this.monOtherSymptom = monOtherSymptom;
     }
 
-    @Column(name = "mon_medicare", nullable = true)
-    public Boolean getMonMedicare() {
+    @Column(name = "mon_medicare", nullable = true, length = 1)
+    public String getMonMedicare() {
         return monMedicare;
     }
 
-    public void setMonMedicare(Boolean monMedicare) {
+    public void setMonMedicare(String monMedicare) {
         this.monMedicare = monMedicare;
     }
 
@@ -880,12 +880,12 @@ public class Zp03MonthlyVisit {
         this.monCareFacility = monCareFacility;
     }
 
-    @Column(name = "mon_hospitalized", nullable = true)
-    public Boolean getMonHospitalized() {
+    @Column(name = "mon_hospitalized", nullable = true, length = 1)
+    public String getMonHospitalized() {
         return monHospitalized;
     }
 
-    public void setMonHospitalized(Boolean monHospitalized) {
+    public void setMonHospitalized(String monHospitalized) {
         this.monHospitalized = monHospitalized;
     }
 
@@ -943,12 +943,12 @@ public class Zp03MonthlyVisit {
         this.monDiagCytome = monDiagCytome;
     }
 
-    @Column(name = "mon_medicine", nullable = true)
-    public Boolean getMonMedicine() {
+    @Column(name = "mon_medicine", nullable = true, length = 1)
+    public String getMonMedicine() {
         return monMedicine;
     }
 
-    public void setMonMedicine(Boolean monMedicine) {
+    public void setMonMedicine(String monMedicine) {
         this.monMedicine = monMedicine;
     }
 
@@ -1069,12 +1069,12 @@ public class Zp03MonthlyVisit {
         this.monSenstaionDay = monSenstaionDay;
     }
 
-    @Column(name = "mon_injury", nullable = true)
-    public Boolean getMonInjury() {
+    @Column(name = "mon_injury", nullable = true, length = 1)
+    public String getMonInjury() {
         return monInjury;
     }
 
-    public void setMonInjury(Boolean monInjury) {
+    public void setMonInjury(String monInjury) {
         this.monInjury = monInjury;
     }
 
@@ -1312,12 +1312,12 @@ public class Zp03MonthlyVisit {
         this.monParaDuration = monParaDuration;
     }
 
-    @Column(name = "mon_results_provided", nullable = true)
-    public Boolean getMonResultsProvided() {
+    @Column(name = "mon_results_provided", nullable = true, length = 1)
+    public String getMonResultsProvided() {
         return monResultsProvided;
     }
 
-    public void setMonResultsProvided(Boolean monResultsProvided) {
+    public void setMonResultsProvided(String monResultsProvided) {
         this.monResultsProvided = monResultsProvided;
     }
 
@@ -1357,30 +1357,30 @@ public class Zp03MonthlyVisit {
         this.monOneweekTime = monOneweekTime;
     }
 
-    @Column(name = "mon_provide_sym", nullable = true)
-    public Boolean getMonProvideSym() {
+    @Column(name = "mon_provide_sym", nullable = true, length = 1)
+    public String getMonProvideSym() {
         return monProvideSym;
     }
 
-    public void setMonProvideSym(Boolean monProvideSym) {
+    public void setMonProvideSym(String monProvideSym) {
         this.monProvideSym = monProvideSym;
     }
 
-    @Column(name = "mon_reminder_preg", nullable = true)
-    public Boolean getMonReminderPreg() {
+    @Column(name = "mon_reminder_preg", nullable = true, length = 1)
+    public String getMonReminderPreg() {
         return monReminderPreg;
     }
 
-    public void setMonReminderPreg(Boolean monReminderPreg) {
+    public void setMonReminderPreg(String monReminderPreg) {
         this.monReminderPreg = monReminderPreg;
     }
 
-    @Column(name = "mon_reminder_provided", nullable = true)
-    public Boolean getMonReminderProvided() {
+    @Column(name = "mon_reminder_provided", nullable = true, length = 1)
+    public String getMonReminderProvided() {
         return monReminderProvided;
     }
 
-    public void setMonReminderProvided(Boolean monReminderProvided) {
+    public void setMonReminderProvided(String monReminderProvided) {
         this.monReminderProvided = monReminderProvided;
     }
 

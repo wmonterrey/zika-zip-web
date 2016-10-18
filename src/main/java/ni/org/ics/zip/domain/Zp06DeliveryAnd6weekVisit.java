@@ -41,7 +41,7 @@ public class Zp06DeliveryAnd6weekVisit {
     private String deliFetalOutcome3;
     private String deliCauseDeath3;
     private String deliSexBaby3;
-    private Boolean deliConsentInfant;
+    private String deliConsentInfant;
     private String deliReasonNoconsent;
     private String deliNoconsentOther;
     private String deliFeverSymptom;
@@ -81,19 +81,19 @@ public class Zp06DeliveryAnd6weekVisit {
     private String deliSymptomOther;
     private String deliSpecifySymptom;
     private String deliOtherSymptom;
-    private Boolean deliMedicare;
+    private String deliMedicare;
     private String deliCareDay;
     private String deliCareMonth;
     private String deliCareYear;
     private String deliCareFacility;
-    private Boolean deliHospitalized;
+    private String deliHospitalized;
     private String deliHospital;
     private String deliDiagRubella;
     private String deliDiagDengue;
     private String deliDiagChikung;
     private String deliDiagZika;
     private String deliDiagCytome;
-    private Boolean deliMedicine;
+    private String deliMedicine;
     private String deliMedcineName;
     private String deliSymptomDiary;
     private String deliGuillainbarre;
@@ -107,7 +107,7 @@ public class Zp06DeliveryAnd6weekVisit {
     private String deliSensationMin;
     private String deliSensationHr;
     private String deliSenstaionDay;
-    private Boolean deliInjury;
+    private String deliInjury;
     private String deliTinglingDay;
     private String deliTinglingMonth;
     private String deliTinglingYear;
@@ -134,7 +134,7 @@ public class Zp06DeliveryAnd6weekVisit {
     private String deliParaMonth;
     private String deliParaYear;
     private Integer deliParaDuration;
-    private Boolean deliResultsProvided;
+    private String deliResultsProvided;
     private String deliCounseling;
     private String deliResultsOther;
     private String deliIdCompleting;
@@ -388,12 +388,12 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliSexBaby3 = deliSexBaby3;
     }
 
-    @Column(name = "deli_consent_infant", nullable = true)
-    public Boolean getDeliConsentInfant() {
+    @Column(name = "deli_consent_infant", nullable = true, length = 1)
+    public String getDeliConsentInfant() {
         return deliConsentInfant;
     }
 
-    public void setDeliConsentInfant(Boolean deliConsentInfant) {
+    public void setDeliConsentInfant(String deliConsentInfant) {
         this.deliConsentInfant = deliConsentInfant;
     }
 
@@ -748,12 +748,12 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliOtherSymptom = deliOtherSymptom;
     }
 
-    @Column(name = "deli_medicare", nullable = true)
-    public Boolean getDeliMedicare() {
+    @Column(name = "deli_medicare", nullable = true, length = 1)
+    public String getDeliMedicare() {
         return deliMedicare;
     }
 
-    public void setDeliMedicare(Boolean deliMedicare) {
+    public void setDeliMedicare(String deliMedicare) {
         this.deliMedicare = deliMedicare;
     }
 
@@ -793,12 +793,12 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliCareFacility = deliCareFacility;
     }
 
-    @Column(name = "deli_hospitalized", nullable = true)
-    public Boolean getDeliHospitalized() {
+    @Column(name = "deli_hospitalized", nullable = true, length = 1)
+    public String getDeliHospitalized() {
         return deliHospitalized;
     }
 
-    public void setDeliHospitalized(Boolean deliHospitalized) {
+    public void setDeliHospitalized(String deliHospitalized) {
         this.deliHospitalized = deliHospitalized;
     }
 
@@ -856,12 +856,12 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliDiagCytome = deliDiagCytome;
     }
 
-    @Column(name = "deli_medicine", nullable = true)
-    public Boolean getDeliMedicine() {
+    @Column(name = "deli_medicine", nullable = true, length = 1)
+    public String getDeliMedicine() {
         return deliMedicine;
     }
 
-    public void setDeliMedicine(Boolean deliMedicine) {
+    public void setDeliMedicine(String deliMedicine) {
         this.deliMedicine = deliMedicine;
     }
 
@@ -982,12 +982,12 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliSenstaionDay = deliSenstaionDay;
     }
 
-    @Column(name = "deli_injury", nullable = true)
-    public Boolean getDeliInjury() {
+    @Column(name = "deli_injury", nullable = true, length = 1)
+    public String getDeliInjury() {
         return deliInjury;
     }
 
-    public void setDeliInjury(Boolean deliInjury) {
+    public void setDeliInjury(String deliInjury) {
         this.deliInjury = deliInjury;
     }
 
@@ -1225,12 +1225,12 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliParaDuration = deliParaDuration;
     }
 
-    @Column(name = "deli_results_provided", nullable = true)
-    public Boolean getDeliResultsProvided() {
+    @Column(name = "deli_results_provided", nullable = true, length = 1)
+    public String getDeliResultsProvided() {
         return deliResultsProvided;
     }
 
-    public void setDeliResultsProvided(Boolean deliResultsProvided) {
+    public void setDeliResultsProvided(String deliResultsProvided) {
         this.deliResultsProvided = deliResultsProvided;
     }
 

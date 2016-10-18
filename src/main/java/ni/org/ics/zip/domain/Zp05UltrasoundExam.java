@@ -29,7 +29,7 @@ public class Zp05UltrasoundExam {
     private Integer ultFestiGaWeeks1;
     private Integer ultFestiGaDays1;
     private Date ultFestiDelivery1;
-    private Boolean ultFirstYesno1;
+    private String ultFirstYesno1;
     private String ultFabnormal1;
     private String ultFyesSpecify1; //multiple
     private String ultFotherFindings1;
@@ -232,12 +232,12 @@ public class Zp05UltrasoundExam {
         this.ultFestiDelivery1 = ultFestiDelivery1;
     }
 
-    @Column(name = "ult_first_yesno1", nullable = true)
-    public Boolean getUltFirstYesno1() {
+    @Column(name = "ult_first_yesno1", nullable = true, length = 1)
+    public String getUltFirstYesno1() {
         return ultFirstYesno1;
     }
 
-    public void setUltFirstYesno1(Boolean ultFirstYesno1) {
+    public void setUltFirstYesno1(String ultFirstYesno1) {
         this.ultFirstYesno1 = ultFirstYesno1;
     }
 
