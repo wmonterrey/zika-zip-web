@@ -11,8 +11,8 @@ import java.util.Date;
  * V1.0
  */
 @Entity
-@Table(name = "zp02_biospecimen_collection_section_b", catalog = "zika_zip")
-public class Zp02BiospecimenCollectionSectionB {
+@Table(name = "zp02_biospecimen_collection", catalog = "zika_zip")
+public class Zp02BiospecimenCollection {
 
     private String recordId;
     private Date bscDov;

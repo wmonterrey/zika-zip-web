@@ -16,14 +16,14 @@ public class Zp00Screening {
     private Date scrVisitDate;
     private String scrRemain;
     private Integer scrAge;
-    private Boolean scrAge15;
+    private String scrAge15;
     private String scrPregnant;
     private Integer scrPreWeeks;
     private Integer scrPreDays;
-    private Boolean scrPregant13;
-    private Boolean scrZikaOther;
-    private Boolean scrMeetCriteria;
-    private Boolean scrConsentObta;
+    private String scrPregant13;
+    private String scrZikaOther;
+    private String scrMeetCriteria;
+    private String scrConsentObta;
     private String scrObDobDay;
     private String scrObDobMon;
     private Integer scrObDobYear;
@@ -37,7 +37,7 @@ public class Zp00Screening {
     private String scrConsentF;
     private String scrPreviousZip;
     private String scrPreviousStudyId;
-    private Boolean scrPreStudyNa;
+    private String scrPreStudyNa;
     private String scrReasonNot;
     private String scrReasonOther;
     private String scrIdCompleting;
@@ -93,12 +93,12 @@ public class Zp00Screening {
         this.scrAge = scrAge;
     }
 
-    @Column(name = "scr_age_15", nullable = true)
-    public Boolean getScrAge15() {
+    @Column(name = "scr_age_15", nullable = true, length = 1)
+    public String getScrAge15() {
         return scrAge15;
     }
 
-    public void setScrAge15(Boolean scrAge15) {
+    public void setScrAge15(String scrAge15) {
         this.scrAge15 = scrAge15;
     }
 
@@ -129,39 +129,39 @@ public class Zp00Screening {
         this.scrPreDays = scrPreDays;
     }
 
-    @Column(name = "scr_pregant_13", nullable = true)
-    public Boolean getScrPregant13() {
+    @Column(name = "scr_pregant_13", nullable = true, length = 1)
+    public String getScrPregant13() {
         return scrPregant13;
     }
 
-    public void setScrPregant13(Boolean scrPregant13) {
+    public void setScrPregant13(String scrPregant13) {
         this.scrPregant13 = scrPregant13;
     }
 
-    @Column(name = "scr_zika_other", nullable = true)
-    public Boolean getScrZikaOther() {
+    @Column(name = "scr_zika_other", nullable = true, length = 1)
+    public String getScrZikaOther() {
         return scrZikaOther;
     }
 
-    public void setScrZikaOther(Boolean scrZikaOther) {
+    public void setScrZikaOther(String scrZikaOther) {
         this.scrZikaOther = scrZikaOther;
     }
 
-    @Column(name = "scr_meet_criteria", nullable = true)
-    public Boolean getScrMeetCriteria() {
+    @Column(name = "scr_meet_criteria", nullable = true, length = 1)
+    public String getScrMeetCriteria() {
         return scrMeetCriteria;
     }
 
-    public void setScrMeetCriteria(Boolean scrMeetCriteria) {
+    public void setScrMeetCriteria(String scrMeetCriteria) {
         this.scrMeetCriteria = scrMeetCriteria;
     }
 
-    @Column(name = "scr_consent_obta", nullable = true)
-    public Boolean getScrConsentObta() {
+    @Column(name = "scr_consent_obta", nullable = true, length = 1)
+    public String getScrConsentObta() {
         return scrConsentObta;
     }
 
-    public void setScrConsentObta(Boolean scrConsentObta) {
+    public void setScrConsentObta(String scrConsentObta) {
         this.scrConsentObta = scrConsentObta;
     }
 
@@ -282,12 +282,12 @@ public class Zp00Screening {
         this.scrPreviousStudyId = scrPreviousStudyId;
     }
 
-    @Column(name = "scr_prestudyna", nullable = true)
-    public Boolean getScrPreStudyNa() {
+    @Column(name = "scr_prestudyna", nullable = true, length = 1)
+    public String getScrPreStudyNa() {
         return scrPreStudyNa;
     }
 
-    public void setScrPreStudyNa(Boolean scrPreStudyNa) {
+    public void setScrPreStudyNa(String scrPreStudyNa) {
         this.scrPreStudyNa = scrPreStudyNa;
     }
 
@@ -363,3 +363,4 @@ public class Zp00Screening {
         this.scrDateEntered = scrDateEntered;
     }
 }
+
