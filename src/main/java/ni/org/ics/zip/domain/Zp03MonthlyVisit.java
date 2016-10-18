@@ -45,7 +45,7 @@ public class Zp03MonthlyVisit {
     private Integer monContractHour;
     private Integer monContract10min;
     private String monVaginalDischarge;
-    private String monCharacDischarge;
+    private String monCharacDischarge;//multiple
     private String monBleeding;
     private String monBleedingCharac;
     private String monUtiTold;
@@ -55,13 +55,13 @@ public class Zp03MonthlyVisit {
     private String monFeverSymptom;
     private String monRash;
     private String monItch;
-    private String monRashFirst;
+    private String monRashFirst;//multiple
     private String monRashDay;
     private String monRashMonth;
     private String monRashYear;
     private Integer monRashDuration;
     private String monRashSpread;
-    private String monSpreadPart;
+    private String monSpreadPart;//multiple
     private String monFeverExperience;
     private String monTempMeasure;
     private Float monHighTemp;
@@ -87,7 +87,7 @@ public class Zp03MonthlyVisit {
     private String monHeadacheYear;
     private Integer monHeadacheDuration;
     private String monSymptomOther;
-    private String monSpecifySymptom;
+    private String monSpecifySymptom;//multiple
     private String monOtherSymptom;
     private Boolean monMedicare;
     private String monCareDay;
@@ -106,11 +106,11 @@ public class Zp03MonthlyVisit {
     private String monSymptomDiary;
     private String monGuillainbarre;
     private String monTingling;
-    private String monTinglingArm;
-    private String monTinglingLeg;
-    private String monTinglingHand;
-    private String monTinglingFoot;
-    private String monTinglingFace;
+    private String monTinglingArm;//multiple
+    private String monTinglingLeg;//multiple
+    private String monTinglingHand;//multiple
+    private String monTinglingFoot;//multiple
+    private String monTinglingFace;//multiple
     private String monTinglingOther;
     private String monSensationMin;
     private String monSensationHr;
@@ -121,22 +121,22 @@ public class Zp03MonthlyVisit {
     private String monTinglingYear;
     private Integer monTinglingDuration;
     private String monNumbness;
-    private String monNumbArm;
-    private String monNumbLeg;
-    private String monNumbHand;
-    private String monNumbFoot;
-    private String monNumbFace;
+    private String monNumbArm;//multiple
+    private String monNumbLeg;//multiple
+    private String monNumbHand;//multiple
+    private String monNumbFoot;//multiple
+    private String monNumbFace;//multiple
     private String monNumbOther;
     private String monNumbDay;
     private String monNumbMonth;
     private String monNumbYear;
     private Integer monNumbDuration;
     private String monParalysis;
-    private String monParaArm;
-    private String monParaLeg;
-    private String monParaHand;
-    private String monParaFoot;
-    private String monParaFace;
+    private String monParaArm;//multiple
+    private String monParaLeg;//multiple
+    private String monParaHand;//multiple
+    private String monParaFoot;//multiple
+    private String monParaFace;//multiple
     private String monParaOther;
     private String monParaDay;
     private String monParaMonth;
@@ -439,7 +439,7 @@ public class Zp03MonthlyVisit {
         this.monVaginalDischarge = monVaginalDischarge;
     }
 
-    @Column(name = "mon_charac_discharge", nullable = true, length = 2)
+    @Column(name = "mon_charac_discharge", nullable = true, length = 20)
     public String getMonCharacDischarge() {
         return monCharacDischarge;
     }
@@ -529,7 +529,7 @@ public class Zp03MonthlyVisit {
         this.monItch = monItch;
     }
 
-    @Column(name = "mon_rash_first", nullable = true, length = 2)
+    @Column(name = "mon_rash_first", nullable = true, length = 30)
     public String getMonRashFirst() {
         return monRashFirst;
     }
@@ -583,7 +583,7 @@ public class Zp03MonthlyVisit {
         this.monRashSpread = monRashSpread;
     }
 
-    @Column(name = "mon_spread_part", nullable = true, length = 2)
+    @Column(name = "mon_spread_part", nullable = true, length = 30)
     public String getMonSpreadPart() {
         return monSpreadPart;
     }
@@ -817,7 +817,7 @@ public class Zp03MonthlyVisit {
         this.monSymptomOther = monSymptomOther;
     }
 
-    @Column(name = "mon_specify_symptom", nullable = true)
+    @Column(name = "mon_specify_symptom", nullable = true, length = 50)
     public String getMonSpecifySymptom() {
         return monSpecifySymptom;
     }
@@ -988,7 +988,7 @@ public class Zp03MonthlyVisit {
         this.monTingling = monTingling;
     }
 
-    @Column(name = "mon_tingling_arm", nullable = true, length = 1)
+    @Column(name = "mon_tingling_arm", nullable = true, length = 5)
     public String getMonTinglingArm() {
         return monTinglingArm;
     }
@@ -997,7 +997,7 @@ public class Zp03MonthlyVisit {
         this.monTinglingArm = monTinglingArm;
     }
 
-    @Column(name = "mon_tingling_leg", nullable = true, length = 1)
+    @Column(name = "mon_tingling_leg", nullable = true, length = 5)
     public String getMonTinglingLeg() {
         return monTinglingLeg;
     }
@@ -1006,7 +1006,7 @@ public class Zp03MonthlyVisit {
         this.monTinglingLeg = monTinglingLeg;
     }
 
-    @Column(name = "mon_tingling_hand", nullable = true, length = 1)
+    @Column(name = "mon_tingling_hand", nullable = true, length = 5)
     public String getMonTinglingHand() {
         return monTinglingHand;
     }
@@ -1015,7 +1015,7 @@ public class Zp03MonthlyVisit {
         this.monTinglingHand = monTinglingHand;
     }
 
-    @Column(name = "mon_tingling_foot", nullable = true, length = 1)
+    @Column(name = "mon_tingling_foot", nullable = true, length = 5)
     public String getMonTinglingFoot() {
         return monTinglingFoot;
     }
@@ -1024,7 +1024,7 @@ public class Zp03MonthlyVisit {
         this.monTinglingFoot = monTinglingFoot;
     }
 
-    @Column(name = "mon_tingling_face", nullable = true, length = 1)
+    @Column(name = "mon_tingling_face", nullable = true, length = 5)
     public String getMonTinglingFace() {
         return monTinglingFace;
     }
@@ -1123,7 +1123,7 @@ public class Zp03MonthlyVisit {
         this.monNumbness = monNumbness;
     }
 
-    @Column(name = "mon_numb_arm", nullable = true, length = 1)
+    @Column(name = "mon_numb_arm", nullable = true, length = 5)
     public String getMonNumbArm() {
         return monNumbArm;
     }
@@ -1132,7 +1132,7 @@ public class Zp03MonthlyVisit {
         this.monNumbArm = monNumbArm;
     }
 
-    @Column(name = "mon_numb_leg", nullable = true, length = 1)
+    @Column(name = "mon_numb_leg", nullable = true, length = 5)
     public String getMonNumbLeg() {
         return monNumbLeg;
     }
@@ -1141,7 +1141,7 @@ public class Zp03MonthlyVisit {
         this.monNumbLeg = monNumbLeg;
     }
 
-    @Column(name = "mon_numb_hand", nullable = true, length = 1)
+    @Column(name = "mon_numb_hand", nullable = true, length = 5)
     public String getMonNumbHand() {
         return monNumbHand;
     }
@@ -1150,7 +1150,7 @@ public class Zp03MonthlyVisit {
         this.monNumbHand = monNumbHand;
     }
 
-    @Column(name = "mon_numb_foot", nullable = true, length = 1)
+    @Column(name = "mon_numb_foot", nullable = true, length = 5)
     public String getMonNumbFoot() {
         return monNumbFoot;
     }
@@ -1159,7 +1159,7 @@ public class Zp03MonthlyVisit {
         this.monNumbFoot = monNumbFoot;
     }
 
-    @Column(name = "mon_numb_face", nullable = true, length = 1)
+    @Column(name = "mon_numb_face", nullable = true, length = 5)
     public String getMonNumbFace() {
         return monNumbFace;
     }
@@ -1222,7 +1222,7 @@ public class Zp03MonthlyVisit {
         this.monParalysis = monParalysis;
     }
 
-    @Column(name = "mon_para_arm", nullable = true, length = 1)
+    @Column(name = "mon_para_arm", nullable = true, length = 5)
     public String getMonParaArm() {
         return monParaArm;
     }
@@ -1231,7 +1231,7 @@ public class Zp03MonthlyVisit {
         this.monParaArm = monParaArm;
     }
 
-    @Column(name = "mon_para_leg", nullable = true, length = 1)
+    @Column(name = "mon_para_leg", nullable = true, length = 5)
     public String getMonParaLeg() {
         return monParaLeg;
     }
@@ -1240,7 +1240,7 @@ public class Zp03MonthlyVisit {
         this.monParaLeg = monParaLeg;
     }
 
-    @Column(name = "mon_para_hand", nullable = true, length = 1)
+    @Column(name = "mon_para_hand", nullable = true, length = 5)
     public String getMonParaHand() {
         return monParaHand;
     }
@@ -1249,7 +1249,7 @@ public class Zp03MonthlyVisit {
         this.monParaHand = monParaHand;
     }
 
-    @Column(name = "mon_para_foot", nullable = true, length = 1)
+    @Column(name = "mon_para_foot", nullable = true, length = 5)
     public String getMonParaFoot() {
         return monParaFoot;
     }
@@ -1258,7 +1258,7 @@ public class Zp03MonthlyVisit {
         this.monParaFoot = monParaFoot;
     }
 
-    @Column(name = "mon_para_face", nullable = true, length = 1)
+    @Column(name = "mon_para_face", nullable = true, length = 5)
     public String getMonParaFace() {
         return monParaFace;
     }

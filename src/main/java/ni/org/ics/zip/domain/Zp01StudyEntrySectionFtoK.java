@@ -69,7 +69,7 @@ public class Zp01StudyEntrySectionFtoK {
     private Integer seaFreqHour;
     private Integer seaFreqMin;
     private String seaVagiDischarge;
-    private String seaCharacterDisch;
+    private String seaCharacterDisch;//multiple
     private String seaBleeding;
     private String seaYesBleeding;
     private String seaUti;
@@ -579,7 +579,7 @@ public class Zp01StudyEntrySectionFtoK {
         this.seaVagiDischarge = seaVagiDischarge;
     }
 
-    @Column(name = "sea_character_disch", nullable = true, length = 1)
+    @Column(name = "sea_character_disch", nullable = true, length = 20)
     public String getSeaCharacterDisch() {
         return seaCharacterDisch;
     }

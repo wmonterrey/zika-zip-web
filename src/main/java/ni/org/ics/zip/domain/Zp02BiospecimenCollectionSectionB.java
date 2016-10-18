@@ -16,6 +16,7 @@ public class Zp02BiospecimenCollectionSectionB {
 
     private String recordId;
     private Date bscDov;
+    private String bscVisit;
     private Boolean bscMatBldCol;
     private String bscMatBldRsn;
     private String bscMatBldSpecify;
@@ -85,8 +86,48 @@ public class Zp02BiospecimenCollectionSectionB {
     private String bscMatHomUrnTime4;
     private String bscMatHomUrnCom4;
     private Boolean bscMatOtherCol;
-    private String bscMatOtherType;
+    private String bscMatOtherType; //multiple
     private String bscMatOtherTypeSpecify;
+    private Boolean bscMatAmfCol;
+    private String bscMatAmfRsn;
+    private String bscMatAmfSpecify;
+    private String bscMatAmfId;
+    private Float bscMatAmfAmount;
+    private String bscMatAmfTime;
+    private String bscMatAmfCom;
+    private Boolean bscMatCordCol;
+    private String bscMatCordRsn;
+    private String bscMatCordSpecify;
+    private String bscMatCordId;
+    private String bscMatCordTime;
+    private Float bscMatCordAmount;
+    private String bscMatCordCom;
+    private Boolean bscMatPlacenCol;
+    private String bscMatPlacenRsn;
+    private String bscMatPlacenSpecify;
+    private String bscMatPlacenCircum;
+    private String bscMatPlacenId;
+    private String bscMatPlacenTime;
+    private String bscMatPlacenCom;
+    private Boolean bscMatBreastmCol;
+    private String bscMatBreastmRsn;
+    private String bscMatBreastmSpecify;
+    private String bscMatBreastmId;
+    private String bscMatBreastmTime;
+    private Float bscMatBreastmAmount;
+    private String bscMatBreastmCom;
+    private Boolean bscMatMiscarr;
+    private Boolean bscMatFetaltCol;
+    private String bscMatFetaltId;
+    private String bscMatFetaltTime;
+    private String bscMatFetaltCom;
+    private Boolean bscMatdBreastmCol;
+    private String bscMatdBreastmRsn;
+    private String bscMatdBreastmSpecify;
+    private String bscMatdBreastmId;
+    private String bscMatdBreastmTime;
+    private Float bscMatdBreastmAmou;
+    private String bscMatdBreastmCom;
     private String bscPerson1;
     private Date bscCompleteDate1;
     private String bscPerson2;
@@ -111,6 +152,15 @@ public class Zp02BiospecimenCollectionSectionB {
 
     public void setBscDov(Date bscDov) {
         this.bscDov = bscDov;
+    }
+
+    @Column(name = "bsc_visit", nullable = false, length = 1)
+    public String getBscVisit() {
+        return bscVisit;
+    }
+
+    public void setBscVisit(String bscVisit) {
+        this.bscVisit = bscVisit;
     }
 
     @Column(name = "bsc_mat_bld_col", nullable = true)
@@ -734,7 +784,7 @@ public class Zp02BiospecimenCollectionSectionB {
         this.bscMatOtherCol = bscMatOtherCol;
     }
 
-    @Column(name = "bsc_mat_other_type", nullable = true, length = 1)
+    @Column(name = "bsc_mat_other_type", nullable = true, length = 5)
     public String getBscMatOtherType() {
         return bscMatOtherType;
     }
@@ -750,6 +800,366 @@ public class Zp02BiospecimenCollectionSectionB {
 
     public void setBscMatOtherTypeSpecify(String bscMatOtherTypeSpecify) {
         this.bscMatOtherTypeSpecify = bscMatOtherTypeSpecify;
+    }
+
+    @Column(name = "bsc_mat_amf_col", nullable = true)
+    public Boolean getBscMatAmfCol() {
+        return bscMatAmfCol;
+    }
+
+    public void setBscMatAmfCol(Boolean bscMatAmfCol) {
+        this.bscMatAmfCol = bscMatAmfCol;
+    }
+
+    @Column(name = "bsc_mat_amf_rsn", nullable = true, length = 1)
+    public String getBscMatAmfRsn() {
+        return bscMatAmfRsn;
+    }
+
+    public void setBscMatAmfRsn(String bscMatAmfRsn) {
+        this.bscMatAmfRsn = bscMatAmfRsn;
+    }
+
+    @Column(name = "bsc_mat_amf_specify", nullable = true)
+    public String getBscMatAmfSpecify() {
+        return bscMatAmfSpecify;
+    }
+
+    public void setBscMatAmfSpecify(String bscMatAmfSpecify) {
+        this.bscMatAmfSpecify = bscMatAmfSpecify;
+    }
+
+    @Column(name = "bsc_mat_amf_id", nullable = true, length = 25)
+    public String getBscMatAmfId() {
+        return bscMatAmfId;
+    }
+
+    public void setBscMatAmfId(String bscMatAmfId) {
+        this.bscMatAmfId = bscMatAmfId;
+    }
+
+    @Column(name = "bsc_mat_amf_amount", nullable = true)
+    public Float getBscMatAmfAmount() {
+        return bscMatAmfAmount;
+    }
+
+    public void setBscMatAmfAmount(Float bscMatAmfAmount) {
+        this.bscMatAmfAmount = bscMatAmfAmount;
+    }
+
+    @Column(name = "bsc_mat_amf_time", nullable = true, length = 50)
+    public String getBscMatAmfTime() {
+        return bscMatAmfTime;
+    }
+
+    public void setBscMatAmfTime(String bscMatAmfTime) {
+        this.bscMatAmfTime = bscMatAmfTime;
+    }
+
+    @Column(name = "bsc_mat_amf_com", nullable = true)
+    public String getBscMatAmfCom() {
+        return bscMatAmfCom;
+    }
+
+    public void setBscMatAmfCom(String bscMatAmfCom) {
+        this.bscMatAmfCom = bscMatAmfCom;
+    }
+
+    @Column(name = "bsc_mat_cord_col", nullable = true)
+    public Boolean getBscMatCordCol() {
+        return bscMatCordCol;
+    }
+
+    public void setBscMatCordCol(Boolean bscMatCordCol) {
+        this.bscMatCordCol = bscMatCordCol;
+    }
+
+    @Column(name = "bsc_mat_cord_rsn", nullable = true, length = 1)
+    public String getBscMatCordRsn() {
+        return bscMatCordRsn;
+    }
+
+    public void setBscMatCordRsn(String bscMatCordRsn) {
+        this.bscMatCordRsn = bscMatCordRsn;
+    }
+
+    @Column(name = "bsc_mat_cord_specify", nullable = true)
+    public String getBscMatCordSpecify() {
+        return bscMatCordSpecify;
+    }
+
+    public void setBscMatCordSpecify(String bscMatCordSpecify) {
+        this.bscMatCordSpecify = bscMatCordSpecify;
+    }
+
+    @Column(name = "bsc_mat_cord_id", nullable = true, length = 25)
+    public String getBscMatCordId() {
+        return bscMatCordId;
+    }
+
+    public void setBscMatCordId(String bscMatCordId) {
+        this.bscMatCordId = bscMatCordId;
+    }
+
+    @Column(name = "bsc_mat_cord_time", nullable = true, length = 50)
+    public String getBscMatCordTime() {
+        return bscMatCordTime;
+    }
+
+    public void setBscMatCordTime(String bscMatCordTime) {
+        this.bscMatCordTime = bscMatCordTime;
+    }
+
+    @Column(name = "bsc_mat_cord_amount", nullable = true)
+    public Float getBscMatCordAmount() {
+        return bscMatCordAmount;
+    }
+
+    public void setBscMatCordAmount(Float bscMatCordAmount) {
+        this.bscMatCordAmount = bscMatCordAmount;
+    }
+
+    @Column(name = "bsc_mat_cord_com", nullable = true)
+    public String getBscMatCordCom() {
+        return bscMatCordCom;
+    }
+
+    public void setBscMatCordCom(String bscMatCordCom) {
+        this.bscMatCordCom = bscMatCordCom;
+    }
+
+    @Column(name = "bsc_mat_placen_col", nullable = true)
+    public Boolean getBscMatPlacenCol() {
+        return bscMatPlacenCol;
+    }
+
+    public void setBscMatPlacenCol(Boolean bscMatPlacenCol) {
+        this.bscMatPlacenCol = bscMatPlacenCol;
+    }
+
+    @Column(name = "bsc_mat_placen_rsn", nullable = true, length = 1)
+    public String getBscMatPlacenRsn() {
+        return bscMatPlacenRsn;
+    }
+
+    public void setBscMatPlacenRsn(String bscMatPlacenRsn) {
+        this.bscMatPlacenRsn = bscMatPlacenRsn;
+    }
+
+    @Column(name = "bsc_mat_placen_specify", nullable = true)
+    public String getBscMatPlacenSpecify() {
+        return bscMatPlacenSpecify;
+    }
+
+    public void setBscMatPlacenSpecify(String bscMatPlacenSpecify) {
+        this.bscMatPlacenSpecify = bscMatPlacenSpecify;
+    }
+
+    @Column(name = "bsc_mat_placen_circum", nullable = true, length = 1)
+    public String getBscMatPlacenCircum() {
+        return bscMatPlacenCircum;
+    }
+
+    public void setBscMatPlacenCircum(String bscMatPlacenCircum) {
+        this.bscMatPlacenCircum = bscMatPlacenCircum;
+    }
+
+    @Column(name = "bsc_mat_placen_id", nullable = true, length = 25)
+    public String getBscMatPlacenId() {
+        return bscMatPlacenId;
+    }
+
+    public void setBscMatPlacenId(String bscMatPlacenId) {
+        this.bscMatPlacenId = bscMatPlacenId;
+    }
+
+    @Column(name = "bsc_mat_placen_time", nullable = true, length = 50)
+    public String getBscMatPlacenTime() {
+        return bscMatPlacenTime;
+    }
+
+    public void setBscMatPlacenTime(String bscMatPlacenTime) {
+        this.bscMatPlacenTime = bscMatPlacenTime;
+    }
+
+    @Column(name = "bsc_mat_placen_com", nullable = true)
+    public String getBscMatPlacenCom() {
+        return bscMatPlacenCom;
+    }
+
+    public void setBscMatPlacenCom(String bscMatPlacenCom) {
+        this.bscMatPlacenCom = bscMatPlacenCom;
+    }
+
+    @Column(name = "bsc_mat_breastm_col", nullable = true)
+    public Boolean getBscMatBreastmCol() {
+        return bscMatBreastmCol;
+    }
+
+    public void setBscMatBreastmCol(Boolean bscMatBreastmCol) {
+        this.bscMatBreastmCol = bscMatBreastmCol;
+    }
+
+    @Column(name = "bsc_mat_breastm_rsn", nullable = true, length = 1)
+    public String getBscMatBreastmRsn() {
+        return bscMatBreastmRsn;
+    }
+
+    public void setBscMatBreastmRsn(String bscMatBreastmRsn) {
+        this.bscMatBreastmRsn = bscMatBreastmRsn;
+    }
+
+    @Column(name = "bsc_mat_breastm_specify", nullable = true)
+    public String getBscMatBreastmSpecify() {
+        return bscMatBreastmSpecify;
+    }
+
+    public void setBscMatBreastmSpecify(String bscMatBreastmSpecify) {
+        this.bscMatBreastmSpecify = bscMatBreastmSpecify;
+    }
+
+    @Column(name = "bsc_mat_breastm_id", nullable = true, length = 25)
+    public String getBscMatBreastmId() {
+        return bscMatBreastmId;
+    }
+
+    public void setBscMatBreastmId(String bscMatBreastmId) {
+        this.bscMatBreastmId = bscMatBreastmId;
+    }
+
+    @Column(name = "bsc_mat_breastm_time", nullable = true, length = 50)
+    public String getBscMatBreastmTime() {
+        return bscMatBreastmTime;
+    }
+
+    public void setBscMatBreastmTime(String bscMatBreastmTime) {
+        this.bscMatBreastmTime = bscMatBreastmTime;
+    }
+
+    @Column(name = "bsc_mat_breastm_amount", nullable = true)
+    public Float getBscMatBreastmAmount() {
+        return bscMatBreastmAmount;
+    }
+
+    public void setBscMatBreastmAmount(Float bscMatBreastmAmount) {
+        this.bscMatBreastmAmount = bscMatBreastmAmount;
+    }
+
+    @Column(name = "bsc_mat_breastm_com", nullable = true)
+    public String getBscMatBreastmCom() {
+        return bscMatBreastmCom;
+    }
+
+    public void setBscMatBreastmCom(String bscMatBreastmCom) {
+        this.bscMatBreastmCom = bscMatBreastmCom;
+    }
+
+    @Column(name = "bsc_mat_miscarr", nullable = true)
+    public Boolean getBscMatMiscarr() {
+        return bscMatMiscarr;
+    }
+
+    public void setBscMatMiscarr(Boolean bscMatMiscarr) {
+        this.bscMatMiscarr = bscMatMiscarr;
+    }
+
+    @Column(name = "bsc_mat_fetalt_col", nullable = true)
+    public Boolean getBscMatFetaltCol() {
+        return bscMatFetaltCol;
+    }
+
+    public void setBscMatFetaltCol(Boolean bscMatFetaltCol) {
+        this.bscMatFetaltCol = bscMatFetaltCol;
+    }
+
+    @Column(name = "bsc_mat_fetalt_id", nullable = true, length = 25)
+    public String getBscMatFetaltId() {
+        return bscMatFetaltId;
+    }
+
+    public void setBscMatFetaltId(String bscMatFetaltId) {
+        this.bscMatFetaltId = bscMatFetaltId;
+    }
+
+    @Column(name = "bsc_mat_fetalt_time", nullable = true, length = 50)
+    public String getBscMatFetaltTime() {
+        return bscMatFetaltTime;
+    }
+
+    public void setBscMatFetaltTime(String bscMatFetaltTime) {
+        this.bscMatFetaltTime = bscMatFetaltTime;
+    }
+
+    @Column(name = "bsc_mat_fetalt_com", nullable = true)
+    public String getBscMatFetaltCom() {
+        return bscMatFetaltCom;
+    }
+
+    public void setBscMatFetaltCom(String bscMatFetaltCom) {
+        this.bscMatFetaltCom = bscMatFetaltCom;
+    }
+
+    @Column(name = "bsc_matd_breastm_col", nullable = true)
+    public Boolean getBscMatdBreastmCol() {
+        return bscMatdBreastmCol;
+    }
+
+    public void setBscMatdBreastmCol(Boolean bscMatdBreastmCol) {
+        this.bscMatdBreastmCol = bscMatdBreastmCol;
+    }
+
+    @Column(name = "bsc_matd_breastm_rsn", nullable = true, length = 1)
+    public String getBscMatdBreastmRsn() {
+        return bscMatdBreastmRsn;
+    }
+
+    public void setBscMatdBreastmRsn(String bscMatdBreastmRsn) {
+        this.bscMatdBreastmRsn = bscMatdBreastmRsn;
+    }
+
+    @Column(name = "bsc_matd_breastm_specify", nullable = true)
+    public String getBscMatdBreastmSpecify() {
+        return bscMatdBreastmSpecify;
+    }
+
+    public void setBscMatdBreastmSpecify(String bscMatdBreastmSpecify) {
+        this.bscMatdBreastmSpecify = bscMatdBreastmSpecify;
+    }
+
+    @Column(name = "bsc_matd_breastm_id", nullable = true, length = 25)
+    public String getBscMatdBreastmId() {
+        return bscMatdBreastmId;
+    }
+
+    public void setBscMatdBreastmId(String bscMatdBreastmId) {
+        this.bscMatdBreastmId = bscMatdBreastmId;
+    }
+
+    @Column(name = "bsc_matd_breastm_time", nullable = true, length = 50)
+    public String getBscMatdBreastmTime() {
+        return bscMatdBreastmTime;
+    }
+
+    public void setBscMatdBreastmTime(String bscMatdBreastmTime) {
+        this.bscMatdBreastmTime = bscMatdBreastmTime;
+    }
+
+    @Column(name = "bsc_matd_breastm_amou", nullable = true)
+    public Float getBscMatdBreastmAmou() {
+        return bscMatdBreastmAmou;
+    }
+
+    public void setBscMatdBreastmAmou(Float bscMatdBreastmAmou) {
+        this.bscMatdBreastmAmou = bscMatdBreastmAmou;
+    }
+
+    @Column(name = "bsc_matd_breastm_com", nullable = true)
+    public String getBscMatdBreastmCom() {
+        return bscMatdBreastmCom;
+    }
+
+    public void setBscMatdBreastmCom(String bscMatdBreastmCom) {
+        this.bscMatdBreastmCom = bscMatdBreastmCom;
     }
 
     @Column(name = "bsc_person1", nullable = true, length = 50)

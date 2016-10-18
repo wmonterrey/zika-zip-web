@@ -15,7 +15,7 @@ import java.util.Date;
 public class Zp01StudyEntrySectionE {
 
     private String recordId;
-    private String seaDiseases;
+    private String seaDiseases; //multiple
     private String seaOtherSpecify;
     private String seaHepatitis;
     private Date seaHepatitisDate1;
@@ -104,13 +104,13 @@ public class Zp01StudyEntrySectionE {
     private String seaFeverSymptom;
     private String seaRash;
     private String seaItch;
-    private String seaRashFirst;
+    private String seaRashFirst;//multiple
     private String seaRashDay;
     private String seaRashMonth;
     private String seaRashYear;
     private Integer seaRashDuration;
     private String seaRashSpread;
-    private String seaSpreadPart;
+    private String seaSpreadPart;//multiple
     private String seaFeverExperience;
     private String  seaTempMeasure;
     private Float seaHighTemp;
@@ -126,7 +126,7 @@ public class Zp01StudyEntrySectionE {
     private String seaRedeyesYear;
     private Integer seaRedeyesDuration;
     private String seaOccurSame;
-    private String seaSameSymptom;
+    private String seaSameSymptom;//multiple
     private String seaJoint;
     private String seaJointDay;
     private String seaJointMonth;
@@ -138,7 +138,7 @@ public class Zp01StudyEntrySectionE {
     private String seaHeadacheYear;
     private Integer seaHeadacheDuration;
     private String seaSymptomOther;
-    private String seaSpecifySymptom;
+    private String seaSpecifySymptom;//multiple
     private String seaOtherSymptom;
     private Boolean seaMedicare;
     private String seaCareDay;
@@ -156,12 +156,12 @@ public class Zp01StudyEntrySectionE {
     private String seaMedcineName;
     private Boolean seaGuillainbarre;
     private Boolean seaTingling;
-    private String seaTinglingArm;
-    private String seaTinglingLeg;
-    private String seaTinglingHand;
-    private String seaTinglingFoot;
-    private String seaTinglingFace;
-    private String seaTinglingOther;
+    private String seaTinglingArm;//multiple
+    private String seaTinglingLeg;//multiple
+    private String seaTinglingHand;//multiple
+    private String seaTinglingFoot;//multiple
+    private String seaTinglingFace;//multiple
+    private String seaTinglingOther;//multiple
     private String seaSensationMin;
     private String seaSensationHr;
     private String seaSenstaionDay;
@@ -171,22 +171,22 @@ public class Zp01StudyEntrySectionE {
     private String seaTinglingYear;
     private Integer seaTinglingDuration;
     private Boolean seaNumbness;
-    private String seaNumbArm;
-    private String seaNumbLeg;
-    private String seaNumbHand;
-    private String seaNumbFoot;
-    private String seaNumbFace;
+    private String seaNumbArm;//multiple
+    private String seaNumbLeg;//multiple
+    private String seaNumbHand;//multiple
+    private String seaNumbFoot;//multiple
+    private String seaNumbFace;//multiple
     private String seaNumbOther;
     private String seaNumbDay;
     private String seaNumbMonth;
     private String seaNumbYear;
     private Integer seaNumbDuration;
     private Boolean seaParalysis;
-    private String seaParaArm;
-    private String seaParaLeg;
-    private String seaParaHand;
-    private String seaParaFoot;
-    private String seaParaFace;
+    private String seaParaArm;//multiple
+    private String seaParaLeg;//multiple
+    private String seaParaHand;//multiple
+    private String seaParaFoot;//multiple
+    private String seaParaFace;//multiple
     private String seaParaOther;
     private String seaParaDay;
     private String seaParaMonth;
@@ -203,7 +203,7 @@ public class Zp01StudyEntrySectionE {
         this.recordId = recordId;
     }
 
-    @Column(name = "sea_diseases", nullable = true, length = 2)
+    @Column(name = "sea_diseases", nullable = true, length = 30)
     public String getSeaDiseases() {
         return seaDiseases;
     }
@@ -1004,7 +1004,7 @@ public class Zp01StudyEntrySectionE {
         this.seaItch = seaItch;
     }
 
-    @Column(name = "sea_rash_first", nullable = true, length = 2)
+    @Column(name = "sea_rash_first", nullable = true, length = 30)
     public String getSeaRashFirst() {
         return seaRashFirst;
     }
@@ -1058,7 +1058,7 @@ public class Zp01StudyEntrySectionE {
         this.seaRashSpread = seaRashSpread;
     }
 
-    @Column(name = "sea_spread_part", nullable = true, length = 2)
+    @Column(name = "sea_spread_part", nullable = true, length = 30)
     public String getSeaSpreadPart() {
         return seaSpreadPart;
     }
@@ -1202,7 +1202,7 @@ public class Zp01StudyEntrySectionE {
         this.seaOccurSame = seaOccurSame;
     }
 
-    @Column(name = "sea_same_symptom", nullable = true, length = 1)
+    @Column(name = "sea_same_symptom", nullable = true, length = 10)
     public String getSeaSameSymptom() {
         return seaSameSymptom;
     }
@@ -1310,7 +1310,7 @@ public class Zp01StudyEntrySectionE {
         this.seaSymptomOther = seaSymptomOther;
     }
 
-    @Column(name = "sea_specify_symptom", nullable = true, length = 2)
+    @Column(name = "sea_specify_symptom", nullable = true, length = 50)
     public String getSeaSpecifySymptom() {
         return seaSpecifySymptom;
     }
@@ -1472,7 +1472,7 @@ public class Zp01StudyEntrySectionE {
         this.seaTingling = seaTingling;
     }
 
-    @Column(name = "sea_tingling_arm", nullable = true, length = 1)
+    @Column(name = "sea_tingling_arm", nullable = true, length = 5)
     public String getSeaTinglingArm() {
         return seaTinglingArm;
     }
@@ -1481,7 +1481,7 @@ public class Zp01StudyEntrySectionE {
         this.seaTinglingArm = seaTinglingArm;
     }
 
-    @Column(name = "sea_tingling_leg", nullable = true, length = 1)
+    @Column(name = "sea_tingling_leg", nullable = true, length = 5)
     public String getSeaTinglingLeg() {
         return seaTinglingLeg;
     }
@@ -1490,7 +1490,7 @@ public class Zp01StudyEntrySectionE {
         this.seaTinglingLeg = seaTinglingLeg;
     }
 
-    @Column(name = "sea_tingling_hand", nullable = true, length = 1)
+    @Column(name = "sea_tingling_hand", nullable = true, length = 5)
     public String getSeaTinglingHand() {
         return seaTinglingHand;
     }
@@ -1499,7 +1499,7 @@ public class Zp01StudyEntrySectionE {
         this.seaTinglingHand = seaTinglingHand;
     }
 
-    @Column(name = "sea_tingling_foot", nullable = true, length = 1)
+    @Column(name = "sea_tingling_foot", nullable = true, length = 5)
     public String getSeaTinglingFoot() {
         return seaTinglingFoot;
     }
@@ -1508,7 +1508,7 @@ public class Zp01StudyEntrySectionE {
         this.seaTinglingFoot = seaTinglingFoot;
     }
 
-    @Column(name = "sea_tingling_face", nullable = true, length = 1)
+    @Column(name = "sea_tingling_face", nullable = true, length = 5)
     public String getSeaTinglingFace() {
         return seaTinglingFace;
     }
@@ -1607,7 +1607,7 @@ public class Zp01StudyEntrySectionE {
         this.seaNumbness = seaNumbness;
     }
 
-    @Column(name = "sea_numb_arm", nullable = true, length = 1)
+    @Column(name = "sea_numb_arm", nullable = true, length = 5)
     public String getSeaNumbArm() {
         return seaNumbArm;
     }
@@ -1616,7 +1616,7 @@ public class Zp01StudyEntrySectionE {
         this.seaNumbArm = seaNumbArm;
     }
 
-    @Column(name = "sea_numb_leg", nullable = true, length = 1)
+    @Column(name = "sea_numb_leg", nullable = true, length = 5)
     public String getSeaNumbLeg() {
         return seaNumbLeg;
     }
@@ -1625,7 +1625,7 @@ public class Zp01StudyEntrySectionE {
         this.seaNumbLeg = seaNumbLeg;
     }
 
-    @Column(name = "sea_numb_hand", nullable = true, length = 1)
+    @Column(name = "sea_numb_hand", nullable = true, length = 5)
     public String getSeaNumbHand() {
         return seaNumbHand;
     }
@@ -1634,7 +1634,7 @@ public class Zp01StudyEntrySectionE {
         this.seaNumbHand = seaNumbHand;
     }
 
-    @Column(name = "sea_numb_foot", nullable = true, length = 1)
+    @Column(name = "sea_numb_foot", nullable = true, length = 5)
     public String getSeaNumbFoot() {
         return seaNumbFoot;
     }
@@ -1643,7 +1643,7 @@ public class Zp01StudyEntrySectionE {
         this.seaNumbFoot = seaNumbFoot;
     }
 
-    @Column(name = "sea_numb_face", nullable = true, length = 1)
+    @Column(name = "sea_numb_face", nullable = true, length = 5)
     public String getSeaNumbFace() {
         return seaNumbFace;
     }
@@ -1706,7 +1706,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParalysis = seaParalysis;
     }
 
-    @Column(name = "sea_para_arm", nullable = true, length = 1)
+    @Column(name = "sea_para_arm", nullable = true, length = 5)
     public String getSeaParaArm() {
         return seaParaArm;
     }
@@ -1715,7 +1715,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParaArm = seaParaArm;
     }
 
-    @Column(name = "sea_para_leg", nullable = true, length = 1)
+    @Column(name = "sea_para_leg", nullable = true, length = 5)
     public String getSeaParaLeg() {
         return seaParaLeg;
     }
@@ -1724,7 +1724,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParaLeg = seaParaLeg;
     }
 
-    @Column(name = "sea_para_hand", nullable = true, length = 1)
+    @Column(name = "sea_para_hand", nullable = true, length = 5)
     public String getSeaParaHand() {
         return seaParaHand;
     }
@@ -1733,7 +1733,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParaHand = seaParaHand;
     }
 
-    @Column(name = "sea_para_foot", nullable = true, length = 1)
+    @Column(name = "sea_para_foot", nullable = true, length = 5)
     public String getSeaParaFoot() {
         return seaParaFoot;
     }
@@ -1742,7 +1742,7 @@ public class Zp01StudyEntrySectionE {
         this.seaParaFoot = seaParaFoot;
     }
 
-    @Column(name = "sea_para_face", nullable = true, length = 1)
+    @Column(name = "sea_para_face", nullable = true, length = 5)
     public String getSeaParaFace() {
         return seaParaFace;
     }

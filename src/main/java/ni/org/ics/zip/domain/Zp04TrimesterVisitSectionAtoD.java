@@ -66,8 +66,8 @@ public class Zp04TrimesterVisitSectionAtoD {
     private Integer triNumSleepRooms;
     private Integer triNumPeople;
     private String triScreensInd;
-    private String triHouseAmenities;
-    private String triTransAccess;
+    private String triHouseAmenities;//multiple
+    private String triTransAccess;//multiple
     private String triPrimWaterSrc;
     private String triWaterContainInd;
     private String triWaterContainTyp;
@@ -78,7 +78,7 @@ public class Zp04TrimesterVisitSectionAtoD {
     private String triToiletTypSpecify;
     private String triOpSewageInd;
     private String triAnimalsInd;
-    private String triAnimalTyp;
+    private String triAnimalTyp;//multiple
     private String triAnimalSpecify;
     private Integer triNumOtherAnimal;
     private Integer triNumCattle;
@@ -684,7 +684,7 @@ public class Zp04TrimesterVisitSectionAtoD {
         this.triAnimalsInd = triAnimalsInd;
     }
 
-    @Column(name = "tri_animal_typ", nullable = true, length = 2)
+    @Column(name = "tri_animal_typ", nullable = true, length = 20)
     public String getTriAnimalTyp() {
         return triAnimalTyp;
     }

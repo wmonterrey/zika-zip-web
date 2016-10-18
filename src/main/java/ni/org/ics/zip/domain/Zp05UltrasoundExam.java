@@ -31,7 +31,7 @@ public class Zp05UltrasoundExam {
     private Date ultFestiDelivery1;
     private Boolean ultFirstYesno1;
     private String ultFabnormal1;
-    private String ultFyesSpecify1;
+    private String ultFyesSpecify1; //multiple
     private String ultFotherFindings1;
     private String ultFurtherTesting1;
     private Integer ultFnumFetuses;
@@ -51,7 +51,7 @@ public class Zp05UltrasoundExam {
     private Integer ultFcrl3;
     private String ultFcrlNa3;
     private String ultSfindings1;
-    private String ultSspecify1;
+    private String ultSspecify1;//multiple
     private String ultSfindingsSpecify1;
     private String ultFurtherExamination1;
     private String ultSplacental1;
@@ -250,7 +250,7 @@ public class Zp05UltrasoundExam {
         this.ultFabnormal1 = ultFabnormal1;
     }
 
-    @Column(name = "ult_fyes_specify1", nullable = true, length = 2)
+    @Column(name = "ult_fyes_specify1", nullable = true, length = 20)
     public String getUltFyesSpecify1() {
         return ultFyesSpecify1;
     }
@@ -430,7 +430,7 @@ public class Zp05UltrasoundExam {
         this.ultSfindings1 = ultSfindings1;
     }
 
-    @Column(name = "ult_sspecify1", nullable = true, length = 2)
+    @Column(name = "ult_sspecify1", nullable = true, length = 20)
     public String getUltSspecify1() {
         return ultSspecify1;
     }

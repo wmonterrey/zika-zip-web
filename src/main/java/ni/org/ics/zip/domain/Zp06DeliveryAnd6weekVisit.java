@@ -47,13 +47,13 @@ public class Zp06DeliveryAnd6weekVisit {
     private String deliFeverSymptom;
     private String deliRash;
     private String deliItch;
-    private String deliRashFirst;
+    private String deliRashFirst;//multiple
     private String deliRashDay;
     private String deliRashMonth;
     private String deliRashYear;
     private Integer deliRashDuration;
     private String deliRashSpread;
-    private String deliSpreadPart;
+    private String deliSpreadPart;//multiple
     private String deliFeverExperience;
     private String deliTempMeasure;
     private Float deliHighTemp;
@@ -98,11 +98,11 @@ public class Zp06DeliveryAnd6weekVisit {
     private String deliSymptomDiary;
     private String deliGuillainbarre;
     private String deliTingling;
-    private String deliTinglingArm;
-    private String deliTinglingLeg;
-    private String deliTinglingHand;
-    private String deliTinglingFoot;
-    private String deliTinglingFace;
+    private String deliTinglingArm;//multiple
+    private String deliTinglingLeg;//multiple
+    private String deliTinglingHand;//multiple
+    private String deliTinglingFoot;//multiple
+    private String deliTinglingFace;//multiple
     private String deliTinglingOther;
     private String deliSensationMin;
     private String deliSensationHr;
@@ -113,22 +113,22 @@ public class Zp06DeliveryAnd6weekVisit {
     private String deliTinglingYear;
     private Integer deliTinglingDuration;
     private String deliNumbness;
-    private String deliNumbArm;
-    private String deliNumbLeg;
-    private String deliNumbHand;
-    private String deliNumbFoot;
-    private String deliNumbFace;
+    private String deliNumbArm;//multiple
+    private String deliNumbLeg;//multiple
+    private String deliNumbHand;//multiple
+    private String deliNumbFoot;//multiple
+    private String deliNumbFace;//multiple
     private String deliNumbOther;
     private String deliNumbDay;
     private String deliNumbMonth;
     private String deliNumbYear;
     private Integer deliNumbDuration;
     private String deliParalysis;
-    private String deliParaArm;
-    private String deliParaLeg;
-    private String deliParaHand;
-    private String deliParaFoot;
-    private String deliParaFace;
+    private String deliParaArm;//multiple
+    private String deliParaLeg;//multiple
+    private String deliParaHand;//multiple
+    private String deliParaFoot;//multiple
+    private String deliParaFace;//multiple
     private String deliParaOther;
     private String deliParaDay;
     private String deliParaMonth;
@@ -442,7 +442,7 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliItch = deliItch;
     }
 
-    @Column(name = "deli_rash_first", nullable = true, length = 2)
+    @Column(name = "deli_rash_first", nullable = true, length = 30)
     public String getDeliRashFirst() {
         return deliRashFirst;
     }
@@ -496,7 +496,7 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliRashSpread = deliRashSpread;
     }
 
-    @Column(name = "deli_spread_part", nullable = true, length = 2)
+    @Column(name = "deli_spread_part", nullable = true, length = 30)
     public String getDeliSpreadPart() {
         return deliSpreadPart;
     }
@@ -730,7 +730,7 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliSymptomOther = deliSymptomOther;
     }
 
-    @Column(name = "deli_specify_symptom", nullable = true, length = 2)
+    @Column(name = "deli_specify_symptom", nullable = true, length = 50)
     public String getDeliSpecifySymptom() {
         return deliSpecifySymptom;
     }
@@ -901,7 +901,7 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliTingling = deliTingling;
     }
 
-    @Column(name = "deli_tingling_arm", nullable = true, length = 1)
+    @Column(name = "deli_tingling_arm", nullable = true, length = 5)
     public String getDeliTinglingArm() {
         return deliTinglingArm;
     }
@@ -910,7 +910,7 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliTinglingArm = deliTinglingArm;
     }
 
-    @Column(name = "deli_tingling_leg", nullable = true, length = 1)
+    @Column(name = "deli_tingling_leg", nullable = true, length = 5)
     public String getDeliTinglingLeg() {
         return deliTinglingLeg;
     }
@@ -919,7 +919,7 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliTinglingLeg = deliTinglingLeg;
     }
 
-    @Column(name = "deli_tingling_hand", nullable = true, length = 1)
+    @Column(name = "deli_tingling_hand", nullable = true, length = 5)
     public String getDeliTinglingHand() {
         return deliTinglingHand;
     }
@@ -928,7 +928,7 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliTinglingHand = deliTinglingHand;
     }
 
-    @Column(name = "deli_tingling_foot", nullable = true, length = 1)
+    @Column(name = "deli_tingling_foot", nullable = true, length = 5)
     public String getDeliTinglingFoot() {
         return deliTinglingFoot;
     }
@@ -937,7 +937,7 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliTinglingFoot = deliTinglingFoot;
     }
 
-    @Column(name = "deli_tingling_face", nullable = true, length = 1)
+    @Column(name = "deli_tingling_face", nullable = true, length = 5)
     public String getDeliTinglingFace() {
         return deliTinglingFace;
     }
@@ -1036,7 +1036,7 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliNumbness = deliNumbness;
     }
 
-    @Column(name = "deli_numb_arm", nullable = true, length = 1)
+    @Column(name = "deli_numb_arm", nullable = true, length = 5)
     public String getDeliNumbArm() {
         return deliNumbArm;
     }
@@ -1045,7 +1045,7 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliNumbArm = deliNumbArm;
     }
 
-    @Column(name = "deli_numb_leg", nullable = true, length = 1)
+    @Column(name = "deli_numb_leg", nullable = true, length = 5)
     public String getDeliNumbLeg() {
         return deliNumbLeg;
     }
@@ -1054,7 +1054,7 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliNumbLeg = deliNumbLeg;
     }
 
-    @Column(name = "deli_numb_hand", nullable = true, length = 1)
+    @Column(name = "deli_numb_hand", nullable = true, length = 5)
     public String getDeliNumbHand() {
         return deliNumbHand;
     }
@@ -1063,7 +1063,7 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliNumbHand = deliNumbHand;
     }
 
-    @Column(name = "deli_numb_foot", nullable = true, length = 1)
+    @Column(name = "deli_numb_foot", nullable = true, length = 5)
     public String getDeliNumbFoot() {
         return deliNumbFoot;
     }
@@ -1072,7 +1072,7 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliNumbFoot = deliNumbFoot;
     }
 
-    @Column(name = "deli_numb_face", nullable = true, length = 1)
+    @Column(name = "deli_numb_face", nullable = true, length = 5)
     public String getDeliNumbFace() {
         return deliNumbFace;
     }
@@ -1135,7 +1135,7 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliParalysis = deliParalysis;
     }
 
-    @Column(name = "deli_para_arm", nullable = true, length = 1)
+    @Column(name = "deli_para_arm", nullable = true, length = 5)
     public String getDeliParaArm() {
         return deliParaArm;
     }
@@ -1144,7 +1144,7 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliParaArm = deliParaArm;
     }
 
-    @Column(name = "deli_para_leg", nullable = true, length = 1)
+    @Column(name = "deli_para_leg", nullable = true, length = 5)
     public String getDeliParaLeg() {
         return deliParaLeg;
     }
@@ -1153,7 +1153,7 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliParaLeg = deliParaLeg;
     }
 
-    @Column(name = "deli_para_hand", nullable = true, length = 1)
+    @Column(name = "deli_para_hand", nullable = true, length = 5)
     public String getDeliParaHand() {
         return deliParaHand;
     }
@@ -1162,7 +1162,7 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliParaHand = deliParaHand;
     }
 
-    @Column(name = "deli_para_foot", nullable = true, length = 1)
+    @Column(name = "deli_para_foot", nullable = true, length = 5)
     public String getDeliParaFoot() {
         return deliParaFoot;
     }
@@ -1171,7 +1171,7 @@ public class Zp06DeliveryAnd6weekVisit {
         this.deliParaFoot = deliParaFoot;
     }
 
-    @Column(name = "deli_para_face", nullable = true, length = 1)
+    @Column(name = "deli_para_face", nullable = true, length = 5)
     public String getDeliParaFace() {
         return deliParaFace;
     }
