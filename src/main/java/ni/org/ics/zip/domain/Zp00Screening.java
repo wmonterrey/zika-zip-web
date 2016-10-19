@@ -1,6 +1,8 @@
 package ni.org.ics.zip.domain;
 
 import javax.persistence.*;
+import ni.org.ics.zip.domain.audit.Auditable;
+
 import java.util.Date;
 
 /**
@@ -9,10 +11,13 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "zp00_screening", catalog = "zika_zip")
-public class Zp00Screening {
+public class Zp00Screening extends BaseMetaData implements Auditable{
 
-    private String recordId;
-    private String numScreening;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String recordId;
     private Date scrVisitDate;
     private String scrRemain;
     private Integer scrAge;
@@ -55,15 +60,6 @@ public class Zp00Screening {
 
     public void setRecordId(String recordId) {
         this.recordId = recordId;
-    }
-
-    @Column(name = "num_screening", nullable = false)
-    public String getNumScreening() {
-        return numScreening;
-    }
-
-    public void setNumScreening(String numScreening) {
-        this.numScreening = numScreening;
     }
 
     @Column(name = "scr_visit_date", nullable = false)
@@ -362,5 +358,30 @@ public class Zp00Screening {
     public void setScrDateEntered(Date scrDateEntered) {
         this.scrDateEntered = scrDateEntered;
     }
+
+	@Override
+	public boolean isFieldAuditable(String fieldname) {
+		return true;
+	}
+	
+	@Override
+	public String toString(){
+		return this.recordId;
+	}
+	
+	@Override
+	public boolean equals(Object other) {
+		
+		if ((this == other))
+			return true;
+		if ((other == null))
+			return false;
+		if (!(other instanceof Zp00Screening))
+			return false;
+		
+		Zp00Screening castOther = (Zp00Screening) other;
+
+		return (this.getRecordId().equals(castOther.getRecordId()));
+	}
 }
 
