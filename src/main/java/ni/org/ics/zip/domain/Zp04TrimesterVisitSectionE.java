@@ -1,5 +1,7 @@
 package ni.org.ics.zip.domain;
 
+import ni.org.ics.zip.domain.audit.Auditable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,8 +13,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "zp04_trimester_visit_section_e", catalog = "zika_zip")
-public class Zp04TrimesterVisitSectionE {
+public class Zp04TrimesterVisitSectionE extends BaseMetaData implements Auditable {
 
+    private static final long serialVersionUID = 1L;
     private String recordId;
     private String tri24HrsDeodorant;
     private String triBrandDeodorant;
@@ -1065,4 +1068,24 @@ public class Zp04TrimesterVisitSectionE {
         this.triSurgInd = triSurgInd;
     }
 
+    @Override
+    public boolean isFieldAuditable(String fieldname) {
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return this.recordId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        if (!(o instanceof Zp04TrimesterVisitSectionE)) return false;
+
+        Zp04TrimesterVisitSectionE that = (Zp04TrimesterVisitSectionE) o;
+
+        return (recordId.equals(that.recordId));
+    }
 }

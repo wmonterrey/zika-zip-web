@@ -1,5 +1,7 @@
 package ni.org.ics.zip.domain;
 
+import ni.org.ics.zip.domain.audit.Auditable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,8 +14,9 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "zp02b_biospecimen_results", catalog = "zika_zip")
-public class Zp02bBiospecimenResults {
+public class Zp02bBiospecimenResults extends BaseMetaData implements Auditable {
 
+    private static final long serialVersionUID = 1L;
     private String recordId; //id del sujeto
     private String bscId; //id de la muestra
     private String resTestTyp;
@@ -74,5 +77,26 @@ public class Zp02bBiospecimenResults {
 
     public void setResEnteredDat(Date resEnteredDat) {
         this.resEnteredDat = resEnteredDat;
+    }
+
+    @Override
+    public boolean isFieldAuditable(String fieldname) {
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return this.recordId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        if (!(o instanceof Zp02bBiospecimenResults)) return false;
+
+        Zp02bBiospecimenResults that = (Zp02bBiospecimenResults) o;
+
+        return (recordId.equals(that.recordId));
     }
 }

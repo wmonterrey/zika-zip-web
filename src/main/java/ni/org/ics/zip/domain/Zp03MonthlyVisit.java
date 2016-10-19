@@ -1,5 +1,7 @@
 package ni.org.ics.zip.domain;
 
+import ni.org.ics.zip.domain.audit.Auditable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,8 +14,9 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "zp03_monthly_visit", catalog = "zika_zip")
-public class Zp03MonthlyVisit {
+public class Zp03MonthlyVisit extends BaseMetaData implements Auditable {
 
+    private static final long serialVersionUID = 1L;
     private String recordId;
     private Date monVisitDate;
     private String monVisitType;
@@ -1454,4 +1457,26 @@ public class Zp03MonthlyVisit {
 
     public void setMonDateEntered(Date monDateEntered) {
         this.monDateEntered = monDateEntered;
-    }}
+    }
+
+    @Override
+    public boolean isFieldAuditable(String fieldname) {
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return this.recordId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        if (!(o instanceof Zp03MonthlyVisit)) return false;
+
+        Zp03MonthlyVisit that = (Zp03MonthlyVisit) o;
+
+        return (recordId.equals(that.recordId));
+    }
+}

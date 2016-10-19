@@ -1,5 +1,7 @@
 package ni.org.ics.zip.domain;
 
+import ni.org.ics.zip.domain.audit.Auditable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,8 +14,9 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "zp05_ultrasound_exam", catalog = "zika_zip")
-public class Zp05UltrasoundExam {
+public class Zp05UltrasoundExam extends BaseMetaData implements Auditable {
 
+    private static final long serialVersionUID = 1L;
     private String recordId;
     private Date ultDate;
     private Integer ultGaWeeks;
@@ -824,5 +827,26 @@ public class Zp05UltrasoundExam {
 
     public void setUltDateEntered(Date ultDateEntered) {
         this.ultDateEntered = ultDateEntered;
+    }
+
+    @Override
+    public boolean isFieldAuditable(String fieldname) {
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return this.recordId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        if (!(o instanceof Zp05UltrasoundExam)) return false;
+
+        Zp05UltrasoundExam that = (Zp05UltrasoundExam) o;
+
+        return (recordId.equals(that.recordId));
     }
 }
