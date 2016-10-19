@@ -1,4 +1,4 @@
-package ni.org.ics.zip.web.controller;
+package ni.org.ics.zip.movil.controller;
 
 import ni.org.ics.zip.domain.Zp00Screening;
 import ni.org.ics.zip.service.Zp00ScreeningService;
@@ -20,7 +20,7 @@ import java.util.List;
  * V1.0
  */
 @Controller
-@RequestMapping("/movil/zikazip/*")
+@RequestMapping("/movil/*")
 public class Zp00ScreeningController {
     @Resource(name = "zp00ScreeningService")
     private Zp00ScreeningService zp00ScreeningService;
