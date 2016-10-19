@@ -1,5 +1,7 @@
 package ni.org.ics.zip.domain;
 
+import ni.org.ics.zip.domain.audit.Auditable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,8 +14,9 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "zp01_study_entry_section_e", catalog = "zika_zip")
-public class Zp01StudyEntrySectionE {
+public class Zp01StudyEntrySectionE extends BaseMetaData implements Auditable {
 
+    private static final long serialVersionUID = 1L;
     private String recordId;
     private String seaDiseases; //multiple
     private String seaOtherSpecify;
@@ -1794,5 +1797,26 @@ public class Zp01StudyEntrySectionE {
 
     public void setSeaParaDuration(Integer seaParaDuration) {
         this.seaParaDuration = seaParaDuration;
+    }
+
+    @Override
+    public boolean isFieldAuditable(String fieldname) {
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return this.recordId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        if (!(o instanceof Zp01StudyEntrySectionE)) return false;
+
+        Zp01StudyEntrySectionE that = (Zp01StudyEntrySectionE) o;
+
+        return (recordId.equals(that.recordId));
     }
 }

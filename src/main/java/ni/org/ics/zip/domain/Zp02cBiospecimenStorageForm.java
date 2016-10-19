@@ -1,5 +1,7 @@
 package ni.org.ics.zip.domain;
 
+import ni.org.ics.zip.domain.audit.Auditable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,8 +14,9 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "zp02c_biospecimen_storage_form", catalog = "zika_zip")
-public class Zp02cBiospecimenStorageForm {
+public class Zp02cBiospecimenStorageForm extends BaseMetaData implements Auditable {
 
+    private static final long serialVersionUID = 1L;
     private String recordId; //id del sujeto
     private String bscId; //id de la muestra
     private Date stoStoredDat;
@@ -64,5 +67,26 @@ public class Zp02cBiospecimenStorageForm {
 
     public void setStoSpecType(String stoSpecType) {
         this.stoSpecType = stoSpecType;
+    }
+
+    @Override
+    public boolean isFieldAuditable(String fieldname) {
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return this.recordId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        if (!(o instanceof Zp02cBiospecimenStorageForm)) return false;
+
+        Zp02cBiospecimenStorageForm that = (Zp02cBiospecimenStorageForm) o;
+
+        return (recordId.equals(that.recordId));
     }
 }
