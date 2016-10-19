@@ -1,4 +1,4 @@
-package ni.org.ics.zip.web.controller;
+package ni.org.ics.zip.movil.controller;
 
 import ni.org.ics.zip.domain.Zp05UltrasoundExam;
 import ni.org.ics.zip.service.Zp05UltrasoundExamService;
@@ -20,7 +20,7 @@ import java.util.List;
  * V1.0
  */
 @Controller
-@RequestMapping("/movil/zikazip/*")
+@RequestMapping("/movil/*")
 public class Zp05UltrasoundExamController {
     @Resource(name = "zp05UltrasoundExamService")
     private Zp05UltrasoundExamService zp05UltrasoundExamService;

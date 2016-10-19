@@ -1,4 +1,4 @@
-package ni.org.ics.zip.web.controller;
+package ni.org.ics.zip.movil.controller;
 
 import ni.org.ics.zip.domain.Zp04TrimesterVisitSectionFtoH;
 import ni.org.ics.zip.service.Zp04TrimesterVisitSectionFtoHService;
@@ -20,7 +20,7 @@ import java.util.List;
  * V1.0
  */
 @Controller
-@RequestMapping("/movil/zikazip/*")
+@RequestMapping("/movil/*")
 public class Zp04TrimesterVisitSectionFtoHController {
     @Resource(name = "zp04TrimesterVisitSectionFtoHService")
     private Zp04TrimesterVisitSectionFtoHService zp04TrimesterVisitSectionFtoHService;

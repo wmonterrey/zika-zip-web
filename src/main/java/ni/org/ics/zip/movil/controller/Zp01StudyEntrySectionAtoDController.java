@@ -1,4 +1,4 @@
-package ni.org.ics.zip.web.controller;
+package ni.org.ics.zip.movil.controller;
 
 import ni.org.ics.zip.domain.Zp01StudyEntrySectionAtoD;
 import ni.org.ics.zip.service.Zp01StudyEntrySectionAtoDService;
@@ -20,7 +20,7 @@ import java.util.List;
  * V1.0
  */
 @Controller
-@RequestMapping("/movil/zikazip/*")
+@RequestMapping("/movil/*")
 public class Zp01StudyEntrySectionAtoDController {
 
     @Resource(name = "zp01StudyEntrySectionAtoDService")

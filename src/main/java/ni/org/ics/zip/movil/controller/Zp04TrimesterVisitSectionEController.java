@@ -1,4 +1,4 @@
-package ni.org.ics.zip.web.controller;
+package ni.org.ics.zip.movil.controller;
 
 import ni.org.ics.zip.domain.Zp04TrimesterVisitSectionE;
 import ni.org.ics.zip.service.Zp04TrimesterVisitSectionEService;
@@ -20,7 +20,7 @@ import java.util.List;
  * V1.0
  */
 @Controller
-@RequestMapping("/movil/zikazip/*")
+@RequestMapping("/movil/*")
 public class Zp04TrimesterVisitSectionEController {
     @Resource(name = "zp04TrimesterVisitSectionEService")
     private Zp04TrimesterVisitSectionEService zp04TrimesterVisitSectionEService;
