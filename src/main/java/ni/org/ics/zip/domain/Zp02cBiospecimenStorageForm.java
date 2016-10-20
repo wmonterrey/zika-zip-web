@@ -18,6 +18,7 @@ public class Zp02cBiospecimenStorageForm extends BaseMetaData implements Auditab
 
     private static final long serialVersionUID = 1L;
     private String recordId; //id del sujeto
+    private String redcapEventName;
     private String bscId; //id de la muestra
     private Date stoStoredDat;
     private String stoSubjType;
@@ -31,6 +32,15 @@ public class Zp02cBiospecimenStorageForm extends BaseMetaData implements Auditab
 
     public void setRecordId(String recordId) {
         this.recordId = recordId;
+    }
+
+    @Column(name = "redcap_event_name", nullable = true)
+    public String getRedcapEventName() {
+        return redcapEventName;
+    }
+
+    public void setRedcapEventName(String redcapEventName) {
+        this.redcapEventName = redcapEventName;
     }
 
     @Column(name = "bsc_id", nullable = false, length = 25)

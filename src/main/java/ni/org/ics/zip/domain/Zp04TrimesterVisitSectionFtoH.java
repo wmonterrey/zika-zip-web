@@ -18,6 +18,7 @@ public class Zp04TrimesterVisitSectionFtoH extends BaseMetaData implements Audit
 
     private static final long serialVersionUID = 1L;
     private String recordId;
+    private String redcapEventName;
     private String triBugNuisInd;
     private String triPestStorHomeInd;
     private String triPestAppHomeInd;
@@ -67,6 +68,15 @@ public class Zp04TrimesterVisitSectionFtoH extends BaseMetaData implements Audit
 
     public void setRecordId(String recordId) {
         this.recordId = recordId;
+    }
+
+    @Column(name = "redcap_event_name", nullable = true)
+    public String getRedcapEventName() {
+        return redcapEventName;
+    }
+
+    public void setRedcapEventName(String redcapEventName) {
+        this.redcapEventName = redcapEventName;
     }
 
     @Column(name = "tri_bug_nuis_ind", nullable = true, length = 1)

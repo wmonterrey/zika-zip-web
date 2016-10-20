@@ -18,6 +18,7 @@ public class Zp02BiospecimenCollection extends BaseMetaData implements Auditable
 
     private static final long serialVersionUID = 1L;
     private String recordId;
+    private String redcapEventName;
     private Date bscDov;
     private String bscVisit;
     private String bscMatBldCol;
@@ -146,6 +147,15 @@ public class Zp02BiospecimenCollection extends BaseMetaData implements Auditable
 
     public void setRecordId(String recordId) {
         this.recordId = recordId;
+    }
+
+    @Column(name = "redcap_event_name", nullable = true)
+    public String getRedcapEventName() {
+        return redcapEventName;
+    }
+
+    public void setRedcapEventName(String redcapEventName) {
+        this.redcapEventName = redcapEventName;
     }
 
     @Column(name = "bsc_dov", nullable = true)

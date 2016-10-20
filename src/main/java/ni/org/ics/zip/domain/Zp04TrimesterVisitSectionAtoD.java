@@ -18,6 +18,7 @@ public class Zp04TrimesterVisitSectionAtoD extends BaseMetaData implements Audit
 
     private static final long serialVersionUID = 1L;
     private String recordId;
+    private String redcapEventName;
     private Date triDov;
     private String triVisitTyp;
     private String triOccChange;
@@ -118,6 +119,15 @@ public class Zp04TrimesterVisitSectionAtoD extends BaseMetaData implements Audit
 
     public void setRecordId(String recordId) {
         this.recordId = recordId;
+    }
+
+    @Column(name = "redcap_event_name", nullable = true)
+    public String getRedcapEventName() {
+        return redcapEventName;
+    }
+
+    public void setRedcapEventName(String redcapEventName) {
+        this.redcapEventName = redcapEventName;
     }
 
     @Column(name = "tri_dov", nullable = true)

@@ -17,6 +17,7 @@ public class Zp04TrimesterVisitSectionE extends BaseMetaData implements Auditabl
 
     private static final long serialVersionUID = 1L;
     private String recordId;
+    private String redcapEventName;
     private String tri24HrsDeodorant;
     private String triBrandDeodorant;
     private String triFragFreeDeodorant;
@@ -130,6 +131,15 @@ public class Zp04TrimesterVisitSectionE extends BaseMetaData implements Auditabl
 
     public void setRecordId(String recordId) {
         this.recordId = recordId;
+    }
+
+    @Column(name = "redcap_event_name", nullable = true)
+    public String getRedcapEventName() {
+        return redcapEventName;
+    }
+
+    public void setRedcapEventName(String redcapEventName) {
+        this.redcapEventName = redcapEventName;
     }
 
     @Column(name = "tri_24_hrs_deodorant", nullable = true, length = 1)

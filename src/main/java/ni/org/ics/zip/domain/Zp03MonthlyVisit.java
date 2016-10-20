@@ -18,6 +18,7 @@ public class Zp03MonthlyVisit extends BaseMetaData implements Auditable {
 
     private static final long serialVersionUID = 1L;
     private String recordId;
+    private String redcapEventName;
     private Date monVisitDate;
     private String monVisitType;
     private String monReasonMissed;
@@ -170,6 +171,15 @@ public class Zp03MonthlyVisit extends BaseMetaData implements Auditable {
 
     public void setRecordId(String recordId) {
         this.recordId = recordId;
+    }
+
+    @Column(name = "redcap_event_name", nullable = true)
+    public String getRedcapEventName() {
+        return redcapEventName;
+    }
+
+    public void setRedcapEventName(String redcapEventName) {
+        this.redcapEventName = redcapEventName;
     }
 
     @Column(name = "mon_visit_date", nullable = true)
