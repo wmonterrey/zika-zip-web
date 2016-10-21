@@ -84,9 +84,9 @@ public class Zp01StudyEntrySectionFtoK extends BaseMetaData implements Auditable
     private String seaReminderPreg;
     private String seaReminderProvided;
     private Date seaOneweekDate;
-    private Date seaOneweekTime;
+    private String seaOneweekTime;
     private Date seaNextDate;
-    private Date seaNextTime;
+    private String seaNextTime;
     private String seaIdCompleting;
     private Date seaDateCompleted;
     private String seaIdReviewer;
@@ -690,12 +690,12 @@ public class Zp01StudyEntrySectionFtoK extends BaseMetaData implements Auditable
         this.seaOneweekDate = seaOneweekDate;
     }
 
-    @Column(name = "sea_oneweek_time", nullable = true)
-    public Date getSeaOneweekTime() {
+    @Column(name = "sea_oneweek_time", nullable = true, length = 50)
+    public String getSeaOneweekTime() {
         return seaOneweekTime;
     }
 
-    public void setSeaOneweekTime(Date seaOneweekTime) {
+    public void setSeaOneweekTime(String seaOneweekTime) {
         this.seaOneweekTime = seaOneweekTime;
     }
 
@@ -708,12 +708,12 @@ public class Zp01StudyEntrySectionFtoK extends BaseMetaData implements Auditable
         this.seaNextDate = seaNextDate;
     }
 
-    @Column(name = "sea_next_time", nullable = true)
-    public Date getSeaNextTime() {
+    @Column(name = "sea_next_time", nullable = true, length = 50)
+    public String getSeaNextTime() {
         return seaNextTime;
     }
 
-    public void setSeaNextTime(Date seaNextTime) {
+    public void setSeaNextTime(String seaNextTime) {
         this.seaNextTime = seaNextTime;
     }
 

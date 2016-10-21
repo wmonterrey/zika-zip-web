@@ -78,7 +78,7 @@ public class BaseMetaData implements Serializable
 		this.idInstancia = idInstancia;
 	}
 
-	@Column(name="instance_path", length = 50)
+	@Column(name="instance_path", length = 255)
 	public String getInstancePath() {
 		return instancePath;
 	}
