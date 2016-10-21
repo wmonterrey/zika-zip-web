@@ -76,7 +76,7 @@ public class Zp01StudyEntrySectionFtoK extends BaseMetaData implements Auditable
     private String seaBleeding;
     private String seaYesBleeding;
     private String seaUti;
-    private String seaPrenatalCare;
+    private Date seaPrenatalCare;
     private String seaMutiv;
     private String seaIron;
     private String seaOften;
@@ -618,14 +618,15 @@ public class Zp01StudyEntrySectionFtoK extends BaseMetaData implements Auditable
         this.seaUti = seaUti;
     }
 
-    @Column(name = "sea_prenatal_care", nullable = true, length = 1)
-    public String getSeaPrenatalCare() {
+    @Column(name = "sea_prenatal_care", nullable = true)
+    public Date getSeaPrenatalCare() {
         return seaPrenatalCare;
     }
 
-    public void setSeaPrenatalCare(String seaPrenatalCare) {
+    public void setSeaPrenatalCare(Date seaPrenatalCare) {
         this.seaPrenatalCare = seaPrenatalCare;
     }
+
 
     @Column(name = "sea_mutiv", nullable = true, length = 1)
     public String getSeaMutiv() {
