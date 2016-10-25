@@ -108,9 +108,9 @@ public class Zp06DeliveryAnd6weekVisit extends BaseMetaData implements Auditable
     private String deliTinglingFoot;//multiple
     private String deliTinglingFace;//multiple
     private String deliTinglingOther;
-    private String deliSensationMin;
-    private String deliSensationHr;
-    private String deliSenstaionDay;
+    private Integer deliSensationMin;
+    private Integer deliSensationHr;
+    private Integer deliSenstaionDay;
     private String deliInjury;
     private String deliTinglingDay;
     private String deliTinglingMonth;
@@ -969,29 +969,29 @@ public class Zp06DeliveryAnd6weekVisit extends BaseMetaData implements Auditable
     }
 
     @Column(name = "deli_sensation_min", nullable = true, length = 2)
-    public String getDeliSensationMin() {
+    public Integer getDeliSensationMin() {
         return deliSensationMin;
     }
 
-    public void setDeliSensationMin(String deliSensationMin) {
+    public void setDeliSensationMin(Integer deliSensationMin) {
         this.deliSensationMin = deliSensationMin;
     }
 
     @Column(name = "deli_sensation_hr", nullable = true, length = 2)
-    public String getDeliSensationHr() {
+    public Integer getDeliSensationHr() {
         return deliSensationHr;
     }
 
-    public void setDeliSensationHr(String deliSensationHr) {
+    public void setDeliSensationHr(Integer deliSensationHr) {
         this.deliSensationHr = deliSensationHr;
     }
 
     @Column(name = "deli_senstaion_day", nullable = true, length = 3)
-    public String getDeliSenstaionDay() {
+    public Integer getDeliSenstaionDay() {
         return deliSenstaionDay;
     }
 
-    public void setDeliSenstaionDay(String deliSenstaionDay) {
+    public void setDeliSenstaionDay(Integer deliSenstaionDay) {
         this.deliSenstaionDay = deliSenstaionDay;
     }
 
