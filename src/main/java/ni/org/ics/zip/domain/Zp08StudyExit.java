@@ -28,6 +28,7 @@ public class Zp08StudyExit extends BaseMetaData implements Auditable {
     private String extInfDeathTime;
     private String extTestResultsRcvd;
     private String extCounselingRcvd;
+    private String extComments;
     private String extIdCompleting;
     private Date extDateCompleted;
     private String extIdReviewer;
@@ -134,6 +135,11 @@ public class Zp08StudyExit extends BaseMetaData implements Auditable {
     public void setExtCounselingRcvd(String extCounselingRcvd) {
         this.extCounselingRcvd = extCounselingRcvd;
     }
+
+    @Column(name = "ext_comments", nullable = true)
+    public String getExtComments() { return extComments;  }
+
+    public void setExtComments(String extComments) { this.extComments = extComments; }
 
     @Column(name = "ext_id_completing", nullable = true, length = 25)
     public String getExtIdCompleting() {
