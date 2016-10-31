@@ -718,7 +718,7 @@ public class Zp01StudyEntrySectionFtoK extends BaseMetaData implements Auditable
         this.seaNextTime = seaNextTime;
     }
 
-    @Column(name = "sea_id_completing", nullable = true, length = 1)
+    @Column(name = "sea_id_completing", nullable = true, length = 50)
     public String getSeaIdCompleting() {
         return seaIdCompleting;
     }
@@ -736,7 +736,7 @@ public class Zp01StudyEntrySectionFtoK extends BaseMetaData implements Auditable
         this.seaDateCompleted = seaDateCompleted;
     }
 
-    @Column(name = "sea_id_reviewer", nullable = true, length = 1)
+    @Column(name = "sea_id_reviewer", nullable = true, length = 50)
     public String getSeaIdReviewer() {
         return seaIdReviewer;
     }
@@ -754,7 +754,7 @@ public class Zp01StudyEntrySectionFtoK extends BaseMetaData implements Auditable
         this.seaDateReviewed = seaDateReviewed;
     }
 
-    @Column(name = "sea_id_data_entry", nullable = true, length = 1)
+    @Column(name = "sea_id_data_entry", nullable = true, length = 50)
     public String getSeaIdDataEntry() {
         return seaIdDataEntry;
     }

@@ -376,7 +376,7 @@ public class Zp04TrimesterVisitSectionFtoH extends BaseMetaData implements Audit
         this.triNextVisitTime = triNextVisitTime;
     }
 
-    @Column(name = "tri_comp_id", nullable = true, length = 25)
+    @Column(name = "tri_comp_id", nullable = true, length = 50)
     public String getTriCompId() {
         return triCompId;
     }
@@ -394,7 +394,7 @@ public class Zp04TrimesterVisitSectionFtoH extends BaseMetaData implements Audit
         this.triCompDat = triCompDat;
     }
 
-    @Column(name = "tri_rev_id", nullable = true, length = 25)
+    @Column(name = "tri_rev_id", nullable = true, length = 50)
     public String getTriRevId() {
         return triRevId;
     }
@@ -412,7 +412,7 @@ public class Zp04TrimesterVisitSectionFtoH extends BaseMetaData implements Audit
         this.triRevDat = triRevDat;
     }
 
-    @Column(name = "tri_ent_id", nullable = true, length = 25)
+    @Column(name = "tri_ent_id", nullable = true, length = 50)
     public String getTriEntId() {
         return triEntId;
     }

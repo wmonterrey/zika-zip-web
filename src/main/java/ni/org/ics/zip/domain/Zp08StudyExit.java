@@ -141,7 +141,7 @@ public class Zp08StudyExit extends BaseMetaData implements Auditable {
 
     public void setExtComments(String extComments) { this.extComments = extComments; }
 
-    @Column(name = "ext_id_completing", nullable = true, length = 25)
+    @Column(name = "ext_id_completing", nullable = true, length = 50)
     public String getExtIdCompleting() {
         return extIdCompleting;
     }
@@ -159,7 +159,7 @@ public class Zp08StudyExit extends BaseMetaData implements Auditable {
         this.extDateCompleted = extDateCompleted;
     }
 
-    @Column(name = "ext_id_reviewer", nullable = true, length = 25)
+    @Column(name = "ext_id_reviewer", nullable = true, length = 50)
     public String getExtIdReviewer() {
         return extIdReviewer;
     }
@@ -177,7 +177,7 @@ public class Zp08StudyExit extends BaseMetaData implements Auditable {
         this.extDateReviewed = extDateReviewed;
     }
 
-    @Column(name = "ext_id_data_entry", nullable = true, length = 25)
+    @Column(name = "ext_id_data_entry", nullable = true, length = 50)
     public String getExtIdDataEntry() {
         return extIdDataEntry;
     }

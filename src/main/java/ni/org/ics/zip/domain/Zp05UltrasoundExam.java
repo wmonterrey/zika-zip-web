@@ -785,7 +785,7 @@ public class Zp05UltrasoundExam extends BaseMetaData implements Auditable {
         this.ultSpresentation3 = ultSpresentation3;
     }
 
-    @Column(name = "ult_id_completing", nullable = true, length = 1)
+    @Column(name = "ult_id_completing", nullable = true, length = 50)
     public String getUltIdCompleting() {
         return ultIdCompleting;
     }
@@ -803,7 +803,7 @@ public class Zp05UltrasoundExam extends BaseMetaData implements Auditable {
         this.ultDateCompleted = ultDateCompleted;
     }
 
-    @Column(name = "ult_id_reviewer", nullable = true, length = 1)
+    @Column(name = "ult_id_reviewer", nullable = true, length = 50)
     public String getUltIdReviewer() {
         return ultIdReviewer;
     }
@@ -821,7 +821,7 @@ public class Zp05UltrasoundExam extends BaseMetaData implements Auditable {
         this.ultDateReviewed = ultDateReviewed;
     }
 
-    @Column(name = "ult_id_data_entry", nullable = true, length = 1)
+    @Column(name = "ult_id_data_entry", nullable = true, length = 50)
     public String getUltIdDataEntry() {
         return ultIdDataEntry;
     }

@@ -305,7 +305,7 @@ public class Zp00Screening extends BaseMetaData implements Auditable{
         this.scrReasonOther = scrReasonOther;
     }
 
-    @Column(name = "scr_id_completing", nullable = false)
+    @Column(name = "scr_id_completing", nullable = false, length = 50)
     public String getScrIdCompleting() {
         return scrIdCompleting;
     }
@@ -323,7 +323,7 @@ public class Zp00Screening extends BaseMetaData implements Auditable{
         this.scrDateCompleted = scrDateCompleted;
     }
 
-    @Column(name = "scr_id_reviewer", nullable = false)
+    @Column(name = "scr_id_reviewer", nullable = false, length = 50)
     public String getScrIdReviewer() {
         return scrIdReviewer;
     }
@@ -341,7 +341,7 @@ public class Zp00Screening extends BaseMetaData implements Auditable{
         this.scrDateReviewed = scrDateReviewed;
     }
 
-    @Column(name = "scr_id_data_entry", nullable = false)
+    @Column(name = "scr_id_data_entry", nullable = false, length = 50)
     public String getScrIdDataEntry() {
         return scrIdDataEntry;
     }

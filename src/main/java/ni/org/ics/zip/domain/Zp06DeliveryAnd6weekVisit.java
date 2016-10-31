@@ -1265,7 +1265,7 @@ public class Zp06DeliveryAnd6weekVisit extends BaseMetaData implements Auditable
         this.deliResultsOther = deliResultsOther;
     }
 
-    @Column(name = "deli_id_completing", nullable = true, length = 25)
+    @Column(name = "deli_id_completing", nullable = true, length = 50)
     public String getDeliIdCompleting() {
         return deliIdCompleting;
     }
@@ -1283,7 +1283,7 @@ public class Zp06DeliveryAnd6weekVisit extends BaseMetaData implements Auditable
         this.deliDateCompleted = deliDateCompleted;
     }
 
-    @Column(name = "deli_id_reviewer", nullable = true, length = 25)
+    @Column(name = "deli_id_reviewer", nullable = true, length = 50)
     public String getDeliIdReviewer() {
         return deliIdReviewer;
     }
@@ -1301,7 +1301,7 @@ public class Zp06DeliveryAnd6weekVisit extends BaseMetaData implements Auditable
         this.deliDateReviewed = deliDateReviewed;
     }
 
-    @Column(name = "deli_id_data_entry", nullable = true, length = 25)
+    @Column(name = "deli_id_data_entry", nullable = true, length = 50)
     public String getDeliIdDataEntry() {
         return deliIdDataEntry;
     }

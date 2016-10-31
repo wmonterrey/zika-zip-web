@@ -1415,7 +1415,7 @@ public class Zp03MonthlyVisit extends BaseMetaData implements Auditable {
         this.monNextTime = monNextTime;
     }
 
-    @Column(name = "mon_id_completing", nullable = true, length = 25)
+    @Column(name = "mon_id_completing", nullable = true, length = 50)
     public String getMonIdCompleting() {
         return monIdCompleting;
     }
@@ -1433,7 +1433,7 @@ public class Zp03MonthlyVisit extends BaseMetaData implements Auditable {
         this.monDateCompleted = monDateCompleted;
     }
 
-    @Column(name = "mon_id_reviewer", nullable = true, length = 25)
+    @Column(name = "mon_id_reviewer", nullable = true, length = 50)
     public String getMonIdReviewer() {
         return monIdReviewer;
     }
@@ -1451,7 +1451,7 @@ public class Zp03MonthlyVisit extends BaseMetaData implements Auditable {
         this.monDateReviewed = monDateReviewed;
     }
 
-    @Column(name = "mon_id_data_entry", nullable = true, length = 25)
+    @Column(name = "mon_id_data_entry", nullable = true, length = 50)
     public String getMonIdDataEntry() {
         return monIdDataEntry;
     }
@@ -1460,7 +1460,7 @@ public class Zp03MonthlyVisit extends BaseMetaData implements Auditable {
         this.monIdDataEntry = monIdDataEntry;
     }
 
-    @Column(name = "mon_date_entered", nullable = true, length = 25)
+    @Column(name = "mon_date_entered", nullable = true)
     public Date getMonDateEntered() {
         return monDateEntered;
     }
