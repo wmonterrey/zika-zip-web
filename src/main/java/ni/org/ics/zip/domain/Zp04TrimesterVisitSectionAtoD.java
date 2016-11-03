@@ -121,6 +121,7 @@ public class Zp04TrimesterVisitSectionAtoD extends BaseMetaData implements Audit
         this.recordId = recordId;
     }
 
+    @Id
     @Column(name = "redcap_event_name", nullable = true)
     public String getRedcapEventName() {
         return redcapEventName;
