@@ -55,9 +55,8 @@ Initializable {
      */
 	@Override
 	public void onPostUpdate(PostUpdateEvent event) {
-		try {  
-            final Serializable entityId = event.getPersister().hasIdentifierProperty() ? event.getPersister().getIdentifier(event.getEntity(), event.getSession())  
-                    : null;  
+		try {
+            final Serializable entityId = event.getId();
             final String entityClass = event.getEntity().getClass().toString();
             final String entityName = event.getEntity().toString();
             final Date transTime = new Date(); // new Date(event.getSource().getTimestamp());  

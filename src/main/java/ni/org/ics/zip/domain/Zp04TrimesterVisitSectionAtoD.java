@@ -203,7 +203,7 @@ public class Zp04TrimesterVisitSectionAtoD extends BaseMetaData implements Audit
         this.triPrimJobYear = triPrimJobYear;
     }
 
-    @Column(name = "tri_prim_job_hours", nullable = true, length = 2)
+    @Column(name = "tri_prim_job_hours", nullable = true, length = 4)
     public String getTriPrimJobHours() {
         return triPrimJobHours;
     }
@@ -293,7 +293,7 @@ public class Zp04TrimesterVisitSectionAtoD extends BaseMetaData implements Audit
         this.triPrevJobYear = triPrevJobYear;
     }
 
-    @Column(name = "tri_prev_job_hours", nullable = true, length = 2)
+    @Column(name = "tri_prev_job_hours", nullable = true, length = 4)
     public String getTriPrevJobHours() {
         return triPrevJobHours;
     }

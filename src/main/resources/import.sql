@@ -87,8 +87,8 @@ INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'pass.updated'
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'password.repeat', 'Repita la contraseña','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'Pattern.password.format', 'Al menos 8 caracteres combinando mayúsculas, minúsculas, números y caracteres especiales','0');
 /*Plantilla*/
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'heading', 'Resultados de HAI','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'title', 'HAI','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'heading', 'Estudio ZIP','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'title', 'ZIP','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'footer', 'Instituto de Ciencias Sostenibles - Universidad de Michigan','0');
 /*pagina principal*/
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'dashboard', 'Panel de control','0');
