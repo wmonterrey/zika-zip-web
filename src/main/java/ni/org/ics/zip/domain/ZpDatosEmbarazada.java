@@ -1,5 +1,9 @@
 package ni.org.ics.zip.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -7,6 +11,8 @@ import java.util.Date;
  * Created by FIRSTICT on 10/6/2016.
  * V1.0
  */
+@Entity
+@Table(name = "zp_datos_embarazada", catalog = "zika_zip")
 public class ZpDatosEmbarazada extends BaseMetaData{
 
     /**
@@ -24,7 +30,9 @@ public class ZpDatosEmbarazada extends BaseMetaData{
 	private BigDecimal latitud;
 	private BigDecimal longitud;
 	private String telefonoContacto;
-	
+
+    @Id
+    @Column(name = "record_id", nullable = false, length = 25)
     public String getRecordId() {
         return recordId;
     }
@@ -33,6 +41,7 @@ public class ZpDatosEmbarazada extends BaseMetaData{
         this.recordId = recordId;
     }
 
+    @Column(name = "cs", nullable = true, length = 100)
 	public String getCs() {
 		return cs;
 	}
@@ -41,6 +50,7 @@ public class ZpDatosEmbarazada extends BaseMetaData{
 		this.cs = cs;
 	}
 
+    @Column(name = "nombre1", nullable = true, length = 50)
 	public String getNombre1() {
 		return nombre1;
 	}
@@ -49,6 +59,7 @@ public class ZpDatosEmbarazada extends BaseMetaData{
 		this.nombre1 = nombre1;
 	}
 
+    @Column(name = "nombre2", nullable = true, length = 50)
 	public String getNombre2() {
 		return nombre2;
 	}
@@ -57,6 +68,7 @@ public class ZpDatosEmbarazada extends BaseMetaData{
 		this.nombre2 = nombre2;
 	}
 
+    @Column(name = "apellido1", nullable = true, length = 50)
 	public String getApellido1() {
 		return apellido1;
 	}
@@ -65,6 +77,7 @@ public class ZpDatosEmbarazada extends BaseMetaData{
 		this.apellido1 = apellido1;
 	}
 
+    @Column(name = "apellido2", nullable = true, length = 50)
 	public String getApellido2() {
 		return apellido2;
 	}
@@ -73,6 +86,7 @@ public class ZpDatosEmbarazada extends BaseMetaData{
 		this.apellido2 = apellido2;
 	}
 
+    @Column(name = "fecha_nacimiento", nullable = true)
 	public Date getFechaNac() {
 		return fechaNac;
 	}
@@ -81,6 +95,7 @@ public class ZpDatosEmbarazada extends BaseMetaData{
 		this.fechaNac = fechaNac;
 	}
 
+    @Column(name = "direccion", nullable = true)
 	public String getDireccion() {
 		return direccion;
 	}
@@ -89,6 +104,7 @@ public class ZpDatosEmbarazada extends BaseMetaData{
 		this.direccion = direccion;
 	}
 
+    @Column(name = "latitud", nullable = true)
 	public BigDecimal getLatitud() {
 		return latitud;
 	}
@@ -97,6 +113,7 @@ public class ZpDatosEmbarazada extends BaseMetaData{
 		this.latitud = latitud;
 	}
 
+    @Column(name = "longitud", nullable = true)
 	public BigDecimal getLongitud() {
 		return longitud;
 	}
@@ -105,6 +122,7 @@ public class ZpDatosEmbarazada extends BaseMetaData{
 		this.longitud = longitud;
 	}
 
+    @Column(name = "telefono_contacto", nullable = true, length = 50)
 	public String getTelefonoContacto() {
 		return telefonoContacto;
 	}
