@@ -134,7 +134,7 @@ public class Zp04TrimesterVisitSectionE extends BaseMetaData implements Auditabl
     }
 
     @Id
-    @Column(name = "redcap_event_name", nullable = true)
+    @Column(name = "redcap_event_name", nullable = true, length = 100)
     public String getRedcapEventName() {
         return redcapEventName;
     }

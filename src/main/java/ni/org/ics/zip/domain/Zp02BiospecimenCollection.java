@@ -150,7 +150,7 @@ public class Zp02BiospecimenCollection extends BaseMetaData implements Auditable
     }
 
     @Id
-    @Column(name = "redcap_event_name", nullable = true)
+    @Column(name = "redcap_event_name", nullable = true, length = 100)
     public String getRedcapEventName() {
         return redcapEventName;
     }
@@ -1237,7 +1237,7 @@ public class Zp02BiospecimenCollection extends BaseMetaData implements Auditable
 
     @Override
     public String toString() {
-        return this.recordId;
+        return recordId + "," + redcapEventName;
     }
 
     @Override
@@ -1248,6 +1248,9 @@ public class Zp02BiospecimenCollection extends BaseMetaData implements Auditable
 
         Zp02BiospecimenCollection that = (Zp02BiospecimenCollection) o;
 
-        return (recordId.equals(that.recordId));
+        if (!recordId.equals(that.recordId) ) return false;
+        if (!redcapEventName.equals(that.redcapEventName)) return false;
+
+        return true;
     }
 }

@@ -19,6 +19,7 @@ public class Zp01StudyEntrySectionFtoK extends BaseMetaData implements Auditable
 
     private static final long serialVersionUID = 1L;
     private String recordId;
+    private String redcapEventName;
     private String seaPreg;
     private String seaFirstPreg;
     private String seaAnemia;
@@ -103,6 +104,15 @@ public class Zp01StudyEntrySectionFtoK extends BaseMetaData implements Auditable
 
     public void setRecordId(String recordId) {
         this.recordId = recordId;
+    }
+
+    @Column(name = "redcap_event_name", nullable = true, length = 100)
+    public String getRedcapEventName() {
+        return redcapEventName;
+    }
+
+    public void setRedcapEventName(String redcapEventName) {
+        this.redcapEventName = redcapEventName;
     }
 
     @Column(name = "sea_preg", nullable = true, length = 1)

@@ -71,7 +71,7 @@ public class Zp04TrimesterVisitSectionFtoH extends BaseMetaData implements Audit
     }
 
     @Id
-    @Column(name = "redcap_event_name", nullable = true)
+    @Column(name = "redcap_event_name", nullable = true, length = 100)
     public String getRedcapEventName() {
         return redcapEventName;
     }

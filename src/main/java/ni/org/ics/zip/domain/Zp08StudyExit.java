@@ -18,6 +18,7 @@ public class Zp08StudyExit extends BaseMetaData implements Auditable {
 
     private static final long serialVersionUID = 1L;
     private String recordId;
+    private String redcapEventName;
     private Date extStudyExitDate;
     private String extSubjClass;
     private String extStudyExitReason;
@@ -44,6 +45,15 @@ public class Zp08StudyExit extends BaseMetaData implements Auditable {
 
     public void setRecordId(String recordId) {
         this.recordId = recordId;
+    }
+
+    @Column(name = "redcap_event_name", nullable = true, length = 100)
+    public String getRedcapEventName() {
+        return redcapEventName;
+    }
+
+    public void setRedcapEventName(String redcapEventName) {
+        this.redcapEventName = redcapEventName;
     }
 
     @Column(name = "ext_study_exit_date", nullable = true)
