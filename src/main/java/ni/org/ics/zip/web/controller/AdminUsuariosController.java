@@ -37,7 +37,7 @@ import com.google.gson.Gson;
 /**
  * Controlador web de peticiones relacionadas a usuarios
  * 
- * @author William Avilés
+ * @author William Avilï¿½s
  */
 @Controller
 @RequestMapping("/admin/users/*")
@@ -68,6 +68,7 @@ public class AdminUsuariosController {
     	List<Rol> roles = usuarioService.getRoles();
 	    model.addAttribute("roles", roles);
 	    model.addAttribute("agregando",true);
+        model.addAttribute("editando",false);
 		return "admin/users/enterForm";
 	}
 	
@@ -87,6 +88,7 @@ public class AdminUsuariosController {
 	    	List<Authority> rolesusuario = this.usuarioService.getRolesUsuario(username);
 	    	model.addAttribute("rolesusuario", rolesusuario);
 	    	model.addAttribute("editando",true);
+            model.addAttribute("agregando",false);
 			return "admin/users/enterForm";
 		}
 		else{

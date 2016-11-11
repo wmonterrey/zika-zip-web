@@ -83,7 +83,7 @@ var EditUser = function () {
                     },
                     authorities: {
                         required: false
-                    },
+                    }
                 },
 
                 invalidHandler: function (event, validator) { //display error alert on form submit              
