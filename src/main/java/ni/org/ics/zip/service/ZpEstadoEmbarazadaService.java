@@ -48,7 +48,7 @@ public class ZpEstadoEmbarazadaService {
 
     /**
      * Guardar un formulario ZpEstadoEmbarazada
-     * @param ZpEstadoEmbarazadaService a guardar
+     * @param zpEstadoEmbarazada a guardar
      */
     public void saveZpEstadoEmbarazada(ZpEstadoEmbarazada zpEstadoEmbarazada){
         Session session = sessionFactory.getCurrentSession();

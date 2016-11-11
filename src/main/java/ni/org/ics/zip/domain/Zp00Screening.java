@@ -18,6 +18,7 @@ public class Zp00Screening extends BaseMetaData implements Auditable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private String recordId;
+    private String preScreenId;
     private String redcapEventName;
     private Date scrVisitDate;
     private String scrRemain;
@@ -61,6 +62,15 @@ public class Zp00Screening extends BaseMetaData implements Auditable{
 
     public void setRecordId(String recordId) {
         this.recordId = recordId;
+    }
+
+    @Column(name = "prescreen_id", nullable = true, length = 50)
+    public String getPreScreenId() {
+        return preScreenId;
+    }
+
+    public void setPreScreenId(String preScreenId) {
+        this.preScreenId = preScreenId;
     }
 
     @Column(name = "redcap_event_name", nullable = true, length = 100)
