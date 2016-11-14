@@ -42,33 +42,6 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="results">
-                        <a href="javascript:;">
-                            <i class="fa fa-list"></i>
-					<span class="title">
-						<spring:message code="results" />
-					</span>
-					<span class="arrow ">
-					</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li class="addres">
-                                <a href="<spring:url value="/results/newResult/" htmlEscape="true "/>">
-                                    <i class="fa fa-plus"></i>
-                                    <spring:message code="addres" /></a>
-                            </li>
-                            <li class="editres">
-                                <a href="<spring:url value="/results/list/" htmlEscape="true "/>">
-                                    <i class="fa fa-pencil"></i>
-                                    <spring:message code="editres" /></a>
-                            </li>
-                            <li class="delres">
-                                <a href="<spring:url value="/results/list/" htmlEscape="true "/>">
-                                    <i class="fa fa-trash-o"></i>
-                                    <spring:message code="delres" /></a>
-                            </li>
-                        </ul>
-                    </li>
                 </sec:authorize>
 
                 <li class="last ">
