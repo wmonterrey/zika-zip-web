@@ -1,6 +1,7 @@
 package ni.org.ics.zip.service;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+import ni.org.ics.zip.utils.ExportParameters;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -42,6 +43,7 @@ public class ExportarService {
             DatabaseMetaData meta = con.getMetaData();
             ResultSet res = meta.getColumns(null, null, tableName, null);
             System.out.println("List of columns: ");
+            int indice = 0;
             while (res.next()) {
                 //excluir estos campos
                 if (!res.getString("COLUMN_NAME").equalsIgnoreCase("identificador_equipo") &&
@@ -55,10 +57,20 @@ public class ExportarService {
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("USUARIO_REGISTRO") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("simserial") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("start") &&
-                        !res.getString("COLUMN_NAME").equalsIgnoreCase("today")
+                        !res.getString("COLUMN_NAME").equalsIgnoreCase("today") &&
+                        !res.getString("COLUMN_NAME").equalsIgnoreCase("prescreen_id")
                         ) {
-                    columns.add(res.getString("COLUMN_NAME"));
+                    if (res.getString("COLUMN_NAME").equalsIgnoreCase("record_id") && !columns.isEmpty()) {
+                        //el record_id siempre debe ser el primer campo
+                        String columnaTmp = columns.get(0);
+                        columns.set(0,res.getString("COLUMN_NAME"));
+                        columns.add(columnaTmp);
+                    }
+                    else {
+                        columns.add(res.getString("COLUMN_NAME"));
+                    }
                 }
+                indice++;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -69,26 +81,32 @@ public class ExportarService {
         return columns;
     }
 
-    public StringBuffer getZp00ExportData(String tableName) throws Exception{
+    public StringBuffer getZp00ExportData(ExportParameters exportParameters) throws Exception{
         StringBuffer sb = new StringBuffer();
 
         Connection con = getConnection();
+        PreparedStatement pStatement = null;
+        ResultSet res = null;
         String columnas = "";
         String valores = "";
         try {
             //recuperar los nombres de las columnas
-            List<String> columns = getTableMetaData(tableName);
-            for(String col : columns){
-                if (columnas.isEmpty()) //es primer columna
-                    columnas+=col;
-                else
-                    columnas += SEPARADOR + col;
+            List<String> columns = getTableMetaData(exportParameters.getTableName());
+            columnas = parseColumns(columns);
 
+            //pasar a recuperar los datos. Setear parámetro si los hay
+            StringBuilder sqlStrBuilder = new StringBuilder();
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+
+            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+
+            pStatement = con.prepareStatement(sqlStrBuilder.toString());
+            if (exportParameters.thereAreValues()){
+                pStatement.setString(1, exportParameters.getCodigoInicio());
+                pStatement.setString(2, exportParameters.getCodigoFin());
             }
-            //pasar a recuperar los datos
-            Statement statement = con.createStatement();
-            String sql = "select "+columnas+" from "+tableName;
-            ResultSet res = statement.executeQuery(sql);
+
+            res = pStatement.executeQuery();
 
             //columnas que necesita redcap y no estan en la tabla
             columnas = columnas.replaceAll("scr_prestudyna","scr_prestudyna___1");
@@ -130,7 +148,6 @@ public class ExportarService {
                                 valores += SEPARADOR;
 
                         }
-
                 }
                 //valor para zp00_screening_complete
                 valores += SEPARADOR + "1";
@@ -138,35 +155,43 @@ public class ExportarService {
                 valores = "";
                 sb.append(SALTOLINEA);
             }
-            res.close();
-            con.close();
-
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            if (res !=null) res.close();
+            if (pStatement !=null) pStatement.close();
+            if (con !=null) con.close();
         }
         return sb;
     }
 
-    public StringBuffer getZp01ADExportData(String tableName) throws Exception{
-        StringBuffer sb = new StringBuffer();
+    public StringBuffer getZp01ADExportData(ExportParameters exportParameters) throws Exception{
 
+        StringBuffer sb = new StringBuffer();
         Connection con = getConnection();
+        PreparedStatement pStatement = null;
+        ResultSet res = null;
         String columnas = "";
         String valores = "";
+
         try {
             //recuperar los nombres de las columnas
-            List<String> columns = getTableMetaData(tableName);
-            for(String col : columns){
-                if (columnas.isEmpty()) //es primer columna
-                    columnas+=col;
-                else
-                    columnas += SEPARADOR + col;
+            List<String> columns = getTableMetaData(exportParameters.getTableName());
+            columnas = parseColumns(columns);
 
+            //pasar a recuperar los datos. Setear parámetro si los hay
+            StringBuilder sqlStrBuilder = new StringBuilder();
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+
+            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+
+            pStatement = con.prepareStatement(sqlStrBuilder.toString());
+            if (exportParameters.thereAreValues()){
+                pStatement.setString(1, exportParameters.getCodigoInicio());
+                pStatement.setString(2, exportParameters.getCodigoFin());
             }
-            //pasar a recuperar los datos
-            Statement statement = con.createStatement();
-            String sql = "select "+columnas+" from "+tableName;
-            ResultSet res = statement.executeQuery(sql);
+
+            res = pStatement.executeQuery();
 
             //Columnas que necesita redcap y no estan en la tabla
             columnas = columnas.replaceAll("sea_lmpunknown","sea_lmpunknown___1");
@@ -211,36 +236,43 @@ public class ExportarService {
                 valores = "";
                 sb.append(SALTOLINEA);
             }
-            res.close();
-            con.close();
-
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            if (res !=null) res.close();
+            if (pStatement !=null) pStatement.close();
+            if (con !=null) con.close();
         }
         return sb;
     }
 
-    public StringBuffer getZp01EExportData(String tableName) throws Exception{
-        StringBuffer sb = new StringBuffer();
+    public StringBuffer getZp01EExportData(ExportParameters exportParameters) throws Exception{
 
+        StringBuffer sb = new StringBuffer();
         Connection con = getConnection();
+        PreparedStatement pStatement = null;
+        ResultSet res = null;
         String columnas = "";
         String valores = "";
+
         try {
             //recuperar los nombres de las columnas
-            List<String> columns = getTableMetaData(tableName);
-            for(String col : columns){
-                if (columnas.isEmpty()) //es primer columna
-                    columnas+=col;
-                else
-                    columnas += SEPARADOR + col;
+            List<String> columns = getTableMetaData(exportParameters.getTableName());
+            columnas = parseColumns(columns);
 
+            //pasar a recuperar los datos. Setear parámetro si los hay
+            StringBuilder sqlStrBuilder = new StringBuilder();
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+
+            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+
+            pStatement = con.prepareStatement(sqlStrBuilder.toString());
+            if (exportParameters.thereAreValues()){
+                pStatement.setString(1, exportParameters.getCodigoInicio());
+                pStatement.setString(2, exportParameters.getCodigoFin());
             }
-            //pasar a recuperar los datos
-            Statement statement = con.createStatement();
-            String sql = "select "+columnas+" from "+tableName;
-            ResultSet res = statement.executeQuery(sql);
 
+            res = pStatement.executeQuery();
             //Valores de campos múltiples
             String[] diseases = "1,2,3,4,5,6,7,8,9,98".split(",");
             String[] rashFirst = "1,2,3,4,5,6,7,8,9".split(",");
@@ -375,36 +407,43 @@ public class ExportarService {
                 valores = "";
                 sb.append(SALTOLINEA);
             }
-            res.close();
-            con.close();
-
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            if (res !=null) res.close();
+            if (pStatement !=null) pStatement.close();
+            if (con !=null) con.close();
         }
         return sb;
     }
 
-    public StringBuffer getZp01FKExportData(String tableName) throws Exception{
-        StringBuffer sb = new StringBuffer();
+    public StringBuffer getZp01FKExportData(ExportParameters exportParameters) throws Exception{
 
+        StringBuffer sb = new StringBuffer();
         Connection con = getConnection();
+        PreparedStatement pStatement = null;
+        ResultSet res = null;
         String columnas = "";
         String valores = "";
+
         try {
             //recuperar los nombres de las columnas
-            List<String> columns = getTableMetaData(tableName);
-            for(String col : columns){
-                if (columnas.isEmpty()) //es primer columna
-                    columnas+=col;
-                else
-                    columnas += SEPARADOR + col;
+            List<String> columns = getTableMetaData(exportParameters.getTableName());
+            columnas = parseColumns(columns);
 
+            //pasar a recuperar los datos. Setear parámetro si los hay
+            StringBuilder sqlStrBuilder = new StringBuilder();
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+
+            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+
+            pStatement = con.prepareStatement(sqlStrBuilder.toString());
+            if (exportParameters.thereAreValues()){
+                pStatement.setString(1, exportParameters.getCodigoInicio());
+                pStatement.setString(2, exportParameters.getCodigoFin());
             }
-            //pasar a recuperar los datos
-            Statement statement = con.createStatement();
-            String sql = "select "+columnas+" from "+tableName;
-            ResultSet res = statement.executeQuery(sql);
 
+            res = pStatement.executeQuery();
             //Valores de campos múltiples
             String[] characterDisch = "1,2,3,4,5,6".split(",");
 
@@ -463,35 +502,43 @@ public class ExportarService {
                 valores = "";
                 sb.append(SALTOLINEA);
             }
-            res.close();
-            con.close();
-
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            if (res !=null) res.close();
+            if (pStatement !=null) pStatement.close();
+            if (con !=null) con.close();
         }
         return sb;
     }
 
-    public StringBuffer getZp02ExportData(String tableName) throws Exception{
-        StringBuffer sb = new StringBuffer();
+    public StringBuffer getZp02ExportData(ExportParameters exportParameters) throws Exception{
 
+        StringBuffer sb = new StringBuffer();
         Connection con = getConnection();
+        PreparedStatement pStatement = null;
+        ResultSet res = null;
         String columnas = "";
         String valores = "";
+
         try {
             //recuperar los nombres de las columnas
-            List<String> columns = getTableMetaData(tableName);
-            for(String col : columns){
-                if (columnas.isEmpty()) //es primer columna
-                    columnas+=col;
-                else
-                    columnas += SEPARADOR + col;
+            List<String> columns = getTableMetaData(exportParameters.getTableName());
+            columnas = parseColumns(columns);
 
+            //pasar a recuperar los datos. Setear parámetro si los hay
+            StringBuilder sqlStrBuilder = new StringBuilder();
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+
+            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+
+            pStatement = con.prepareStatement(sqlStrBuilder.toString());
+            if (exportParameters.thereAreValues()){
+                pStatement.setString(1, exportParameters.getCodigoInicio());
+                pStatement.setString(2, exportParameters.getCodigoFin());
             }
-            //pasar a recuperar los datos
-            Statement statement = con.createStatement();
-            String sql = "select "+columnas+" from "+tableName;
-            ResultSet res = statement.executeQuery(sql);
+
+            res = pStatement.executeQuery();
 
             //Valores de campos múltiples
             String[] bscMatOtherType = "1,4".split(",");
@@ -554,35 +601,43 @@ public class ExportarService {
                 valores = "";
                 sb.append(SALTOLINEA);
             }
-            res.close();
-            con.close();
-
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            if (res !=null) res.close();
+            if (pStatement !=null) pStatement.close();
+            if (con !=null) con.close();
         }
         return sb;
     }
 
-    public StringBuffer getZp03ExportData(String tableName) throws Exception{
-        StringBuffer sb = new StringBuffer();
+    public StringBuffer getZp03ExportData(ExportParameters exportParameters) throws Exception{
 
+        StringBuffer sb = new StringBuffer();
         Connection con = getConnection();
+        PreparedStatement pStatement = null;
+        ResultSet res = null;
         String columnas = "";
         String valores = "";
+
         try {
             //recuperar los nombres de las columnas
-            List<String> columns = getTableMetaData(tableName);
-            for(String col : columns){
-                if (columnas.isEmpty()) //es primer columna
-                    columnas+=col;
-                else
-                    columnas += SEPARADOR + col;
+            List<String> columns = getTableMetaData(exportParameters.getTableName());
+            columnas = parseColumns(columns);
 
+            //pasar a recuperar los datos. Setear parámetro si los hay
+            StringBuilder sqlStrBuilder = new StringBuilder();
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+
+            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+
+            pStatement = con.prepareStatement(sqlStrBuilder.toString());
+            if (exportParameters.thereAreValues()){
+                pStatement.setString(1, exportParameters.getCodigoInicio());
+                pStatement.setString(2, exportParameters.getCodigoFin());
             }
-            //pasar a recuperar los datos
-            Statement statement = con.createStatement();
-            String sql = "select "+columnas+" from "+tableName;
-            ResultSet res = statement.executeQuery(sql);
+
+            res = pStatement.executeQuery();
 
             //Valores de campos múltiples
             String[] characterDisch = "1,2,3,4,5,6".split(",");
@@ -712,35 +767,43 @@ public class ExportarService {
                 valores = "";
                 sb.append(SALTOLINEA);
             }
-            res.close();
-            con.close();
-
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            if (res !=null) res.close();
+            if (pStatement !=null) pStatement.close();
+            if (con !=null) con.close();
         }
         return sb;
     }
 
-    public StringBuffer getZp04ADExportData(String tableName) throws Exception{
-        StringBuffer sb = new StringBuffer();
+    public StringBuffer getZp04ADExportData(ExportParameters exportParameters) throws Exception{
 
+        StringBuffer sb = new StringBuffer();
         Connection con = getConnection();
+        PreparedStatement pStatement = null;
+        ResultSet res = null;
         String columnas = "";
         String valores = "";
+
         try {
             //recuperar los nombres de las columnas
-            List<String> columns = getTableMetaData(tableName);
-            for(String col : columns){
-                if (columnas.isEmpty()) //es primer columna
-                    columnas+=col;
-                else
-                    columnas += SEPARADOR + col;
+            List<String> columns = getTableMetaData(exportParameters.getTableName());
+            columnas = parseColumns(columns);
 
+            //pasar a recuperar los datos. Setear parámetro si los hay
+            StringBuilder sqlStrBuilder = new StringBuilder();
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+
+            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+
+            pStatement = con.prepareStatement(sqlStrBuilder.toString());
+            if (exportParameters.thereAreValues()){
+                pStatement.setString(1, exportParameters.getCodigoInicio());
+                pStatement.setString(2, exportParameters.getCodigoFin());
             }
-            //pasar a recuperar los datos
-            Statement statement = con.createStatement();
-            String sql = "select "+columnas+" from "+tableName;
-            ResultSet res = statement.executeQuery(sql);
+
+            res = pStatement.executeQuery();
 
             String[] houseAmenities = "1,2,3,4,5,6,7,8".split(",");
             String[] transAccess = "1,2,3,4,5,6".split(",");
@@ -816,35 +879,43 @@ public class ExportarService {
                 valores = "";
                 sb.append(SALTOLINEA);
             }
-            res.close();
-            con.close();
-
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            if (res !=null) res.close();
+            if (pStatement !=null) pStatement.close();
+            if (con !=null) con.close();
         }
         return sb;
     }
 
-    public StringBuffer getZp04EExportData(String tableName) throws Exception{
-        StringBuffer sb = new StringBuffer();
+    public StringBuffer getZp04EExportData(ExportParameters exportParameters) throws Exception{
 
+        StringBuffer sb = new StringBuffer();
         Connection con = getConnection();
+        PreparedStatement pStatement = null;
+        ResultSet res = null;
         String columnas = "";
         String valores = "";
+
         try {
             //recuperar los nombres de las columnas
-            List<String> columns = getTableMetaData(tableName);
-            for(String col : columns){
-                if (columnas.isEmpty()) //es primer columna
-                    columnas+=col;
-                else
-                    columnas += SEPARADOR + col;
+            List<String> columns = getTableMetaData(exportParameters.getTableName());
+            columnas = parseColumns(columns);
 
+            //pasar a recuperar los datos. Setear parámetro si los hay
+            StringBuilder sqlStrBuilder = new StringBuilder();
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+
+            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+
+            pStatement = con.prepareStatement(sqlStrBuilder.toString());
+            if (exportParameters.thereAreValues()){
+                pStatement.setString(1, exportParameters.getCodigoInicio());
+                pStatement.setString(2, exportParameters.getCodigoFin());
             }
-            //pasar a recuperar los datos
-            Statement statement = con.createStatement();
-            String sql = "select "+columnas+" from "+tableName;
-            ResultSet res = statement.executeQuery(sql);
+
+            res = pStatement.executeQuery();
 
             //Columnas que necesita redcap y no estan en la tabla
             columnas += SEPARADOR + "zp04_trimester_visit_section_e_complete";
@@ -886,39 +957,46 @@ public class ExportarService {
                 valores = "";
                 sb.append(SALTOLINEA);
             }
-            res.close();
-            con.close();
-
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            if (res !=null) res.close();
+            if (pStatement !=null) pStatement.close();
+            if (con !=null) con.close();
         }
         return sb;
     }
 
-    public StringBuffer getZp04FHExportData(String tableName) throws Exception{
-        StringBuffer sb = new StringBuffer();
+    public StringBuffer getZp04FHExportData(ExportParameters exportParameters) throws Exception{
 
+        StringBuffer sb = new StringBuffer();
         Connection con = getConnection();
+        PreparedStatement pStatement = null;
+        ResultSet res = null;
         String columnas = "";
         String valores = "";
+
         try {
             //recuperar los nombres de las columnas
-            List<String> columns = getTableMetaData(tableName);
-            for(String col : columns){
-                if (columnas.isEmpty()) //es primer columna
-                    columnas+=col;
-                else
-                    columnas += SEPARADOR + col;
-
-            }
+            List<String> columns = getTableMetaData(exportParameters.getTableName());
+            columnas = parseColumns(columns);
 
             //valores campos multiples
             String [] mosqRepTyp = "1,2,3,4,5".split(",");
 
-            //pasar a recuperar los datos
-            Statement statement = con.createStatement();
-            String sql = "select "+columnas+" from "+tableName;
-            ResultSet res = statement.executeQuery(sql);
+            //pasar a recuperar los datos. Setear parámetro si los hay
+            StringBuilder sqlStrBuilder = new StringBuilder();
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+
+            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+
+            pStatement = con.prepareStatement(sqlStrBuilder.toString());
+            if (exportParameters.thereAreValues()){
+                pStatement.setString(1, exportParameters.getCodigoInicio());
+                pStatement.setString(2, exportParameters.getCodigoFin());
+            }
+
+            res = pStatement.executeQuery();
 
             //Columnas que necesita redcap y no estan en la tabla
             columnas = columnas.replaceAll("tri_mosq_rep_dk_spray","tri_mosq_rep_dk_spray___1");
@@ -978,40 +1056,47 @@ public class ExportarService {
                 valores = "";
                 sb.append(SALTOLINEA);
             }
-            res.close();
-            con.close();
-
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            if (res !=null) res.close();
+            if (pStatement !=null) pStatement.close();
+            if (con !=null) con.close();
         }
         return sb;
     }
 
-    public StringBuffer getZp05ExportData(String tableName) throws Exception{
-        StringBuffer sb = new StringBuffer();
+    public StringBuffer getZp05ExportData(ExportParameters exportParameters) throws Exception{
 
+        StringBuffer sb = new StringBuffer();
         Connection con = getConnection();
+        PreparedStatement pStatement = null;
+        ResultSet res = null;
         String columnas = "";
         String valores = "";
+
         try {
             //recuperar los nombres de las columnas
-            List<String> columns = getTableMetaData(tableName);
-            for(String col : columns){
-                if (columnas.isEmpty()) //es primer columna
-                    columnas+=col;
-                else
-                    columnas += SEPARADOR + col;
-
-            }
+            List<String> columns = getTableMetaData(exportParameters.getTableName());
+            columnas = parseColumns(columns);
 
             //valores campos multiples
             String [] fyesSpecify1 = "1,2,3,4,5".split(",");
             String [] sSpecify1 = "1,2,3,4,5".split(",");
 
-            //pasar a recuperar los datos
-            Statement statement = con.createStatement();
-            String sql = "select "+columnas+" from "+tableName;
-            ResultSet res = statement.executeQuery(sql);
+            //pasar a recuperar los datos. Setear parámetro si los hay
+            StringBuilder sqlStrBuilder = new StringBuilder();
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+
+            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+
+            pStatement = con.prepareStatement(sqlStrBuilder.toString());
+            if (exportParameters.thereAreValues()){
+                pStatement.setString(1, exportParameters.getCodigoInicio());
+                pStatement.setString(2, exportParameters.getCodigoFin());
+            }
+
+            res = pStatement.executeQuery();
 
             //Columnas que necesita redcap y no estan en la tabla
             columnas = columnas.replaceAll("ult_id_na","ult_id_na___1");
@@ -1074,36 +1159,43 @@ public class ExportarService {
                 valores = "";
                 sb.append(SALTOLINEA);
             }
-            res.close();
-            con.close();
-
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            if (res !=null) res.close();
+            if (pStatement !=null) pStatement.close();
+            if (con !=null) con.close();
         }
         return sb;
     }
 
-    public StringBuffer getZp06ExportData(String tableName) throws Exception{
-        StringBuffer sb = new StringBuffer();
+    public StringBuffer getZp06ExportData(ExportParameters exportParameters) throws Exception{
 
+        StringBuffer sb = new StringBuffer();
         Connection con = getConnection();
+        PreparedStatement pStatement = null;
+        ResultSet res = null;
         String columnas = "";
         String valores = "";
+
         try {
             //recuperar los nombres de las columnas
-            List<String> columns = getTableMetaData(tableName);
-            for(String col : columns){
-                if (columnas.isEmpty()) //es primer columna
-                    columnas+=col;
-                else
-                    columnas += SEPARADOR + col;
+            List<String> columns = getTableMetaData(exportParameters.getTableName());
+            columnas = parseColumns(columns);
 
+            //pasar a recuperar los datos. Setear parámetro si los hay
+            StringBuilder sqlStrBuilder = new StringBuilder();
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+
+            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+
+            pStatement = con.prepareStatement(sqlStrBuilder.toString());
+            if (exportParameters.thereAreValues()){
+                pStatement.setString(1, exportParameters.getCodigoInicio());
+                pStatement.setString(2, exportParameters.getCodigoFin());
             }
-            //pasar a recuperar los datos
-            Statement statement = con.createStatement();
-            String sql = "select "+columnas+" from "+tableName;
-            ResultSet res = statement.executeQuery(sql);
 
+            res = pStatement.executeQuery();
             //Valores de campos múltiples
             String[] rashFirst = "1,2,3,4,5,6,7,8,9".split(",");
             String[] spreadPart = "1,2,3,4,5,6,7,8,9".split(",");
@@ -1220,35 +1312,43 @@ public class ExportarService {
                 valores = "";
                 sb.append(SALTOLINEA);
             }
-            res.close();
-            con.close();
-
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            if (res !=null) res.close();
+            if (pStatement !=null) pStatement.close();
+            if (con !=null) con.close();
         }
         return sb;
     }
 
-    public StringBuffer getZp08ExportData(String tableName) throws Exception{
-        StringBuffer sb = new StringBuffer();
+    public StringBuffer getZp08ExportData(ExportParameters exportParameters) throws Exception{
 
+        StringBuffer sb = new StringBuffer();
         Connection con = getConnection();
+        PreparedStatement pStatement = null;
+        ResultSet res = null;
         String columnas = "";
         String valores = "";
+
         try {
             //recuperar los nombres de las columnas
-            List<String> columns = getTableMetaData(tableName);
-            for(String col : columns){
-                if (columnas.isEmpty()) //es primer columna
-                    columnas+=col;
-                else
-                    columnas += SEPARADOR + col;
+            List<String> columns = getTableMetaData(exportParameters.getTableName());
+            columnas = parseColumns(columns);
 
+            //pasar a recuperar los datos. Setear parámetro si los hay
+            StringBuilder sqlStrBuilder = new StringBuilder();
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+
+            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+
+            pStatement = con.prepareStatement(sqlStrBuilder.toString());
+            if (exportParameters.thereAreValues()){
+                pStatement.setString(1, exportParameters.getCodigoInicio());
+                pStatement.setString(2, exportParameters.getCodigoFin());
             }
-            //pasar a recuperar los datos
-            Statement statement = con.createStatement();
-            String sql = "select "+columnas+" from "+tableName;
-            ResultSet res = statement.executeQuery(sql);
+
+            res = pStatement.executeQuery();
 
             //columnas que necesita redcap y no estan en la tabla
             columnas += SEPARADOR + "zp08_study_exit_complete";
@@ -1291,13 +1391,25 @@ public class ExportarService {
                 valores = "";
                 sb.append(SALTOLINEA);
             }
-            res.close();
-            con.close();
-
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            if (res !=null) res.close();
+            if (pStatement !=null) pStatement.close();
+            if (con !=null) con.close();
         }
         return sb;
+    }
+
+    private static String parseColumns(List<String> columns){
+        String columnas = "";
+        for(String col : columns){
+            if (columnas.isEmpty()) //es primer columna
+                columnas+=col;
+            else
+                columnas += SEPARADOR + col;
+        }
+        return columnas;
     }
 
     private static String setValuesMultipleField(String val, String[] valuesField ){

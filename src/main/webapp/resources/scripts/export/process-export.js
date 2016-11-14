@@ -13,17 +13,16 @@ var Export = function () {
                 focusInvalid: false, // do not focus the last invalid input
                 ignore: "",
                 rules: {
-                    codigoInicio: {
-                        required: true
-                    },
-                    codigoFin: {
-                        required: true
-                    },
+                    codigoInicio: {required: function () {
+                        return $('#codigoFin').val().length > 0;
+                    }},
+                    codigoFin: {required: function () {
+                        return $('#codigoInicio').val().length > 0;
+                    }},
                     zpform: {
                         required: true
                     }
                 },
-
                 invalidHandler: function (event, validator) { //display error alert on form submit
                     error1.show();
                     App.scrollTo(error1, -200);
@@ -91,16 +90,13 @@ var Export = function () {
                     urlForm = parametros.getZp08;
                 }
 
-                console.log(form);
-                console.log(urlForm);
-
-                $.getJSON(urlForm, {
-                    ajax: 'true',
-                    id: id
-                }, function (dataToLoad) {
-                    console.log("descarga");
-                }).fail(function(jqXHR) {
-                    App.unblockUI();
+                var iframe = document.createElement('iframe');
+                iframe.id = "IFRAMEID";
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+                iframe.src = urlForm+"?codigoInicio="+$("#codigoInicio").val()+"&codigoFin="+$("#codigoFin").val();
+                iframe.addEventListener("load", function () {
+                    console.log("FILE LOAD DONE.. Download should start now");
                 });
             }
 

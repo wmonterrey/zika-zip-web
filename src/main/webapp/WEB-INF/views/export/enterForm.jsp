@@ -76,57 +76,56 @@
                                     </div>
                                     <div class="row">
                                         <div class="col col-sm-12 col-md-6 col-lg-6">
-                                            <label class="control-label col-md-6"><spring:message code="subjectId" />
-                                            <span class="required">
-                                                 *
-                                            </span>
-                                            </label>
-                                            <div class="col-md-6">
-                                                <div class="input-group">
-                                                    <input id="codigoInicio" name="codigoInicio" type="text" value="" class="form-control"/>
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-sort-alpha-asc"></i>
-                                                        </span>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4"><spring:message code="subjectId.start" />
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <div class="input-group">
+                                                        <input id="codigoInicio" name="codigoInicio" type="text" value="" class="form-control"/>
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-sort-alpha-asc"></i>
+                                                            </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col col-sm-12 col-md-6 col-lg-6">
-                                            <label class="control-label col-md-6"><spring:message code="subjectId" />
-                                            <span class="required">
-                                                 *
-                                            </span>
-                                            </label>
-                                            <div class="col-md-6">
-                                                <div class="input-group">
-                                                    <input id="codigoFin" name="codigoFin" type="text" value="" class="form-control"/>
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-sort-alpha-asc"></i>
-                                                        </span>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4"><spring:message code="subjectId.end" />
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <div class="input-group">
+                                                        <input id="codigoFin" name="codigoFin" type="text" value="" class="form-control"/>
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-sort-alpha-asc"></i>
+                                                            </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col col-sm-12 col-md-12 col-lg-12">
-                                            <label class="control-label col-md-3"><spring:message code="form" />
+                                        <div class="col col-sm-12 col-md-6 col-lg-6">
+                                            <label class="control-label col-md-4"><spring:message code="form" />
                                             <span class="required">
                                                  *
                                             </span>
                                             </label>
-                                            <div class="col-md-6">
+                                            <div class="col-md-8">
                                                 <select class="form-control" id="zpform" name="zpform">
-                                                    <option selected value="Zp00"><spring:message code="zp00" /></option>
-                                                    <option selected value="Zp01AD"><spring:message code="zp01AD" /></option>
-                                                    <option selected value="Zp01E"><spring:message code="zp01E" /></option>
-                                                    <option selected value="Zp01FK"><spring:message code="zp01FK" /></option>
-                                                    <option selected value="Zp02"><spring:message code="zp02" /></option>
-                                                    <option selected value="Zp03"><spring:message code="zp03" /></option>
-                                                    <option selected value="Zp04AD"><spring:message code="zp04AD" /></option>
-                                                    <option selected value="Zp04E"><spring:message code="zp04E" /></option>
-                                                    <option selected value="Zp04FH"><spring:message code="zp04FH" /></option>
-                                                    <option selected value="Zp05"><spring:message code="zp05" /></option>
-                                                    <option selected value="Zp06"><spring:message code="zp06" /></option>
-                                                    <option selected value="Zp08"><spring:message code="zp08" /></option>
+                                                    <option value=""><spring:message code="lbl.select" /> ...</option>
+                                                    <option value="Zp00"><spring:message code="zp00" /></option>
+                                                    <option value="Zp01AD"><spring:message code="zp01AD" /></option>
+                                                    <option value="Zp01E"><spring:message code="zp01E" /></option>
+                                                    <option value="Zp01FK"><spring:message code="zp01FK" /></option>
+                                                    <option value="Zp02"><spring:message code="zp02" /></option>
+                                                    <option value="Zp03"><spring:message code="zp03" /></option>
+                                                    <option value="Zp04AD"><spring:message code="zp04AD" /></option>
+                                                    <option value="Zp04E"><spring:message code="zp04E" /></option>
+                                                    <option value="Zp04FH"><spring:message code="zp04FH" /></option>
+                                                    <option value="Zp05"><spring:message code="zp05" /></option>
+                                                    <option value="Zp06"><spring:message code="zp06" /></option>
+                                                    <option value="Zp08"><spring:message code="zp08" /></option>
                                                 </select>
                                             </div>
                                         </div>
@@ -236,8 +235,18 @@
 <script>
 	jQuery(document).ready(function() {
 		App.init();
-		var parametros = {getZp00 : "${getZp00}", getZp01AD : "${getZp01AD}",getZp01E : "${getZp01E}",getZp01FK : "${getZp01FK}",getZp02 : "${getZp02}"
-        ,getZp03 : "${getZp03}",getZp04AD : "${getZp04AD}",getZp04E : "${getZp04E}", getZp04FH : "${getZp04FH}", getZp06 : "${getZp06}", getZp05 : "${getZp05}", getZp08 : "${getZp08}"};
+		var parametros = {getZp00 : "${getZp00}",
+            getZp01AD : "${getZp01AD}",
+            getZp01E : "${getZp01E}",
+            getZp01FK : "${getZp01FK}",
+            getZp02 : "${getZp02}",
+            getZp03 : "${getZp03}",
+            getZp04AD : "${getZp04AD}",
+            getZp04E : "${getZp04E}",
+            getZp04FH : "${getZp04FH}",
+            getZp06 : "${getZp06}",
+            getZp05 : "${getZp05}",
+            getZp08 : "${getZp08}"};
 
         Export.init(parametros);
 	});
