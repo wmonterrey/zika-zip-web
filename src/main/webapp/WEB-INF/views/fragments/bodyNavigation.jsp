@@ -40,6 +40,11 @@
                                     <i class="fa fa-group"></i>
                                     <spring:message code="adminusers" /></a>
                             </li>
+                            <li class="export">
+                                <a href="<spring:url value="/export/" htmlEscape="true "/>">
+                                    <i class="fa fa-file-text"></i>
+                                    <spring:message code="export" /></a>
+                            </li>
                         </ul>
                     </li>
                 </sec:authorize>

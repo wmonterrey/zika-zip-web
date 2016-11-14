@@ -1,7 +1,6 @@
 package ni.org.ics.zip.web.controller;
 
 import ni.org.ics.zip.service.ExportarService;
-import ni.org.ics.zip.users.model.UserSistema;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -15,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.text.ParseException;
-import java.util.List;
 
 /**
  * Created by FIRSTICT on 11/10/2016.
