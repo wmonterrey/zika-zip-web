@@ -217,11 +217,11 @@
 <spring:url value="/resources/plugins/jquery-validation/localization/messages_{language}.js" var="jQValidationLoc">
 	<spring:param name="language" value="${pageContext.request.locale.language}" />
 </spring:url>				
-<script src="${jQValidationLoc}"/></script>
+<script src="${jQValidationLoc}"></script>
 <spring:url value="/resources/plugins/select2/select2_locale_{language}.js" var="Select2Loc">
 	<spring:param name="language" value="${pageContext.request.locale.language}" />
 </spring:url>				
-<script src="${Select2Loc}"/></script>
+<script src="${Select2Loc}"></script>
 <spring:url value="/admin/users/saveUser" var="saveUserUrl"></spring:url>
 <c:set var="successmessage"><spring:message code="process.success" /></c:set>
 <c:set var="errormessage"><spring:message code="process.errors" /></c:set>
@@ -239,13 +239,14 @@
 		};
 		EditUser.init(parametros);
 		
-		if ("${editando}") {
+		if (${editando}) {
 			$('#divPass').hide();
 			$('#divPassRepeat').hide();
 			$('#username').prop('readonly', true);
 			$('#completeName').focus();
 		}
-		if ("${agregando}") {
+		if (${agregando}) {
+            console.log("agregando");
 			$('#divPass').show();
 			$('#divPassRepeat').show();
 			$('#username').prop('readonly', false);

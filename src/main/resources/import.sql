@@ -31,16 +31,16 @@ INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'confirm', 'Co
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'please.enter', 'Favor ingresar','0');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`, `en`) VALUES ('delete', '0', 'Eliminar', 'Delete');
 
-/*Menú*/
+/*Menï¿½*/
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'home', 'Inicio','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'results', 'Solicitudes','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'addres', 'Agregar Resultado','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'editres', 'Editar Resultado','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'del.res', 'Borrar Resultado','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'admin', 'Administración','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'admin', 'Administraciï¿½n','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'adminusers', 'Usuarios','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'profile', 'Perfil','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'changepass', 'Cambiar contraseña..','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'changepass', 'Cambiar contraseï¿½a..','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'logout', 'Salir','0');
 /*Mensajes generales, todas las paginas*/
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'enabled', 'Habilitado','0');
@@ -49,19 +49,19 @@ INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'form.errors',
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'process.errors', 'Han ocurrido errores en el proceso!','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'process.success', 'El proceso se ha completado exitosamente!','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'date', 'Fecha','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'not', 'Notificación','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'not', 'Notificaciï¿½n','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'notenabled', 'Deshabilitado','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'notlocked', 'Desbloqueado','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'seconds', 'segundos','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'session.expiring', 'Su sesión está a punto de expirar!','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'session.expiring.confirm', 'Quiere continuar con su sesión?','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'session.expiring.time', 'Su sesión se cerrará en','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'session.keep', 'Mantener sesión','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'session.expiring', 'Su sesiï¿½n estï¿½ a punto de expirar!','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'session.expiring.confirm', 'Quiere continuar con su sesiï¿½n?','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'session.expiring.time', 'Su sesiï¿½n se cerrarï¿½ en','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'session.keep', 'Mantener sesiï¿½n','0');
 /*Metadata*/
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'createdBy', 'Creado por','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'dateCreated', 'Fecha creación','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'dateCreated', 'Fecha creaciï¿½n','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'modifiedBy', 'Modificado por','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'dateModified', 'Fecha de modificación','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'dateModified', 'Fecha de modificaciï¿½n','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'active', 'Activo','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'addedBy', 'Agregado por','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'dateAdded', 'Fecha','0');
@@ -69,23 +69,23 @@ INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'dateAdded', '
 /*login*/
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login', 'Ingresar','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.accountExpired', 'Cuenta de usuario ha expirado!','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.accountLocked', 'Cuenta de usuario está bloqueada!','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.accountNotLocked', 'Cuenta de usuario está desbloqueada!','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.badCredentials', 'Nombre de usuario o contraseña incorrectos!','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.accountLocked', 'Cuenta de usuario estï¿½ bloqueada!','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.accountNotLocked', 'Cuenta de usuario estï¿½ desbloqueada!','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.badCredentials', 'Nombre de usuario o contraseï¿½a incorrectos!','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.credentialsExpired', 'Credenciales de usuario han expirado!','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.footer', 'Instituto de Ciencias Sostenibles','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.maxSessionsOut', 'Tiene una sesión activa! No puede crear otra!','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.msg', 'Por favor ingresar su nombre de usuario y contraseña','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.page', 'Página de ingreso','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.password', 'Contraseña','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.maxSessionsOut', 'Tiene una sesiï¿½n activa! No puede crear otra!','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.msg', 'Por favor ingresar su nombre de usuario y contraseï¿½a','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.page', 'Pï¿½gina de ingreso','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.password', 'Contraseï¿½a','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.userEnabled', 'Usuario esta activo!','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.userDisabled', 'Usuario esta inactivo!','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'login.username', 'Nombre de usuario','0');
-/*forzar cambio contraseña*/
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'credentials.expired', 'Su contraseña ha caducado','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'pass.updated', 'Su contraseña ha sido actualizada','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'password.repeat', 'Repita la contraseña','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'Pattern.password.format', 'Al menos 8 caracteres combinando mayúsculas, minúsculas, números y caracteres especiales','0');
+/*forzar cambio contraseï¿½a*/
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'credentials.expired', 'Su contraseï¿½a ha caducado','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'pass.updated', 'Su contraseï¿½a ha sido actualizada','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'password.repeat', 'Repita la contraseï¿½a','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'Pattern.password.format', 'Al menos 8 caracteres combinando mayï¿½sculas, minï¿½sculas, nï¿½meros y caracteres especiales','0');
 /*Plantilla*/
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'heading', 'Estudio ZIP','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'title', 'ZIP','0');
@@ -94,24 +94,24 @@ INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'footer', 'Ins
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'dashboard', 'Panel de control','0');
 /*Usuarios*/
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'username', 'Usuario','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'userdesc', 'Descripción','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'userdesc', 'Descripciï¿½n','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'useremail', 'Correo','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'userlock', 'Bloqueado','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'usercred', 'Contraseña vencida','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'usercred', 'Contraseï¿½a vencida','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'userexp', 'Cuenta vencida','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'userroles', 'Roles','0');
 
 /*Accesos*/
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'access', 'Accesos de usuario','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'lastAccess', 'Ultimo acceso','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'dateCredentials', 'Ultimo cambio de contraseña','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'session', 'Id de sesión','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'ipaddress', 'Dirección IP','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'dateCredentials', 'Ultimo cambio de contraseï¿½a','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'session', 'Id de sesiï¿½n','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'ipaddress', 'Direcciï¿½n IP','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'logindate', 'Fecha ingreso','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'logoutdate', 'Fecha salida','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'logouturl', 'URL salida','0');
 /*Audit trail*/
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'audittrail', 'Bitácora de cambios','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'audittrail', 'Bitï¿½cora de cambios','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'entityClass', 'Clase','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'entityName', 'Nombre','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'entityProperty', 'Propiedad','0');
@@ -142,12 +142,12 @@ INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'theme.fluid',
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'theme.footer', 'Pie de pagina','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'theme.grey', 'Gris','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'theme.header', 'Encabezado','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'theme.layout', 'Diseño','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'theme.layout', 'Diseï¿½o','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'theme.left', 'Izquierda','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'theme.light', 'Claro','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'theme.red', 'Rojo','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'theme.right', 'Derecha','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'theme.sbposition', 'Posición Barra lateral','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'theme.sbposition', 'Posiciï¿½n Barra lateral','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'theme.sidebar', 'Barra lateral','0');
 
 /*Agregar resultado*/
@@ -156,11 +156,26 @@ INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('runnumber', '0
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('negativecontrol', '0', 'Control Negativo');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('positivecontrol', '0', 'Control Positivo');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('antigen', '0', 'Antigeno');
-INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('restitle', '0', 'Título');
-INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('mxcode', '0', 'Código Muestra');
-INSERT INTO `messages` (`messageKey`, `catPasive`, `es`, `en`) VALUES ('codenotfound', '0', 'Código de muestra no encontrado: ?', 'Sample code not found : ?');
-INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('confirmdelete', '0', '¿Eliminar registro?');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('restitle', '0', 'Tï¿½tulo');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('mxcode', '0', 'Cï¿½digo Muestra');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`, `en`) VALUES ('codenotfound', '0', 'Cï¿½digo de muestra no encontrado: ?', 'Sample code not found : ?');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('confirmdelete', '0', 'ï¿½Eliminar registro?');
 
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('download', '0', 'Descargar');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp00', '0', 'Formulario Zp00 Tamizaje');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp01AD', '0', 'Formulario Zp01 Ingreso SecciÃ³n A-D');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp01E', '0', 'Formulario Zp01 Ingreso SecciÃ³n E');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp01FK', '0', 'Formulario Zp01 Ingreso SecciÃ³n F-K');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp02', '0', 'Formulario Zp02 Muestras BiolÃ³gicas');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp03', '0', 'Formulario Zp03 Visita Mensual');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp04AD', '0', 'Formulario Zp04 Visita Trimestral SecciÃ³n A-D');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp04E', '0', 'Formulario Zp04 Visita Trimestral SecciÃ³n E');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp04FH', '0', 'Formulario Zp04 Visita Trimestral SecciÃ³n F-H');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp05', '0', 'Formulario Zp05 Ultrasonido');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp06', '0', 'Formulario Zp06 Parto');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp08', '0', 'Formulario Zp08 Salida del estudio');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `en`, `catPasive`, `es`) VALUES ('form', 'Form', '0', 'Formulario');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('subjectId', '0', 'CÃ³digo de participante');
 
 
 /*etiquetas comunes*/
