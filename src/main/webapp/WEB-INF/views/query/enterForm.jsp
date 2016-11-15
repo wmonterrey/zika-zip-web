@@ -40,13 +40,13 @@
 				<div class="col-md-12">
 					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 					<h3 class="page-title">
-					<spring:message code="title" /> <small><spring:message code="export" /></small>
+					<spring:message code="title" /> <small><spring:message code="consult" /></small>
 					</h3>
 					<ul class="page-breadcrumb breadcrumb">
 						<li>
 							<i class="fa fa-home"></i>
 							<a href="<spring:url value="/" htmlEscape="true "/>"><spring:message code="home" /></a>
-                            <i class="fa fa-angle-right"></i> <a href="<spring:url value="/export/" htmlEscape="true "/>"><spring:message code="export" /></a>
+                            <i class="fa fa-angle-right"></i> <a href="<spring:url value="/query/" htmlEscape="true "/>"><spring:message code="consult" /></a>
 						</li>
 					</ul>
 					<!-- END PAGE TITLE & BREADCRUMB-->
@@ -75,65 +75,23 @@
                                         <spring:message code="form.errors" />
                                     </div>
                                     <div class="row">
-                                        <div class="col col-sm-12 col-md-6 col-lg-6">
+                                        <div class="col col-sm-12 col-md-12 col-lg-12">
                                             <div class="form-group">
-                                                <label class="control-label col-md-4"><spring:message code="subjectId.start" />
+                                                <label class="control-label col-md-2"><spring:message code="lbl.query" />
+                                                    <span class="required">
+                                                        *
+                                                    </span>
                                                 </label>
-                                                <div class="col-md-6">
-                                                    <div class="input-group">
-                                                        <input id="codigoInicio" name="codigoInicio" type="text" value="" class="form-control"/>
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-sort-alpha-asc"></i>
-                                                            </span>
-                                                    </div>
+                                                <div class="col-md-10">
+                                                        <textarea class="form-control" rows="5" name="query" id="query"></textarea>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="col col-sm-12 col-md-6 col-lg-6">
-                                            <div class="form-group">
-                                                <label class="control-label col-md-4"><spring:message code="subjectId.end" />
-                                                </label>
-                                                <div class="col-md-6">
-                                                    <div class="input-group">
-                                                        <input id="codigoFin" name="codigoFin" type="text" value="" class="form-control"/>
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-sort-alpha-asc"></i>
-                                                            </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col col-sm-12 col-md-6 col-lg-6">
-                                            <label class="control-label col-md-4"><spring:message code="form" />
-                                            <span class="required">
-                                                 *
-                                            </span>
-                                            </label>
-                                            <div class="col-md-8">
-                                                <select class="form-control" id="zpform" name="zpform">
-                                                    <option value=""><spring:message code="lbl.select" /> ...</option>
-                                                    <option value="Zp00"><spring:message code="zp00" /></option>
-                                                    <option value="Zp01AD"><spring:message code="zp01AD" /></option>
-                                                    <option value="Zp01E"><spring:message code="zp01E" /></option>
-                                                    <option value="Zp01FK"><spring:message code="zp01FK" /></option>
-                                                    <option value="Zp02"><spring:message code="zp02" /></option>
-                                                    <option value="Zp03"><spring:message code="zp03" /></option>
-                                                    <option value="Zp04AD"><spring:message code="zp04AD" /></option>
-                                                    <option value="Zp04E"><spring:message code="zp04E" /></option>
-                                                    <option value="Zp04FH"><spring:message code="zp04FH" /></option>
-                                                    <option value="Zp05"><spring:message code="zp05" /></option>
-                                                    <option value="Zp06"><spring:message code="zp06" /></option>
-                                                    <option value="Zp08"><spring:message code="zp08" /></option>
-                                                </select>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-actions fluid">
                                     <div class="col-md-offset-6 col-md-6">
-                                        <button id="guardar" type="submit" class="btn btn-success"><spring:message code="download" /></button>
+                                        <button id="guardar" type="submit" class="btn btn-success"><spring:message code="run" /></button>
                                     </div>
                                 </div>
                             </form>
@@ -208,47 +166,24 @@
 <script src="${App}" type="text/javascript"></script>
 <spring:url value="/resources/scripts/utils/handleDatePickers.js" var="handleDatePickers" />
 <script src="${handleDatePickers}" type="text/javascript"></script>
-<spring:url value="/resources/scripts/export/process-export.js" var="procExportScript" />
-<script src="${procExportScript}" type="text/javascript"></script>
+<spring:url value="/resources/scripts/query/process-query.js" var="queryScript" />
+<script src="${queryScript}" type="text/javascript"></script>
 
-<spring:url value="/export/getZp00"	var="getZp00"/>
-<spring:url value="/export/getZp01AD"	var="getZp01AD"/>
-<spring:url value="/export/getZp01E"	var="getZp01E"/>
-<spring:url value="/export/getZp01FK"	var="getZp01FK"/>
-<spring:url value="/export/getZp02"	var="getZp02"/>
-<spring:url value="/export/getZp03"	var="getZp03"/>
-<spring:url value="/export/getZp04AD"	var="getZp04AD"/>
-<spring:url value="/export/getZp04E"	var="getZp04E"/>
-<spring:url value="/export/getZp04FH"	var="getZp04FH"/>
-<spring:url value="/export/getZp05"	var="getZp05"/>
-<spring:url value="/export/getZp06"	var="getZp06"/>
-<spring:url value="/export/getZp08"	var="getZp08"/>
-
+<spring:url value="/query/getResulQuery"	var="queryUrl"/>
 
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
     $(function () {
         $("li.admin").removeClass("open").addClass("active");
-        $("li.export").removeClass("addres").addClass("active");
+        $("li.query").removeClass("query").addClass("active");
     });
 </script>
 <script>
 	jQuery(document).ready(function() {
 		App.init();
-		var parametros = {getZp00 : "${getZp00}",
-            getZp01AD : "${getZp01AD}",
-            getZp01E : "${getZp01E}",
-            getZp01FK : "${getZp01FK}",
-            getZp02 : "${getZp02}",
-            getZp03 : "${getZp03}",
-            getZp04AD : "${getZp04AD}",
-            getZp04E : "${getZp04E}",
-            getZp04FH : "${getZp04FH}",
-            getZp06 : "${getZp06}",
-            getZp05 : "${getZp05}",
-            getZp08 : "${getZp08}"};
+		var parametros = {queryUrl : "${queryUrl}"};
 
-        Export.init(parametros);
+        Query.init(parametros);
 	});
 </script>
 <!-- END JAVASCRIPTS -->
