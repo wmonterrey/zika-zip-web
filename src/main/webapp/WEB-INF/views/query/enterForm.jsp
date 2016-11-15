@@ -70,6 +70,9 @@
                         <div class="portlet-body form">
                             <form action="#" autocomplete="off" id="download-form" class="form-horizontal">
                                 <div class="form-body">
+                                    <div class="alert alert-info">
+                                        <spring:message code="query.help" />
+                                    </div>
                                     <div class="alert alert-danger display-hide">
                                         <button class="close" data-close="alert"></button>
                                         <spring:message code="form.errors" />
@@ -184,6 +187,7 @@
 		var parametros = {queryUrl : "${queryUrl}"};
 
         Query.init(parametros);
+        $('#query').focus();
 	});
 </script>
 <!-- END JAVASCRIPTS -->

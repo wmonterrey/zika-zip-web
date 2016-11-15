@@ -170,6 +170,7 @@ INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('sub
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('run', '0', 'Ejecutar');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('lbl.query', '0', 'Consulta');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('consult', '0', 'Consultar');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('query.help', '0', 'Favor especifar cada columna en el SELECT, no usar *');
 
 /*etiquetas comunes*/
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('lbl.select', '0', 'Seleccione');
