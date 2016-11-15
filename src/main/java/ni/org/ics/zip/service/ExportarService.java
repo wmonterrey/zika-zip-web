@@ -544,7 +544,7 @@ public class ExportarService {
             String[] bscMatOtherType = "1,4".split(",");
 
             //Columnas que necesita redcap y no estan en la tabla
-            columnas = columnas.replaceAll("bsc_mat_other_type","bsc_mat_other_type___1,bsc_mat_other_type___4");
+            columnas = columnas.replaceFirst("bsc_mat_other_type","bsc_mat_other_type___1,bsc_mat_other_type___4");
             columnas += SEPARADOR + "zp02_biospecimen_collection_complete";
 
             sb.append(columnas);

@@ -50,7 +50,6 @@ var Export = function () {
             });
 
             function getForm() {
-                console.log("decargar");
                 var form = $('#zpform option:selected').val();
                 var urlForm = "";
                 if (form == 'Zp00'){

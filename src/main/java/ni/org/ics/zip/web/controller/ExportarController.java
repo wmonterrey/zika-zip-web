@@ -25,7 +25,7 @@ import java.text.ParseException;
 @RequestMapping("export")
 public class ExportarController {
 
-    private static final Logger logger = LoggerFactory.getLogger(AdminUsuariosController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ExportarController.class);
 
     private static final String TABLE_ZP00 = "zp00_screening";
     private static final String TABLE_ZP01AD = "zp01_study_entry_section_a_to_d";
