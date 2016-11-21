@@ -1,12 +1,15 @@
 INSERT INTO `roles` (`ROL`) VALUES ('ROLE_ADMIN');
-INSERT INTO `roles` (`ROL`) VALUES ('ROLE_ADD_RES');
-INSERT INTO `roles` (`ROL`) VALUES ('ROLE_EDIT_RES');
-INSERT INTO `roles` (`ROL`) VALUES ('ROLE_DEL_RES');
+INSERT INTO `roles` (`ROL`) VALUES ('ROLE_MOVIL');
+INSERT INTO `roles` (`ROL`) VALUES ('ROLE_QC');
+
+INSERT INTO `centers` (`CS`) VALUES ('Sócrates Flores');
+INSERT INTO `centers` (`CS`) VALUES ('Julio Buitrago');
+INSERT INTO `centers` (`CS`) VALUES ('Villa Libertad');
+
 INSERT INTO `users` (`NOMBRE_USUARIO`, `CUENTA_SINEXPIRAR`, `CUENTA_SINBLOQUEAR`, `DESCRIPCION`, `FECHA_REGISTRO`, `USUARIO_REGISTRO`, `CREDENCIAL_SINEXPIRAR`, `CORREO_ELECTRONICO`, `HABILITADO`, `FECHA_ULTACC`, `FECHA_ULTMODCRED`, `FECHA_ULTMOD`, `USUARIO_ULTMOD`, `CONTRASENA`) VALUES ('admin', '', '', 'Administrador', '2014-09-20 08:31:00', 'admin', '', 'admincndr@minsa.gob.ni', '', '2014-11-16 10:05:40', NULL, '2014-11-13 17:58:06', 'admin', '6c36dc262b0e44be5811c2296669fc65643aec9dcaa4a76501e0a9508b633fd01ee59a207f8c6d68');
 INSERT INTO `users_roles` (`ROL`, `NOMBRE_USUARIO`, `PASIVO`, `FECHA_REGISTRO`, `USUARIO_REGISTRO`) VALUES ('ROLE_ADMIN', 'admin', '0', '2016-06-07 10:47:12', 'admin');
-INSERT INTO `users_roles` (`ROL`, `NOMBRE_USUARIO`, `PASIVO`, `FECHA_REGISTRO`, `USUARIO_REGISTRO`) VALUES ('ROLE_ADD_RES', 'admin', '0', '2016-06-07 10:47:12', 'admin');
-INSERT INTO `users_roles` (`ROL`, `NOMBRE_USUARIO`, `PASIVO`, `FECHA_REGISTRO`, `USUARIO_REGISTRO`) VALUES ('ROLE_EDIT_RES', 'admin', '0', '2016-06-07 10:47:12', 'admin');
-INSERT INTO `users_roles` (`ROL`, `NOMBRE_USUARIO`, `PASIVO`, `FECHA_REGISTRO`, `USUARIO_REGISTRO`) VALUES ('ROLE_DEL_RES', 'admin', '0', '2016-06-07 10:47:12', 'admin');
+INSERT INTO `users_roles` (`ROL`, `NOMBRE_USUARIO`, `PASIVO`, `FECHA_REGISTRO`, `USUARIO_REGISTRO`) VALUES ('ROLE_MOVIL', 'admin', '0', '2016-06-07 10:47:12', 'admin');
+INSERT INTO `users_roles` (`ROL`, `NOMBRE_USUARIO`, `PASIVO`, `FECHA_REGISTRO`, `USUARIO_REGISTRO`) VALUES ('ROLE_QC', 'admin', '0', '2016-06-07 10:47:12', 'admin');
 /*Pagina denegado*/
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( '403.denied', 'Acceso denegado','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( '403.deniedmessage', 'Lo sentimos','0');
@@ -118,11 +121,11 @@ INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'entityPropert
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'entityPropertyOldValue', 'Valor anterior','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'entityPropertyNewValue', 'Nuevo valor','0');
 
+
 /*Roles*/
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'ROLE_ADMIN', 'Administrador','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'ROLE_ADD_RES', 'Agregar Resultado','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'ROLE_EDIT_RES', 'Editar Resultado','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'ROLE_DEL_RES', 'Borrar Resultado','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'ROLE_QC', 'Usuario web','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'ROLE_MOVIL', 'Usuario movil','0');
 
 /*Catalogos*/
 INSERT INTO `messages` (`messageKey`, `es`, `catKey`, `catPasive`) VALUES ( 'snd', 'Si, No, Desconocido',0,'0');
@@ -166,7 +169,7 @@ INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp06', '0', 'F
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp08', '0', 'Formulario Zp08 Salida del estudio');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `en`, `catPasive`, `es`) VALUES ('form', 'Form', '0', 'Formulario');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('subjectId.start', '0', 'Codigo de Inicio');
-INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('subjectId.end', '0', 'CÃ³digo de Fin');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('subjectId.end', '0', 'Codigo de Fin');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('run', '0', 'Ejecutar');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('lbl.query', '0', 'Consulta');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('consult', '0', 'Consultar');
@@ -174,3 +177,7 @@ INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('que
 
 /*etiquetas comunes*/
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('lbl.select', '0', 'Seleccione');
+/*entidades*/
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('class ni.org.ics.zip.domain.relationships.UserCenter', '0', 'Centro del usuario');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('class ni.org.ics.zip.users.model.UserSistema', '0', 'Usuario');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('class ni.org.ics.zip.users.model.Authority', '0', 'Rol del usuario');
