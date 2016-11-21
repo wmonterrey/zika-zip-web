@@ -159,11 +159,11 @@
 
 <!-- DATA TABLE-->
 <c:choose>
-    <c:when test="${cookie.prLang.value == null}">
+    <c:when test="${cookie.zikaLang.value == null}">
         <c:set var="lenguaje" value="es"/>
     </c:when>
     <c:otherwise>
-        <c:set var="lenguaje" value="${cookie.prLang.value}"/>
+        <c:set var="lenguaje" value="${cookie.zikaLang.value}"/>
     </c:otherwise>
 </c:choose>
 <spring:url value="/resources/plugins/data-tables/jquery.dataTables.js" var="jQueryDataTables" />

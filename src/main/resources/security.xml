@@ -7,15 +7,12 @@
 	
 	<http auto-config="true" request-matcher="regex">
 	    <intercept-url pattern="/admin/.*" access="ROLE_ADMIN" />
-	    <intercept-url pattern="/tasksRes/.*" access="ROLE_SUPER,ROLE_ADD_RES,ROLE_EDIT_RES,ROLE_DEL_RES" />
-	    <intercept-url pattern="/addRes/.*" access="ROLE_SUPER,ROLE_ADD_RES" />
-	    <intercept-url pattern="/editRes/.*" access="ROLE_SUPER,ROLE_EDIT_RES" />
-	    <intercept-url pattern="/delRes/.*" access="ROLE_SUPER,ROLE_DEL_RES" />
+	    <intercept-url pattern="/movil/.*" access="ROLE_MOVIL" />
 		<intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/loginfailed" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/logout" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/resources/.*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<intercept-url pattern="/.*" access="ROLE_SUPER,ROLE_ADMIN,ROLE_ADD_SOL,ROLE_EDIT_SOL,ROLE_DEL_SOL" />
+		<intercept-url pattern="/.*" access="ROLE_ADMIN,ROLE_QC" />
 		<form-login login-page="/login" default-target-url="/"
 			authentication-failure-url="/loginfailed" />
 		<logout logout-url="/logout" 

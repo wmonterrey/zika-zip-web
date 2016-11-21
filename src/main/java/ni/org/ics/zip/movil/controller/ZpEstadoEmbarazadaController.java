@@ -6,6 +6,7 @@ import ni.org.ics.zip.service.ZpEstadoEmbarazadaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,6 +38,21 @@ public class ZpEstadoEmbarazadaController {
     List<ZpEstadoEmbarazada> getZpEstadoEmbarazadas() {
         logger.info("Descargando toda la informacion de los datos de los formulario ZpEstadoEmbarazada");
         List<ZpEstadoEmbarazada> zpEstadoEmbarazada = zpEstadoEmbarazadaService.getZpEstadoEmbarazada();
+        if (zpEstadoEmbarazada == null){
+            logger.debug("Nulo");
+        }
+        return zpEstadoEmbarazada;
+    }
+    
+    /**
+     * Acepta una solicitud GET para JSON
+     * @return JSON
+     */
+    @RequestMapping(value = "zpEstadoEmb/{username}", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    List<ZpEstadoEmbarazada> getZpEstadoEmbarazadas(@PathVariable String username) {
+        logger.info("Descargando toda la informacion de los datos de los formulario ZpEstadoEmbarazadapara el usuario " +username);
+        List<ZpEstadoEmbarazada> zpEstadoEmbarazada = zpEstadoEmbarazadaService.getZpEstadoEmbarazadByUser(username);
         if (zpEstadoEmbarazada == null){
             logger.debug("Nulo");
         }

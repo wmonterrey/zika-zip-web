@@ -120,13 +120,21 @@
 <spring:url value="/resources/plugins/jquery.pwstrength.bootstrap/src/pwstrength.js" var="pwStrength" />
 <script src="${pwStrength}" type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
+<c:choose>
+	<c:when test="${cookie.zikaLang.value == null}">
+		<c:set var="lenguaje" value="es"/>
+	</c:when>
+	<c:otherwise>
+		<c:set var="lenguaje" value="${cookie.zikaLang.value}"/>
+	</c:otherwise>
+</c:choose>
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <spring:url value="/resources/scripts/app.js" var="App" />
 <script src="${App}" type="text/javascript"></script>
 <spring:url value="/resources/scripts/users/chgpass-user.js" var="chgPassScript" />
 <script src="${chgPassScript}" type="text/javascript"></script>
 <spring:url value="/resources/plugins/jquery-validation/localization/messages_{language}.js" var="jQValidationLoc">
-	<spring:param name="language" value="${pageContext.request.locale.language}" />
+	<spring:param name="language" value="${language}" />
 </spring:url>				
 <script src="${jQValidationLoc}"/></script>
 <!-- END PAGE LEVEL SCRIPTS -->

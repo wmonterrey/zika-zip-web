@@ -5,6 +5,7 @@ import ni.org.ics.zip.service.Zp00ScreeningService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,6 +42,22 @@ public class Zp00ScreeningController {
         }
         return zp00Screenings;
     }
+    
+    /**
+     * Acepta una solicitud GET para JSON
+     * @return JSON
+     */
+    @RequestMapping(value = "zp00Screenings/{username}", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    List<Zp00Screening> getZp00Screenings(@PathVariable String username) {
+        logger.info("Descargando toda la informacion de los datos de los formulario Zp00Screening para el usuario " +username);
+        List<Zp00Screening> zp00Screenings = zp00ScreeningService.getZp00ScreeningByUser(username);
+        if (zp00Screenings == null){
+            logger.debug("Nulo");
+        }
+        return zp00Screenings;
+    }
+
 
     /**
      * Acepta una solicitud POST con un parámetro JSON

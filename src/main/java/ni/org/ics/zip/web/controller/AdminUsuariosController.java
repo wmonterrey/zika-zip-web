@@ -8,6 +8,9 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import ni.org.ics.zip.domain.audit.AuditTrail;
+import ni.org.ics.zip.domain.catalogs.Cs;
+import ni.org.ics.zip.domain.relationships.UserCenter;
+import ni.org.ics.zip.domain.relationships.UserCenterId;
 import ni.org.ics.zip.service.AuditTrailService;
 import ni.org.ics.zip.service.UsuarioService;
 import ni.org.ics.zip.users.model.Authority;
@@ -66,7 +69,9 @@ public class AdminUsuariosController {
     @RequestMapping(value = "newUser", method = RequestMethod.GET)
 	public String initAddUserForm(Model model) {
     	List<Rol> roles = usuarioService.getRoles();
+    	List<Cs> centros = usuarioService.getCenters();
 	    model.addAttribute("roles", roles);
+	    model.addAttribute("centros", centros);
 	    model.addAttribute("agregando",true);
         model.addAttribute("editando",false);
 		return "admin/users/enterForm";
@@ -84,9 +89,13 @@ public class AdminUsuariosController {
 		if(usuarioEditar!=null){
 			model.addAttribute("user",usuarioEditar);
 			List<Rol> roles = usuarioService.getRoles();
+			List<Cs> centros = usuarioService.getCenters();
 	    	model.addAttribute("roles", roles);
+	    	model.addAttribute("centros", centros);
 	    	List<Authority> rolesusuario = this.usuarioService.getRolesUsuario(username);
+	    	List<UserCenter> centrosusuario = this.usuarioService.getCentersUser(username);
 	    	model.addAttribute("rolesusuario", rolesusuario);
+	    	model.addAttribute("centrosusuario", centrosusuario);
 	    	model.addAttribute("editando",true);
             model.addAttribute("agregando",false);
 			return "admin/users/enterForm";
@@ -104,6 +113,7 @@ public class AdminUsuariosController {
 	        , @RequestParam( value="password", required=false, defaultValue="" ) String password
 	        , @RequestParam( value="email", required=true, defaultValue="" ) String email
 	        , @RequestParam( value="authorities", required=false, defaultValue="") List<String> authorities
+	        , @RequestParam( value="centers", required=false, defaultValue="") List<String> centers
 	        )
 	{
     	try{
@@ -130,6 +140,13 @@ public class AdminUsuariosController {
 					auth.setRecordUser(usuarioActual.getUsername());
 					auth.setRecordDate(new Date());
 					this.usuarioService.saveRoleUser(auth);
+				}
+	    		for(String c:centers){
+	    			UserCenter uc = new UserCenter();
+	    			uc.setUserCenterId(new UserCenterId(userName,c));
+					uc.setRecordUser(usuarioActual.getUsername());
+					uc.setRecordDate(new Date());
+					this.usuarioService.saveCenterUser(uc);
 				}
 	    	}
 	    	else{
@@ -175,6 +192,45 @@ public class AdminUsuariosController {
 						Authority rol = this.usuarioService.getRolUsuario(userName,rActual);
 						rol.setPasive('1');
 						this.usuarioService.saveRoleUser(rol);
+					}
+				}
+				//Recupera los centros activos de este usuario de la base de datos y pone el centro en una lista
+				List<String> centrosUsuario = new ArrayList<String>();
+				List<UserCenter> centrosusuario = this.usuarioService.getCentersUser(userName);
+				for(UserCenter centroActual:centrosusuario){
+					centrosUsuario.add(centroActual.getUserCenterId().getCenter());
+				}
+				//Recorre los centros seleccionados en el formulario
+				for(String c:centers){
+					boolean encontreCentroBD = false;
+					//Recorre los centros actuales del usuario
+					for(String cActual:centrosUsuario){
+						if(cActual.equals(c)){
+							encontreCentroBD=true;
+							break;
+						}
+					}
+					//Si no encuentra el centro seleccionado en los centros actuales ingresa un nuevo centro o lo actualiza
+					if (!encontreCentroBD){
+						UserCenter nuevoCentro = new UserCenter(new UserCenterId(userName,c), new Date(), usuarioActual.getUsername());
+						this.usuarioService.saveCenterUser(nuevoCentro);
+					}
+				}
+				//Recorre los centros actuales
+				for(String cActual:centrosUsuario){
+					boolean encontreCentroForm = false;
+					//Recorre los centros seleccionados en el formulario
+					for(String c:centers){
+						if(cActual.equals(c)){
+							encontreCentroForm=true;
+							break;
+						}
+					}
+					//Si no encuentra el centro actual en los centros seleccionados lo pone en pasivo
+					if (!encontreCentroForm){
+						UserCenter centro = this.usuarioService.getCentroUsuario(userName, cActual);
+						centro.setPasive('1');
+						this.usuarioService.saveCenterUser(centro);
 					}
 				}
 	    	}
@@ -308,6 +364,8 @@ public class AdminUsuariosController {
             mav.addObject("bitacora",bitacoraUsuario);
             List<Authority> rolesusuario = this.usuarioService.getRolesUsuarioTodos(username);
             mav.addObject("rolesusuario", rolesusuario);
+            List<UserCenter> centrosusuario = this.usuarioService.getAllCentersUser(username);
+            mav.addObject("centrosusuario", centrosusuario);
         }
         return mav;
     }

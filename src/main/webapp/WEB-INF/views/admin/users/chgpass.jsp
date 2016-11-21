@@ -150,6 +150,14 @@
 <jsp:include page="../../fragments/corePlugins.jsp" />
 <jsp:include page="../../fragments/bodyUtils.jsp" />
 <!-- BEGIN PAGE LEVEL PLUGINS -->
+<c:choose>
+	<c:when test="${cookie.zikaLang.value == null}">
+		<c:set var="lenguaje" value="es"/>
+	</c:when>
+	<c:otherwise>
+		<c:set var="lenguaje" value="${cookie.zikaLang.value}"/>
+	</c:otherwise>
+</c:choose>
 <spring:url value="/resources/plugins/jquery-validation/dist/jquery.validate.min.js" var="jQValidation" />
 <script type="text/javascript" src="${jQValidation}"></script>
 <spring:url value="/resources/plugins/jquery-validation/dist/additional-methods.min.js" var="jQValidationAdd" />
@@ -164,7 +172,7 @@
 <spring:url value="/resources/scripts/users/chgpass-user.js" var="chgPassScript" />
 <script src="${chgPassScript}" type="text/javascript"></script>
 <spring:url value="/resources/plugins/jquery-validation/localization/messages_{language}.js" var="jQValidationLoc">
-	<spring:param name="language" value="${pageContext.request.locale.language}" />
+	<spring:param name="language" value="${lenguaje}" />
 </spring:url>				
 <script src="${jQValidationLoc}"/></script>
 <!-- END PAGE LEVEL SCRIPTS -->

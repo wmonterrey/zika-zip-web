@@ -33,6 +33,20 @@ public class Zp01StudyEntrySectionFtoKService {
         Query query = session.createQuery("FROM Zp01StudyEntrySectionFtoK");
         return query.list();
     }
+    
+    
+    /**
+     * Retorna todos los formularios Zp01StudyEntrySectionFtoK
+     * @return una lista de Zp01StudyEntrySectionFtoK
+     */
+    @SuppressWarnings("unchecked")
+    public List<Zp01StudyEntrySectionFtoK> getZp01StudyEntrySectionFtoKByUser(String username){
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("FROM Zp01StudyEntrySectionFtoK zp01f where zp01f.pasive = '0' and zp01f.recordId in (select zp00.recordId from Zp00Screening zp00 where zp00.pasive = '0' and zp00.preScreenId in (select recId from ZpPreScreening zpPre where zpPre.pasive = '0' and zpPre.cs in " +
+        		"(Select uc.centro.cs from UserCenter uc where uc.user.username =:usuarioactual and uc.pasive = '0')))");
+        query.setParameter("usuarioactual",username);
+        return query.list();
+    }
 
     /**
      * Retorna un formulario Zp01StudyEntrySectionFtoK

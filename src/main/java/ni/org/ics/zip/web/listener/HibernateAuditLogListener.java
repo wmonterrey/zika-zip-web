@@ -1,6 +1,7 @@
 package ni.org.ics.zip.web.listener;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 
@@ -63,6 +64,7 @@ Initializable {
             final EntityMode entityMode = event.getPersister().guessEntityMode(event.getEntity());  
             Object oldPropValue = null;  
             Object newPropValue = null; 
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
             
             if (event.getEntity() instanceof Auditable){
               	Auditable obj = (Auditable) event.getEntity();
@@ -84,6 +86,12 @@ Initializable {
 		                    if (!(newPropValue instanceof Collection)) {  
 		                        oldPropValue = event.getPersister().getPropertyValue(existingEntity, propertyName, entityMode);
 		                        if(oldPropValue != null){
+		                        	if(oldPropValue instanceof Date){
+		                        		oldPropValue = formatter.format((Date) oldPropValue);
+		                        	}
+		                        	if(newPropValue instanceof Date){
+		                        		newPropValue = formatter.format((Date) newPropValue);
+		                        	}
 			                        if(!newPropValue.equals(oldPropValue)){
 				                        if (LOG.isDebugEnabled()) {  
 				                            LOG.debug("{} for: {}, ID: {}, property: {}, old value: {}, new value: {}, actor: {}, date: {}", new Object[] { OPERATION_TYPE_UPDATE, entityName, entityId, propertyName, oldPropValue, newPropValue, actorId, transTime });  

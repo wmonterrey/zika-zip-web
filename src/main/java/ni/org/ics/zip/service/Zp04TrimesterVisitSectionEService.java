@@ -31,6 +31,19 @@ public class Zp04TrimesterVisitSectionEService {
         Query query = session.createQuery("FROM Zp04TrimesterVisitSectionE");
         return query.list();
     }
+    
+    /**
+     * Retorna todos los formularios Zp04TrimesterVisitSectionE
+     * @return una lista de Zp04TrimesterVisitSectionE
+     */
+    @SuppressWarnings("unchecked")
+    public List<Zp04TrimesterVisitSectionE> getZp04TrimesterVisitSectionEByUser(String username){
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("FROM Zp04TrimesterVisitSectionE zp04e where zp04e.pasive = '0' and zp04e.recordId in (select zp00.recordId from Zp00Screening zp00 where zp00.pasive = '0' and zp00.preScreenId in (select recId from ZpPreScreening zpPre where zpPre.pasive = '0' and zpPre.cs in " +
+        		"(Select uc.centro.cs from UserCenter uc where uc.user.username =:usuarioactual and uc.pasive = '0')))");
+        query.setParameter("usuarioactual",username);
+        return query.list();
+    }
 
     /**
      * Retorna un formulario Zp04TrimesterVisitSectionE

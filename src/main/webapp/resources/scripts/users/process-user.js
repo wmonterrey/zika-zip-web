@@ -2,6 +2,7 @@ var EditUser = function () {
 	
 	var handleMultiSelect = function () {
         $('#authorities').multiSelect();
+        $('#centers').multiSelect();
     };
     
     var handlePasswordStrengthChecker = function () {
@@ -82,7 +83,10 @@ var EditUser = function () {
                         equalTo: "#password"
                     },
                     authorities: {
-                        required: false
+                        required: true
+                    },
+                    centers: {
+                        required: true
                     }
                 },
 

@@ -5,6 +5,7 @@ import ni.org.ics.zip.service.Zp01StudyEntrySectionEService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -40,6 +41,22 @@ public class Zp01StudyEntrySectionEController {
         }
         return zp01StudyEntrySectionEs;
     }
+    
+    /**
+     * Acepta una solicitud GET para JSON
+     * @return JSON
+     */
+    @RequestMapping(value = "zp01StudyEntrySectionEs/{username}", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    List<Zp01StudyEntrySectionE> getZp01StudyEntrySectionEs(@PathVariable String username) {
+        logger.info("Descargando toda la informacion de los datos de los formulario Zp01StudyEntry sección E para el usuario " +username);
+        List<Zp01StudyEntrySectionE> zp01StudyEntrySectionEs = zp01StudyEntrySectionEService.getZp01StudyEntrySectionEByUser(username);
+        if (zp01StudyEntrySectionEs == null){
+            logger.debug("Nulo");
+        }
+        return zp01StudyEntrySectionEs;
+    }
+
 
     /**
      * Acepta una solicitud POST con un parámetro JSON

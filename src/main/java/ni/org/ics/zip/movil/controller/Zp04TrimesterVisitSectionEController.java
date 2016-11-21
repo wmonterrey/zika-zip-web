@@ -5,6 +5,7 @@ import ni.org.ics.zip.service.Zp04TrimesterVisitSectionEService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,6 +37,21 @@ public class Zp04TrimesterVisitSectionEController {
     List<Zp04TrimesterVisitSectionE> getZp04TrimesterVisitSectionEs() {
         logger.info("Descargando toda la informacion de los datos de los formulario Zp04TrimesterVisitSectionE");
         List<Zp04TrimesterVisitSectionE> zp04TrimesterVisitSectionE = zp04TrimesterVisitSectionEService.getZp04TrimesterVisitSectionE();
+        if (zp04TrimesterVisitSectionE == null){
+            logger.debug("Nulo");
+        }
+        return zp04TrimesterVisitSectionE;
+    }
+    
+    /**
+     * Acepta una solicitud GET para JSON
+     * @return JSON
+     */
+    @RequestMapping(value = "zp04TrimesterVisitSectionEs/{username}", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    List<Zp04TrimesterVisitSectionE> getZp04TrimesterVisitSectionEs(@PathVariable String username) {
+        logger.info("Descargando toda la informacion de los datos de los formulario Zp04TrimesterVisitSectionE para el usuario " +username);
+        List<Zp04TrimesterVisitSectionE> zp04TrimesterVisitSectionE = zp04TrimesterVisitSectionEService.getZp04TrimesterVisitSectionEByUser(username);
         if (zp04TrimesterVisitSectionE == null){
             logger.debug("Nulo");
         }

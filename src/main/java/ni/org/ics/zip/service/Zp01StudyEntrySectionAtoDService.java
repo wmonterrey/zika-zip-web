@@ -34,6 +34,19 @@ public class Zp01StudyEntrySectionAtoDService {
     }
 
     /**
+     * Retorna todos los formularios Zp01StudyEntrySectionAtoD
+     * @return una lista de Zp01StudyEntrySectionAtoD
+     */
+    @SuppressWarnings("unchecked")
+    public List<Zp01StudyEntrySectionAtoD> getZp01StudyEntrySectionAtoDByUser(String username){
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("FROM Zp01StudyEntrySectionAtoD zp01 where zp01.pasive = '0' and zp01.recordId in (select zp00.recordId from Zp00Screening zp00 where zp00.pasive = '0' and zp00.preScreenId in (select recId from ZpPreScreening zpPre where zpPre.pasive = '0' and zpPre.cs in " +
+        		"(Select uc.centro.cs from UserCenter uc where uc.user.username =:usuarioactual and uc.pasive = '0')))");
+        query.setParameter("usuarioactual",username);
+        return query.list();
+    }
+    
+    /**
      * Retorna un formulario Zp01StudyEntrySectionAtoD
      * @param recordId del Zp01StudyEntrySectionAtoD a retornar
      * @return un Zp01StudyEntrySectionAtoD

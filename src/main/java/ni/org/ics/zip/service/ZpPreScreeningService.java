@@ -42,6 +42,19 @@ public class ZpPreScreeningService {
         query.setParameter("recordId",recordId);
         return (ZpPreScreening)query.uniqueResult();
     }
+    
+    /**
+     * Retorna todos los formularios ZpPreScreening del usuario username
+     * @return una lista de ZpPreScreening
+     */
+    @SuppressWarnings("unchecked")
+    public List<ZpPreScreening> getZpPreScreeningByUser(String username){
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("FROM ZpPreScreening zpPre where zpPre.pasive = '0' and zpPre.cs in " +
+        		"(Select uc.centro.cs from UserCenter uc where uc.user.username =:usuarioactual and uc.pasive = '0')");
+        query.setParameter("usuarioactual",username);
+        return query.list();
+    }
 
     /**
      * Guardar un formulario ZpPreScreening

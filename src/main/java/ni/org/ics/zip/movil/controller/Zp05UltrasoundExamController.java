@@ -5,6 +5,7 @@ import ni.org.ics.zip.service.Zp05UltrasoundExamService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,6 +37,21 @@ public class Zp05UltrasoundExamController {
     List<Zp05UltrasoundExam> getZp05UltrasoundExams() {
         logger.info("Descargando toda la informacion de los datos de los formulario Zp05UltrasoundExam");
         List<Zp05UltrasoundExam> zp05UltrasoundExams = zp05UltrasoundExamService.getZp05UltrasoundExam();
+        if (zp05UltrasoundExams == null){
+            logger.debug("Nulo");
+        }
+        return zp05UltrasoundExams;
+    }
+    
+    /**
+     * Acepta una solicitud GET para JSON
+     * @return JSON
+     */
+    @RequestMapping(value = "zp05UltrasoundExams/{username}", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    List<Zp05UltrasoundExam> getZp05UltrasoundExams(@PathVariable String username) {
+        logger.info("Descargando toda la informacion de los datos de los formulario Zp05UltrasoundExam para el usuario " +username);
+        List<Zp05UltrasoundExam> zp05UltrasoundExams = zp05UltrasoundExamService.getZp05UltrasoundExamByUser(username);
         if (zp05UltrasoundExams == null){
             logger.debug("Nulo");
         }

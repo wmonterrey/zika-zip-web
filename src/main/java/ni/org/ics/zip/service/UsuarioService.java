@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import ni.org.ics.zip.domain.catalogs.Cs;
+import ni.org.ics.zip.domain.relationships.UserCenter;
 import ni.org.ics.zip.users.model.Authority;
 import ni.org.ics.zip.users.model.Rol;
 import ni.org.ics.zip.users.model.UserAccess;
@@ -215,4 +217,66 @@ public class UsuarioService {
 		// Retrieve all
 		return  query.list();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Cs> getCenters() {
+		// Retrieve session from Hibernate
+		Session session = sessionFactory.getCurrentSession();
+		// Create a Hibernate query (HQL)
+		Query query = session.createQuery("FROM Cs");
+		// Retrieve all
+		return  query.list();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<UserCenter> getCentersUser(String username) {
+		// Retrieve session from Hibernate
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("FROM UserCenter uc where " +
+				"uc.userCenterId.username =:username and uc.pasive ='0'");
+		query.setParameter("username",username);
+		List<UserCenter> userscentro = query.list();
+		return userscentro;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<UserCenter> getAllCentersUser(String username) {
+		// Retrieve session from Hibernate
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("FROM UserCenter uc where " +
+				"uc.userCenterId.username =:username");
+		query.setParameter("username",username);
+		List<UserCenter> userscentro = query.list();
+		return userscentro;
+	}
+	
+	/**
+	 * Guarda un centro del usuario
+	 * 
+	 * 
+	 */
+	public void saveCenterUser(UserCenter uc) {
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(uc);
+	}
+	
+	/**
+	 * Regresa un centro del usuario
+	 * 
+	 * @return un <code>UserCenter</code>
+	 */
+
+	public UserCenter getCentroUsuario(String username, String centro) {
+		// Retrieve session from Hibernate
+		Session session = sessionFactory.getCurrentSession();
+		// Create a Hibernate query (HQL)
+		Query query = session.createQuery("FROM UserCenter uc " +
+				"where uc.userCenterId.username =:username and uc.userCenterId.center =:centro");
+		query.setParameter("username",username);
+		query.setParameter("centro",centro);
+		UserCenter centroUsuario = (UserCenter) query.uniqueResult();
+		// Retrieve 
+		return  centroUsuario;
+	}
+	
 }

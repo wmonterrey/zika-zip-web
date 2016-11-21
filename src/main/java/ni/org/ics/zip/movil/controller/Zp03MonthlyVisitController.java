@@ -5,6 +5,7 @@ import ni.org.ics.zip.service.Zp03MonthlyVisitService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,6 +43,22 @@ public class Zp03MonthlyVisitController {
         }
         return zp03MonthlyVisit;
     }
+    
+    /**
+     * Acepta una solicitud GET para JSON
+     * @return JSON
+     */
+    @RequestMapping(value = "zp03MonthlyVisits/{username}", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    List<Zp03MonthlyVisit> getZp03MonthlyVisits(@PathVariable String username) {
+        logger.info("Descargando toda la informacion de los datos de los formulario Zp03MonthlyVisit para el usuario " +username);
+        List<Zp03MonthlyVisit> zp03MonthlyVisit = zp03MonthlyVisitService.getZp03MonthlyVisitByUser(username);
+        if (zp03MonthlyVisit == null){
+            logger.debug("Nulo");
+        }
+        return zp03MonthlyVisit;
+    }
+
 
     /**
      * Acepta una solicitud POST con un parámetro JSON

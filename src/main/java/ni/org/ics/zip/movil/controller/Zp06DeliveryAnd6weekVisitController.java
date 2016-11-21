@@ -5,6 +5,7 @@ import ni.org.ics.zip.service.Zp06DeliveryAnd6weekVisitService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,6 +37,21 @@ public class Zp06DeliveryAnd6weekVisitController {
     List<Zp06DeliveryAnd6weekVisit> getZp06DeliveryAnd6weekVisits() {
         logger.info("Descargando toda la informacion de los datos de los formulario Zp06DeliveryAnd6weekVisit");
         List<Zp06DeliveryAnd6weekVisit> zp06DeliveryAnd6weekVisits = zp06DeliveryAnd6weekVisitService.getZp06DeliveryAnd6weekVisit();
+        if (zp06DeliveryAnd6weekVisits == null){
+            logger.debug("Nulo");
+        }
+        return zp06DeliveryAnd6weekVisits;
+    }
+    
+    /**
+     * Acepta una solicitud GET para JSON
+     * @return JSON
+     */
+    @RequestMapping(value = "zp06DeliveryAnd6weekVisits/{username}", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    List<Zp06DeliveryAnd6weekVisit> getZp06DeliveryAnd6weekVisits(@PathVariable String username) {
+        logger.info("Descargando toda la informacion de los datos de los formulario Zp06DeliveryAnd6weekVisit para el usuario " +username);
+        List<Zp06DeliveryAnd6weekVisit> zp06DeliveryAnd6weekVisits = zp06DeliveryAnd6weekVisitService.getZp06DeliveryAnd6weekVisitByUser(username);
         if (zp06DeliveryAnd6weekVisits == null){
             logger.debug("Nulo");
         }

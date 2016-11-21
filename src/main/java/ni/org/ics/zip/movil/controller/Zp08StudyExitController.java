@@ -5,6 +5,7 @@ import ni.org.ics.zip.service.Zp08StudyExitService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,6 +38,21 @@ public class Zp08StudyExitController {
     List<Zp08StudyExit> getZp08StudyExits() {
         logger.info("Descargando toda la informacion de los datos de los formulario Zp08StudyExit");
         List<Zp08StudyExit> zp08StudyExits = zp08StudyExitService.getZp08StudyExit();
+        if (zp08StudyExits == null){
+            logger.debug("Nulo");
+        }
+        return zp08StudyExits;
+    }
+    
+    /**
+     * Acepta una solicitud GET para JSON
+     * @return JSON
+     */
+    @RequestMapping(value = "zp08StudyExits/{username}", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    List<Zp08StudyExit> getZp08StudyExits(@PathVariable String username) {
+        logger.info("Descargando toda la informacion de los datos de los formulario Zp08StudyExit para el usuario " +username);
+        List<Zp08StudyExit> zp08StudyExits = zp08StudyExitService.getZp08StudyExitByUser(username);
         if (zp08StudyExits == null){
             logger.debug("Nulo");
         }

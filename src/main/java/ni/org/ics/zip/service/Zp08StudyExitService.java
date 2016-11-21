@@ -32,6 +32,20 @@ public class Zp08StudyExitService {
         Query query = session.createQuery("FROM Zp08StudyExit");
         return query.list();
     }
+    
+    
+    /**
+     * Retorna todos los formularios Zp08StudyExit
+     * @return una lista de Zp08StudyExit
+     */
+    @SuppressWarnings("unchecked")
+    public List<Zp08StudyExit> getZp08StudyExitByUser(String username){
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("FROM Zp08StudyExit zp08 where zp08.pasive = '0' and zp08.recordId in (select zp00.recordId from Zp00Screening zp00 where zp00.pasive = '0' and zp00.preScreenId in (select recId from ZpPreScreening zpPre where zpPre.pasive = '0' and zpPre.cs in " +
+        		"(Select uc.centro.cs from UserCenter uc where uc.user.username =:usuarioactual and uc.pasive = '0')))");
+        query.setParameter("usuarioactual",username);
+        return query.list();
+    }
 
     /**
      * Retorna un formulario Zp08StudyExit

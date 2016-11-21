@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import ni.org.ics.zip.domain.audit.AuditTrail;
+import ni.org.ics.zip.domain.relationships.UserCenter;
 import ni.org.ics.zip.service.AuditTrailService;
 import ni.org.ics.zip.service.UsuarioService;
 import ni.org.ics.zip.users.model.Authority;
@@ -69,6 +70,8 @@ public class UsuariosController {
         mav.addObject("bitacora",bitacoraUsuario);
         List<Authority> rolesusuario = this.usuarioService.getRolesUsuarioTodos(authentication.getName());
         mav.addObject("rolesusuario", rolesusuario);
+        List<UserCenter> centrosusuario = this.usuarioService.getCentersUser(authentication.getName());
+        mav.addObject("centrosusuario", centrosusuario);
         return mav;
     }
     

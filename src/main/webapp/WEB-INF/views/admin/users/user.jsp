@@ -386,6 +386,58 @@
 					<div class="portlet">
 						<div class="portlet-title">
 							<div class="caption">
+								<i class="fa fa-group"></i><spring:message code="usercenters" />
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse"></a>
+								<a href="javascript:;" class="remove"></a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div class="table-toolbar2">
+								<div class="btn-group">
+								</div>
+							</div>
+							<div class="table-responsive">
+							<table class="table table-striped table-hover table-bordered" id="lista_centros">
+							<thead>
+								<tr>
+									<th><spring:message code="usercenters" /></th>
+									<th><spring:message code="enabled" /></th>
+									<th><spring:message code="addedBy" /></th>
+									<th><spring:message code="dateAdded" /></th>
+								</tr>
+							</thead>
+							<c:forEach items="${centrosusuario}" var="centro">
+								<tr>
+									<td><spring:message code="${centro.userCenterId.center}" /></td>
+									<c:choose>
+										<c:when test="${centro.pasive=='0'.charAt(0)}">
+											<td><span class="label label-success"><spring:message code="yes" /></span></td>
+										</c:when>
+										<c:otherwise>
+											<td><span class="label label-danger"><spring:message code="no" /></span></td>
+										</c:otherwise>
+									</c:choose>
+									<td><c:out value="${centro.recordUser}" /></td>
+									<td><c:out value="${centro.recordDate}" /></td>
+								</tr>
+							</c:forEach>
+							</table>
+							</div>
+						</div>
+					</div>
+					<!-- END TABLE PORTLET-->
+				</div>
+			</div>
+			<!-- END ROW -->
+			<!-- START ROW -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN TABLE PORTLET-->
+					<div class="portlet">
+						<div class="portlet-title">
+							<div class="caption">
 								<i class="fa fa-key"></i><spring:message code="access" />
 							</div>
 							<div class="tools">
@@ -511,6 +563,24 @@
 <jsp:include page="../../fragments/corePlugins.jsp" />
 <jsp:include page="../../fragments/bodyUtils.jsp" />
 <!-- BEGIN PAGE LEVEL PLUGINS -->	
+<c:choose>
+	<c:when test="${cookie.zikaLang.value == null}">
+		<c:set var="lenguaje" value="es"/>
+	</c:when>
+	<c:otherwise>
+		<c:set var="lenguaje" value="${cookie.zikaLang.value}"/>
+	</c:otherwise>
+</c:choose>
+<spring:url value="/resources/plugins/data-tables/jquery.dataTables.js" var="jQueryDataTables" />
+<script type="text/javascript" src="${jQueryDataTables}"></script>
+<spring:url value="/resources/plugins/data-tables/DT_bootstrap.js" var="dataTablesBS" />
+<script type="text/javascript" src="${dataTablesBS}"></script>
+<spring:url value="/resources/plugins/data-tables/TableTools/js/dataTables.tableTools.js" var="dataTablesTT" />
+<script type="text/javascript" src="${dataTablesTT}"></script>
+<spring:url value="/resources/plugins/data-tables/TableTools/swf/copy_csv_xls_pdf.swf" var="dataTablesTTSWF" />
+<spring:url value="/resources/plugins/data-tables/i18n/label_{language}.json" var="dataTablesLang">
+	<spring:param name="language" value="${lenguaje}" />
+</spring:url>	
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <spring:url value="/resources/scripts/app.js" var="App" />
@@ -525,7 +595,16 @@
 <script>
 	jQuery(document).ready(function() {
 		App.init();
-		
+		$('#lista_accesos').DataTable({
+            "oLanguage": {
+    			"sUrl": "${dataTablesLang}"
+            }
+        });
+		$('#lista_cambios').DataTable({
+            "oLanguage": {
+    			"sUrl": "${dataTablesLang}"
+            }
+        });
 		if ("${usuarioHabilitado}"){
 			toastr.success("${userEnabledLabel}", "${nombreUsuario}" );
 		}

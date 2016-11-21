@@ -24,7 +24,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	@Bean
 	public LocaleResolver localeResolver() {
 	    CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
-	    cookieLocaleResolver.setCookieName("prLang");
+	    cookieLocaleResolver.setCookieName("zikaLang");
 	    cookieLocaleResolver.setDefaultLocale(new Locale("es"));
 	    cookieLocaleResolver.setCookiePath("/zika-zip/");
 	    cookieLocaleResolver.setCookieMaxAge(31536000);

@@ -103,11 +103,11 @@
 	<script src="${App}" type="text/javascript"></script>
 	<script src="${Login}" type="text/javascript"></script>
 	<c:choose>
-		<c:when test="${cookie.prLang.value == null}">
+		<c:when test="${cookie.zikaLang.value == null}">
 			<c:set var="lenguaje" value="es"/>
 		</c:when>
 		<c:otherwise>
-			<c:set var="lenguaje" value="${cookie.prLang.value}"/>
+			<c:set var="lenguaje" value="${cookie.zikaLang.value}"/>
 		</c:otherwise>
 	</c:choose>
 	<spring:url value="/resources/plugins/jquery-validation/localization/messages_{language}.js" var="jQValidationLoc">
@@ -126,7 +126,7 @@
 			var d = new Date();
 		    d.setTime(d.getTime() + (365*24*60*60*1000));
 		    var expires = "expires="+d.toUTCString();
-			document.cookie="prLang=en;"+expires+"; path=/zika-zip/";
+			document.cookie="zikaLang=en;"+expires+"; path=/zika-zip/";
 			location.reload();
          });
 		
@@ -134,7 +134,7 @@
 			var d = new Date();
 			d.setTime(d.getTime() + (365*24*60*60*1000));
 		    var expires = "expires="+d.toUTCString();
-			document.cookie="prLang=es;"+expires+"; path=/zika-zip/";
+			document.cookie="zikaLang=es;"+expires+"; path=/zika-zip/";
 			location.reload();
          });
 		
