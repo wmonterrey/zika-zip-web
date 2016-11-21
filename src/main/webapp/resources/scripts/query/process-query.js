@@ -1,4 +1,4 @@
-var Export = function () {
+var Query = function () {
 
    return {
         //main function to initiate the module
@@ -13,13 +13,7 @@ var Export = function () {
                 focusInvalid: false, // do not focus the last invalid input
                 ignore: "",
                 rules: {
-                    codigoInicio: {required: function () {
-                        return $('#codigoFin').val().length > 0;
-                    }},
-                    codigoFin: {required: function () {
-                        return $('#codigoInicio').val().length > 0;
-                    }},
-                    zpform: {
+                    query: {
                         required: true
                     }
                 },
@@ -45,60 +39,20 @@ var Export = function () {
 
                 submitHandler: function (form) {
                     error1.hide();
-                    getForm();
+                    getResultQuery();
                 }
             });
 
-            function getForm() {
-                var form = $('#zpform option:selected').val();
-                var urlForm = "";
-                if (form == 'Zp00'){
-                    urlForm = parametros.getZp00;
-                }
-                if (form == 'Zp01AD'){
-                    urlForm = parametros.getZp01AD;
-                }
-                if (form == 'Zp01E'){
-                    urlForm = parametros.getZp01E;
-                }
-                if (form == 'Zp01FK'){
-                    urlForm = parametros.getZp01FK;
-                }
-                if (form == 'Zp02'){
-                    urlForm = parametros.getZp02;
-                }
-                if (form == 'Zp03'){
-                    urlForm = parametros.getZp03;
-                }
-                if (form == 'Zp04AD'){
-                    urlForm = parametros.getZp04AD;
-                }
-                if (form == 'Zp04E'){
-                    urlForm = parametros.getZp04E;
-                }
-                if (form == 'Zp04FH'){
-                    urlForm = parametros.getZp04FH;
-                }
-                if (form == 'Zp05'){
-                    urlForm = parametros.getZp05;
-                }
-                if (form == 'Zp06'){
-                    urlForm = parametros.getZp06;
-                }
-                if (form == 'Zp08'){
-                    urlForm = parametros.getZp08;
-                }
-
+            function getResultQuery() {
                 var iframe = document.createElement('iframe');
                 iframe.id = "IFRAMEID";
                 iframe.style.display = 'none';
                 document.body.appendChild(iframe);
-                iframe.src = urlForm+"?codigoInicio="+$("#codigoInicio").val()+"&codigoFin="+$("#codigoFin").val();
+                iframe.src = parametros.queryUrl+"?query="+$("#query").val();
                 iframe.addEventListener("load", function () {
                     console.log("FILE LOAD DONE.. Download should start now");
                 });
             }
-
         }
     };
 

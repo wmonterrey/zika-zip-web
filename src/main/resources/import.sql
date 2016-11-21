@@ -167,7 +167,10 @@ INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp08', '0', 'F
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `en`, `catPasive`, `es`) VALUES ('form', 'Form', '0', 'Formulario');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('subjectId.start', '0', 'Codigo de Inicio');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('subjectId.end', '0', 'Código de Fin');
-
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('run', '0', 'Ejecutar');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('lbl.query', '0', 'Consulta');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('consult', '0', 'Consultar');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('query.help', '0', 'Favor especifar cada columna en el SELECT, no usar *');
 
 /*etiquetas comunes*/
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('lbl.select', '0', 'Seleccione');

@@ -45,6 +45,11 @@
                                     <i class="fa fa-file-text"></i>
                                     <spring:message code="export" /></a>
                             </li>
+                            <li class="query">
+                                <a href="<spring:url value="/query/" htmlEscape="true "/>">
+                                    <i class="fa fa-database" aria-hidden="true"></i>
+                                    <spring:message code="lbl.query" /></a>
+                            </li>
                         </ul>
                     </li>
                 </sec:authorize>
