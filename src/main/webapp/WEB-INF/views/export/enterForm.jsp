@@ -215,7 +215,7 @@
 <spring:url value="/admin/export/getZp01AD"	var="getZp01AD"/>
 <spring:url value="/admin/export/getZp01E"	var="getZp01E"/>
 <spring:url value="/admin/export/getZp01FK"	var="getZp01FK"/>
-<spring:url value="/admin/admin/export/getZp02"	var="getZp02"/>
+<spring:url value="/admin/export/getZp02"	var="getZp02"/>
 <spring:url value="/admin/export/getZp03"	var="getZp03"/>
 <spring:url value="/admin/export/getZp04AD"	var="getZp04AD"/>
 <spring:url value="/admin/export/getZp04E"	var="getZp04E"/>
