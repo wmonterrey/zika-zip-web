@@ -5,6 +5,7 @@ import ni.org.ics.zip.service.Zp02BiospecimenCollectionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,6 +38,21 @@ public class Zp02BiospecimenCollectionController {
     List<Zp02BiospecimenCollection> getZp02BiospecimenCollections() {
         logger.info("Descargando toda la informacion de los formulario Zp02BiospecimenCollections");
         List<Zp02BiospecimenCollection> zp02BiospecimenCollections = zp02BiospecimenCollectionService.getZp02BiospecimenCollection();
+        if (zp02BiospecimenCollections == null){
+            logger.debug("Nulo");
+        }
+        return zp02BiospecimenCollections;
+    }
+    
+    /**
+     * Acepta una solicitud GET para JSON
+     * @return JSON
+     */
+    @RequestMapping(value = "zp02BiospecimenCollections/{username}", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    List<Zp02BiospecimenCollection> getZp02BiospecimenCollections(@PathVariable String username) {
+        logger.info("Descargando toda la informacion de los formulario Zp02BiospecimenCollections para el usuario " +username);
+        List<Zp02BiospecimenCollection> zp02BiospecimenCollections = zp02BiospecimenCollectionService.getZp02BiospecimenCollectionByUser(username);
         if (zp02BiospecimenCollections == null){
             logger.debug("Nulo");
         }
