@@ -211,18 +211,18 @@
 <spring:url value="/resources/scripts/export/process-export.js" var="procExportScript" />
 <script src="${procExportScript}" type="text/javascript"></script>
 
-<spring:url value="/export/getZp00"	var="getZp00"/>
-<spring:url value="/export/getZp01AD"	var="getZp01AD"/>
-<spring:url value="/export/getZp01E"	var="getZp01E"/>
-<spring:url value="/export/getZp01FK"	var="getZp01FK"/>
-<spring:url value="/export/getZp02"	var="getZp02"/>
-<spring:url value="/export/getZp03"	var="getZp03"/>
-<spring:url value="/export/getZp04AD"	var="getZp04AD"/>
-<spring:url value="/export/getZp04E"	var="getZp04E"/>
-<spring:url value="/export/getZp04FH"	var="getZp04FH"/>
-<spring:url value="/export/getZp05"	var="getZp05"/>
-<spring:url value="/export/getZp06"	var="getZp06"/>
-<spring:url value="/export/getZp08"	var="getZp08"/>
+<spring:url value="/admin/export/getZp00"	var="getZp00"/>
+<spring:url value="/admin/export/getZp01AD"	var="getZp01AD"/>
+<spring:url value="/admin/export/getZp01E"	var="getZp01E"/>
+<spring:url value="/admin/export/getZp01FK"	var="getZp01FK"/>
+<spring:url value="/admin/admin/export/getZp02"	var="getZp02"/>
+<spring:url value="/admin/export/getZp03"	var="getZp03"/>
+<spring:url value="/admin/export/getZp04AD"	var="getZp04AD"/>
+<spring:url value="/admin/export/getZp04E"	var="getZp04E"/>
+<spring:url value="/admin/export/getZp04FH"	var="getZp04FH"/>
+<spring:url value="/admin/export/getZp05"	var="getZp05"/>
+<spring:url value="/admin/export/getZp06"	var="getZp06"/>
+<spring:url value="/admin/export/getZp08"	var="getZp08"/>
 
 
 <!-- END PAGE LEVEL SCRIPTS -->

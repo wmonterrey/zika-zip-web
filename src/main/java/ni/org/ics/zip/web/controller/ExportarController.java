@@ -22,7 +22,7 @@ import java.text.ParseException;
  * V1.0
  */
 @Controller
-@RequestMapping("export")
+@RequestMapping("/admin/export/*")
 public class ExportarController {
 
     private static final Logger logger = LoggerFactory.getLogger(ExportarController.class);

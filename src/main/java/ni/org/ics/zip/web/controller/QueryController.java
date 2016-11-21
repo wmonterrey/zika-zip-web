@@ -1,7 +1,6 @@
 package ni.org.ics.zip.web.controller;
 
 import ni.org.ics.zip.service.QueryService;
-import ni.org.ics.zip.utils.ExportParameters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -22,7 +21,7 @@ import java.text.ParseException;
  * V1.0
  */
 @Controller
-@RequestMapping("query")
+@RequestMapping("/admin/query/*")
 public class QueryController {
     private static final Logger logger = LoggerFactory.getLogger(QueryController.class);
 

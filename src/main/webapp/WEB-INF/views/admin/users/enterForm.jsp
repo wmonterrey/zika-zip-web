@@ -171,6 +171,30 @@
 											</select>
 										</div>
 									</div>
+									<div class="form-group">
+										<label class="control-label col-md-3"><spring:message code="usercenters" />
+										<span class="required">
+											 *
+										</span>
+										</label>
+										<div class="col-md-5">
+											<select multiple="multiple" class="multi-select" id="centers" name="centers">
+											<c:forEach items="${centrosusuario}" var="center" varStatus="stat">
+												<c:set var="centrosUsuario" value="${stat.first ? '' : centrosUsuario} ${center.userCenterId.center}" />
+											</c:forEach>
+											<c:forEach items="${centros}" var="centro">
+												<c:choose> 
+													<c:when test="${fn:contains(centrosUsuario, centro.cs)}">
+														<option selected value="${centro.cs}"><spring:message code="${centro.cs}" /></option>
+													</c:when>
+													<c:otherwise>
+														<option value="${centro.cs}"><spring:message code="${centro.cs}" /></option>
+													</c:otherwise>
+												</c:choose>
+											</c:forEach>
+											</select>
+										</div>
+									</div>
 								</div>
 								<div class="form-actions fluid">
 									<div class="col-md-offset-6 col-md-6">
@@ -197,6 +221,14 @@
 <jsp:include page="../../fragments/corePlugins.jsp" />
 <jsp:include page="../../fragments/bodyUtils.jsp" />
 <!-- BEGIN PAGE LEVEL PLUGINS -->
+<c:choose>
+	<c:when test="${cookie.zikaLang.value == null}">
+		<c:set var="lenguaje" value="es"/>
+	</c:when>
+	<c:otherwise>
+		<c:set var="lenguaje" value="${cookie.zikaLang.value}"/>
+	</c:otherwise>
+</c:choose>
 <spring:url value="/resources/plugins/select2/select2.min.js" var="Select2" />
 <script type="text/javascript" src="${Select2}"></script>
 <spring:url value="/resources/plugins/jquery-multi-select/js/jquery.multi-select.js" var="jQueryMultiSelect" />
@@ -215,11 +247,11 @@
 <spring:url value="/resources/scripts/users/process-user.js" var="editUserScript" />
 <script src="${editUserScript}" type="text/javascript"></script>
 <spring:url value="/resources/plugins/jquery-validation/localization/messages_{language}.js" var="jQValidationLoc">
-	<spring:param name="language" value="${pageContext.request.locale.language}" />
+	<spring:param name="language" value="${lenguaje}" />
 </spring:url>				
 <script src="${jQValidationLoc}"></script>
 <spring:url value="/resources/plugins/select2/select2_locale_{language}.js" var="Select2Loc">
-	<spring:param name="language" value="${pageContext.request.locale.language}" />
+	<spring:param name="language" value="${lenguaje}" />
 </spring:url>				
 <script src="${Select2Loc}"></script>
 <spring:url value="/admin/users/saveUser" var="saveUserUrl"></spring:url>

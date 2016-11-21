@@ -34,14 +34,13 @@ INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'confirm', 'Co
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'please.enter', 'Favor ingresar','0');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`, `en`) VALUES ('delete', '0', 'Eliminar', 'Delete');
 
-/*Men�*/
+/*Menu navegacion*/
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'home', 'Inicio','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'results', 'Solicitudes','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'addres', 'Agregar Resultado','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'editres', 'Editar Resultado','0');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'del.res', 'Borrar Resultado','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'pregnants', 'Embarazadas','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'pregnantsdash', 'Panel de control','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'admin', 'Administracion','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'adminusers', 'Usuarios','0');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('lbl.query', '0', 'Consulta');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'profile', 'Perfil','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'changepass', 'Cambiar contrasena..','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'logout', 'Salir','0');
@@ -171,7 +170,6 @@ INSERT INTO `zika_zip`.`messages` (`messageKey`, `en`, `catPasive`, `es`) VALUES
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('subjectId.start', '0', 'Codigo de Inicio');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('subjectId.end', '0', 'Codigo de Fin');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('run', '0', 'Ejecutar');
-INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('lbl.query', '0', 'Consulta');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('consult', '0', 'Consultar');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('query.help', '0', 'Favor especifar cada columna en el SELECT, no usar *');
 

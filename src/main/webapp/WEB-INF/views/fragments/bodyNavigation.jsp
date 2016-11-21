@@ -24,6 +24,25 @@
 					</span>
                     </a>
                 </li>
+                <sec:authorize url="/">
+                    <li class="pregnants">
+                        <a href="javascript:;">
+                            <i class="fa fa-female"></i>
+					<span class="title">
+						<spring:message code="pregnants" />
+					</span>
+					<span class="arrow ">
+					</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="pregnantsdash">
+                                <a href="<spring:url value="/embarazadas/dashboard/" htmlEscape="true "/>">
+                                    <i class="fa fa-tachometer"></i>
+                                    <spring:message code="pregnantsdash" /></a>
+                            </li>
+                        </ul>
+                    </li>
+                </sec:authorize>
                 <sec:authorize url="/admin/">
                     <li class="admin">
                         <a href="javascript:;">
@@ -41,12 +60,12 @@
                                     <spring:message code="adminusers" /></a>
                             </li>
                             <li class="export">
-                                <a href="<spring:url value="/export/" htmlEscape="true "/>">
+                                <a href="<spring:url value="/admin/export/" htmlEscape="true "/>">
                                     <i class="fa fa-file-text"></i>
                                     <spring:message code="export" /></a>
                             </li>
                             <li class="query">
-                                <a href="<spring:url value="/query/" htmlEscape="true "/>">
+                                <a href="<spring:url value="/admin/query/" htmlEscape="true "/>">
                                     <i class="fa fa-question-circle"></i>
                                     <spring:message code="lbl.query" /></a>
                             </li>

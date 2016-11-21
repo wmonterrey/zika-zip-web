@@ -172,7 +172,7 @@
 <spring:url value="/resources/scripts/query/process-query.js" var="queryScript" />
 <script src="${queryScript}" type="text/javascript"></script>
 
-<spring:url value="/query/getResulQuery"	var="queryUrl"/>
+<spring:url value="/admin/query/getResulQuery"	var="queryUrl"/>
 
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
