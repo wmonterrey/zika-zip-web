@@ -181,7 +181,7 @@
 <spring:url value="/resources/plugins/select2/select2.min.js" var="Select2" />
 <script type="text/javascript" src="${Select2}"></script>
 <spring:url value="/resources/plugins/select2/select2_locale_{language}.js" var="Select2Loc">
-    <spring:param name="language" value="${pageContext.request.locale.language}" />
+    <spring:param name="language" value="${lenguaje}" />
 </spring:url>
 <script src="${Select2Loc}"></script>
 

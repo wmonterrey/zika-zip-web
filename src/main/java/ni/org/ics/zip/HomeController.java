@@ -3,14 +3,11 @@ package ni.org.ics.zip;
 import javax.annotation.Resource;
 
 import ni.org.ics.zip.service.UsuarioService;
-import ni.org.ics.zip.users.model.UserSistema;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,6 +21,7 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Model model) {
+    	logger.info("Pagina principal");
         return "home";
     }
     
