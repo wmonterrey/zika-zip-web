@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import ni.org.ics.zip.domain.audit.Auditable;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -13,7 +16,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "zp_datos_embarazada", catalog = "zika_zip")
-public class ZpDatosEmbarazada extends BaseMetaData{
+public class ZpDatosEmbarazada extends BaseMetaData implements Auditable{
 
     /**
 	 * 
@@ -129,6 +132,12 @@ public class ZpDatosEmbarazada extends BaseMetaData{
 
 	public void setTelefonoContacto(String telefonoContacto) {
 		this.telefonoContacto = telefonoContacto;
+	}
+
+	@Override
+	public boolean isFieldAuditable(String fieldname) {
+		// TODO Auto-generated method stub
+		return false;
 	}
     
 	

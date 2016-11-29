@@ -21,7 +21,7 @@ public class EmbarazadasController {
     @RequestMapping(value = "dashboard", method = RequestMethod.GET)
     public String home(Model model) {
     	logger.info("Pagina principal embarazadas");
-        return "home";
+        return "pregnants/dashboard";
     }
 
 	

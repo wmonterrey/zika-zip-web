@@ -69,6 +69,6 @@ public class ZpPreScreening extends BaseMetaData implements Auditable{
 
     @Override
     public boolean isFieldAuditable(String fieldname) {
-        return true;
+        return false;
     }
 }

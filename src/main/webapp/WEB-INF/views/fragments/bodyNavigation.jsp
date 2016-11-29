@@ -36,7 +36,7 @@
                         </a>
                         <ul class="sub-menu">
                             <li class="pregnantsdash">
-                                <a href="<spring:url value="/embarazadas/dashboard/" htmlEscape="true "/>">
+                                <a href="<spring:url value="/pregnants/dashboard/" htmlEscape="true "/>">
                                     <i class="fa fa-tachometer"></i>
                                     <spring:message code="pregnantsdash" /></a>
                             </li>
