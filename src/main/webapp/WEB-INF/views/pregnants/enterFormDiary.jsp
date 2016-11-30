@@ -16,8 +16,6 @@
 <!-- BEGIN PAGE LEVEL STYLES -->
 <spring:url value="/resources/plugins/select2/select2_conquer.css" var="sel2css" />
 <link rel="stylesheet" type="text/css" href="${sel2css}"/>
-<spring:url value="/resources/plugins/jquery-multi-select/css/multi-select.css" var="jqmscss" />
-<link rel="stylesheet" type="text/css" href="${jqmscss}"/>
 <!-- END PAGE LEVEL STYLES -->
 </head>
 <!-- END HEAD -->
@@ -40,13 +38,14 @@
 				<div class="col-md-12">
 					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 					<h3 class="page-title">
-					<spring:message code="title" /> <small><spring:message code="consult" /></small>
+					<spring:message code="title" /> <small><spring:message code="diary" /></small>
 					</h3>
 					<ul class="page-breadcrumb breadcrumb">
 						<li>
 							<i class="fa fa-home"></i>
 							<a href="<spring:url value="/" htmlEscape="true "/>"><spring:message code="home" /></a>
-                            <i class="fa fa-angle-right"></i> <a href="<spring:url value="/admin/query/" htmlEscape="true "/>"><spring:message code="consult" /></a>
+                            <i class="fa fa-angle-right"></i> <spring:message code="pregnants" />
+                            <i class="fa fa-angle-right"></i> <a href="<spring:url value="/pregnants/diary" htmlEscape="true "/>"><spring:message code="diary" /></a>
 						</li>
 					</ul>
 					<!-- END PAGE TITLE & BREADCRUMB-->
@@ -68,11 +67,8 @@
                             </div>
                         </div>
                         <div class="portlet-body form">
-                            <form action="#" autocomplete="off" id="download-form" class="form-horizontal">
+                            <form action="#" autocomplete="off" id="diary-form" class="form-horizontal">
                                 <div class="form-body">
-                                    <div class="alert alert-info">
-                                        <spring:message code="query.help" />
-                                    </div>
                                     <div class="alert alert-danger display-hide">
                                         <button class="close" data-close="alert"></button>
                                         <spring:message code="form.errors" />
@@ -80,13 +76,19 @@
                                     <div class="row">
                                         <div class="col col-sm-12 col-md-12 col-lg-12">
                                             <div class="form-group">
-                                                <label class="control-label col-md-2"><spring:message code="lbl.query" />
+                                                <label class="control-label col-md-2"><spring:message code="date" />
                                                     <span class="required">
                                                         *
                                                     </span>
                                                 </label>
-                                                <div class="col-md-10">
-                                                        <textarea class="form-control" rows="5" name="query" id="query"></textarea>
+                                                <div class="col-md-4">
+                                                    <div class="input-group">
+                                                        <input class="form-control date-picker" type="text" name="diarydate" id="diarydate"
+                                                               value="<fmt:formatDate value="${today}" pattern="dd/MM/yyyy" />" />
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -94,7 +96,7 @@
                                 </div>
                                 <div class="form-actions fluid">
                                     <div class="col-md-offset-6 col-md-6">
-                                        <button id="guardar" type="submit" class="btn btn-success"><spring:message code="run" /></button>
+                                        <button id="consultar" type="submit" class="btn btn-success"><spring:message code="consult" /></button>
                                     </div>
                                 </div>
                             </form>
@@ -103,6 +105,59 @@
                     <!-- END TABLE PORTLET-->
                 </div>
             </div>
+            <!-- START ROW -->
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BEGIN TABLE PORTLET-->
+                    <div class="portlet">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-group"></i><spring:message code="visits" />
+                            </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse"></a>
+                                <a href="javascript:;" class="remove"></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="table-toolbar2">
+                                <div class="btn-group">
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover table-bordered" id="lista_registros">
+                                    <thead>
+                                    <tr>
+                                        <th><spring:message code="subjectId" /></th>
+                                        <th><spring:message code="diary.registerdate" /></th>
+                                        <th><spring:message code="form" /></th>
+                                        <th><spring:message code="diary.programmingdate" /></th>
+                                        <th><spring:message code="diary.event" /></th>
+                                        <th><spring:message code="diary.scheduleddate" /></th>
+                                        <th><spring:message code="diary.agreeddate" /></th>
+                                        <th><spring:message code="diary.agreedtime" /></th>
+                                    </tr>
+                                    </thead>
+                                    <c:forEach items="${registros}" var="registro">
+                                        <tr>
+                                            <td><c:out value="${registro.codigo}" /></td>
+                                            <td><c:out value="${registro.fechaIngreso}" /></td>
+                                            <td><c:out value="${registro.formulario}" /></td>
+                                            <td><c:out value="${registro.fechaProgramacionCita}" /></td>
+                                            <td><c:out value="${registro.evento}" /></td>
+                                            <td><c:out value="${registro.fechaProgramada}" /></td>
+                                            <td><c:out value="${registro.fechaCita}" /></td>
+                                            <td><c:out value="${registro.horaCita}" /></td>
+                                        </tr>
+                                    </c:forEach>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END TABLE PORTLET-->
+                </div>
+            </div>
+            <!-- END ROW -->
 			<!-- END PAGE CONTENT -->
 		</div>
 	</div>
@@ -169,25 +224,29 @@
 <script src="${App}" type="text/javascript"></script>
 <spring:url value="/resources/scripts/utils/handleDatePickers.js" var="handleDatePickers" />
 <script src="${handleDatePickers}" type="text/javascript"></script>
-<spring:url value="/resources/scripts/query/process-query.js" var="queryScript" />
-<script src="${queryScript}" type="text/javascript"></script>
+<spring:url value="/resources/scripts/diary/process-diary.js" var="diaryScript" />
+<script src="${diaryScript}" type="text/javascript"></script>
 
-<spring:url value="/admin/query/getResulQuery"	var="queryUrl"/>
+<spring:url value="/pregnants/diary/getDiary"	var="diaryUrl"/>
 
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
     $(function () {
-        $("li.admin").removeClass("open").addClass("active");
-        $("li.query").removeClass("query").addClass("active");
+        $("li.pregnants").removeClass("open").addClass("active");
+        $("li.diary").removeClass("diary").addClass("active");
     });
 </script>
 <script>
 	jQuery(document).ready(function() {
-		App.init();
-		var parametros = {queryUrl : "${queryUrl}"};
+        console.log("app init");
+        App.init();
+        console.log("app fin");
+		var parametros = {diaryUrl : "${diaryUrl}",
+            dataTablesLang : "${dataTablesLang}"};
 
-        Query.init(parametros);
-        $('#query').focus();
+        Diary.init(parametros);
+
+        handleDatePickers("${lenguaje}");
 	});
 </script>
 <!-- END JAVASCRIPTS -->

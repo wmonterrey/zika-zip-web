@@ -38,6 +38,7 @@ INSERT INTO `messages` (`messageKey`, `catPasive`, `es`, `en`) VALUES ('delete',
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'home', 'Inicio','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'pregnants', 'Embarazadas','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'pregnantsdash', 'Panel de control','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ('diary', 'Agenda', '0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'admin', 'Administracion','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'adminusers', 'Usuarios','0');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('lbl.query', '0', 'Consulta');
@@ -179,3 +180,12 @@ INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('lbl.select', '
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('class ni.org.ics.zip.domain.relationships.UserCenter', '0', 'Centro del usuario');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('class ni.org.ics.zip.users.model.UserSistema', '0', 'Usuario');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('class ni.org.ics.zip.users.model.Authority', '0', 'Rol del usuario');
+/*Agenda*/
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('subjectId', '0', 'Codigo Participante');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('diary.registerdate', '0', 'Fecha Ingreso');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('diary.event', '0', 'Semana Cita');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('diary.scheduleddate', '0', 'Fecha Programada');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('diary.agreeddate', '0', 'Fecha Cita');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('visits', '0', 'Visitas');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('diary.agreedtime', '0', 'Hora Cita');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('diary.programmingdate', '0', 'Fecha de programacion de cita');
