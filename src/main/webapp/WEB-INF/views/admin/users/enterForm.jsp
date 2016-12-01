@@ -45,7 +45,7 @@
 						<li>
 							<i class="fa fa-home"></i>
 							<a href="<spring:url value="/" htmlEscape="true "/>"><spring:message code="home" /></a>
-							<i class="fa fa-angle-right"></i> <a href="<spring:url value="/admin/users/" htmlEscape="true "/>"><spring:message code="adminusers" /></a> <i class="fa fa-angle-right"></i> <a href="<spring:url value="/admin/users/edit/${user.username}" htmlEscape="true "/>">${user.username}</a>
+							<i class="fa fa-angle-right"></i> <a href="<spring:url value="/admin/users/" htmlEscape="true "/>"><spring:message code="adminusers" /></a> <i class="fa fa-angle-right"></i> <a href="<spring:url value="/admin/users/editUser/${user.username}" htmlEscape="true "/>">${user.username}</a>
 						</li>
 					</ul>
 					<!-- END PAGE TITLE & BREADCRUMB-->
