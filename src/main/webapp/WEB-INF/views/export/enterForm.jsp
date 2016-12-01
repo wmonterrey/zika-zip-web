@@ -46,7 +46,7 @@
 						<li>
 							<i class="fa fa-home"></i>
 							<a href="<spring:url value="/" htmlEscape="true "/>"><spring:message code="home" /></a>
-                            <i class="fa fa-angle-right"></i> <a href="<spring:url value="/export/" htmlEscape="true "/>"><spring:message code="export" /></a>
+                            <i class="fa fa-angle-right"></i> <a href="<spring:url value="/admin/export/" htmlEscape="true "/>"><spring:message code="export" /></a>
 						</li>
 					</ul>
 					<!-- END PAGE TITLE & BREADCRUMB-->

@@ -40,6 +40,11 @@
                                     <i class="fa fa-tachometer"></i>
                                     <spring:message code="pregnantsdash" /></a>
                             </li>
+                            <li class="diary">
+                                <a href="<spring:url value="/pregnants/diary/" htmlEscape="true "/>">
+                                    <i class="fa fa-calendar-o"></i>
+                                    <spring:message code="diary" /></a>
+                            </li>
                         </ul>
                     </li>
                 </sec:authorize>
