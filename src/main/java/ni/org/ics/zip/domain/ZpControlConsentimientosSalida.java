@@ -3,6 +3,7 @@ package ni.org.ics.zip.domain;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,7 +13,8 @@ import ni.org.ics.zip.domain.audit.Auditable;
  * Created by FIRSTICT on 10/6/2016.
  * V1.0
  */
-@Table(name = "zp_cons_salidas", catalog = "zika_zip")
+@Entity
+@Table(name = "zp_cons_salida", catalog = "zika_zip")
 public class ZpControlConsentimientosSalida extends BaseMetaData implements Auditable{
 
     /**

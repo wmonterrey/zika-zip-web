@@ -1,6 +1,5 @@
 package ni.org.ics.zip.service;
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import ni.org.ics.zip.domain.*;
 import ni.org.ics.zip.utils.Constants;
 import ni.org.ics.zip.utils.DateUtil;
@@ -28,7 +27,8 @@ public class AgendaService {
     @Resource(name="sessionFactory")
     private SessionFactory sessionFactory;
 
-    public List<ZpAgendaEmbarazada> getDiary(String fecha) throws ParseException{
+    @SuppressWarnings("unchecked")
+	public List<ZpAgendaEmbarazada> getDiary(String fecha) throws ParseException{
         List<ZpAgendaEmbarazada> agendaEmbarazadas = new ArrayList<ZpAgendaEmbarazada>();
         List<Zp00Screening> screenings;
         List<Zp04TrimesterVisitSectionFtoH> trimesterVisitSectionFtoHs = new ArrayList<Zp04TrimesterVisitSectionFtoH>();

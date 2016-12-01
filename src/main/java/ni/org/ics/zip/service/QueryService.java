@@ -1,17 +1,14 @@
 package ni.org.ics.zip.service;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
-import ni.org.ics.zip.utils.ExportParameters;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by FIRSTICT on 11/14/2016.

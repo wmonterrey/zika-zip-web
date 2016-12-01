@@ -43,7 +43,6 @@ public class ExportarService {
             DatabaseMetaData meta = con.getMetaData();
             ResultSet res = meta.getColumns(null, null, tableName, null);
             System.out.println("List of columns: ");
-            int indice = 0;
             while (res.next()) {
                 //excluir estos campos
                 if (!res.getString("COLUMN_NAME").equalsIgnoreCase("identificador_equipo") &&
@@ -70,7 +69,6 @@ public class ExportarService {
                         columns.add(res.getString("COLUMN_NAME"));
                     }
                 }
-                indice++;
             }
         } catch (Exception e) {
             e.printStackTrace();
