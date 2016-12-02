@@ -1,5 +1,25 @@
 var Export = function () {
+    var bloquearUI = function (mensaje) {
+        var loc = window.location;
+        var pathName = loc.pathname.substring(0, loc.pathname.indexOf('/', 1) + 1);
+        var mess = '<img src=' + pathName + 'resources/img/ajax-loading.gif>' + mensaje;
+        $.blockUI({ message: mess,
+            css: {
+                border: 'none',
+                padding: '15px',
+                backgroundColor: '#000',
+                '-webkit-border-radius': '10px',
+                '-moz-border-radius': '10px',
+                opacity: .5,
+                color: '#fff'
+            },
+            baseZ: 1051 // para que se muestre bien en los modales
+        });
+    };
 
+    var desbloquearUI = function () {
+        setTimeout($.unblockUI, 500);
+    };
    return {
         //main function to initiate the module
         init: function (parametros) {
@@ -50,45 +70,39 @@ var Export = function () {
             });
 
             function getForm() {
+                bloquearUI("");
                 var form = $('#zpform option:selected').val();
                 var urlForm = "";
                 if (form == 'Zp00'){
                     urlForm = parametros.getZp00;
-                }
-                if (form == 'Zp01AD'){
+                }else if (form == 'Zp01AD'){
                     urlForm = parametros.getZp01AD;
-                }
-                if (form == 'Zp01E'){
+                }else if (form == 'Zp01E'){
                     urlForm = parametros.getZp01E;
-                }
-                if (form == 'Zp01FK'){
+                }else if (form == 'Zp01FK'){
                     urlForm = parametros.getZp01FK;
-                }
-                if (form == 'Zp02'){
+                }else if (form == 'Zp02'){
                     urlForm = parametros.getZp02;
-                }
-                if (form == 'Zp03'){
+                }else if (form == 'Zp03'){
                     urlForm = parametros.getZp03;
-                }
-                if (form == 'Zp04AD'){
+                }else if (form == 'Zp04AD'){
                     urlForm = parametros.getZp04AD;
-                }
-                if (form == 'Zp04E'){
+                }else if (form == 'Zp04E'){
                     urlForm = parametros.getZp04E;
-                }
-                if (form == 'Zp04FH'){
+                }else if (form == 'Zp04FH'){
                     urlForm = parametros.getZp04FH;
-                }
-                if (form == 'Zp05'){
+                }else if (form == 'Zp05'){
                     urlForm = parametros.getZp05;
-                }
-                if (form == 'Zp06'){
+                }else if (form == 'Zp06'){
                     urlForm = parametros.getZp06;
-                }
-                if (form == 'Zp08'){
+                }else if (form == 'Zp08'){
                     urlForm = parametros.getZp08;
+                }else{
+                    urlForm = parametros.getAll;
                 }
 
+                console.log(form);
+                console.log(urlForm);
                 var iframe = document.createElement('iframe');
                 iframe.id = "IFRAMEID";
                 iframe.style.display = 'none';
@@ -97,6 +111,7 @@ var Export = function () {
                 iframe.addEventListener("load", function () {
                     console.log("FILE LOAD DONE.. Download should start now");
                 });
+                desbloquearUI();
             }
 
         }

@@ -167,6 +167,7 @@ INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp04FH', '0', 
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp05', '0', 'Formulario Zp05 Ultrasonido');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp06', '0', 'Formulario Zp06 Parto');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp08', '0', 'Formulario Zp08 Salida del estudio');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('allforms', '0', 'Todos');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `en`, `catPasive`, `es`) VALUES ('form', 'Form', '0', 'Formulario');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('subjectId.start', '0', 'Codigo de Inicio');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('subjectId.end', '0', 'Codigo de Fin');

@@ -1,10 +1,15 @@
 package ni.org.ics.zip.service;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+import ni.org.ics.zip.utils.Constants;
 import ni.org.ics.zip.utils.ExportParameters;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -23,7 +28,8 @@ public class ExportarService {
     private static final String QUOTE = "\"";
     private static final String COMA = "\"";
 
-
+    @Resource(name="sessionFactory")
+    private SessionFactory sessionFactory;
 
     private static Connection getConnection() throws Exception{
         MysqlDataSource dataSource = new MysqlDataSource();
@@ -1399,6 +1405,199 @@ public class ExportarService {
         return sb;
     }
 
+    private List<String[]> getAllTableMetaData(String[] tableNames) throws Exception{
+        Connection con = getConnection();
+        List<String[]> columns = new ArrayList<String[]>();
+        try {
+            DatabaseMetaData meta = con.getMetaData();
+            boolean idAgregado = false;
+            boolean eventAgregado = false;
+            boolean procesarColumna;
+            for(String tableName : tableNames) {
+                ResultSet res = meta.getColumns(null, null, tableName, null);
+                System.out.println("List of columns: ");
+                String[] columnas = new String[2];
+                while (res.next()) {
+                    //excluir estos campos
+                    if (!res.getString("COLUMN_NAME").equalsIgnoreCase("identificador_equipo") &&
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("end") &&
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("estado") &&
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("id_instancia") &&
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("instance_path") &&
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("PASIVO") &&
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("phonenumber") &&
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("FECHA_REGISTRO") &&
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("USUARIO_REGISTRO") &&
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("simserial") &&
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("start") &&
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("today") &&
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("prescreen_id")
+                            ) {
+
+                        if (res.getString("COLUMN_NAME").equalsIgnoreCase("record_id")){
+                            if (!idAgregado){
+                                procesarColumna = true;
+                                idAgregado = true;
+                            }else{
+                                procesarColumna = false;
+                            }
+                        }else if (res.getString("COLUMN_NAME").equalsIgnoreCase("redcap_event_name")){
+                            if (!eventAgregado){
+                                procesarColumna = true;
+                                eventAgregado = true;
+                            }else{
+                                procesarColumna = false;
+                            }
+                        }else{
+                            procesarColumna = true;
+                        }
+
+                        if (procesarColumna) {
+                            String[] columna = {res.getString("TABLE_NAME"),res.getString("COLUMN_NAME")};
+                            if (res.getString("COLUMN_NAME").equalsIgnoreCase("record_id") && !columns.isEmpty()) {
+                                //el record_id siempre debe ser el primer campo
+                                String[] columnaTmp = columns.get(0);
+                                columns.set(0, columna );
+                                columns.add(columnaTmp);
+                            } else {
+                                columns.add(columna);
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if (con !=null)
+                con.close();
+        }
+        return columns;
+    }
+
+    public StringBuffer getAllExportData(ExportParameters exportParameters) throws Exception{
+
+        StringBuffer sb = new StringBuffer();
+        Connection con = getConnection();
+        PreparedStatement pStatement = null;
+        ResultSet res = null;
+        String columnas = "";
+        String valores = "";
+
+        try {
+            //recuperar los nombres de las columnas de todas las tablas
+            String[] tableNames = exportParameters.getTableName().split(",");
+            List<String[]> allColumns = getAllTableMetaData(tableNames);
+            List<String> redCapEvents = getRedCapEvents();
+            List<String> participantes = getSubjects(exportParameters);
+            List<String> registros = new ArrayList<String>();
+            int primerRegistro = 0;
+            for (String redCapEvent : redCapEvents){
+
+                for (String participante : participantes) {
+                    valores = participante+SEPARADOR+redCapEvent;
+                    for (String tableName : tableNames) {
+                        String columnasT = getTableColumns(allColumns, tableName);
+                        String valoresT = "";
+                        //pasar a recuperar los datos. Setear parámetro si los hay
+
+                        pStatement = con.prepareStatement("select " + columnasT + " from " + tableName + " where redcap_event_name = ?" + " and record_id = ? ");
+                        pStatement.setString(1, redCapEvent);
+                        pStatement.setString(2, participante);
+
+                        res = pStatement.executeQuery();
+                        if (primerRegistro==0) {
+                            if (tableName.equalsIgnoreCase(Constants.TABLE_ZP08)) {
+                                //columnas que necesita redcap y no estan en la tabla
+                                columnasT += SEPARADOR + "zp08_study_exit_complete";
+                            }
+                            columnas += ((columnas.isEmpty() ? "" : SEPARADOR) + columnasT);
+                        }
+                        while (res.next()) {
+                            for (String[] col : allColumns) {
+                                if (!col[0].equalsIgnoreCase("record_id") && !col[1].equalsIgnoreCase("redcap_event_name")) {
+                                    if (existeColumna(columnasT.split(","), col[1])) {
+                                        Object val = null;
+                                        try {
+                                            val = res.getObject(col[1]);
+                                        } catch (Exception ex) {
+                                            ex.printStackTrace();
+                                        }
+                                        if (val != null) {
+                                            if (val instanceof String) {
+                                                //si contiene uno de estos caracteres especiales escapar
+                                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMA) || val.toString().contains(SALTOLINEA)) {
+                                                    valoresT += SEPARADOR + QUOTE + val.toString() + QUOTE;
+                                                } else {
+                                                    if (valoresT.isEmpty()) valoresT += val.toString();
+                                                    else valoresT += SEPARADOR + val.toString();
+                                                }
+                                            } else if (val instanceof Integer) {
+                                                if (valoresT.isEmpty()) valoresT += String.valueOf(res.getInt(col[1]));
+                                                else valoresT += SEPARADOR + String.valueOf(res.getInt(col[1]));
+
+                                            } else if (val instanceof java.util.Date) {
+                                                if (valoresT.isEmpty())
+                                                    valoresT += DateToString(res.getDate(col[1]), "dd/MM/yyyyy");
+                                                else
+                                                    valoresT += SEPARADOR + DateToString(res.getDate(col[1]), "dd/MM/yyyyy");
+
+                                            } else if (val instanceof Float) {
+                                                if (valoresT.isEmpty())
+                                                    valoresT += String.valueOf(res.getFloat(col[1]));
+                                                else valoresT += SEPARADOR + String.valueOf(res.getFloat(col[1]));
+                                            }
+                                        } else {
+                                            valoresT += SEPARADOR;
+
+                                        }
+                                    } else {
+                                        valoresT += SEPARADOR;
+
+                                    }
+                                }
+                            }
+                        }
+                        //valor para zp0XXX_complete
+                        valoresT += SEPARADOR + "1";
+                        if (valores.isEmpty()) valores += valoresT;
+                        else
+                        valores += SEPARADOR + valoresT;
+                    }
+                    System.out.println("VALORES: "+ redCapEvent + " ID: "+participante);
+                    System.out.println(valores);
+                    registros.add(valores);
+                    valores = "";
+                    primerRegistro++;
+                }
+                //¿NO SE HACE NADA?
+
+            }
+
+            sb.append(columnas);
+            for (String registro : registros){
+                sb.append(SALTOLINEA);
+                sb.append(registro);
+            }
+            sb.append(SALTOLINEA);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if (res !=null) res.close();
+            if (pStatement !=null) pStatement.close();
+            if (con !=null) con.close();
+        }
+        return sb;
+    }
+
+    private static boolean existeColumna(String[] todas, String buscar){
+        for(String comparar : todas){
+            if (comparar.equalsIgnoreCase(buscar)) {
+                return true;
+            }
+        }
+        return false;
+    }
     private static String parseColumns(List<String> columns){
         String columnas = "";
         for(String col : columns){
@@ -1408,6 +1607,80 @@ public class ExportarService {
                 columnas += SEPARADOR + col;
         }
         return columnas;
+    }
+
+    private static String parseAllColumns(List<String[]> columns){
+        String columnas = "";
+        for(String[] col : columns){
+            if (columnas.isEmpty()) //es primer columna
+                columnas+=col[1];
+            else
+                columnas += SEPARADOR + col[1];
+        }
+        return columnas;
+    }
+
+    private static String getTableColumns(List<String[]> allColumns, String tableName){
+        String columnas = "";
+        for(String col[] : allColumns){
+            if (col[0].equalsIgnoreCase(tableName)) {
+                if (columnas.isEmpty()) //es primer columna
+                    columnas += col[1];
+                else
+                    columnas += SEPARADOR + col[1];
+            }
+        }
+        return columnas;
+    }
+
+    private static List<String> getRedCapEvents(){
+        List<String> redCapEvents = new ArrayList<String>();
+        redCapEvents.add(Constants.SCREENING);
+        redCapEvents.add(Constants.ENTRY);
+        redCapEvents.add(Constants.WEEK2);
+        redCapEvents.add(Constants.WEEK4);
+        redCapEvents.add(Constants.WEEK6);
+        redCapEvents.add(Constants.WEEK8);
+        redCapEvents.add(Constants.WEEK10);
+        redCapEvents.add(Constants.WEEK12);
+        redCapEvents.add(Constants.WEEK14);
+        redCapEvents.add(Constants.WEEK16);
+        redCapEvents.add(Constants.WEEK18);
+        redCapEvents.add(Constants.WEEK20);
+        redCapEvents.add(Constants.WEEK22);
+        redCapEvents.add(Constants.WEEK24);
+        redCapEvents.add(Constants.WEEK26);
+        redCapEvents.add(Constants.WEEK28);
+        redCapEvents.add(Constants.WEEK30);
+        redCapEvents.add(Constants.WEEK32);
+        redCapEvents.add(Constants.WEEK34);
+        redCapEvents.add(Constants.WEEK36);
+        redCapEvents.add(Constants.WEEK38);
+        redCapEvents.add(Constants.WEEK40);
+        redCapEvents.add(Constants.WEEK42);
+        redCapEvents.add(Constants.WEEK44);
+        redCapEvents.add(Constants.DELIVERY);
+        redCapEvents.add(Constants.AFTERDELIVERY);
+        redCapEvents.add(Constants.UNSHED1);
+        redCapEvents.add(Constants.UNSHED2);
+        redCapEvents.add(Constants.UNSHED3);
+        redCapEvents.add(Constants.UNSHED4);
+        redCapEvents.add(Constants.UNSHED5);
+        redCapEvents.add(Constants.EXIT);
+        return redCapEvents;
+    }
+
+    private List<String> getSubjects(ExportParameters exportParameters) throws SQLException{
+        StringBuilder sqlStrBuilder = new StringBuilder("select zp00.recordId from Zp00Screening zp00");
+        if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where zp00.recordId between :inicio and :fin ");
+
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery(sqlStrBuilder.toString());
+        if (exportParameters.thereAreValues()){
+            query.setString("inicio", exportParameters.getCodigoInicio());
+            query.setString("fin", exportParameters.getCodigoFin());
+        }
+        return query.list();
     }
 
     private static String setValuesMultipleField(String val, String[] valuesField ){

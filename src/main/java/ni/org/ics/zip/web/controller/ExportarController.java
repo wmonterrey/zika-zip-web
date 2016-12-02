@@ -1,6 +1,7 @@
 package ni.org.ics.zip.web.controller;
 
 import ni.org.ics.zip.service.ExportarService;
+import ni.org.ics.zip.utils.Constants;
 import ni.org.ics.zip.utils.ExportParameters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,20 +28,6 @@ public class ExportarController {
 
     private static final Logger logger = LoggerFactory.getLogger(ExportarController.class);
 
-    private static final String TABLE_ZP00 = "zp00_screening";
-    private static final String TABLE_ZP01AD = "zp01_study_entry_section_a_to_d";
-    private static final String TABLE_ZP01E = "zp01_study_entry_section_e";
-    private static final String TABLE_ZP01FK = "zp01_study_entry_section_f_to_k";
-    private static final String TABLE_ZP02 = "zp02_biospecimen_collection";
-    private static final String TABLE_ZP03 = "zp03_monthly_visit";
-    private static final String TABLE_ZP04AD = "zp04_trimester_visit_section_a_to_d";
-    private static final String TABLE_ZP04E = "zp04_trimester_visit_section_e";
-    private static final String TABLE_ZP04FH = "zp04_trimester_visit_section_f_to_h";
-    private static final String TABLE_ZP05 = "zp05_ultrasound_exam";
-    private static final String TABLE_ZP06 = "zp06_delivery_and_6week_visit";
-    private static final String TABLE_ZP08 = "zp08_study_exit";
-
-
     @Resource(name="exportarService")
     private ExportarService exportarService;
 
@@ -54,7 +41,7 @@ public class ExportarController {
     public void getZp00(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
                         @RequestParam(value = "codigoFin", required = false) String codigoFin,
                         HttpServletResponse response) throws Exception {
-        ExportParameters ep = new ExportParameters(TABLE_ZP00,codigoInicio,codigoFin);
+        ExportParameters ep = new ExportParameters(Constants.TABLE_ZP00,codigoInicio,codigoFin);
         StringBuffer registros = exportarService.getZp00ExportData(ep);
         InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
         String mimeType = "text/csv";
@@ -68,7 +55,7 @@ public class ExportarController {
     public void getZp01AD(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
                           @RequestParam(value = "codigoFin", required = false) String codigoFin,
                           HttpServletResponse response) throws Exception {
-        ExportParameters ep = new ExportParameters(TABLE_ZP01AD,codigoInicio,codigoFin);
+        ExportParameters ep = new ExportParameters(Constants.TABLE_ZP01AD,codigoInicio,codigoFin);
         StringBuffer registros = exportarService.getZp01ADExportData(ep);
         InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
         String mimeType = "text/csv";
@@ -82,7 +69,7 @@ public class ExportarController {
     public void getZp01E(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
                          @RequestParam(value = "codigoFin", required = false) String codigoFin,
                          HttpServletResponse response) throws Exception {
-        ExportParameters ep = new ExportParameters(TABLE_ZP01E,codigoInicio,codigoFin);
+        ExportParameters ep = new ExportParameters(Constants.TABLE_ZP01E,codigoInicio,codigoFin);
         StringBuffer registros = exportarService.getZp01EExportData(ep);
         InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
         String mimeType = "text/csv";
@@ -96,7 +83,7 @@ public class ExportarController {
     public void getZp01FK(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
                           @RequestParam(value = "codigoFin", required = false) String codigoFin,
                           HttpServletResponse response) throws Exception {
-        ExportParameters ep = new ExportParameters(TABLE_ZP01FK,codigoInicio,codigoFin);
+        ExportParameters ep = new ExportParameters(Constants.TABLE_ZP01FK,codigoInicio,codigoFin);
         StringBuffer registros = exportarService.getZp01FKExportData(ep);
         InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
         String mimeType = "text/csv";
@@ -110,7 +97,7 @@ public class ExportarController {
     public void getZp02(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
                         @RequestParam(value = "codigoFin", required = false) String codigoFin,
                         HttpServletResponse response) throws Exception {
-        ExportParameters ep = new ExportParameters(TABLE_ZP02,codigoInicio,codigoFin);
+        ExportParameters ep = new ExportParameters(Constants.TABLE_ZP02,codigoInicio,codigoFin);
         StringBuffer registros = exportarService.getZp02ExportData(ep);
         InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
         String mimeType = "text/csv";
@@ -124,7 +111,7 @@ public class ExportarController {
     public void getZp03(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
                         @RequestParam(value = "codigoFin", required = false) String codigoFin,
                         HttpServletResponse response) throws Exception {
-        ExportParameters ep = new ExportParameters(TABLE_ZP03,codigoInicio,codigoFin);
+        ExportParameters ep = new ExportParameters(Constants.TABLE_ZP03,codigoInicio,codigoFin);
         StringBuffer registros = exportarService.getZp03ExportData(ep);
         InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
         String mimeType = "text/csv";
@@ -138,7 +125,7 @@ public class ExportarController {
     public void getZp04AD(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
                           @RequestParam(value = "codigoFin", required = false) String codigoFin,
                           HttpServletResponse response) throws Exception {
-        ExportParameters ep = new ExportParameters(TABLE_ZP04AD,codigoInicio,codigoFin);
+        ExportParameters ep = new ExportParameters(Constants.TABLE_ZP04AD,codigoInicio,codigoFin);
         StringBuffer registros = exportarService.getZp04ADExportData(ep);
         InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
         String mimeType = "text/csv";
@@ -152,7 +139,7 @@ public class ExportarController {
     public void getZp04E(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
                          @RequestParam(value = "codigoFin", required = false) String codigoFin,
                          HttpServletResponse response) throws Exception {
-        ExportParameters ep = new ExportParameters(TABLE_ZP04E,codigoInicio,codigoFin);
+        ExportParameters ep = new ExportParameters(Constants.TABLE_ZP04E,codigoInicio,codigoFin);
         StringBuffer registros = exportarService.getZp04EExportData(ep);
         InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
         String mimeType = "text/csv";
@@ -166,7 +153,7 @@ public class ExportarController {
     public void getZp04FH(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
                           @RequestParam(value = "codigoFin", required = false) String codigoFin,
                           HttpServletResponse response) throws Exception {
-        ExportParameters ep = new ExportParameters(TABLE_ZP04FH,codigoInicio,codigoFin);
+        ExportParameters ep = new ExportParameters(Constants.TABLE_ZP04FH,codigoInicio,codigoFin);
         StringBuffer registros = exportarService.getZp04FHExportData(ep);
         InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
         String mimeType = "text/csv";
@@ -180,7 +167,7 @@ public class ExportarController {
     public void getZp05(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
                         @RequestParam(value = "codigoFin", required = false) String codigoFin,
                         HttpServletResponse response) throws Exception {
-        ExportParameters ep = new ExportParameters(TABLE_ZP05,codigoInicio,codigoFin);
+        ExportParameters ep = new ExportParameters(Constants.TABLE_ZP05,codigoInicio,codigoFin);
         StringBuffer registros = exportarService.getZp05ExportData(ep);
         InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
         String mimeType = "text/csv";
@@ -194,7 +181,7 @@ public class ExportarController {
     public void getZp06(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
                         @RequestParam(value = "codigoFin", required = false) String codigoFin,
                         HttpServletResponse response) throws Exception {
-        ExportParameters ep = new ExportParameters(TABLE_ZP06,codigoInicio,codigoFin);
+        ExportParameters ep = new ExportParameters(Constants.TABLE_ZP06,codigoInicio,codigoFin);
         StringBuffer registros = exportarService.getZp06ExportData(ep);
         InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
         String mimeType = "text/csv";
@@ -208,12 +195,28 @@ public class ExportarController {
     public void getZp08(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
                         @RequestParam(value = "codigoFin", required = false) String codigoFin,
                         HttpServletResponse response) throws Exception {
-        ExportParameters ep = new ExportParameters(TABLE_ZP08,codigoInicio,codigoFin);
+        ExportParameters ep = new ExportParameters(Constants.TABLE_ZP08,codigoInicio,codigoFin);
         StringBuffer registros = exportarService.getZp08ExportData(ep);
         InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
         String mimeType = "text/csv";
         response.setContentType(mimeType);
         response.setHeader("Content-Disposition", String.format("inline; filename=\"" + "Zp08.csv" +"\""));
+        response.setContentLength(registros.length());
+        FileCopyUtils.copy(inputStream, response.getOutputStream());
+    }
+
+    @RequestMapping(value = "getAll", method = RequestMethod.GET)
+    public void getAllForms(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
+                        @RequestParam(value = "codigoFin", required = false) String codigoFin,
+                        HttpServletResponse response) throws Exception {
+        String todasTablas = Constants.TABLE_ZP00+","+Constants.TABLE_ZP01AD+","+Constants.TABLE_ZP01E+","+Constants.TABLE_ZP01FK+","+Constants.TABLE_ZP02+","+Constants.TABLE_ZP03+","+
+                Constants.TABLE_ZP04AD+","+Constants.TABLE_ZP04E+","+Constants.TABLE_ZP04FH+","+Constants.TABLE_ZP05+","+Constants.TABLE_ZP06+","+Constants.TABLE_ZP08;
+        ExportParameters ep = new ExportParameters(todasTablas,codigoInicio,codigoFin);
+        StringBuffer registros = exportarService.getAllExportData(ep);
+        InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
+        String mimeType = "text/csv";
+        response.setContentType(mimeType);
+        response.setHeader("Content-Disposition", String.format("inline; filename=\"" + "allforms.csv" +"\""));
         response.setContentLength(registros.length());
         FileCopyUtils.copy(inputStream, response.getOutputStream());
     }
