@@ -58,4 +58,9 @@ public class Constants {
     public static final String MONTHLY_VISIT = "Mensual";
     public static final String TRIMESTER_VISIT = "Trimestral";
     public static final String HOME_VISIT = "Visita en casa";
+
+    public static final String GREEN = "green";
+    public static final String RED = "red";
+    public static final String YELLOW = "yellow";
+    public static final String GRAY = "gray";
 }

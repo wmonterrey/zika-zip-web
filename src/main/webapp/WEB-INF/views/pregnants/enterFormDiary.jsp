@@ -224,7 +224,7 @@
 <script src="${App}" type="text/javascript"></script>
 <spring:url value="/resources/scripts/utils/handleDatePickers.js" var="handleDatePickers" />
 <script src="${handleDatePickers}" type="text/javascript"></script>
-<spring:url value="/resources/scripts/diary/process-diary.js" var="diaryScript" />
+<spring:url value="/resources/scripts/pregnants/process-diary.js" var="diaryScript" />
 <script src="${diaryScript}" type="text/javascript"></script>
 
 <spring:url value="/pregnants/diary/getDiary"	var="diaryUrl"/>

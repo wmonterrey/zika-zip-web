@@ -189,3 +189,33 @@ INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('diary.agreedda
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('visits', '0', 'Visitas');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('diary.agreedtime', '0', 'Hora Cita');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('diary.programmingdate', '0', 'Fecha de programacion de cita');
+
+/*dashboard*/
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week2', '0', 'Semana 2');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week4', '0', 'Semana 4');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week6', '0', 'Semana 6');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week8', '0', 'Semana 8');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week10', '0', 'Semana 10');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week12', '0', 'Semana 12');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week14', '0', 'Semana 14');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week16', '0', 'Semana 16');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week18', '0', 'Semana 18');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week20', '0', 'Semana 20');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week22', '0', 'Semana 22');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week24', '0', 'Semana 24');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week26', '0', 'Semana 26');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week28', '0', 'Semana 28');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week30', '0', 'Semana 30');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week32', '0', 'Semana 32');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week34', '0', 'Semana 34');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week36', '0', 'Semana 36');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week38', '0', 'Semana 38');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week40', '0', 'Semana 40');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week42', '0', 'Semana 42');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week44', '0', 'Semana 44');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('entry', '0', 'Ingreso');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('delivery', '0', 'Parto');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('postdeli', '0', 'Postparto');
+
+
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('subjects', '0', 'Participantes');
