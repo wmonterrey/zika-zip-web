@@ -317,8 +317,6 @@
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <spring:url value="/resources/scripts/app.js" var="App" />
 <script src="${App}" type="text/javascript"></script>
-<spring:url value="/resources/scripts/pregnants/process-dashboard.js" var="dashboardScript" />
-<script src="${dashboardScript}" type="text/javascript"></script>
 <spring:url value="/resources/plugins/jquery-validation/localization/messages_{language}.js" var="jQValidationLoc">
 	<spring:param name="language" value="${lenguaje}" />
 </spring:url>				
@@ -341,7 +339,15 @@
 		$('#completeName').focus();
 		var parametros = {dataTablesLang : "${dataTablesLang}"
 		};
-		Dashboard.init(parametros);
+        $('#lista_registros').DataTable({
+            "oLanguage": {
+                "sUrl": "${dataTablesLang}"
+            },
+            "scrollX": true,
+            "iDisplayLength": 10,
+            "sPaginationType": "bootstrap",
+            "bPaginate": true
+        });
 	});
 </script>
 <!-- END JAVASCRIPTS -->
