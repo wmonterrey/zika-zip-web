@@ -110,10 +110,9 @@ var Export = function () {
                 iframe.src = urlForm+"?codigoInicio="+$("#codigoInicio").val()+"&codigoFin="+$("#codigoFin").val();
                 iframe.addEventListener("load", function () {
                     console.log("FILE LOAD DONE.. Download should start now");
+                    desbloquearUI();
                 });
-                desbloquearUI();
             }
-
         }
     };
 

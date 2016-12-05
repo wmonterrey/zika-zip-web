@@ -26,7 +26,7 @@ public class ExportarService {
     private static final String SEPARADOR = ",";
     private static final String SALTOLINEA = "\n";
     private static final String QUOTE = "\"";
-    private static final String COMA = "\"";
+    private static final String COMILLA = "\"";
 
     @Resource(name="sessionFactory")
     private SessionFactory sessionFactory;
@@ -129,7 +129,7 @@ public class ExportarService {
                             }else {
                                 if (val instanceof String) {
                                     //si contiene uno de estos caracteres especiales escapar
-                                    if (val.toString().contains(SEPARADOR) || val.toString().contains(COMA) || val.toString().contains(SALTOLINEA)){
+                                    if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)){
                                         valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
                                     }else {
                                         if (valores.isEmpty()) valores += val.toString();
@@ -211,7 +211,7 @@ public class ExportarService {
                     if (val!=null){
                         if (val instanceof String) {
                             //si contiene uno de estos caracteres especiales escapar
-                            if (val.toString().contains(SEPARADOR) || val.toString().contains(COMA) || val.toString().contains(SALTOLINEA)){
+                            if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)){
                                 valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
                             }else {
                                 if (valores.isEmpty()) valores += val.toString();
@@ -353,7 +353,7 @@ public class ExportarService {
                         }else {
                             if (val instanceof String) {
                                 //si contiene uno de estos caracteres especiales escapar
-                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMA) || val.toString().contains(SALTOLINEA)){
+                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)){
                                     valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
                                 }else {
                                     if (valores.isEmpty()) valores += val.toString();
@@ -471,7 +471,7 @@ public class ExportarService {
                         } else {
                             if (val instanceof String) {
                                 //si contiene uno de estos caracteres especiales escapar
-                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMA) || val.toString().contains(SALTOLINEA)) {
+                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
                                     valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
                                 } else {
                                     if (valores.isEmpty()) valores += val.toString();
@@ -570,7 +570,7 @@ public class ExportarService {
                         } else {
                             if (val instanceof String) {
                                 //si contiene uno de estos caracteres especiales escapar
-                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMA) || val.toString().contains(SALTOLINEA)) {
+                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
                                     valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
                                 } else {
                                     if (valores.isEmpty()) valores += val.toString();
@@ -717,7 +717,7 @@ public class ExportarService {
                         } else {
                             if (val instanceof String) {
                                 //si contiene uno de estos caracteres especiales escapar
-                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMA) || val.toString().contains(SALTOLINEA)){
+                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)){
                                     valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
                                 }else {
                                     if (valores.isEmpty()) valores += val.toString();
@@ -839,7 +839,7 @@ public class ExportarService {
                         }else {
                             if (val instanceof String) {
                                 //si contiene uno de estos caracteres especiales escapar
-                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMA) || val.toString().contains(SALTOLINEA)) {
+                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
                                     valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
                                 } else {
                                     if (valores.isEmpty()) valores += val.toString();
@@ -933,7 +933,7 @@ public class ExportarService {
                     if (val!=null){
                         if (val instanceof String) {
                             //si contiene uno de estos caracteres especiales escapar
-                            if (val.toString().contains(SEPARADOR) || val.toString().contains(COMA) || val.toString().contains(SALTOLINEA)) {
+                            if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
                                 valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
                             } else {
                                 if (valores.isEmpty()) valores += val.toString();
@@ -1026,7 +1026,7 @@ public class ExportarService {
                         }else {
                             if (val instanceof String) {
                                 //si contiene uno de estos caracteres especiales escapar
-                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMA) || val.toString().contains(SALTOLINEA)) {
+                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
                                     valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
                                 } else {
                                     if (valores.isEmpty()) valores += val.toString();
@@ -1125,7 +1125,7 @@ public class ExportarService {
                         }else {
                             if (val instanceof String) {
                                 //si contiene uno de estos caracteres especiales escapar
-                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMA) || val.toString().contains(SALTOLINEA)) {
+                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
                                     valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
                                 } else {
                                     if (valores.isEmpty()) valores += val.toString();
@@ -1266,7 +1266,7 @@ public class ExportarService {
                         }else {
                             if (val instanceof String) {
                                 //si contiene uno de estos caracteres especiales escapar
-                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMA) || val.toString().contains(SALTOLINEA)){
+                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)){
                                     valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
                                 }else {
                                     if (valores.isEmpty()) valores += val.toString();
@@ -1366,7 +1366,7 @@ public class ExportarService {
                     if (val!=null){
                         if (val instanceof String) {
                             //si contiene uno de estos caracteres especiales escapar
-                            if (val.toString().contains(SEPARADOR) || val.toString().contains(COMA) || val.toString().contains(SALTOLINEA)){
+                            if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)){
                                 valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
                             }else {
                                 if (valores.isEmpty()) valores += val.toString();
@@ -1410,13 +1410,13 @@ public class ExportarService {
         List<String[]> columns = new ArrayList<String[]>();
         try {
             DatabaseMetaData meta = con.getMetaData();
-            boolean idAgregado = false;
-            boolean eventAgregado = false;
-            boolean procesarColumna;
+            //boolean idAgregado = false;
+            //boolean eventAgregado = false;
+            //boolean procesarColumna;
             for(String tableName : tableNames) {
                 ResultSet res = meta.getColumns(null, null, tableName, null);
                 System.out.println("List of columns: ");
-                String[] columnas = new String[2];
+                //String[] columnas = new String[2];
                 while (res.next()) {
                     //excluir estos campos
                     if (!res.getString("COLUMN_NAME").equalsIgnoreCase("identificador_equipo") &&
@@ -1431,10 +1431,12 @@ public class ExportarService {
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("simserial") &&
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("start") &&
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("today") &&
-                            !res.getString("COLUMN_NAME").equalsIgnoreCase("prescreen_id")
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("prescreen_id") &&
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("record_id") &&
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("redcap_event_name")
                             ) {
 
-                        if (res.getString("COLUMN_NAME").equalsIgnoreCase("record_id")){
+                        /*if (res.getString("COLUMN_NAME").equalsIgnoreCase("record_id")){
                             if (!idAgregado){
                                 procesarColumna = true;
                                 idAgregado = true;
@@ -1450,19 +1452,19 @@ public class ExportarService {
                             }
                         }else{
                             procesarColumna = true;
-                        }
+                        }*/
 
-                        if (procesarColumna) {
+                        //if (procesarColumna) {
                             String[] columna = {res.getString("TABLE_NAME"),res.getString("COLUMN_NAME")};
-                            if (res.getString("COLUMN_NAME").equalsIgnoreCase("record_id") && !columns.isEmpty()) {
+                            /*if (res.getString("COLUMN_NAME").equalsIgnoreCase("record_id") && !columns.isEmpty()) {
                                 //el record_id siempre debe ser el primer campo
                                 String[] columnaTmp = columns.get(0);
                                 columns.set(0, columna );
                                 columns.add(columnaTmp);
-                            } else {
+                            } else {*/
                                 columns.add(columna);
-                            }
-                        }
+                            //}
+                        //}
                     }
                 }
             }
@@ -1481,8 +1483,7 @@ public class ExportarService {
         Connection con = getConnection();
         PreparedStatement pStatement = null;
         ResultSet res = null;
-        String columnas = "";
-        String valores = "";
+        String columnas = "record_id,redcap_event_name";
 
         try {
             //recuperar los nombres de las columnas de todas las tablas
@@ -1492,13 +1493,24 @@ public class ExportarService {
             List<String> participantes = getSubjects(exportParameters);
             List<String> registros = new ArrayList<String>();
             int primerRegistro = 0;
-            for (String redCapEvent : redCapEvents){
+            //Valores de campos múltiples
+            String[] diseases = "1,2,3,4,5,6,7,8,9,98".split(",");
+            String[] rashFirst = "1,2,3,4,5,6,7,8,9".split(",");
+            String[] spreadPart = "1,2,3,4,5,6,7,8,9".split(",");
+            String[] sameSymptom = "1,2,3".split(",");
+            String[] specifySymptom = "1,2,3,4,5,6,7,8,9,10,11,12,13".split(",");
+            String[] arm = "1,2".split(",");
+            String[] leg = "1,2".split(",");
+            String[] hand = "1,2".split(",");
+            String[] foot = "1,2".split(",");
+            String[] face = "1,2".split(",");
 
+            for (String redCapEvent : redCapEvents){
                 for (String participante : participantes) {
-                    valores = participante+SEPARADOR+redCapEvent;
+                    String valores = participante+SEPARADOR+redCapEvent;
                     for (String tableName : tableNames) {
                         String columnasT = getTableColumns(allColumns, tableName);
-                        String valoresT = "";
+                        boolean encontroRegistros = false;
                         //pasar a recuperar los datos. Setear parámetro si los hay
 
                         pStatement = con.prepareStatement("select " + columnasT + " from " + tableName + " where redcap_event_name = ?" + " and record_id = ? ");
@@ -1506,72 +1518,185 @@ public class ExportarService {
                         pStatement.setString(2, participante);
 
                         res = pStatement.executeQuery();
-                        if (primerRegistro==0) {
-                            if (tableName.equalsIgnoreCase(Constants.TABLE_ZP08)) {
-                                //columnas que necesita redcap y no estan en la tabla
-                                columnasT += SEPARADOR + "zp08_study_exit_complete";
-                            }
-                            columnas += ((columnas.isEmpty() ? "" : SEPARADOR) + columnasT);
-                        }
+
+
+                        String[] arrayColumnasT = columnasT.split(",");
                         while (res.next()) {
+                            encontroRegistros = true;
                             for (String[] col : allColumns) {
-                                if (!col[0].equalsIgnoreCase("record_id") && !col[1].equalsIgnoreCase("redcap_event_name")) {
-                                    if (existeColumna(columnasT.split(","), col[1])) {
-                                        Object val = null;
-                                        try {
-                                            val = res.getObject(col[1]);
-                                        } catch (Exception ex) {
-                                            ex.printStackTrace();
-                                        }
-                                        if (val != null) {
+                                if (existeColumna(col[1], arrayColumnasT)) {
+                                    Object val = null;
+                                    try {
+                                        val = res.getObject(col[1]);
+                                    } catch (Exception ex) {
+                                        ex.printStackTrace();
+                                    }
+                                    if (val != null) {
+                                        //ZP01 A-D
+                                        if (col[1].equalsIgnoreCase("sea_diseases")){
+                                            valores += setValuesMultipleField(val.toString(), diseases);
+
+                                        }else if (col[1].equalsIgnoreCase("sea_rash_first")) {
+                                            valores += setValuesMultipleField(val.toString(), rashFirst);
+
+                                        }else if (col[1].equalsIgnoreCase("sea_spread_part")) {
+                                            valores += setValuesMultipleField(val.toString(), spreadPart);
+
+                                        }else if (col[1].equalsIgnoreCase("sea_same_symptom")) {
+                                            valores += setValuesMultipleField(val.toString(), sameSymptom);
+
+                                        }else if (col[1].equalsIgnoreCase("sea_specify_symptom")) {
+                                            valores += setValuesMultipleField(val.toString(), specifySymptom);
+
+                                        }else if (col[1].equalsIgnoreCase("sea_tingling_arm") || col[1].equalsIgnoreCase("sea_numb_arm") || col[1].equalsIgnoreCase("sea_para_arm")){
+                                            valores += setValuesMultipleField(val.toString(), arm);
+
+                                        }else if (col[1].equalsIgnoreCase("sea_tingling_leg") || col[1].equalsIgnoreCase("sea_numb_leg") || col[1].equalsIgnoreCase("sea_para_leg")){
+                                            valores += setValuesMultipleField(val.toString(), leg);
+
+                                        }else if (col[1].equalsIgnoreCase("sea_tingling_hand") || col[1].equalsIgnoreCase("sea_numb_hand") || col[1].equalsIgnoreCase("sea_para_hand")){
+                                            valores += setValuesMultipleField(val.toString(), hand);
+
+                                        }else if (col[1].equalsIgnoreCase("sea_tingling_foot") || col[1].equalsIgnoreCase("sea_numb_foot") || col[1].equalsIgnoreCase("sea_para_foot")){
+                                            valores += setValuesMultipleField(val.toString(), foot);
+
+                                        }else if (col[1].equalsIgnoreCase("sea_tingling_face") || col[1].equalsIgnoreCase("sea_numb_face") || col[1].equalsIgnoreCase("sea_para_face")) {
+                                            valores += setValuesMultipleField(val.toString(), face);
+
+                                        }else {
                                             if (val instanceof String) {
                                                 //si contiene uno de estos caracteres especiales escapar
-                                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMA) || val.toString().contains(SALTOLINEA)) {
-                                                    valoresT += SEPARADOR + QUOTE + val.toString() + QUOTE;
+                                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
+                                                    valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
                                                 } else {
-                                                    if (valoresT.isEmpty()) valoresT += val.toString();
-                                                    else valoresT += SEPARADOR + val.toString();
+                                                    if (valores.isEmpty()) valores += val.toString();
+                                                    else valores += SEPARADOR + val.toString();
                                                 }
                                             } else if (val instanceof Integer) {
-                                                if (valoresT.isEmpty()) valoresT += String.valueOf(res.getInt(col[1]));
-                                                else valoresT += SEPARADOR + String.valueOf(res.getInt(col[1]));
+                                                if (valores.isEmpty())
+                                                    valores += String.valueOf(res.getInt(col[1]));
+                                                else valores += SEPARADOR + String.valueOf(res.getInt(col[1]));
 
                                             } else if (val instanceof java.util.Date) {
-                                                if (valoresT.isEmpty())
-                                                    valoresT += DateToString(res.getDate(col[1]), "dd/MM/yyyyy");
+                                                if (valores.isEmpty())
+                                                    valores += DateToString(res.getDate(col[1]), "dd/MM/yyyyy");
                                                 else
-                                                    valoresT += SEPARADOR + DateToString(res.getDate(col[1]), "dd/MM/yyyyy");
+                                                    valores += SEPARADOR + DateToString(res.getDate(col[1]), "dd/MM/yyyyy");
 
                                             } else if (val instanceof Float) {
-                                                if (valoresT.isEmpty())
-                                                    valoresT += String.valueOf(res.getFloat(col[1]));
-                                                else valoresT += SEPARADOR + String.valueOf(res.getFloat(col[1]));
+                                                if (valores.isEmpty())
+                                                    valores += String.valueOf(res.getFloat(col[1]));
+                                                else valores += SEPARADOR + String.valueOf(res.getFloat(col[1]));
                                             }
-                                        } else {
-                                            valoresT += SEPARADOR;
-
                                         }
                                     } else {
-                                        valoresT += SEPARADOR;
+                                        //ZP01 A-D
+                                        if (col[1].equalsIgnoreCase("sea_diseases")){
+                                            for(int i = 0 ; i< diseases.length; i++){
+                                                valores += SEPARADOR;
+                                            }
+                                        }else if (col[1].equalsIgnoreCase("sea_rash_first")){
+                                            for(int i = 0 ; i< rashFirst.length; i++){
+                                                valores += SEPARADOR;
+                                            }
+                                        }else if (col[1].equalsIgnoreCase("sea_spread_part")){
+                                            for(int i = 0 ; i< spreadPart.length; i++){
+                                                valores += SEPARADOR;
+                                            }
+                                        }else if (col[1].equalsIgnoreCase("sea_same_symptom")){
+                                            for(int i = 0 ; i< sameSymptom.length; i++){
+                                                valores += SEPARADOR;
+                                            }
+                                        }else if (col[1].equalsIgnoreCase("sea_specify_symptom")){
+                                            for(int i = 0 ; i< specifySymptom.length; i++){
+                                                valores += SEPARADOR;
+                                            }
+                                        } else if (col[1].equalsIgnoreCase("sea_tingling_arm") || col[1].equalsIgnoreCase("sea_numb_arm") || col[1].equalsIgnoreCase("sea_para_arm") ||
+                                                col[1].equalsIgnoreCase("sea_tingling_leg") || col[1].equalsIgnoreCase("sea_numb_leg") || col[1].equalsIgnoreCase("sea_para_leg") ||
+                                                col[1].equalsIgnoreCase("sea_tingling_hand") || col[1].equalsIgnoreCase("sea_numb_hand") || col[1].equalsIgnoreCase("sea_para_hand") ||
+                                                col[1].equalsIgnoreCase("sea_tingling_foot") || col[1].equalsIgnoreCase("sea_numb_foot") || col[1].equalsIgnoreCase("sea_para_foot") ||
+                                                col[1].equalsIgnoreCase("sea_tingling_face") || col[1].equalsIgnoreCase("sea_numb_face") || col[1].equalsIgnoreCase("sea_para_face")){
+                                            valores += SEPARADOR + SEPARADOR;
+                                        }
+                                        else {
+                                            valores += SEPARADOR;
+                                        }
+                                    }// fin else valor=null
+                                }//fin llamado existeColumna()
+                            }//fin foreach allColumns
+                        }// fiN WHILE.NEXT
 
-                                    }
-                                }
-                            }
+                        //columnas que necesita redcap y no estan en la tabla
+                        if (tableName.equalsIgnoreCase(Constants.TABLE_ZP00)) {
+                            columnasT = columnasT.replaceFirst("scr_prestudyna", "scr_prestudyna___1");
+                            columnasT += SEPARADOR + "zp00_screening_complete";
+
+                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP01AD)) {
+                            columnasT = columnasT.replaceFirst("sea_lmpunknown","sea_lmpunknown___1");
+                            columnasT = columnasT.replaceFirst("sea_leavena","sea_leavena___1");
+                            columnasT += SEPARADOR + "zp01_study_entry_section_a_to_d_complete";
+
+                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP01E)) {
+                            columnasT = columnasT.replaceAll("sea_diseases","sea_diseases___1,sea_diseases___2,sea_diseases___3,sea_diseases___4,sea_diseases___5,sea_diseases___6,sea_diseases___7,sea_diseases___8,sea_diseases___9,sea_diseases___98");
+                            columnasT = columnasT.replaceAll("sea_rash_first","sea_rash_first___1,sea_rash_first___2,sea_rash_first___3,sea_rash_first___4,sea_rash_first___5,sea_rash_first___6,sea_rash_first___7,sea_rash_first___8,sea_rash_first___9");
+                            columnasT = columnasT.replaceAll("sea_spread_part","sea_spread_part___1,sea_spread_part___2,sea_spread_part___3,sea_spread_part___4,sea_spread_part___5,sea_spread_part___6,sea_spread_part___7,sea_spread_part___8,sea_spread_part___9");
+                            columnasT = columnasT.replaceAll("sea_same_symptom","sea_same_symptom___1,sea_same_symptom___2,sea_same_symptom___3");
+                            columnasT = columnasT.replaceAll("sea_specify_symptom","sea_specify_symptom___1,sea_specify_symptom___2,sea_specify_symptom___3,sea_specify_symptom___4,sea_specify_symptom___5,sea_specify_symptom___6,sea_specify_symptom___7,sea_specify_symptom___8,sea_specify_symptom___9,sea_specify_symptom___10,sea_specify_symptom___11,sea_specify_symptom___12,sea_specify_symptom___13");
+                            columnasT = columnasT.replaceAll("sea_tingling_arm","sea_tingling_arm___1,sea_tingling_arm___2");
+                            columnasT = columnasT.replaceAll("sea_tingling_leg","sea_tingling_leg___1,sea_tingling_leg___2");
+                            columnasT = columnasT.replaceAll("sea_tingling_hand","sea_tingling_hand___1,sea_tingling_hand___2");
+                            columnasT = columnasT.replaceAll("sea_tingling_foot","sea_tingling_foot___1,sea_tingling_foot___2");
+                            columnasT = columnasT.replaceAll("sea_tingling_face","sea_tingling_face___1,sea_tingling_face___2");
+                            columnasT = columnasT.replaceAll("sea_numb_arm","sea_numb_arm___1,sea_numb_arm___2");
+                            columnasT = columnasT.replaceAll("sea_numb_leg","sea_numb_leg___1,sea_numb_leg___2");
+                            columnasT = columnasT.replaceAll("sea_numb_hand","sea_numb_hand___1,sea_numb_hand___2");
+                            columnasT = columnasT.replaceAll("sea_numb_foot","sea_numb_foot___1,sea_numb_foot___2");
+                            columnasT = columnasT.replaceAll("sea_numb_face","sea_numb_face___1,sea_numb_face___2");
+                            columnasT = columnasT.replaceAll("sea_para_arm","sea_para_arm___1,sea_para_arm___2");
+                            columnasT = columnasT.replaceAll("sea_para_leg","sea_para_leg___1,sea_para_leg___2");
+                            columnasT = columnasT.replaceAll("sea_para_hand","sea_para_hand___1,sea_para_hand___2");
+                            columnasT = columnasT.replaceAll("sea_para_foot","sea_para_foot___1,sea_para_foot___2");
+                            columnasT = columnasT.replaceAll("sea_para_face","sea_para_face___1,sea_para_face___2");
+                            columnasT = columnasT.replaceAll("sea_tempunknown","sea_tempunknown___1");
+                            columnasT += SEPARADOR + "zp01_study_entry_section_e_complete";
+
+                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP01FK)) {
+                            columnasT += SEPARADOR + "zp01_study_entry_section_f_to_k_complete";
+                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP02)) {
+                            columnasT += SEPARADOR + "zp02_biospecimen_collection_complete";
+                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP03)) {
+                            columnasT += SEPARADOR + "zp03_monthly_visit_complete";
+                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP04AD)) {
+                            columnasT += SEPARADOR + "zp04_trimester_visit_section_a_to_d_complete";
+                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP04E)) {
+                            columnasT += SEPARADOR + "zp04_trimester_visit_section_e_complete";
+                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP04FH)) {
+                            columnasT += SEPARADOR + "zp04_trimester_visit_section_f_to_h_complete";
+                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP05)) {
+                            columnasT += SEPARADOR + "zp05_ultrasound_exam_complete";
+                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP06)) {
+                            columnasT += SEPARADOR + "zp06_delivery_and_6week_visit_complete";
+                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP08)) {
+                            columnasT += SEPARADOR + "zp08_study_exit_complete";
                         }
-                        //valor para zp0XXX_complete
-                        valoresT += SEPARADOR + "1";
-                        if (valores.isEmpty()) valores += valoresT;
-                        else
-                        valores += SEPARADOR + valoresT;
+                        if (primerRegistro==0) {
+                            columnas += ((columnas.isEmpty() ? "" : SEPARADOR) + columnasT);
+                        }
+
+                        if(!encontroRegistros){
+                            arrayColumnasT = columnasT.split(",");
+                            for(int i = 0 ; i < arrayColumnasT.length; i++){
+                                valores += SEPARADOR;
+                            }
+                        }else {
+                            //valor para zp0XXX_complete
+                            valores += SEPARADOR + "1";
+                        }
+                        System.out.println(columnasT);
                     }
-                    System.out.println("VALORES: "+ redCapEvent + " ID: "+participante);
-                    System.out.println(valores);
                     registros.add(valores);
-                    valores = "";
                     primerRegistro++;
                 }
-                //¿NO SE HACE NADA?
-
             }
 
             sb.append(columnas);
@@ -1590,7 +1715,7 @@ public class ExportarService {
         return sb;
     }
 
-    private static boolean existeColumna(String[] todas, String buscar){
+    private static boolean existeColumna(String buscar, String[] todas){
         for(String comparar : todas){
             if (comparar.equalsIgnoreCase(buscar)) {
                 return true;
