@@ -110,6 +110,20 @@ public class Zp04TrimesterVisitSectionAtoD extends BaseMetaData implements Audit
     private String triOtherDrugs2;
     private String triOtherDrugs3;
     private String triOtherDrugs4;
+    //campos adicionales que no pertenecen a redcap
+    private String triAddtMedicines;
+    private String triAddtDrugsType;
+    private String triAddtOthDrugsType1;
+    private String triAddtOthDrugsBrand1;
+    private String triAddtOthDrugsType2;
+    private String triAddtOthDrugsBrand2;
+    private String triAddtOthDrugsType3;
+    private String triAddtOthDrugsBrand3;
+    private String triAddtOthDrugsType4;
+    private String triAddtOthDrugsBrand4;
+    private String triAddtOthDrugsType5;
+    private String triAddtOthDrugsBrand5;
+
 
     @Id
     @Column(name = "record_id", nullable = false, length = 25)
@@ -948,6 +962,115 @@ public class Zp04TrimesterVisitSectionAtoD extends BaseMetaData implements Audit
 
     public void setTriOtherDrugs4(String triOtherDrugs4) {
         this.triOtherDrugs4 = triOtherDrugs4;
+    }
+
+    //campos adicionales que no pertenecen a redcap
+    @Column(name = "tri_addt_medicines", nullable = true, length = 1)
+    public String getTriAddtMedicines() {
+        return triAddtMedicines;
+    }
+
+    public void setTriAddtMedicines(String triAddtMedicines) {
+        this.triAddtMedicines = triAddtMedicines;
+    }
+
+    @Column(name = "tri_addt_drugs_type", nullable = true, length = 8)
+    public String getTriAddtDrugsType() {
+        return triAddtDrugsType;
+    }
+
+    public void setTriAddtDrugsType(String triAddtDrugsType) {
+        this.triAddtDrugsType = triAddtDrugsType;
+    }
+
+    @Column(name = "tri_addt_othdrugs_type1", nullable = true)
+    public String getTriAddtOthDrugsType1() {
+        return triAddtOthDrugsType1;
+    }
+
+    public void setTriAddtOthDrugsType1(String triAddtOthDrugsType1) {
+        this.triAddtOthDrugsType1 = triAddtOthDrugsType1;
+    }
+
+    @Column(name = "tri_addt_othdrugs_brand1", nullable = true)
+    public String getTriAddtOthDrugsBrand1() {
+        return triAddtOthDrugsBrand1;
+    }
+
+    public void setTriAddtOthDrugsBrand1(String triAddtOthDrugsBrand1) {
+        this.triAddtOthDrugsBrand1 = triAddtOthDrugsBrand1;
+    }
+
+    @Column(name = "tri_addt_othdrugs_type2", nullable = true)
+    public String getTriAddtOthDrugsType2() {
+        return triAddtOthDrugsType2;
+    }
+
+    public void setTriAddtOthDrugsType2(String triAddtOthDrugsType2) {
+        this.triAddtOthDrugsType2 = triAddtOthDrugsType2;
+    }
+
+    @Column(name = "tri_addt_othdrugs_brand2", nullable = true)
+    public String getTriAddtOthDrugsBrand2() {
+        return triAddtOthDrugsBrand2;
+    }
+
+    public void setTriAddtOthDrugsBrand2(String triAddtOthDrugsBrand2) {
+        this.triAddtOthDrugsBrand2 = triAddtOthDrugsBrand2;
+    }
+
+    @Column(name = "tri_addt_othdrugs_type3", nullable = true)
+    public String getTriAddtOthDrugsType3() {
+        return triAddtOthDrugsType3;
+    }
+
+    public void setTriAddtOthDrugsType3(String triAddtOthDrugsType3) {
+        this.triAddtOthDrugsType3 = triAddtOthDrugsType3;
+    }
+
+    @Column(name = "tri_addt_othdrugs_brand3", nullable = true)
+    public String getTriAddtOthDrugsBrand3() {
+        return triAddtOthDrugsBrand3;
+    }
+
+    public void setTriAddtOthDrugsBrand3(String triAddtOthDrugsBrand3) {
+        this.triAddtOthDrugsBrand3 = triAddtOthDrugsBrand3;
+    }
+
+    @Column(name = "tri_addt_othdrugs_type4", nullable = true)
+    public String getTriAddtOthDrugsType4() {
+        return triAddtOthDrugsType4;
+    }
+
+    public void setTriAddtOthDrugsType4(String triAddtOthDrugsType4) {
+        this.triAddtOthDrugsType4 = triAddtOthDrugsType4;
+    }
+
+    @Column(name = "tri_addt_othdrugs_brand4", nullable = true)
+    public String getTriAddtOthDrugsBrand4() {
+        return triAddtOthDrugsBrand4;
+    }
+
+    public void setTriAddtOthDrugsBrand4(String triAddtOthDrugsBrand4) {
+        this.triAddtOthDrugsBrand4 = triAddtOthDrugsBrand4;
+    }
+
+    @Column(name = "tri_addt_othdrugs_type5", nullable = true)
+    public String getTriAddtOthDrugsType5() {
+        return triAddtOthDrugsType5;
+    }
+
+    public void setTriAddtOthDrugsType5(String triAddtOthDrugsType5) {
+        this.triAddtOthDrugsType5 = triAddtOthDrugsType5;
+    }
+
+    @Column(name = "tri_addt_othdrugs_brand5", nullable = true)
+    public String getTriAddtOthDrugsBrand5() {
+        return triAddtOthDrugsBrand5;
+    }
+
+    public void setTriAddtOthDrugsBrand5(String triAddtOthDrugsBrand5) {
+        this.triAddtOthDrugsBrand5 = triAddtOthDrugsBrand5;
     }
 
     @Override

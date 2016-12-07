@@ -138,6 +138,13 @@ public class Zp02BiospecimenCollection extends BaseMetaData implements Auditable
     private Date bscCompleteDate2;
     private String bscPerson3;
     private Date bscCompleteDate3;
+    //campos adicionales que no pertenecen a redcap
+    private String addtAnemiaTest;
+    private Date addtLastAnemiaTest;
+    private String addtLastAnemiaTestUk;
+    private String addtAnemiaTestAv;
+    private Float addtHematocrit;
+    private Float addtHemoglobin;
 
     @Id
     @Column(name = "record_id", nullable = false, length = 25)
@@ -1228,6 +1235,62 @@ public class Zp02BiospecimenCollection extends BaseMetaData implements Auditable
 
     public void setBscCompleteDate3(Date bscCompleteDate3) {
         this.bscCompleteDate3 = bscCompleteDate3;
+    }
+
+    //campos adicionales que no pertenecen a redcap
+
+    @Column(name = "bsc_addt_anemiatest_col", nullable = true, length = 1)
+    public String getAddtAnemiaTest() {
+        return addtAnemiaTest;
+    }
+
+    public void setAddtAnemiaTest(String addtAnemiaTest) {
+        this.addtAnemiaTest = addtAnemiaTest;
+    }
+
+    @Column(name = "bsc_addt_lastanemiatest_date", nullable = true)
+    public Date getAddtLastAnemiaTest() {
+        return addtLastAnemiaTest;
+    }
+
+    public void setAddtLastAnemiaTest(Date addtLastAnemiaTest) {
+        this.addtLastAnemiaTest = addtLastAnemiaTest;
+    }
+
+    @Column(name = "bsc_addt_lastanemiatest_ref", nullable = true, length = 1)
+    public String getAddtLastAnemiaTestUk() {
+        return addtLastAnemiaTestUk;
+    }
+
+    public void setAddtLastAnemiaTestUk(String addtLastAnemiaTestUk) {
+        this.addtLastAnemiaTestUk = addtLastAnemiaTestUk;
+    }
+
+    @Column(name = "bsc_addt_anemiatest_av", nullable = true, length = 1)
+    public String getAddtAnemiaTestAv() {
+        return addtAnemiaTestAv;
+    }
+
+    public void setAddtAnemiaTestAv(String addtAnemiaTestAv) {
+        this.addtAnemiaTestAv = addtAnemiaTestAv;
+    }
+
+    @Column(name = "bsc_addt_hematocrit", nullable = true)
+    public Float getAddtHematocrit() {
+        return addtHematocrit;
+    }
+
+    public void setAddtHematocrit(Float addtHematocrit) {
+        this.addtHematocrit = addtHematocrit;
+    }
+
+    @Column(name = "bsc_addt_hemoglobin", nullable = true)
+    public Float getAddtHemoglobin() {
+        return addtHemoglobin;
+    }
+
+    public void setAddtHemoglobin(Float addtHemoglobin) {
+        this.addtHemoglobin = addtHemoglobin;
     }
 
     @Override
