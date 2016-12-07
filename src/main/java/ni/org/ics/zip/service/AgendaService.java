@@ -61,7 +61,7 @@ public class AgendaService {
                 agendaEmbarazada.setFechaProgramada(DateUtil.DateToString(fechaProgramada, "dd/MM/yyyy"));
                 agendaEmbarazada.setFechaCita("");
                 agendaEmbarazada.setHoraCita("");
-                agendaEmbarazada.setFormulario(Constants.ENTRY_VISIT);
+                agendaEmbarazada.setFormulario(Constants.ENTRY_LABEL);
                 agendaEmbarazadas.add(agendaEmbarazada);
             }
             //visita semana6
@@ -213,7 +213,7 @@ public class AgendaService {
                     agendaEmbarazada.setFechaProgramada(DateUtil.DateToString(fechaProgramada, "dd/MM/yyyy"));
                     agendaEmbarazada.setFechaCita(DateUtil.DateToString(fechaAcordada, "dd/MM/yyyy"));
                     agendaEmbarazada.setHoraCita(DateUtil.DateToString(DateUtil.StringToDate(fecha + " " + entrySectionFtoK.getSeaNextTime(), "dd/MM/yyyy HH:mm:ss"), "hh:mm a"));
-                    agendaEmbarazada.setFormulario(Constants.ENTRY_VISIT);
+                    agendaEmbarazada.setFormulario(Constants.ENTRY_LABEL);
                     //Obtener fecha de visita que se encuentra en la primera parte del formulario (AtoD)
                     query = session.createQuery("from Zp01StudyEntrySectionAtoD zp01 " +
                             "where zp01.recordId = :codigo and zp01.redcapEventName = :event ");

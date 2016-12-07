@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.text.ParseException;
+import java.util.List;
 
 /**
  * Created by FIRSTICT on 11/10/2016.
@@ -34,6 +35,8 @@ public class ExportarController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String obtenerUsuarios(Model model) throws ParseException, Exception {
         logger.debug("Pantalla de inicio exportación JSP");
+        List<String> eventos = exportarService.getRedCapEvents();
+        model.addAttribute("eventos",eventos);
         return "export/enterForm";
     }
 
@@ -208,10 +211,12 @@ public class ExportarController {
     @RequestMapping(value = "getAll", method = RequestMethod.GET)
     public void getAllForms(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
                         @RequestParam(value = "codigoFin", required = false) String codigoFin,
+                        @RequestParam(value = "event", required = false) String event,
                         HttpServletResponse response) throws Exception {
         String todasTablas = Constants.TABLE_ZP00+","+Constants.TABLE_ZP01AD+","+Constants.TABLE_ZP01E+","+Constants.TABLE_ZP01FK+","+Constants.TABLE_ZP02+","+Constants.TABLE_ZP03+","+
                 Constants.TABLE_ZP04AD+","+Constants.TABLE_ZP04E+","+Constants.TABLE_ZP04FH+","+Constants.TABLE_ZP05+","+Constants.TABLE_ZP06+","+Constants.TABLE_ZP08;
         ExportParameters ep = new ExportParameters(todasTablas,codigoInicio,codigoFin);
+        ep.setEvent(event);
         StringBuffer registros = exportarService.getAllExportData(ep);
         InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
         String mimeType = "text/csv";

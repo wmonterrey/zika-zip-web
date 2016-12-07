@@ -41,6 +41,9 @@ var Export = function () {
                     }},
                     zpform: {
                         required: true
+                    },
+                    zpEvent: {
+                        required: true
                     }
                 },
                 invalidHandler: function (event, validator) { //display error alert on form submit
@@ -71,7 +74,7 @@ var Export = function () {
 
             function getForm() {
                 bloquearUI("");
-                var form = $('#zpform option:selected').val();
+                var form = $('#zpform').find('option:selected').val();
                 var urlForm = "";
                 if (form == 'Zp00'){
                     urlForm = parametros.getZp00;
@@ -100,18 +103,16 @@ var Export = function () {
                 }else{
                     urlForm = parametros.getAll;
                 }
-
-                console.log(form);
-                console.log(urlForm);
                 var iframe = document.createElement('iframe');
                 iframe.id = "IFRAMEID";
                 iframe.style.display = 'none';
                 document.body.appendChild(iframe);
-                iframe.src = urlForm+"?codigoInicio="+$("#codigoInicio").val()+"&codigoFin="+$("#codigoFin").val();
+                iframe.src = urlForm+"?codigoInicio="+$("#codigoInicio").val()+"&codigoFin="+$("#codigoFin").val()+"&event="+$('#zpEvent').find('option:selected').val();
                 iframe.addEventListener("load", function () {
                     console.log("FILE LOAD DONE.. Download should start now");
-                    desbloquearUI();
+
                 });
+                desbloquearUI();
             }
         }
     };

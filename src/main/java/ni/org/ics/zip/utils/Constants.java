@@ -40,6 +40,8 @@ public class Constants {
     public static final String EXIT = "study_exit_arm_1";
 
     /*etiquetas para cada evento*/
+    public static final String SCREENING_LABEL = "Tamizaje";
+    public static final String ENTRY_LABEL = "Ingreso";
     public static final String WEEK_LABEL = "Semanas";
     public static final String WEEK2_LABEL = "2 Semanas";
     public static final String WEEK4_LABEL = "4 Semanas";
@@ -63,7 +65,15 @@ public class Constants {
     public static final String WEEK40_LABEL = "40 Semanas";
     public static final String WEEK42_LABEL = "42 Semanas";
     public static final String WEEK44_LABEL = "44 Semanas";
-    public static final String ENTRY_VISIT = "Ingreso";
+    public static final String DELIVERY_LABEL = "Parto";
+    public static final String AFTERDELIVERY_LABEL = "Posparto";
+    public static final String UNSHED1_LABEL = "Visita no programada 1";
+    public static final String UNSHED2_LABEL = "Visita no programada 2";
+    public static final String UNSHED3_LABEL = "Visita no programada 3";
+    public static final String UNSHED4_LABEL = "Visita no programada 4";
+    public static final String UNSHED5_LABEL = "Visita no programada 5";
+    public static final String EXIT_LABEL = "Salida del estudio";
+
     public static final String MONTHLY_VISIT = "Mensual";
     public static final String TRIMESTER_VISIT = "Trimestral";
     public static final String HOME_VISIT = "Visita en casa";

@@ -106,28 +106,47 @@
                                     </div>
                                     <div class="row">
                                         <div class="col col-sm-12 col-md-6 col-lg-6">
-                                            <label class="control-label col-md-4"><spring:message code="form" />
-                                            <span class="required">
-                                                 *
-                                            </span>
-                                            </label>
-                                            <div class="col-md-8">
-                                                <select class="form-control" id="zpform" name="zpform">
-                                                    <option value=""><spring:message code="lbl.select" /> ...</option>
-                                                    <option value="Zp00"><spring:message code="zp00" /></option>
-                                                    <option value="Zp01AD"><spring:message code="zp01AD" /></option>
-                                                    <option value="Zp01E"><spring:message code="zp01E" /></option>
-                                                    <option value="Zp01FK"><spring:message code="zp01FK" /></option>
-                                                    <option value="Zp02"><spring:message code="zp02" /></option>
-                                                    <option value="Zp03"><spring:message code="zp03" /></option>
-                                                    <option value="Zp04AD"><spring:message code="zp04AD" /></option>
-                                                    <option value="Zp04E"><spring:message code="zp04E" /></option>
-                                                    <option value="Zp04FH"><spring:message code="zp04FH" /></option>
-                                                    <option value="Zp05"><spring:message code="zp05" /></option>
-                                                    <option value="Zp06"><spring:message code="zp06" /></option>
-                                                    <option value="Zp08"><spring:message code="zp08" /></option>
-                                                    <option value="all"><spring:message code="allforms" /></option>
-                                                </select>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4"><spring:message code="event" />
+                                                <span class="required">
+                                                     *
+                                                </span>
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <select class="form-control" id="zpEvent" name="zpEvent">
+                                                        <option value=""><spring:message code="lbl.select" /> ...</option>
+                                                        <c:forEach items="${eventos}" var="evento">
+                                                            <option value="${evento}"><spring:message code="${evento}" /></option>
+                                                        </c:forEach>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col col-sm-12 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4"><spring:message code="form" />
+                                                <span class="required">
+                                                     *
+                                                </span>
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <select class="form-control" id="zpform" name="zpform">
+                                                        <option value=""><spring:message code="lbl.select" /> ...</option>
+                                                        <option value="Zp00"><spring:message code="zp00" /></option>
+                                                        <option value="Zp01AD"><spring:message code="zp01AD" /></option>
+                                                        <option value="Zp01E"><spring:message code="zp01E" /></option>
+                                                        <option value="Zp01FK"><spring:message code="zp01FK" /></option>
+                                                        <option value="Zp02"><spring:message code="zp02" /></option>
+                                                        <option value="Zp03"><spring:message code="zp03" /></option>
+                                                        <option value="Zp04AD"><spring:message code="zp04AD" /></option>
+                                                        <option value="Zp04E"><spring:message code="zp04E" /></option>
+                                                        <option value="Zp04FH"><spring:message code="zp04FH" /></option>
+                                                        <option value="Zp05"><spring:message code="zp05" /></option>
+                                                        <option value="Zp06"><spring:message code="zp06" /></option>
+                                                        <option value="Zp08"><spring:message code="zp08" /></option>
+                                                        <option value="all"><spring:message code="allforms" /></option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

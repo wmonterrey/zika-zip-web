@@ -9,6 +9,7 @@ public class ExportParameters {
     private String tableName;
     private String codigoInicio;
     private String codigoFin;
+    private String event;
 
     public ExportParameters(String tableName, String codigoInicio, String codigoFin) {
         this.tableName = tableName;
@@ -38,6 +39,14 @@ public class ExportParameters {
 
     public void setCodigoFin(String codigoFin) {
         this.codigoFin = codigoFin;
+    }
+
+    public String getEvent() {
+        return event;
+    }
+
+    public void setEvent(String event) {
+        this.event = event;
     }
 
     public boolean thereAreValues(){
