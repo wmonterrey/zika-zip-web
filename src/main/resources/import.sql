@@ -243,3 +243,32 @@ INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('postdeli', '0'
 
 
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('subjects', '0', 'Participantes');
+
+//Dashboard panel principal
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('change.date.range', '0', 'Cambiar el rango de fecha del panel');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('applyLabel', '0', 'Aplicar');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('fromLabel', '0', 'Desde');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('toLabel', '0', 'Hasta');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('customRangeLabel', '0', 'Personalizado');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('Su', '0', 'Do');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('Mo', '0', 'Lu');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('Tu', '0', 'Ma');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('We', '0', 'Mi');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('Th', '0', 'Ju');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('Fr', '0', 'Vi');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('Sa', '0', 'Sa');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('january', '0', 'Enero');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('february', '0', 'Febrero');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('march', '0', 'Marzo');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('april', '0', 'Abril');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('may', '0', 'Mayo');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('june', '0', 'Junio');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('july', '0', 'Julio');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('august', '0', 'Agosto');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('september', '0', 'Septiembre');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('october', '0', 'Octubre');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('november', '0', 'Noviembre');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('december', '0', 'Diciembre');
+
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('screenxday', '0', 'Tamizajes por día');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('total', '0', 'Total');
