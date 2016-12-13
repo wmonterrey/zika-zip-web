@@ -1585,12 +1585,40 @@ public class ExportarService {
                                         } else if (col[1].equalsIgnoreCase("bsc_mat_other_type")){
                                             valores += setValuesMultipleField(val.toString(), bscMatOtherType);
                                             //campos tipo hora HH:mm
-                                        }else if (col[1].equalsIgnoreCase("bsc_mat_bld_time") || col[1].equalsIgnoreCase("bsc_mat_slva_time") || col[1].equalsIgnoreCase("bsc_mat_vag_time") || col[1].equalsIgnoreCase("bsc_mat_vst_urn_time") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time1")
-                                                || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time4") || col[1].equalsIgnoreCase("bsc_mat_amf_time") || col[1].equalsIgnoreCase("bsc_mat_cord_time")
-                                                || col[1].equalsIgnoreCase("bsc_mat_placen_time") || col[1].equalsIgnoreCase("bsc_mat_breastm_time") || col[1].equalsIgnoreCase("bsc_mat_fetalt_time") || col[1].equalsIgnoreCase("bsc_matd_breastm_time")){
+                                        }else if (col[1].equalsIgnoreCase("bsc_mat_bld_time") || col[1].equalsIgnoreCase("bsc_mat_slva_time") || col[1].equalsIgnoreCase("bsc_mat_vag_time") || col[1].equalsIgnoreCase("bsc_mat_vst_urn_time") || col[1].equalsIgnoreCase("bsc_mat_amf_time")
+                                                || col[1].equalsIgnoreCase("bsc_mat_cord_time") || col[1].equalsIgnoreCase("bsc_mat_placen_time") || col[1].equalsIgnoreCase("bsc_mat_breastm_time") || col[1].equalsIgnoreCase("bsc_mat_fetalt_time") || col[1].equalsIgnoreCase("bsc_matd_breastm_time")){
                                             if (valores.isEmpty()) valores += val.toString().substring(0,5);
                                             else valores += SEPARADOR + val.toString().substring(0,5);
 
+
+                                        }else if (col[1].equalsIgnoreCase("bsc_mat_hom_urn_col") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_rsn") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_specify") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_num") ||
+                                                col[1].equalsIgnoreCase("bsc_mat_hom_urn_id1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_com1") ||
+                                                col[1].equalsIgnoreCase("bsc_mat_hom_urn_id2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_com2") ||
+                                                col[1].equalsIgnoreCase("bsc_mat_hom_urn_id3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_com3") ||
+                                                col[1].equalsIgnoreCase("bsc_mat_hom_urn_id4") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat4") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time4") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_com4")) {
+                                            //para las muestras de horina en casa tomar los valores registrados en la visita quincenal previa (solo para los eventos mensuales)
+                                            if (exportParameters.getEvent().contains("week_post_entry_arm_1")) {
+                                                if (valores.isEmpty()) valores += col[1];
+                                                else valores += SEPARADOR + col[1];
+                                            }else{
+                                                if (col[1].equalsIgnoreCase("bsc_mat_hom_urn_time1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time2") ||col[1].equalsIgnoreCase("bsc_mat_hom_urn_time3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time4")){
+                                                    if (valores.isEmpty()) valores += val.toString().substring(0,5);
+                                                    else valores += SEPARADOR + val.toString().substring(0,5);
+                                                }else if (col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat4")){
+                                                    if (valores.isEmpty())
+                                                        valores += DateToString(res.getDate(col[1]), "dd/MM/yyyyy");
+                                                    else
+                                                        valores += SEPARADOR + DateToString(res.getDate(col[1]), "dd/MM/yyyyy");
+                                                }else{
+                                                    //si contiene uno de estos caracteres especiales escapar
+                                                    if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
+                                                        valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
+                                                    } else {
+                                                        if (valores.isEmpty()) valores += val.toString();
+                                                        else valores += SEPARADOR + val.toString();
+                                                    }
+                                                }
+                                            }
                                         //ZP03
                                         }else if (col[1].equalsIgnoreCase("mon_character_disch")){
                                             valores += setValuesMultipleField(val.toString(), characterDisch);
@@ -1740,7 +1768,16 @@ public class ExportarService {
                                                 valores += SEPARADOR;
                                             }
 
-                                        //ZP03
+                                        }else if (exportParameters.getEvent().contains("week_post_entry_arm_1") && (col[1].equalsIgnoreCase("bsc_mat_hom_urn_col") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_rsn") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_specify") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_num") ||
+                                                col[1].equalsIgnoreCase("bsc_mat_hom_urn_id1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_com1") ||
+                                                col[1].equalsIgnoreCase("bsc_mat_hom_urn_id2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_com2") ||
+                                                col[1].equalsIgnoreCase("bsc_mat_hom_urn_id3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_com3") ||
+                                                col[1].equalsIgnoreCase("bsc_mat_hom_urn_id4") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat4") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time4") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_com4"))) {
+                                            //para las muestras de horina en casa tomar los valores registrados en la visita quincenal previa (solo para los eventos mensuales)
+                                            if (valores.isEmpty()) valores += col[1];
+                                            else valores += SEPARADOR + col[1];
+
+                                            //ZP03
                                         }else if (col[1].equalsIgnoreCase("mon_character_disch")){
                                             for(int i = 0 ; i< characterDisch.length; i++){
                                                 valores += SEPARADOR;
@@ -1963,9 +2000,83 @@ public class ExportarService {
                 }
             //}
 
+            /*completar campos para tomas de muestras de orina en la casa que se toman 15 dias +- antes de los eventos mensuales
+            (solo para los eventos mensuales desde semana 4 hasta semana 44) */
+            if (exportParameters.getEvent().contains("week_post_entry_arm_1")) {
+                int semana = Integer.valueOf(exportParameters.getEvent().substring(0, exportParameters.getEvent().indexOf("_")));
+                String evento15dias = String.valueOf(semana - 2) + "_week_post_entry_arm_1";
+                String sqlOrinaCasa = "select record_id,bsc_mat_hom_urn_col,bsc_mat_hom_urn_rsn,bsc_mat_hom_urn_specify,bsc_mat_hom_urn_num,bsc_mat_hom_urn_id1,bsc_mat_hom_urn_dat1,bsc_mat_hom_urn_time1,bsc_mat_hom_urn_com1," +
+                        "bsc_mat_hom_urn_id2,bsc_mat_hom_urn_dat2,bsc_mat_hom_urn_time2,bsc_mat_hom_urn_com2,bsc_mat_hom_urn_id3,bsc_mat_hom_urn_dat3,bsc_mat_hom_urn_time3,bsc_mat_hom_urn_com3," +
+                        "bsc_mat_hom_urn_id4,bsc_mat_hom_urn_dat4,bsc_mat_hom_urn_time4,bsc_mat_hom_urn_com4 from " + Constants.TABLE_ZP02 + " where redcap_event_name = ?";
+                if (exportParameters.thereAreValues()) sqlOrinaCasa += " and record_id between ? and ? ";
+                pStatement = con.prepareStatement(sqlOrinaCasa);
+                pStatement.setString(1, evento15dias);
+                if (exportParameters.thereAreValues()) {
+                    pStatement.setString(2, exportParameters.getCodigoInicio());
+                    pStatement.setString(3, exportParameters.getCodigoFin());
+                }
+                res = pStatement.executeQuery();
+                while (res.next()) {
+                    int indice = 0;
+                    String registrotmp = "";
+                    for (String registro : registros) {
+                        String codparticipante = registro.substring(0, registro.indexOf(SEPARADOR));
+                        if (codparticipante.equalsIgnoreCase(res.getString("record_id"))) {
+                            registrotmp = registro;
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_col", (res.getObject("bsc_mat_hom_urn_col") != null ? res.getString("bsc_mat_hom_urn_col") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_rsn", (res.getObject("bsc_mat_hom_urn_rsn") != null ? res.getString("bsc_mat_hom_urn_rsn") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_specify", (res.getObject("bsc_mat_hom_urn_specify") != null ? res.getString("bsc_mat_hom_urn_specify") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_num", (res.getObject("bsc_mat_hom_urn_num") != null ? res.getString("bsc_mat_hom_urn_num") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id1", (res.getObject("bsc_mat_hom_urn_id1") != null ? res.getString("bsc_mat_hom_urn_id1") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat1", (res.getObject("bsc_mat_hom_urn_dat1") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat1"), "dd/MM/yyyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time1", (res.getObject("bsc_mat_hom_urn_time1") != null ? res.getString("bsc_mat_hom_urn_time1").substring(0, 5) : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com1", (res.getObject("bsc_mat_hom_urn_com1") != null ? res.getString("bsc_mat_hom_urn_com1") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id2", (res.getObject("bsc_mat_hom_urn_id2") != null ? res.getString("bsc_mat_hom_urn_id2") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat2", (res.getObject("bsc_mat_hom_urn_dat2") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat2"), "dd/MM/yyyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time2", (res.getObject("bsc_mat_hom_urn_time2") != null ? res.getString("bsc_mat_hom_urn_time2").substring(0, 5) : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com2", (res.getObject("bsc_mat_hom_urn_com2") != null ? res.getString("bsc_mat_hom_urn_com2") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id3", (res.getObject("bsc_mat_hom_urn_id3") != null ? res.getString("bsc_mat_hom_urn_id3") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat3", (res.getObject("bsc_mat_hom_urn_dat3") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat3"), "dd/MM/yyyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time3", (res.getObject("bsc_mat_hom_urn_time3") != null ? res.getString("bsc_mat_hom_urn_time3").substring(0, 5) : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com3", (res.getObject("bsc_mat_hom_urn_com3") != null ? res.getString("bsc_mat_hom_urn_com3") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id4", (res.getObject("bsc_mat_hom_urn_id4") != null ? res.getString("bsc_mat_hom_urn_id4") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat4", (res.getObject("bsc_mat_hom_urn_dat4") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat4"), "dd/MM/yyyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time4", (res.getObject("bsc_mat_hom_urn_time4") != null ? res.getString("bsc_mat_hom_urn_time4").substring(0, 5) : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com4", (res.getObject("bsc_mat_hom_urn_com4") != null ? res.getString("bsc_mat_hom_urn_com4") : ""));
+                            break;
+                        }
+                        indice++;
+                    }
+                    if (!registrotmp.isEmpty()) {
+                        registros.set(indice, registrotmp);
+                    }
+                }
+            }/*FIN completar campos para tomas de muestras de orina en la casa*/
+
             sb.append(columnas);
             for (String registro : registros){
                 sb.append(SALTOLINEA);
+                //por si queda algun registro que no tiene toma de muestra 15 dias, se limpia
+                registro = registro.replaceAll("bsc_mat_hom_urn_col", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_rsn", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_specify", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_num", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_id1", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_dat1", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_time1", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_com1", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_id2", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_dat2", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_time2", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_com2", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_id3", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_dat3", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_time3", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_com3", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_id4", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_dat4", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_time4", "");
+                registro = registro.replaceAll("bsc_mat_hom_urn_com4", "");
                 sb.append(registro);
             }
             sb.append(SALTOLINEA);
@@ -1994,17 +2105,6 @@ public class ExportarService {
                 columnas+=col;
             else
                 columnas += SEPARADOR + col;
-        }
-        return columnas;
-    }
-
-    private static String parseAllColumns(List<String[]> columns){
-        String columnas = "";
-        for(String[] col : columns){
-            if (columnas.isEmpty()) //es primer columna
-                columnas+=col[1];
-            else
-                columnas += SEPARADOR + col[1];
         }
         return columnas;
     }
