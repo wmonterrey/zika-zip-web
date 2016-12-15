@@ -63,7 +63,8 @@ public class ExportarService {
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("simserial") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("start") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("today") &&
-                        !res.getString("COLUMN_NAME").equalsIgnoreCase("prescreen_id")
+                        !res.getString("COLUMN_NAME").equalsIgnoreCase("prescreen_id") &&
+                        !res.getString("COLUMN_NAME").contains("_addt_") //_addt_ se usa para campos adiciones que no son de redacp
                         ) {
                     if (res.getString("COLUMN_NAME").equalsIgnoreCase("record_id") && !columns.isEmpty()) {
                         //el record_id siempre debe ser el primer campo
@@ -655,7 +656,7 @@ public class ExportarService {
             String[] face = "1,2".split(",");
 
             //columnas que necesita redcap y no estan en la tabla
-            columnas = columnas.replaceAll("mon_charac_discharge","mon_character_disch___1,mon_character_disch___2,mon_character_disch___3,mon_character_disch___4,mon_character_disch___5,mon_character_disch___6");
+            columnas = columnas.replaceAll("mon_charac_discharge","mon_charac_discharge___1,mon_charac_discharge___2,mon_charac_discharge___3,mon_charac_discharge___4,mon_charac_discharge___5,mon_charac_discharge___6");
             columnas = columnas.replaceAll("mon_rash_first","mon_rash_first___1,mon_rash_first___2,mon_rash_first___3,mon_rash_first___4,mon_rash_first___5,mon_rash_first___6,mon_rash_first___7,mon_rash_first___8,mon_rash_first___9");
             columnas = columnas.replaceAll("mon_spread_part","mon_spread_part___1,mon_spread_part___2,mon_spread_part___3,mon_spread_part___4,mon_spread_part___5,mon_spread_part___6,mon_spread_part___7,mon_spread_part___8,mon_spread_part___9");
             columnas = columnas.replaceAll("mon_specify_symptom","mon_specify_symptom___1,mon_specify_symptom___2,mon_specify_symptom___3,mon_specify_symptom___4,mon_specify_symptom___5,mon_specify_symptom___6,mon_specify_symptom___7,mon_specify_symptom___8,mon_specify_symptom___9,mon_specify_symptom___10,mon_specify_symptom___11,mon_specify_symptom___12,mon_specify_symptom___13");
@@ -684,7 +685,7 @@ public class ExportarService {
                 for(String col : columns){
                     Object val = res.getObject(col);
                     if (val!=null){
-                        if (col.equalsIgnoreCase("mon_character_disch")){
+                        if (col.equalsIgnoreCase("mon_charac_discharge")){
                             valores += setValuesMultipleField(val.toString(), characterDisch);
 
                         }else if (col.equalsIgnoreCase("mon_rash_first")) {
@@ -737,7 +738,7 @@ public class ExportarService {
                             }
                         }
                     }else{
-                        if (col.equalsIgnoreCase("mon_character_disch")){
+                        if (col.equalsIgnoreCase("mon_charac_discharge")){
                             for(int i = 0 ; i< characterDisch.length; i++){
                                 valores += SEPARADOR;
                             }
@@ -1433,38 +1434,13 @@ public class ExportarService {
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("today") &&
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("prescreen_id") &&
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("record_id") &&
-                            !res.getString("COLUMN_NAME").equalsIgnoreCase("redcap_event_name")
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("redcap_event_name") &&
+                            !res.getString("COLUMN_NAME").contains("_addt_") //_addt_ se usa para campos adiciones que no son de redacp
                             ) {
 
-                        /*if (res.getString("COLUMN_NAME").equalsIgnoreCase("record_id")){
-                            if (!idAgregado){
-                                procesarColumna = true;
-                                idAgregado = true;
-                            }else{
-                                procesarColumna = false;
-                            }
-                        }else if (res.getString("COLUMN_NAME").equalsIgnoreCase("redcap_event_name")){
-                            if (!eventAgregado){
-                                procesarColumna = true;
-                                eventAgregado = true;
-                            }else{
-                                procesarColumna = false;
-                            }
-                        }else{
-                            procesarColumna = true;
-                        }*/
+                        String[] columna = {res.getString("TABLE_NAME"),res.getString("COLUMN_NAME")};
+                        columns.add(columna);
 
-                        //if (procesarColumna) {
-                            String[] columna = {res.getString("TABLE_NAME"),res.getString("COLUMN_NAME")};
-                            /*if (res.getString("COLUMN_NAME").equalsIgnoreCase("record_id") && !columns.isEmpty()) {
-                                //el record_id siempre debe ser el primer campo
-                                String[] columnaTmp = columns.get(0);
-                                columns.set(0, columna );
-                                columns.add(columnaTmp);
-                            } else {*/
-                                columns.add(columna);
-                            //}
-                        //}
                     }
                 }
             }
@@ -1489,7 +1465,6 @@ public class ExportarService {
             //recuperar los nombres de las columnas de todas las tablas
             String[] tableNames = exportParameters.getTableName().split(",");
             List<String[]> allColumns = getAllTableMetaData(tableNames);
-            List<String> redCapEvents = getRedCapEvents();
             List<String> participantes = getSubjects(exportParameters);
             List<String> registros = new ArrayList<String>();
             int primerRegistro = 0;
@@ -1622,7 +1597,7 @@ public class ExportarService {
                                                 }
                                             }
                                         //ZP03
-                                        }else if (col[1].equalsIgnoreCase("mon_character_disch")){
+                                        }else if (col[1].equalsIgnoreCase("mon_charac_discharge")){
                                             valores += setValuesMultipleField(val.toString(), characterDisch);
 
                                         }else if (col[1].equalsIgnoreCase("mon_rash_first")) {
@@ -1780,7 +1755,7 @@ public class ExportarService {
                                             else valores += SEPARADOR + col[1];
 
                                             //ZP03
-                                        }else if (col[1].equalsIgnoreCase("mon_character_disch")){
+                                        }else if (col[1].equalsIgnoreCase("mon_charac_discharge")){
                                             for(int i = 0 ; i< characterDisch.length; i++){
                                                 valores += SEPARADOR;
                                             }
@@ -1904,7 +1879,7 @@ public class ExportarService {
                             columnasT += SEPARADOR + "zp02_biospecimen_collection_complete";
 
                         }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP03)) {
-                            columnasT = columnasT.replaceAll("mon_charac_discharge","mon_character_disch___1,mon_character_disch___2,mon_character_disch___3,mon_character_disch___4,mon_character_disch___5,mon_character_disch___6");
+                            columnasT = columnasT.replaceAll("mon_charac_discharge","mon_charac_discharge___1,mon_charac_discharge___2,mon_charac_discharge___3,mon_charac_discharge___4,mon_charac_discharge___5,mon_charac_discharge___6");
                             columnasT = columnasT.replaceAll("mon_rash_first","mon_rash_first___1,mon_rash_first___2,mon_rash_first___3,mon_rash_first___4,mon_rash_first___5,mon_rash_first___6,mon_rash_first___7,mon_rash_first___8,mon_rash_first___9");
                             columnasT = columnasT.replaceAll("mon_spread_part","mon_spread_part___1,mon_spread_part___2,mon_spread_part___3,mon_spread_part___4,mon_spread_part___5,mon_spread_part___6,mon_spread_part___7,mon_spread_part___8,mon_spread_part___9");
                             columnasT = columnasT.replaceAll("mon_specify_symptom","mon_specify_symptom___1,mon_specify_symptom___2,mon_specify_symptom___3,mon_specify_symptom___4,mon_specify_symptom___5,mon_specify_symptom___6,mon_specify_symptom___7,mon_specify_symptom___8,mon_specify_symptom___9,mon_specify_symptom___10,mon_specify_symptom___11,mon_specify_symptom___12,mon_specify_symptom___13");
