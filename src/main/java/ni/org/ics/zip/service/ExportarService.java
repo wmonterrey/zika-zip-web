@@ -1517,6 +1517,7 @@ public class ExportarService {
             //for (String redCapEvent : redCapEvents){
                 for (String participante : participantes) {
                     String valores = participante+SEPARADOR+exportParameters.getEvent();
+                    boolean existeDato = false;
                     for (String tableName : tableNames) {
                         String columnasT = getTableColumns(allColumns, tableName);
                         boolean encontroRegistros = false;
@@ -1531,6 +1532,7 @@ public class ExportarService {
 
                         String[] arrayColumnasT = columnasT.split(",");
                         while (res.next()) {
+                            existeDato = true;
                             encontroRegistros = true;
                             for (String[] col : allColumns) {
                                 if (existeColumna(col[1], arrayColumnasT)) {
@@ -1995,7 +1997,9 @@ public class ExportarService {
                         }
                         System.out.println(columnasT);
                     }
-                    registros.add(valores);
+                    if (existeDato) {
+                        registros.add(valores);
+                    }
                     primerRegistro++;
                 }
             //}
