@@ -48,7 +48,6 @@ public class ExportarService {
         try {
             DatabaseMetaData meta = con.getMetaData();
             ResultSet res = meta.getColumns(null, null, tableName, null);
-            System.out.println("List of columns: ");
             while (res.next()) {
                 //excluir estos campos
                 if (!res.getString("COLUMN_NAME").equalsIgnoreCase("identificador_equipo") &&
@@ -101,15 +100,17 @@ public class ExportarService {
 
             //pasar a recuperar los datos. Setear parámetro si los hay
             StringBuilder sqlStrBuilder = new StringBuilder();
-            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
-            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+            if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) sqlStrBuilder.append(" and redcap_event_name = ?");
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
-            if (exportParameters.thereAreValues()){
+            if (exportParameters.thereAreCodes()){
                 pStatement.setString(1, exportParameters.getCodigoInicio());
                 pStatement.setString(2, exportParameters.getCodigoFin());
             }
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) pStatement.setString(exportParameters.thereAreCodes()?3:1,exportParameters.getEvent());
 
             res = pStatement.executeQuery();
 
@@ -186,15 +187,17 @@ public class ExportarService {
 
             //pasar a recuperar los datos. Setear parámetro si los hay
             StringBuilder sqlStrBuilder = new StringBuilder();
-            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
-            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+            if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) sqlStrBuilder.append(" and redcap_event_name = ?");
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
-            if (exportParameters.thereAreValues()){
+            if (exportParameters.thereAreCodes()){
                 pStatement.setString(1, exportParameters.getCodigoInicio());
                 pStatement.setString(2, exportParameters.getCodigoFin());
             }
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) pStatement.setString(exportParameters.thereAreCodes()?3:1,exportParameters.getEvent());
 
             res = pStatement.executeQuery();
 
@@ -267,15 +270,17 @@ public class ExportarService {
 
             //pasar a recuperar los datos. Setear parámetro si los hay
             StringBuilder sqlStrBuilder = new StringBuilder();
-            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
-            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+            if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) sqlStrBuilder.append(" and redcap_event_name = ?");
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
-            if (exportParameters.thereAreValues()){
+            if (exportParameters.thereAreCodes()){
                 pStatement.setString(1, exportParameters.getCodigoInicio());
                 pStatement.setString(2, exportParameters.getCodigoFin());
             }
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) pStatement.setString(exportParameters.thereAreCodes()?3:1,exportParameters.getEvent());
 
             res = pStatement.executeQuery();
             //Valores de campos múltiples
@@ -438,15 +443,17 @@ public class ExportarService {
 
             //pasar a recuperar los datos. Setear parámetro si los hay
             StringBuilder sqlStrBuilder = new StringBuilder();
-            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
-            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+            if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) sqlStrBuilder.append(" and redcap_event_name = ?");
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
-            if (exportParameters.thereAreValues()){
+            if (exportParameters.thereAreCodes()){
                 pStatement.setString(1, exportParameters.getCodigoInicio());
                 pStatement.setString(2, exportParameters.getCodigoFin());
             }
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) pStatement.setString(exportParameters.thereAreCodes()?3:1,exportParameters.getEvent());
 
             res = pStatement.executeQuery();
             //Valores de campos múltiples
@@ -533,15 +540,17 @@ public class ExportarService {
 
             //pasar a recuperar los datos. Setear parámetro si los hay
             StringBuilder sqlStrBuilder = new StringBuilder();
-            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
-            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+            if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) sqlStrBuilder.append(" and redcap_event_name = ?");
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
-            if (exportParameters.thereAreValues()){
+            if (exportParameters.thereAreCodes()){
                 pStatement.setString(1, exportParameters.getCodigoInicio());
                 pStatement.setString(2, exportParameters.getCodigoFin());
             }
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) pStatement.setString(exportParameters.thereAreCodes()?3:1,exportParameters.getEvent());
 
             res = pStatement.executeQuery();
 
@@ -632,15 +641,17 @@ public class ExportarService {
 
             //pasar a recuperar los datos. Setear parámetro si los hay
             StringBuilder sqlStrBuilder = new StringBuilder();
-            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
-            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+            if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) sqlStrBuilder.append(" and redcap_event_name = ?");
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
-            if (exportParameters.thereAreValues()){
+            if (exportParameters.thereAreCodes()){
                 pStatement.setString(1, exportParameters.getCodigoInicio());
                 pStatement.setString(2, exportParameters.getCodigoFin());
             }
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) pStatement.setString(exportParameters.thereAreCodes()?3:1,exportParameters.getEvent());
 
             res = pStatement.executeQuery();
 
@@ -798,15 +809,17 @@ public class ExportarService {
 
             //pasar a recuperar los datos. Setear parámetro si los hay
             StringBuilder sqlStrBuilder = new StringBuilder();
-            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
-            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+            if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) sqlStrBuilder.append(" and redcap_event_name = ?");
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
-            if (exportParameters.thereAreValues()){
+            if (exportParameters.thereAreCodes()){
                 pStatement.setString(1, exportParameters.getCodigoInicio());
                 pStatement.setString(2, exportParameters.getCodigoFin());
             }
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) pStatement.setString(exportParameters.thereAreCodes()?3:1,exportParameters.getEvent());
 
             res = pStatement.executeQuery();
 
@@ -910,15 +923,17 @@ public class ExportarService {
 
             //pasar a recuperar los datos. Setear parámetro si los hay
             StringBuilder sqlStrBuilder = new StringBuilder();
-            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
-            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+            if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) sqlStrBuilder.append(" and redcap_event_name = ?");
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
-            if (exportParameters.thereAreValues()){
+            if (exportParameters.thereAreCodes()){
                 pStatement.setString(1, exportParameters.getCodigoInicio());
                 pStatement.setString(2, exportParameters.getCodigoFin());
             }
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) pStatement.setString(exportParameters.thereAreCodes()?3:1,exportParameters.getEvent());
 
             res = pStatement.executeQuery();
 
@@ -991,15 +1006,17 @@ public class ExportarService {
 
             //pasar a recuperar los datos. Setear parámetro si los hay
             StringBuilder sqlStrBuilder = new StringBuilder();
-            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
-            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+            if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) sqlStrBuilder.append(" and redcap_event_name = ?");
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
-            if (exportParameters.thereAreValues()){
+            if (exportParameters.thereAreCodes()){
                 pStatement.setString(1, exportParameters.getCodigoInicio());
                 pStatement.setString(2, exportParameters.getCodigoFin());
             }
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) pStatement.setString(exportParameters.thereAreCodes()?3:1,exportParameters.getEvent());
 
             res = pStatement.executeQuery();
 
@@ -1091,15 +1108,17 @@ public class ExportarService {
 
             //pasar a recuperar los datos. Setear parámetro si los hay
             StringBuilder sqlStrBuilder = new StringBuilder();
-            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
-            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+            if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) sqlStrBuilder.append(" and redcap_event_name = ?");
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
-            if (exportParameters.thereAreValues()){
+            if (exportParameters.thereAreCodes()){
                 pStatement.setString(1, exportParameters.getCodigoInicio());
                 pStatement.setString(2, exportParameters.getCodigoFin());
             }
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) pStatement.setString(exportParameters.thereAreCodes()?3:1,exportParameters.getEvent());
 
             res = pStatement.executeQuery();
 
@@ -1190,15 +1209,17 @@ public class ExportarService {
 
             //pasar a recuperar los datos. Setear parámetro si los hay
             StringBuilder sqlStrBuilder = new StringBuilder();
-            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
-            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+            if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) sqlStrBuilder.append(" and redcap_event_name = ?");
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
-            if (exportParameters.thereAreValues()){
+            if (exportParameters.thereAreCodes()){
                 pStatement.setString(1, exportParameters.getCodigoInicio());
                 pStatement.setString(2, exportParameters.getCodigoFin());
             }
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) pStatement.setString(exportParameters.thereAreCodes()?3:1,exportParameters.getEvent());
 
             res = pStatement.executeQuery();
             //Valores de campos múltiples
@@ -1343,15 +1364,17 @@ public class ExportarService {
 
             //pasar a recuperar los datos. Setear parámetro si los hay
             StringBuilder sqlStrBuilder = new StringBuilder();
-            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName());
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
-            if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where record_id between ? and ? ");
+            if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) sqlStrBuilder.append(" and redcap_event_name = ?");
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
-            if (exportParameters.thereAreValues()){
+            if (exportParameters.thereAreCodes()){
                 pStatement.setString(1, exportParameters.getCodigoInicio());
                 pStatement.setString(2, exportParameters.getCodigoFin());
             }
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) pStatement.setString(exportParameters.thereAreCodes()?3:1,exportParameters.getEvent());
 
             res = pStatement.executeQuery();
 
@@ -1411,13 +1434,8 @@ public class ExportarService {
         List<String[]> columns = new ArrayList<String[]>();
         try {
             DatabaseMetaData meta = con.getMetaData();
-            //boolean idAgregado = false;
-            //boolean eventAgregado = false;
-            //boolean procesarColumna;
             for(String tableName : tableNames) {
                 ResultSet res = meta.getColumns(null, null, tableName, null);
-                System.out.println("List of columns: ");
-                //String[] columnas = new String[2];
                 while (res.next()) {
                     //excluir estos campos
                     if (!res.getString("COLUMN_NAME").equalsIgnoreCase("identificador_equipo") &&
@@ -1497,7 +1515,6 @@ public class ExportarService {
                         String columnasT = getTableColumns(allColumns, tableName);
                         boolean encontroRegistros = false;
                         //pasar a recuperar los datos. Setear parámetro si los hay
-
                         pStatement = con.prepareStatement("select " + columnasT + " from " + tableName + " where redcap_event_name = ?" + " and record_id = ? ");
                         pStatement.setString(1, exportParameters.getEvent());
                         pStatement.setString(2, participante);
@@ -1520,55 +1537,55 @@ public class ExportarService {
                                     if (val != null) {
                                         //campos que necesitan un trato especial
                                         //ZP01 E
-                                        if (col[1].equalsIgnoreCase("sea_diseases")){
+                                        if (col[1].equalsIgnoreCase("sea_diseases")) {
                                             valores += setValuesMultipleField(val.toString(), diseases);
 
-                                        }else if (col[1].equalsIgnoreCase("sea_rash_first")) {
+                                        } else if (col[1].equalsIgnoreCase("sea_rash_first")) {
                                             valores += setValuesMultipleField(val.toString(), rashFirst);
 
-                                        }else if (col[1].equalsIgnoreCase("sea_spread_part")) {
+                                        } else if (col[1].equalsIgnoreCase("sea_spread_part")) {
                                             valores += setValuesMultipleField(val.toString(), spreadPart);
 
-                                        }else if (col[1].equalsIgnoreCase("sea_same_symptom")) {
+                                        } else if (col[1].equalsIgnoreCase("sea_same_symptom")) {
                                             valores += setValuesMultipleField(val.toString(), sameSymptom);
 
-                                        }else if (col[1].equalsIgnoreCase("sea_specify_symptom")) {
+                                        } else if (col[1].equalsIgnoreCase("sea_specify_symptom")) {
                                             valores += setValuesMultipleField(val.toString(), specifySymptom);
 
-                                        }else if (col[1].equalsIgnoreCase("sea_tingling_arm") || col[1].equalsIgnoreCase("sea_numb_arm") || col[1].equalsIgnoreCase("sea_para_arm")){
+                                        } else if (col[1].equalsIgnoreCase("sea_tingling_arm") || col[1].equalsIgnoreCase("sea_numb_arm") || col[1].equalsIgnoreCase("sea_para_arm")) {
                                             valores += setValuesMultipleField(val.toString(), arm);
 
-                                        }else if (col[1].equalsIgnoreCase("sea_tingling_leg") || col[1].equalsIgnoreCase("sea_numb_leg") || col[1].equalsIgnoreCase("sea_para_leg")){
+                                        } else if (col[1].equalsIgnoreCase("sea_tingling_leg") || col[1].equalsIgnoreCase("sea_numb_leg") || col[1].equalsIgnoreCase("sea_para_leg")) {
                                             valores += setValuesMultipleField(val.toString(), leg);
 
-                                        }else if (col[1].equalsIgnoreCase("sea_tingling_hand") || col[1].equalsIgnoreCase("sea_numb_hand") || col[1].equalsIgnoreCase("sea_para_hand")){
+                                        } else if (col[1].equalsIgnoreCase("sea_tingling_hand") || col[1].equalsIgnoreCase("sea_numb_hand") || col[1].equalsIgnoreCase("sea_para_hand")) {
                                             valores += setValuesMultipleField(val.toString(), hand);
 
-                                        }else if (col[1].equalsIgnoreCase("sea_tingling_foot") || col[1].equalsIgnoreCase("sea_numb_foot") || col[1].equalsIgnoreCase("sea_para_foot")){
+                                        } else if (col[1].equalsIgnoreCase("sea_tingling_foot") || col[1].equalsIgnoreCase("sea_numb_foot") || col[1].equalsIgnoreCase("sea_para_foot")) {
                                             valores += setValuesMultipleField(val.toString(), foot);
 
-                                        }else if (col[1].equalsIgnoreCase("sea_tingling_face") || col[1].equalsIgnoreCase("sea_numb_face") || col[1].equalsIgnoreCase("sea_para_face")) {
+                                        } else if (col[1].equalsIgnoreCase("sea_tingling_face") || col[1].equalsIgnoreCase("sea_numb_face") || col[1].equalsIgnoreCase("sea_para_face")) {
                                             valores += setValuesMultipleField(val.toString(), face);
 
-                                        //ZP01 FK
-                                        }else if (col[1].equalsIgnoreCase("sea_character_disch")){
+                                            //ZP01 FK
+                                        } else if (col[1].equalsIgnoreCase("sea_character_disch")) {
                                             valores += setValuesMultipleField(val.toString(), characterDisch);
 
-                                        }else if (col[1].equalsIgnoreCase("sea_oneweek_time") || col[1].equalsIgnoreCase("sea_next_time")){ //campos tipo hora HH:mm
-                                            if (valores.isEmpty()) valores += val.toString().substring(0,5);
-                                            else valores += SEPARADOR + val.toString().substring(0,5);
+                                        } else if (col[1].equalsIgnoreCase("sea_oneweek_time") || col[1].equalsIgnoreCase("sea_next_time")) { //campos tipo hora HH:mm
+                                            if (valores.isEmpty()) valores += val.toString().substring(0, 5);
+                                            else valores += SEPARADOR + val.toString().substring(0, 5);
 
-                                        //ZP02
-                                        } else if (col[1].equalsIgnoreCase("bsc_mat_other_type")){
+                                            //ZP02
+                                        } else if (col[1].equalsIgnoreCase("bsc_mat_other_type")) {
                                             valores += setValuesMultipleField(val.toString(), bscMatOtherType);
                                             //campos tipo hora HH:mm
-                                        }else if (col[1].equalsIgnoreCase("bsc_mat_bld_time") || col[1].equalsIgnoreCase("bsc_mat_slva_time") || col[1].equalsIgnoreCase("bsc_mat_vag_time") || col[1].equalsIgnoreCase("bsc_mat_vst_urn_time") || col[1].equalsIgnoreCase("bsc_mat_amf_time")
-                                                || col[1].equalsIgnoreCase("bsc_mat_cord_time") || col[1].equalsIgnoreCase("bsc_mat_placen_time") || col[1].equalsIgnoreCase("bsc_mat_breastm_time") || col[1].equalsIgnoreCase("bsc_mat_fetalt_time") || col[1].equalsIgnoreCase("bsc_matd_breastm_time")){
-                                            if (valores.isEmpty()) valores += val.toString().substring(0,5);
-                                            else valores += SEPARADOR + val.toString().substring(0,5);
+                                        } else if (col[1].equalsIgnoreCase("bsc_mat_bld_time") || col[1].equalsIgnoreCase("bsc_mat_slva_time") || col[1].equalsIgnoreCase("bsc_mat_vag_time") || col[1].equalsIgnoreCase("bsc_mat_vst_urn_time") || col[1].equalsIgnoreCase("bsc_mat_amf_time")
+                                                || col[1].equalsIgnoreCase("bsc_mat_cord_time") || col[1].equalsIgnoreCase("bsc_mat_placen_time") || col[1].equalsIgnoreCase("bsc_mat_breastm_time") || col[1].equalsIgnoreCase("bsc_mat_fetalt_time") || col[1].equalsIgnoreCase("bsc_matd_breastm_time")) {
+                                            if (valores.isEmpty()) valores += val.toString().substring(0, 5);
+                                            else valores += SEPARADOR + val.toString().substring(0, 5);
 
 
-                                        }else if (col[1].equalsIgnoreCase("bsc_mat_hom_urn_col") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_rsn") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_specify") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_num") ||
+                                        } else if (col[1].equalsIgnoreCase("bsc_mat_hom_urn_col") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_rsn") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_specify") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_num") ||
                                                 col[1].equalsIgnoreCase("bsc_mat_hom_urn_id1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_com1") ||
                                                 col[1].equalsIgnoreCase("bsc_mat_hom_urn_id2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_com2") ||
                                                 col[1].equalsIgnoreCase("bsc_mat_hom_urn_id3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_com3") ||
@@ -1577,16 +1594,16 @@ public class ExportarService {
                                             if (exportParameters.getEvent().contains("week_post_entry_arm_1")) {
                                                 if (valores.isEmpty()) valores += col[1];
                                                 else valores += SEPARADOR + col[1];
-                                            }else{
-                                                if (col[1].equalsIgnoreCase("bsc_mat_hom_urn_time1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time2") ||col[1].equalsIgnoreCase("bsc_mat_hom_urn_time3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time4")){
-                                                    if (valores.isEmpty()) valores += val.toString().substring(0,5);
-                                                    else valores += SEPARADOR + val.toString().substring(0,5);
-                                                }else if (col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat4")){
+                                            } else {
+                                                if (col[1].equalsIgnoreCase("bsc_mat_hom_urn_time1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time4")) {
+                                                    if (valores.isEmpty()) valores += val.toString().substring(0, 5);
+                                                    else valores += SEPARADOR + val.toString().substring(0, 5);
+                                                } else if (col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat4")) {
                                                     if (valores.isEmpty())
                                                         valores += DateToString(res.getDate(col[1]), "dd/MM/yyyyy");
                                                     else
                                                         valores += SEPARADOR + DateToString(res.getDate(col[1]), "dd/MM/yyyyy");
-                                                }else{
+                                                } else {
                                                     //si contiene uno de estos caracteres especiales escapar
                                                     if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
                                                         valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
@@ -1596,89 +1613,89 @@ public class ExportarService {
                                                     }
                                                 }
                                             }
-                                        //ZP03
-                                        }else if (col[1].equalsIgnoreCase("mon_charac_discharge")){
+                                            //ZP03
+                                        } else if (col[1].equalsIgnoreCase("mon_charac_discharge")) {
                                             valores += setValuesMultipleField(val.toString(), characterDisch);
 
-                                        }else if (col[1].equalsIgnoreCase("mon_rash_first")) {
+                                        } else if (col[1].equalsIgnoreCase("mon_rash_first")) {
                                             valores += setValuesMultipleField(val.toString(), rashFirst);
 
-                                        }else if (col[1].equalsIgnoreCase("mon_spread_part")) {
+                                        } else if (col[1].equalsIgnoreCase("mon_spread_part")) {
                                             valores += setValuesMultipleField(val.toString(), spreadPart);
 
-                                        }else if (col[1].equalsIgnoreCase("mon_specify_symptom")) {
+                                        } else if (col[1].equalsIgnoreCase("mon_specify_symptom")) {
                                             valores += setValuesMultipleField(val.toString(), specifySymptom);
 
-                                        }else if (col[1].equalsIgnoreCase("mon_tingling_arm") || col[1].equalsIgnoreCase("mon_numb_arm") || col[1].equalsIgnoreCase("mon_para_arm")){
+                                        } else if (col[1].equalsIgnoreCase("mon_tingling_arm") || col[1].equalsIgnoreCase("mon_numb_arm") || col[1].equalsIgnoreCase("mon_para_arm")) {
                                             valores += setValuesMultipleField(val.toString(), arm);
 
-                                        }else if (col[1].equalsIgnoreCase("mon_tingling_leg") || col[1].equalsIgnoreCase("mon_numb_leg") || col[1].equalsIgnoreCase("mon_para_leg")){
+                                        } else if (col[1].equalsIgnoreCase("mon_tingling_leg") || col[1].equalsIgnoreCase("mon_numb_leg") || col[1].equalsIgnoreCase("mon_para_leg")) {
                                             valores += setValuesMultipleField(val.toString(), leg);
 
-                                        }else if (col[1].equalsIgnoreCase("mon_tingling_hand") || col[1].equalsIgnoreCase("mon_numb_hand") || col[1].equalsIgnoreCase("mon_para_hand")){
+                                        } else if (col[1].equalsIgnoreCase("mon_tingling_hand") || col[1].equalsIgnoreCase("mon_numb_hand") || col[1].equalsIgnoreCase("mon_para_hand")) {
                                             valores += setValuesMultipleField(val.toString(), hand);
 
-                                        }else if (col[1].equalsIgnoreCase("mon_tingling_foot") || col[1].equalsIgnoreCase("mon_numb_foot") || col[1].equalsIgnoreCase("mon_para_foot")){
+                                        } else if (col[1].equalsIgnoreCase("mon_tingling_foot") || col[1].equalsIgnoreCase("mon_numb_foot") || col[1].equalsIgnoreCase("mon_para_foot")) {
                                             valores += setValuesMultipleField(val.toString(), foot);
 
-                                        }else if (col[1].equalsIgnoreCase("mon_tingling_face") || col[1].equalsIgnoreCase("mon_numb_face") || col[1].equalsIgnoreCase("mon_para_face")) {
+                                        } else if (col[1].equalsIgnoreCase("mon_tingling_face") || col[1].equalsIgnoreCase("mon_numb_face") || col[1].equalsIgnoreCase("mon_para_face")) {
                                             valores += setValuesMultipleField(val.toString(), face);
 
-                                        }else if (col[1].equalsIgnoreCase("mon_oneweek_time") || col[1].equalsIgnoreCase("mon_next_time")){ //campos tipo hora HH:mm
-                                            if (valores.isEmpty()) valores += val.toString().substring(0,5);
-                                            else valores += SEPARADOR + val.toString().substring(0,5);
+                                        } else if (col[1].equalsIgnoreCase("mon_oneweek_time") || col[1].equalsIgnoreCase("mon_next_time")) { //campos tipo hora HH:mm
+                                            if (valores.isEmpty()) valores += val.toString().substring(0, 5);
+                                            else valores += SEPARADOR + val.toString().substring(0, 5);
 
-                                        //ZP04 AD
-                                        }else if (col[1].equalsIgnoreCase("tri_house_amenities")){
-                                            valores += setValuesMultipleField(val.toString(),houseAmenities);
+                                            //ZP04 AD
+                                        } else if (col[1].equalsIgnoreCase("tri_house_amenities")) {
+                                            valores += setValuesMultipleField(val.toString(), houseAmenities);
 
-                                        }else if (col[1].equalsIgnoreCase("tri_trans_access")){
-                                            valores += setValuesMultipleField(val.toString(),transAccess);
+                                        } else if (col[1].equalsIgnoreCase("tri_trans_access")) {
+                                            valores += setValuesMultipleField(val.toString(), transAccess);
 
-                                        }else if (col[1].equalsIgnoreCase("tri_animal_typ")){
-                                            valores += setValuesMultipleField(val.toString(),animalTyp);
+                                        } else if (col[1].equalsIgnoreCase("tri_animal_typ")) {
+                                            valores += setValuesMultipleField(val.toString(), animalTyp);
 
-                                        //ZP04 FH
-                                        }else if (col[1].equalsIgnoreCase("tri_mosq_rep_typ")){
-                                            valores += setValuesMultipleField(val.toString(),mosqRepTyp);
+                                            //ZP04 FH
+                                        } else if (col[1].equalsIgnoreCase("tri_mosq_rep_typ")) {
+                                            valores += setValuesMultipleField(val.toString(), mosqRepTyp);
 
-                                        }else if (col[1].equalsIgnoreCase("tri_next_visit_time")){ //campo tipo hora HH:mm
-                                            if (valores.isEmpty()) valores += val.toString().substring(0,5);
-                                            else valores += SEPARADOR + val.toString().substring(0,5);
+                                        } else if (col[1].equalsIgnoreCase("tri_next_visit_time")) { //campo tipo hora HH:mm
+                                            if (valores.isEmpty()) valores += val.toString().substring(0, 5);
+                                            else valores += SEPARADOR + val.toString().substring(0, 5);
 
-                                        //ZP05
-                                        }else if (col[1].equalsIgnoreCase("ult_fyes_specify1")){
+                                            //ZP05
+                                        } else if (col[1].equalsIgnoreCase("ult_fyes_specify1")) {
                                             valores += setValuesMultipleField(val.toString(), fyesSpecify1);
 
-                                        }else  if (col[1].equalsIgnoreCase("ult_sspecify1")){
+                                        } else if (col[1].equalsIgnoreCase("ult_sspecify1")) {
                                             valores += setValuesMultipleField(val.toString(), sSpecify1);
 
-                                        //ZP06
-                                        }else if (col[1].equalsIgnoreCase("deli_rash_first")) {
+                                            //ZP06
+                                        } else if (col[1].equalsIgnoreCase("deli_rash_first")) {
                                             valores += setValuesMultipleField(val.toString(), rashFirst);
 
-                                        }else if (col[1].equalsIgnoreCase("deli_spread_part")) {
+                                        } else if (col[1].equalsIgnoreCase("deli_spread_part")) {
                                             valores += setValuesMultipleField(val.toString(), spreadPart);
 
-                                        }else if (col[1].equalsIgnoreCase("deli_specify_symptom")) {
+                                        } else if (col[1].equalsIgnoreCase("deli_specify_symptom")) {
                                             valores += setValuesMultipleField(val.toString(), specifySymptom);
 
-                                        }else if (col[1].equalsIgnoreCase("deli_tingling_arm") || col[1].equalsIgnoreCase("deli_numb_arm") || col[1].equalsIgnoreCase("deli_para_arm")){
+                                        } else if (col[1].equalsIgnoreCase("deli_tingling_arm") || col[1].equalsIgnoreCase("deli_numb_arm") || col[1].equalsIgnoreCase("deli_para_arm")) {
                                             valores += setValuesMultipleField(val.toString(), arm);
 
-                                        }else if (col[1].equalsIgnoreCase("deli_tingling_leg") || col[1].equalsIgnoreCase("deli_numb_leg") || col[1].equalsIgnoreCase("deli_para_leg")){
+                                        } else if (col[1].equalsIgnoreCase("deli_tingling_leg") || col[1].equalsIgnoreCase("deli_numb_leg") || col[1].equalsIgnoreCase("deli_para_leg")) {
                                             valores += setValuesMultipleField(val.toString(), leg);
 
-                                        }else if (col[1].equalsIgnoreCase("deli_tingling_hand") || col[1].equalsIgnoreCase("deli_numb_hand") || col[1].equalsIgnoreCase("deli_para_hand")){
+                                        } else if (col[1].equalsIgnoreCase("deli_tingling_hand") || col[1].equalsIgnoreCase("deli_numb_hand") || col[1].equalsIgnoreCase("deli_para_hand")) {
                                             valores += setValuesMultipleField(val.toString(), hand);
 
-                                        }else if (col[1].equalsIgnoreCase("deli_tingling_foot") || col[1].equalsIgnoreCase("deli_numb_foot") || col[1].equalsIgnoreCase("deli_para_foot")){
+                                        } else if (col[1].equalsIgnoreCase("deli_tingling_foot") || col[1].equalsIgnoreCase("deli_numb_foot") || col[1].equalsIgnoreCase("deli_para_foot")) {
                                             valores += setValuesMultipleField(val.toString(), foot);
 
-                                        }else if (col[1].equalsIgnoreCase("deli_tingling_face") || col[1].equalsIgnoreCase("deli_numb_face") || col[1].equalsIgnoreCase("deli_para_face")) {
+                                        } else if (col[1].equalsIgnoreCase("deli_tingling_face") || col[1].equalsIgnoreCase("deli_numb_face") || col[1].equalsIgnoreCase("deli_para_face")) {
                                             valores += setValuesMultipleField(val.toString(), face);
-                                        //defecto
-                                        }else {
+                                            //defecto
+                                        } else {
                                             if (val instanceof String) {
                                                 //si contiene uno de estos caracteres especiales escapar
                                                 if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
@@ -1707,45 +1724,45 @@ public class ExportarService {
                                     } else {
                                         //campos que necesitan un trato especial
                                         //ZP01 E
-                                        if (col[1].equalsIgnoreCase("sea_diseases")){
-                                            for(int i = 0 ; i< diseases.length; i++){
+                                        if (col[1].equalsIgnoreCase("sea_diseases")) {
+                                            for (int i = 0; i < diseases.length; i++) {
                                                 valores += SEPARADOR;
                                             }
-                                        }else if (col[1].equalsIgnoreCase("sea_rash_first")){
-                                            for(int i = 0 ; i< rashFirst.length; i++){
+                                        } else if (col[1].equalsIgnoreCase("sea_rash_first")) {
+                                            for (int i = 0; i < rashFirst.length; i++) {
                                                 valores += SEPARADOR;
                                             }
-                                        }else if (col[1].equalsIgnoreCase("sea_spread_part")){
-                                            for(int i = 0 ; i< spreadPart.length; i++){
+                                        } else if (col[1].equalsIgnoreCase("sea_spread_part")) {
+                                            for (int i = 0; i < spreadPart.length; i++) {
                                                 valores += SEPARADOR;
                                             }
-                                        }else if (col[1].equalsIgnoreCase("sea_same_symptom")){
-                                            for(int i = 0 ; i< sameSymptom.length; i++){
+                                        } else if (col[1].equalsIgnoreCase("sea_same_symptom")) {
+                                            for (int i = 0; i < sameSymptom.length; i++) {
                                                 valores += SEPARADOR;
                                             }
-                                        }else if (col[1].equalsIgnoreCase("sea_specify_symptom")){
-                                            for(int i = 0 ; i< specifySymptom.length; i++){
+                                        } else if (col[1].equalsIgnoreCase("sea_specify_symptom")) {
+                                            for (int i = 0; i < specifySymptom.length; i++) {
                                                 valores += SEPARADOR;
                                             }
-                                        }else if (col[1].equalsIgnoreCase("sea_tingling_arm") || col[1].equalsIgnoreCase("sea_numb_arm") || col[1].equalsIgnoreCase("sea_para_arm") ||
+                                        } else if (col[1].equalsIgnoreCase("sea_tingling_arm") || col[1].equalsIgnoreCase("sea_numb_arm") || col[1].equalsIgnoreCase("sea_para_arm") ||
                                                 col[1].equalsIgnoreCase("sea_tingling_leg") || col[1].equalsIgnoreCase("sea_numb_leg") || col[1].equalsIgnoreCase("sea_para_leg") ||
                                                 col[1].equalsIgnoreCase("sea_tingling_hand") || col[1].equalsIgnoreCase("sea_numb_hand") || col[1].equalsIgnoreCase("sea_para_hand") ||
                                                 col[1].equalsIgnoreCase("sea_tingling_foot") || col[1].equalsIgnoreCase("sea_numb_foot") || col[1].equalsIgnoreCase("sea_para_foot") ||
-                                                col[1].equalsIgnoreCase("sea_tingling_face") || col[1].equalsIgnoreCase("sea_numb_face") || col[1].equalsIgnoreCase("sea_para_face")){
+                                                col[1].equalsIgnoreCase("sea_tingling_face") || col[1].equalsIgnoreCase("sea_numb_face") || col[1].equalsIgnoreCase("sea_para_face")) {
                                             valores += SEPARADOR + SEPARADOR;
-                                        //Zp01 FK
-                                        }else if (col[1].equalsIgnoreCase("sea_character_disch")){
-                                            for(int i = 0 ; i< characterDisch.length; i++){
+                                            //Zp01 FK
+                                        } else if (col[1].equalsIgnoreCase("sea_character_disch")) {
+                                            for (int i = 0; i < characterDisch.length; i++) {
                                                 valores += SEPARADOR;
                                             }
 
-                                        //ZP02
-                                        }else if (col[1].equalsIgnoreCase("bsc_mat_other_type")){
-                                            for(int i = 0 ; i< bscMatOtherType.length; i++){
+                                            //ZP02
+                                        } else if (col[1].equalsIgnoreCase("bsc_mat_other_type")) {
+                                            for (int i = 0; i < bscMatOtherType.length; i++) {
                                                 valores += SEPARADOR;
                                             }
 
-                                        }else if (exportParameters.getEvent().contains("week_post_entry_arm_1") && (col[1].equalsIgnoreCase("bsc_mat_hom_urn_col") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_rsn") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_specify") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_num") ||
+                                        } else if (exportParameters.getEvent().contains("week_post_entry_arm_1") && (col[1].equalsIgnoreCase("bsc_mat_hom_urn_col") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_rsn") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_specify") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_num") ||
                                                 col[1].equalsIgnoreCase("bsc_mat_hom_urn_id1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_com1") ||
                                                 col[1].equalsIgnoreCase("bsc_mat_hom_urn_id2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_com2") ||
                                                 col[1].equalsIgnoreCase("bsc_mat_hom_urn_id3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_time3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_com3") ||
@@ -1755,79 +1772,79 @@ public class ExportarService {
                                             else valores += SEPARADOR + col[1];
 
                                             //ZP03
-                                        }else if (col[1].equalsIgnoreCase("mon_charac_discharge")){
-                                            for(int i = 0 ; i< characterDisch.length; i++){
+                                        } else if (col[1].equalsIgnoreCase("mon_charac_discharge")) {
+                                            for (int i = 0; i < characterDisch.length; i++) {
                                                 valores += SEPARADOR;
                                             }
-                                        }else if (col[1].equalsIgnoreCase("mon_rash_first")){
-                                            for(int i = 0 ; i< rashFirst.length; i++){
+                                        } else if (col[1].equalsIgnoreCase("mon_rash_first")) {
+                                            for (int i = 0; i < rashFirst.length; i++) {
                                                 valores += SEPARADOR;
                                             }
-                                        }else if (col[1].equalsIgnoreCase("mon_spread_part")){
-                                            for(int i = 0 ; i< spreadPart.length; i++){
+                                        } else if (col[1].equalsIgnoreCase("mon_spread_part")) {
+                                            for (int i = 0; i < spreadPart.length; i++) {
                                                 valores += SEPARADOR;
                                             }
-                                        }else if (col[1].equalsIgnoreCase("mon_specify_symptom")){
-                                            for(int i = 0 ; i< specifySymptom.length; i++){
+                                        } else if (col[1].equalsIgnoreCase("mon_specify_symptom")) {
+                                            for (int i = 0; i < specifySymptom.length; i++) {
                                                 valores += SEPARADOR;
                                             }
                                         } else if (col[1].equalsIgnoreCase("mon_tingling_arm") || col[1].equalsIgnoreCase("mon_numb_arm") || col[1].equalsIgnoreCase("mon_para_arm") ||
                                                 col[1].equalsIgnoreCase("mon_tingling_leg") || col[1].equalsIgnoreCase("mon_numb_leg") || col[1].equalsIgnoreCase("mon_para_leg") ||
                                                 col[1].equalsIgnoreCase("mon_tingling_hand") || col[1].equalsIgnoreCase("mon_numb_hand") || col[1].equalsIgnoreCase("mon_para_hand") ||
                                                 col[1].equalsIgnoreCase("mon_tingling_foot") || col[1].equalsIgnoreCase("mon_numb_foot") || col[1].equalsIgnoreCase("mon_para_foot") ||
-                                                col[1].equalsIgnoreCase("mon_tingling_face") || col[1].equalsIgnoreCase("mon_numb_face") || col[1].equalsIgnoreCase("mon_para_face")){
+                                                col[1].equalsIgnoreCase("mon_tingling_face") || col[1].equalsIgnoreCase("mon_numb_face") || col[1].equalsIgnoreCase("mon_para_face")) {
                                             valores += SEPARADOR + SEPARADOR;
 
-                                        //Zp04 AD
-                                        }else if (col[1].equalsIgnoreCase("tri_house_amenities")){
-                                            for(int i=0;i< houseAmenities.length;i++){
+                                            //Zp04 AD
+                                        } else if (col[1].equalsIgnoreCase("tri_house_amenities")) {
+                                            for (int i = 0; i < houseAmenities.length; i++) {
                                                 valores += SEPARADOR;
                                             }
-                                        }else if (col[1].equalsIgnoreCase("tri_trans_access")){
-                                            for(int i=0;i< transAccess.length;i++){
+                                        } else if (col[1].equalsIgnoreCase("tri_trans_access")) {
+                                            for (int i = 0; i < transAccess.length; i++) {
                                                 valores += SEPARADOR;
                                             }
-                                        }else if (col[1].equalsIgnoreCase("tri_animal_typ")){
-                                            for(int i=0;i< animalTyp.length;i++){
-                                                valores += SEPARADOR;
-                                            }
-
-                                        //ZP04 FH
-                                        }else if (col[1].equalsIgnoreCase("tri_mosq_rep_typ")){
-                                            for(int i=0;i<mosqRepTyp.length;i++){
+                                        } else if (col[1].equalsIgnoreCase("tri_animal_typ")) {
+                                            for (int i = 0; i < animalTyp.length; i++) {
                                                 valores += SEPARADOR;
                                             }
 
-                                        //ZP05
-                                        }else if (col[1].equalsIgnoreCase("ult_fyes_specify1")){
-                                            for(int i=0;i<fyesSpecify1.length;i++){
-                                                valores += SEPARADOR;
-                                            }
-                                        }else  if (col[1].equalsIgnoreCase("ult_sspecify1")){
-                                            for(int i=0;i<sSpecify1.length;i++){
+                                            //ZP04 FH
+                                        } else if (col[1].equalsIgnoreCase("tri_mosq_rep_typ")) {
+                                            for (int i = 0; i < mosqRepTyp.length; i++) {
                                                 valores += SEPARADOR;
                                             }
 
-                                        //ZP06
-                                        }else if (col[1].equalsIgnoreCase("deli_rash_first")){
-                                            for(int i = 0 ; i< rashFirst.length; i++){
+                                            //ZP05
+                                        } else if (col[1].equalsIgnoreCase("ult_fyes_specify1")) {
+                                            for (int i = 0; i < fyesSpecify1.length; i++) {
                                                 valores += SEPARADOR;
                                             }
-                                        }else if (col[1].equalsIgnoreCase("deli_spread_part")){
-                                            for(int i = 0 ; i< spreadPart.length; i++){
+                                        } else if (col[1].equalsIgnoreCase("ult_sspecify1")) {
+                                            for (int i = 0; i < sSpecify1.length; i++) {
                                                 valores += SEPARADOR;
                                             }
-                                        }else if (col[1].equalsIgnoreCase("deli_specify_symptom")){
-                                            for(int i = 0 ; i< specifySymptom.length; i++){
+
+                                            //ZP06
+                                        } else if (col[1].equalsIgnoreCase("deli_rash_first")) {
+                                            for (int i = 0; i < rashFirst.length; i++) {
+                                                valores += SEPARADOR;
+                                            }
+                                        } else if (col[1].equalsIgnoreCase("deli_spread_part")) {
+                                            for (int i = 0; i < spreadPart.length; i++) {
+                                                valores += SEPARADOR;
+                                            }
+                                        } else if (col[1].equalsIgnoreCase("deli_specify_symptom")) {
+                                            for (int i = 0; i < specifySymptom.length; i++) {
                                                 valores += SEPARADOR;
                                             }
                                         } else if (col[1].equalsIgnoreCase("deli_tingling_arm") || col[1].equalsIgnoreCase("deli_numb_arm") || col[1].equalsIgnoreCase("deli_para_arm") ||
                                                 col[1].equalsIgnoreCase("deli_tingling_leg") || col[1].equalsIgnoreCase("deli_numb_leg") || col[1].equalsIgnoreCase("deli_para_leg") ||
                                                 col[1].equalsIgnoreCase("deli_tingling_hand") || col[1].equalsIgnoreCase("deli_numb_hand") || col[1].equalsIgnoreCase("deli_para_hand") ||
                                                 col[1].equalsIgnoreCase("deli_tingling_foot") || col[1].equalsIgnoreCase("deli_numb_foot") || col[1].equalsIgnoreCase("deli_para_foot") ||
-                                                col[1].equalsIgnoreCase("deli_tingling_face") || col[1].equalsIgnoreCase("deli_numb_face") || col[1].equalsIgnoreCase("deli_para_face")){
+                                                col[1].equalsIgnoreCase("deli_tingling_face") || col[1].equalsIgnoreCase("deli_numb_face") || col[1].equalsIgnoreCase("deli_para_face")) {
                                             valores += SEPARADOR + SEPARADOR;
-                                        //defecto
+                                            //defecto
                                         } else {
                                             valores += SEPARADOR;
                                         }
@@ -1841,123 +1858,124 @@ public class ExportarService {
                             columnasT = columnasT.replaceFirst("scr_prestudyna", "scr_prestudyna___1");
                             columnasT += SEPARADOR + "zp00_screening_complete";
 
-                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP01AD)) {
-                            columnasT = columnasT.replaceFirst("sea_lmpunknown","sea_lmpunknown___1");
-                            columnasT = columnasT.replaceFirst("sea_leavena","sea_leavena___1");
+                        } else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP01AD)) {
+                            columnasT = columnasT.replaceFirst("sea_lmpunknown", "sea_lmpunknown___1");
+                            columnasT = columnasT.replaceFirst("sea_leavena", "sea_leavena___1");
                             columnasT += SEPARADOR + "zp01_study_entry_section_a_to_d_complete";
 
-                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP01E)) {
-                            columnasT = columnasT.replaceAll("sea_diseases","sea_diseases___1,sea_diseases___2,sea_diseases___3,sea_diseases___4,sea_diseases___5,sea_diseases___6,sea_diseases___7,sea_diseases___8,sea_diseases___9,sea_diseases___98");
-                            columnasT = columnasT.replaceAll("sea_rash_first","sea_rash_first___1,sea_rash_first___2,sea_rash_first___3,sea_rash_first___4,sea_rash_first___5,sea_rash_first___6,sea_rash_first___7,sea_rash_first___8,sea_rash_first___9");
-                            columnasT = columnasT.replaceAll("sea_spread_part","sea_spread_part___1,sea_spread_part___2,sea_spread_part___3,sea_spread_part___4,sea_spread_part___5,sea_spread_part___6,sea_spread_part___7,sea_spread_part___8,sea_spread_part___9");
-                            columnasT = columnasT.replaceAll("sea_same_symptom","sea_same_symptom___1,sea_same_symptom___2,sea_same_symptom___3");
-                            columnasT = columnasT.replaceAll("sea_specify_symptom","sea_specify_symptom___1,sea_specify_symptom___2,sea_specify_symptom___3,sea_specify_symptom___4,sea_specify_symptom___5,sea_specify_symptom___6,sea_specify_symptom___7,sea_specify_symptom___8,sea_specify_symptom___9,sea_specify_symptom___10,sea_specify_symptom___11,sea_specify_symptom___12,sea_specify_symptom___13");
-                            columnasT = columnasT.replaceAll("sea_tingling_arm","sea_tingling_arm___1,sea_tingling_arm___2");
-                            columnasT = columnasT.replaceAll("sea_tingling_leg","sea_tingling_leg___1,sea_tingling_leg___2");
-                            columnasT = columnasT.replaceAll("sea_tingling_hand","sea_tingling_hand___1,sea_tingling_hand___2");
-                            columnasT = columnasT.replaceAll("sea_tingling_foot","sea_tingling_foot___1,sea_tingling_foot___2");
-                            columnasT = columnasT.replaceAll("sea_tingling_face","sea_tingling_face___1,sea_tingling_face___2");
-                            columnasT = columnasT.replaceAll("sea_numb_arm","sea_numb_arm___1,sea_numb_arm___2");
-                            columnasT = columnasT.replaceAll("sea_numb_leg","sea_numb_leg___1,sea_numb_leg___2");
-                            columnasT = columnasT.replaceAll("sea_numb_hand","sea_numb_hand___1,sea_numb_hand___2");
-                            columnasT = columnasT.replaceAll("sea_numb_foot","sea_numb_foot___1,sea_numb_foot___2");
-                            columnasT = columnasT.replaceAll("sea_numb_face","sea_numb_face___1,sea_numb_face___2");
-                            columnasT = columnasT.replaceAll("sea_para_arm","sea_para_arm___1,sea_para_arm___2");
-                            columnasT = columnasT.replaceAll("sea_para_leg","sea_para_leg___1,sea_para_leg___2");
-                            columnasT = columnasT.replaceAll("sea_para_hand","sea_para_hand___1,sea_para_hand___2");
-                            columnasT = columnasT.replaceAll("sea_para_foot","sea_para_foot___1,sea_para_foot___2");
-                            columnasT = columnasT.replaceAll("sea_para_face","sea_para_face___1,sea_para_face___2");
-                            columnasT = columnasT.replaceAll("sea_tempunknown","sea_tempunknown___1");
+                        } else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP01E)) {
+                            columnasT = columnasT.replaceAll("sea_diseases", "sea_diseases___1,sea_diseases___2,sea_diseases___3,sea_diseases___4,sea_diseases___5,sea_diseases___6,sea_diseases___7,sea_diseases___8,sea_diseases___9,sea_diseases___98");
+                            columnasT = columnasT.replaceAll("sea_rash_first", "sea_rash_first___1,sea_rash_first___2,sea_rash_first___3,sea_rash_first___4,sea_rash_first___5,sea_rash_first___6,sea_rash_first___7,sea_rash_first___8,sea_rash_first___9");
+                            columnasT = columnasT.replaceAll("sea_spread_part", "sea_spread_part___1,sea_spread_part___2,sea_spread_part___3,sea_spread_part___4,sea_spread_part___5,sea_spread_part___6,sea_spread_part___7,sea_spread_part___8,sea_spread_part___9");
+                            columnasT = columnasT.replaceAll("sea_same_symptom", "sea_same_symptom___1,sea_same_symptom___2,sea_same_symptom___3");
+                            columnasT = columnasT.replaceAll("sea_specify_symptom", "sea_specify_symptom___1,sea_specify_symptom___2,sea_specify_symptom___3,sea_specify_symptom___4,sea_specify_symptom___5,sea_specify_symptom___6,sea_specify_symptom___7,sea_specify_symptom___8,sea_specify_symptom___9,sea_specify_symptom___10,sea_specify_symptom___11,sea_specify_symptom___12,sea_specify_symptom___13");
+                            columnasT = columnasT.replaceAll("sea_tingling_arm", "sea_tingling_arm___1,sea_tingling_arm___2");
+                            columnasT = columnasT.replaceAll("sea_tingling_leg", "sea_tingling_leg___1,sea_tingling_leg___2");
+                            columnasT = columnasT.replaceAll("sea_tingling_hand", "sea_tingling_hand___1,sea_tingling_hand___2");
+                            columnasT = columnasT.replaceAll("sea_tingling_foot", "sea_tingling_foot___1,sea_tingling_foot___2");
+                            columnasT = columnasT.replaceAll("sea_tingling_face", "sea_tingling_face___1,sea_tingling_face___2");
+                            columnasT = columnasT.replaceAll("sea_numb_arm", "sea_numb_arm___1,sea_numb_arm___2");
+                            columnasT = columnasT.replaceAll("sea_numb_leg", "sea_numb_leg___1,sea_numb_leg___2");
+                            columnasT = columnasT.replaceAll("sea_numb_hand", "sea_numb_hand___1,sea_numb_hand___2");
+                            columnasT = columnasT.replaceAll("sea_numb_foot", "sea_numb_foot___1,sea_numb_foot___2");
+                            columnasT = columnasT.replaceAll("sea_numb_face", "sea_numb_face___1,sea_numb_face___2");
+                            columnasT = columnasT.replaceAll("sea_para_arm", "sea_para_arm___1,sea_para_arm___2");
+                            columnasT = columnasT.replaceAll("sea_para_leg", "sea_para_leg___1,sea_para_leg___2");
+                            columnasT = columnasT.replaceAll("sea_para_hand", "sea_para_hand___1,sea_para_hand___2");
+                            columnasT = columnasT.replaceAll("sea_para_foot", "sea_para_foot___1,sea_para_foot___2");
+                            columnasT = columnasT.replaceAll("sea_para_face", "sea_para_face___1,sea_para_face___2");
+                            columnasT = columnasT.replaceAll("sea_tempunknown", "sea_tempunknown___1");
                             columnasT += SEPARADOR + "zp01_study_entry_section_e_complete";
 
-                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP01FK)) {
-                            columnasT = columnasT.replaceAll("sea_character_disch","sea_character_disch___1,sea_character_disch___2,sea_character_disch___3,sea_character_disch___4,sea_character_disch___5,sea_character_disch___6");
+                        } else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP01FK)) {
+                            columnasT = columnasT.replaceAll("sea_character_disch", "sea_character_disch___1,sea_character_disch___2,sea_character_disch___3,sea_character_disch___4,sea_character_disch___5,sea_character_disch___6");
                             columnasT += SEPARADOR + "zp01_study_entry_section_f_to_k_complete";
 
-                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP02)) {
-                            columnasT = columnasT.replaceFirst("bsc_mat_other_type","bsc_mat_other_type___1,bsc_mat_other_type___4");
+                        } else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP02)) {
+                            columnasT = columnasT.replaceFirst("bsc_mat_other_type", "bsc_mat_other_type___1,bsc_mat_other_type___4");
                             columnasT += SEPARADOR + "zp02_biospecimen_collection_complete";
 
-                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP03)) {
-                            columnasT = columnasT.replaceAll("mon_charac_discharge","mon_charac_discharge___1,mon_charac_discharge___2,mon_charac_discharge___3,mon_charac_discharge___4,mon_charac_discharge___5,mon_charac_discharge___6");
-                            columnasT = columnasT.replaceAll("mon_rash_first","mon_rash_first___1,mon_rash_first___2,mon_rash_first___3,mon_rash_first___4,mon_rash_first___5,mon_rash_first___6,mon_rash_first___7,mon_rash_first___8,mon_rash_first___9");
-                            columnasT = columnasT.replaceAll("mon_spread_part","mon_spread_part___1,mon_spread_part___2,mon_spread_part___3,mon_spread_part___4,mon_spread_part___5,mon_spread_part___6,mon_spread_part___7,mon_spread_part___8,mon_spread_part___9");
-                            columnasT = columnasT.replaceAll("mon_specify_symptom","mon_specify_symptom___1,mon_specify_symptom___2,mon_specify_symptom___3,mon_specify_symptom___4,mon_specify_symptom___5,mon_specify_symptom___6,mon_specify_symptom___7,mon_specify_symptom___8,mon_specify_symptom___9,mon_specify_symptom___10,mon_specify_symptom___11,mon_specify_symptom___12,mon_specify_symptom___13");
-                            columnasT = columnasT.replaceAll("mon_tingling_arm","mon_tingling_arm___1,mon_tingling_arm___2");
-                            columnasT = columnasT.replaceAll("mon_tingling_leg","mon_tingling_leg___1,mon_tingling_leg___2");
-                            columnasT = columnasT.replaceAll("mon_tingling_hand","mon_tingling_hand___1,mon_tingling_hand___2");
-                            columnasT = columnasT.replaceAll("mon_tingling_foot","mon_tingling_foot___1,mon_tingling_foot___2");
-                            columnasT = columnasT.replaceAll("mon_tingling_face","mon_tingling_face___1,mon_tingling_face___2");
-                            columnasT = columnasT.replaceAll("mon_numb_arm","mon_numb_arm___1,mon_numb_arm___2");
-                            columnasT = columnasT.replaceAll("mon_numb_leg","mon_numb_leg___1,mon_numb_leg___2");
-                            columnasT = columnasT.replaceAll("mon_numb_hand","mon_numb_hand___1,mon_numb_hand___2");
-                            columnasT = columnasT.replaceAll("mon_numb_foot","mon_numb_foot___1,mon_numb_foot___2");
-                            columnasT = columnasT.replaceAll("mon_numb_face","mon_numb_face___1,mon_numb_face___2");
-                            columnasT = columnasT.replaceAll("mon_para_arm","mon_para_arm___1,mon_para_arm___2");
-                            columnasT = columnasT.replaceAll("mon_para_leg","mon_para_leg___1,mon_para_leg___2");
-                            columnasT = columnasT.replaceAll("mon_para_hand","mon_para_hand___1,mon_para_hand___2");
-                            columnasT = columnasT.replaceAll("mon_para_foot","mon_para_foot___1,mon_para_foot___2");
-                            columnasT = columnasT.replaceAll("mon_para_face","mon_para_face___1,mon_para_face___2");
-                            columnasT = columnasT.replaceAll("mon_tempunknown","mon_tempunknown___1");
+                        } else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP03)) {
+                            columnasT = columnasT.replaceAll("mon_charac_discharge", "mon_charac_discharge___1,mon_charac_discharge___2,mon_charac_discharge___3,mon_charac_discharge___4,mon_charac_discharge___5,mon_charac_discharge___6");
+                            columnasT = columnasT.replaceAll("mon_rash_first", "mon_rash_first___1,mon_rash_first___2,mon_rash_first___3,mon_rash_first___4,mon_rash_first___5,mon_rash_first___6,mon_rash_first___7,mon_rash_first___8,mon_rash_first___9");
+                            columnasT = columnasT.replaceAll("mon_spread_part", "mon_spread_part___1,mon_spread_part___2,mon_spread_part___3,mon_spread_part___4,mon_spread_part___5,mon_spread_part___6,mon_spread_part___7,mon_spread_part___8,mon_spread_part___9");
+                            columnasT = columnasT.replaceAll("mon_specify_symptom", "mon_specify_symptom___1,mon_specify_symptom___2,mon_specify_symptom___3,mon_specify_symptom___4,mon_specify_symptom___5,mon_specify_symptom___6,mon_specify_symptom___7,mon_specify_symptom___8,mon_specify_symptom___9,mon_specify_symptom___10,mon_specify_symptom___11,mon_specify_symptom___12,mon_specify_symptom___13");
+                            columnasT = columnasT.replaceAll("mon_tingling_arm", "mon_tingling_arm___1,mon_tingling_arm___2");
+                            columnasT = columnasT.replaceAll("mon_tingling_leg", "mon_tingling_leg___1,mon_tingling_leg___2");
+                            columnasT = columnasT.replaceAll("mon_tingling_hand", "mon_tingling_hand___1,mon_tingling_hand___2");
+                            columnasT = columnasT.replaceAll("mon_tingling_foot", "mon_tingling_foot___1,mon_tingling_foot___2");
+                            columnasT = columnasT.replaceAll("mon_tingling_face", "mon_tingling_face___1,mon_tingling_face___2");
+                            columnasT = columnasT.replaceAll("mon_numb_arm", "mon_numb_arm___1,mon_numb_arm___2");
+                            columnasT = columnasT.replaceAll("mon_numb_leg", "mon_numb_leg___1,mon_numb_leg___2");
+                            columnasT = columnasT.replaceAll("mon_numb_hand", "mon_numb_hand___1,mon_numb_hand___2");
+                            columnasT = columnasT.replaceAll("mon_numb_foot", "mon_numb_foot___1,mon_numb_foot___2");
+                            columnasT = columnasT.replaceAll("mon_numb_face", "mon_numb_face___1,mon_numb_face___2");
+                            columnasT = columnasT.replaceAll("mon_para_arm", "mon_para_arm___1,mon_para_arm___2");
+                            columnasT = columnasT.replaceAll("mon_para_leg", "mon_para_leg___1,mon_para_leg___2");
+                            columnasT = columnasT.replaceAll("mon_para_hand", "mon_para_hand___1,mon_para_hand___2");
+                            columnasT = columnasT.replaceAll("mon_para_foot", "mon_para_foot___1,mon_para_foot___2");
+                            columnasT = columnasT.replaceAll("mon_para_face", "mon_para_face___1,mon_para_face___2");
+                            columnasT = columnasT.replaceAll("mon_tempunknown", "mon_tempunknown___1");
                             columnasT += SEPARADOR + "zp03_monthly_visit_complete";
 
-                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP04AD)) {
-                            columnasT = columnasT.replaceAll("tri_prim_job_title_ref","tri_prim_job_title_ref___1");
-                            columnasT = columnasT.replaceAll("tri_prev_job_title_ref","tri_prev_job_title_ref___1");
-                            columnasT = columnasT.replaceAll("tri_husb_job_title_ref","tri_husb_job_title_ref___1");
-                            columnasT = columnasT.replaceAll("tri_resid_ref","tri_resid_ref___1");
-                            columnasT = columnasT.replaceAll("tri_house_amenities","tri_house_amenities___1,tri_house_amenities___2,tri_house_amenities___3,tri_house_amenities___4,tri_house_amenities___5,tri_house_amenities___6,tri_house_amenities___7,tri_house_amenities___8");
-                            columnasT = columnasT.replaceAll("tri_trans_access","tri_trans_access___1,tri_trans_access___2,tri_trans_access___3,tri_trans_access___4,tri_trans_access___5,tri_trans_access___6");
-                            columnasT = columnasT.replaceAll("tri_animal_typ","tri_animal_typ___1,tri_animal_typ___2,tri_animal_typ___3,tri_animal_typ___4,tri_animal_typ___5");
+                        } else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP04AD)) {
+                            columnasT = columnasT.replaceAll("tri_prim_job_title_ref", "tri_prim_job_title_ref___1");
+                            columnasT = columnasT.replaceAll("tri_prev_job_title_ref", "tri_prev_job_title_ref___1");
+                            columnasT = columnasT.replaceAll("tri_husb_job_title_ref", "tri_husb_job_title_ref___1");
+                            columnasT = columnasT.replaceAll("tri_resid_ref", "tri_resid_ref___1");
+                            columnasT = columnasT.replaceAll("tri_house_amenities", "tri_house_amenities___1,tri_house_amenities___2,tri_house_amenities___3,tri_house_amenities___4,tri_house_amenities___5,tri_house_amenities___6,tri_house_amenities___7,tri_house_amenities___8");
+                            columnasT = columnasT.replaceAll("tri_trans_access", "tri_trans_access___1,tri_trans_access___2,tri_trans_access___3,tri_trans_access___4,tri_trans_access___5,tri_trans_access___6");
+                            columnasT = columnasT.replaceAll("tri_animal_typ", "tri_animal_typ___1,tri_animal_typ___2,tri_animal_typ___3,tri_animal_typ___4,tri_animal_typ___5");
                             columnasT += SEPARADOR + "zp04_trimester_visit_section_a_to_d_complete";
 
-                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP04E)) {
+                        } else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP04E)) {
                             columnasT += SEPARADOR + "zp04_trimester_visit_section_e_complete";
 
-                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP04FH)) {
-                            columnasT = columnasT.replaceAll("tri_mosq_rep_dk_spray","tri_mosq_rep_dk_spray___1");
-                            columnasT = columnasT.replaceAll("tri_mosq_rep_dk_lotion","tri_mosq_rep_dk_lotion___1");
-                            columnasT = columnasT.replaceAll("tri_mosq_rep_dk_spiral","tri_mosq_rep_dk_spiral___1");
-                            columnasT = columnasT.replaceAll("tri_mosq_rep_dk_plugin","tri_mosq_rep_dk_plugin___1");
-                            columnasT = columnasT.replaceAll("tri_mosq_rep_dk_other","tri_mosq_rep_dk_other___1");
-                            columnasT = columnasT.replaceAll("tri_mosq_rep_typ","tri_mosq_rep_typ___1,tri_mosq_rep_typ___2,tri_mosq_rep_typ___3,tri_mosq_rep_typ___4,tri_mosq_rep_typ___5");
+                        } else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP04FH)) {
+                            columnasT = columnasT.replaceAll("tri_mosq_rep_dk_spray", "tri_mosq_rep_dk_spray___1");
+                            columnasT = columnasT.replaceAll("tri_mosq_rep_dk_lotion", "tri_mosq_rep_dk_lotion___1");
+                            columnasT = columnasT.replaceAll("tri_mosq_rep_dk_spiral", "tri_mosq_rep_dk_spiral___1");
+                            columnasT = columnasT.replaceAll("tri_mosq_rep_dk_plugin", "tri_mosq_rep_dk_plugin___1");
+                            columnasT = columnasT.replaceAll("tri_mosq_rep_dk_other", "tri_mosq_rep_dk_other___1");
+                            columnasT = columnasT.replaceAll("tri_mosq_rep_typ", "tri_mosq_rep_typ___1,tri_mosq_rep_typ___2,tri_mosq_rep_typ___3,tri_mosq_rep_typ___4,tri_mosq_rep_typ___5");
                             columnasT += SEPARADOR + "zp04_trimester_visit_section_f_to_h_complete";
 
-                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP05)) {
-                            columnasT = columnasT.replaceAll("ult_id_na","ult_id_na___1");
-                            columnasT = columnasT.replaceAll("ult_fcrl_na1","ult_fcrl_na1___1");
-                            columnasT = columnasT.replaceAll("ult_fcrl_na2","ult_fcrl_na2___1");
-                            columnasT = columnasT.replaceAll("ult_fcrl_na3","ult_fcrl_na3___1");
-                            columnasT = columnasT.replaceAll("ult_fyes_specify1","ult_fyes_specify1___1,ult_fyes_specify1___2,ult_fyes_specify1___3,ult_fyes_specify1___4,ult_fyes_specify1___5");
-                            columnasT = columnasT.replaceAll("ult_sspecify1","ult_sspecify1___1,ult_sspecify1___2,ult_sspecify1___3,ult_sspecify1___4,ult_sspecify1___5");
+                        } else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP05)) {
+                            columnasT = columnasT.replaceAll("ult_id_na", "ult_id_na___1");
+                            columnasT = columnasT.replaceAll("ult_fcrl_na1", "ult_fcrl_na1___1");
+                            columnasT = columnasT.replaceAll("ult_fcrl_na2", "ult_fcrl_na2___1");
+                            columnasT = columnasT.replaceAll("ult_fcrl_na3", "ult_fcrl_na3___1");
+                            columnasT = columnasT.replaceAll("ult_fyes_specify1", "ult_fyes_specify1___1,ult_fyes_specify1___2,ult_fyes_specify1___3,ult_fyes_specify1___4,ult_fyes_specify1___5");
+                            columnasT = columnasT.replaceAll("ult_sspecify1", "ult_sspecify1___1,ult_sspecify1___2,ult_sspecify1___3,ult_sspecify1___4,ult_sspecify1___5");
                             columnasT += SEPARADOR + "zp05_ultrasound_exam_complete";
 
-                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP06)) {
-                            columnasT = columnasT.replaceAll("deli_rash_first","deli_rash_first___1,deli_rash_first___2,deli_rash_first___3,deli_rash_first___4,deli_rash_first___5,deli_rash_first___6,deli_rash_first___7,deli_rash_first___8,deli_rash_first___9");
-                            columnasT = columnasT.replaceAll("deli_spread_part","deli_spread_part___1,deli_spread_part___2,deli_spread_part___3,deli_spread_part___4,deli_spread_part___5,deli_spread_part___6,deli_spread_part___7,deli_spread_part___8,deli_spread_part___9");
-                            columnasT = columnasT.replaceAll("deli_specify_symptom","deli_specify_symptom___1,deli_specify_symptom___2,deli_specify_symptom___3,deli_specify_symptom___4,deli_specify_symptom___5,deli_specify_symptom___6,deli_specify_symptom___7,deli_specify_symptom___8,deli_specify_symptom___9,deli_specify_symptom___10,deli_specify_symptom___11,deli_specify_symptom___12,deli_specify_symptom___13");
-                            columnasT = columnasT.replaceAll("deli_tingling_arm","deli_tingling_arm___1,deli_tingling_arm___2");
-                            columnasT = columnasT.replaceAll("deli_tingling_leg","deli_tingling_leg___1,deli_tingling_leg___2");
-                            columnasT = columnasT.replaceAll("deli_tingling_hand","deli_tingling_hand___1,deli_tingling_hand___2");
-                            columnasT = columnasT.replaceAll("deli_tingling_foot","deli_tingling_foot___1,deli_tingling_foot___2");
-                            columnasT = columnasT.replaceAll("deli_tingling_face","deli_tingling_face___1,deli_tingling_face___2");
-                            columnasT = columnasT.replaceAll("deli_numb_arm","deli_numb_arm___1,deli_numb_arm___2");
-                            columnasT = columnasT.replaceAll("deli_numb_leg","deli_numb_leg___1,deli_numb_leg___2");
-                            columnasT = columnasT.replaceAll("deli_numb_hand","deli_numb_hand___1,deli_numb_hand___2");
-                            columnasT = columnasT.replaceAll("deli_numb_foot","deli_numb_foot___1,deli_numb_foot___2");
-                            columnasT = columnasT.replaceAll("deli_numb_face","deli_numb_face___1,deli_numb_face___2");
-                            columnasT = columnasT.replaceAll("deli_para_arm","deli_para_arm___1,deli_para_arm___2");
-                            columnasT = columnasT.replaceAll("deli_para_leg","deli_para_leg___1,deli_para_leg___2");
-                            columnasT = columnasT.replaceAll("deli_para_hand","deli_para_hand___1,deli_para_hand___2");
-                            columnasT = columnasT.replaceAll("deli_para_foot","deli_para_foot___1,deli_para_foot___2");
-                            columnasT = columnasT.replaceAll("deli_para_face","deli_para_face___1,deli_para_face___2");
-                            columnasT = columnasT.replaceAll("deli_tempunknown","deli_tempunknown___1");
+                        } else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP06)) {
+                            columnasT = columnasT.replaceAll("deli_rash_first", "deli_rash_first___1,deli_rash_first___2,deli_rash_first___3,deli_rash_first___4,deli_rash_first___5,deli_rash_first___6,deli_rash_first___7,deli_rash_first___8,deli_rash_first___9");
+                            columnasT = columnasT.replaceAll("deli_spread_part", "deli_spread_part___1,deli_spread_part___2,deli_spread_part___3,deli_spread_part___4,deli_spread_part___5,deli_spread_part___6,deli_spread_part___7,deli_spread_part___8,deli_spread_part___9");
+                            columnasT = columnasT.replaceAll("deli_specify_symptom", "deli_specify_symptom___1,deli_specify_symptom___2,deli_specify_symptom___3,deli_specify_symptom___4,deli_specify_symptom___5,deli_specify_symptom___6,deli_specify_symptom___7,deli_specify_symptom___8,deli_specify_symptom___9,deli_specify_symptom___10,deli_specify_symptom___11,deli_specify_symptom___12,deli_specify_symptom___13");
+                            columnasT = columnasT.replaceAll("deli_tingling_arm", "deli_tingling_arm___1,deli_tingling_arm___2");
+                            columnasT = columnasT.replaceAll("deli_tingling_leg", "deli_tingling_leg___1,deli_tingling_leg___2");
+                            columnasT = columnasT.replaceAll("deli_tingling_hand", "deli_tingling_hand___1,deli_tingling_hand___2");
+                            columnasT = columnasT.replaceAll("deli_tingling_foot", "deli_tingling_foot___1,deli_tingling_foot___2");
+                            columnasT = columnasT.replaceAll("deli_tingling_face", "deli_tingling_face___1,deli_tingling_face___2");
+                            columnasT = columnasT.replaceAll("deli_numb_arm", "deli_numb_arm___1,deli_numb_arm___2");
+                            columnasT = columnasT.replaceAll("deli_numb_leg", "deli_numb_leg___1,deli_numb_leg___2");
+                            columnasT = columnasT.replaceAll("deli_numb_hand", "deli_numb_hand___1,deli_numb_hand___2");
+                            columnasT = columnasT.replaceAll("deli_numb_foot", "deli_numb_foot___1,deli_numb_foot___2");
+                            columnasT = columnasT.replaceAll("deli_numb_face", "deli_numb_face___1,deli_numb_face___2");
+                            columnasT = columnasT.replaceAll("deli_para_arm", "deli_para_arm___1,deli_para_arm___2");
+                            columnasT = columnasT.replaceAll("deli_para_leg", "deli_para_leg___1,deli_para_leg___2");
+                            columnasT = columnasT.replaceAll("deli_para_hand", "deli_para_hand___1,deli_para_hand___2");
+                            columnasT = columnasT.replaceAll("deli_para_foot", "deli_para_foot___1,deli_para_foot___2");
+                            columnasT = columnasT.replaceAll("deli_para_face", "deli_para_face___1,deli_para_face___2");
+                            columnasT = columnasT.replaceAll("deli_tempunknown", "deli_tempunknown___1");
                             columnasT += SEPARADOR + "zp06_delivery_and_6week_visit_complete";
 
-                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP08)) {
+                        } else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP08)) {
                             columnasT += SEPARADOR + "zp08_study_exit_complete";
                         }
-                        if (primerRegistro==0) {
+
+                        if (primerRegistro == 0) {
                             columnas += ((columnas.isEmpty() ? "" : SEPARADOR) + columnasT);
                         }
 
@@ -1970,7 +1988,6 @@ public class ExportarService {
                             //valor para zp0XXX_complete
                             valores += SEPARADOR + "1";
                         }
-                        System.out.println(columnasT);
                     }
                     if (existeDato) {
                         registros.add(valores);
@@ -1987,10 +2004,10 @@ public class ExportarService {
                 String sqlOrinaCasa = "select record_id,bsc_mat_hom_urn_col,bsc_mat_hom_urn_rsn,bsc_mat_hom_urn_specify,bsc_mat_hom_urn_num,bsc_mat_hom_urn_id1,bsc_mat_hom_urn_dat1,bsc_mat_hom_urn_time1,bsc_mat_hom_urn_com1," +
                         "bsc_mat_hom_urn_id2,bsc_mat_hom_urn_dat2,bsc_mat_hom_urn_time2,bsc_mat_hom_urn_com2,bsc_mat_hom_urn_id3,bsc_mat_hom_urn_dat3,bsc_mat_hom_urn_time3,bsc_mat_hom_urn_com3," +
                         "bsc_mat_hom_urn_id4,bsc_mat_hom_urn_dat4,bsc_mat_hom_urn_time4,bsc_mat_hom_urn_com4 from " + Constants.TABLE_ZP02 + " where redcap_event_name = ?";
-                if (exportParameters.thereAreValues()) sqlOrinaCasa += " and record_id between ? and ? ";
+                if (exportParameters.thereAreCodes()) sqlOrinaCasa += " and record_id between ? and ? ";
                 pStatement = con.prepareStatement(sqlOrinaCasa);
                 pStatement.setString(1, evento15dias);
-                if (exportParameters.thereAreValues()) {
+                if (exportParameters.thereAreCodes()) {
                     pStatement.setString(2, exportParameters.getCodigoInicio());
                     pStatement.setString(3, exportParameters.getCodigoFin());
                 }
@@ -2032,7 +2049,9 @@ public class ExportarService {
                 }
             }/*FIN completar campos para tomas de muestras de orina en la casa*/
 
-            sb.append(columnas);
+            if (exportParameters.isAddHeader()) {
+                sb.append(columnas);
+            }
             for (String registro : registros){
                 sb.append(SALTOLINEA);
                 //por si queda algun registro que no tiene toma de muestra 15 dias, se limpia
@@ -2058,7 +2077,7 @@ public class ExportarService {
                 registro = registro.replaceAll("bsc_mat_hom_urn_com4", "");
                 sb.append(registro);
             }
-            sb.append(SALTOLINEA);
+            //sb.append(SALTOLINEA);
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
@@ -2129,11 +2148,11 @@ public class ExportarService {
 
     private List<String> getSubjects(ExportParameters exportParameters) throws SQLException{
         StringBuilder sqlStrBuilder = new StringBuilder("select zp00.recordId from Zp00Screening zp00");
-        if (exportParameters.thereAreValues()) sqlStrBuilder.append(" where zp00.recordId between :inicio and :fin ");
+        if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" where zp00.recordId between :inicio and :fin ");
 
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery(sqlStrBuilder.toString());
-        if (exportParameters.thereAreValues()){
+        if (exportParameters.thereAreCodes()){
             query.setString("inicio", exportParameters.getCodigoInicio());
             query.setString("fin", exportParameters.getCodigoFin());
         }

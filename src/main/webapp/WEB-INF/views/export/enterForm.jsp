@@ -118,6 +118,7 @@
                                                         <c:forEach items="${eventos}" var="evento">
                                                             <option value="${evento}"><spring:message code="${evento}" /></option>
                                                         </c:forEach>
+                                                        <option value="all"><spring:message code="allforms" /></option>
                                                     </select>
                                                 </div>
                                             </div>

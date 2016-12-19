@@ -10,11 +10,13 @@ public class ExportParameters {
     private String codigoInicio;
     private String codigoFin;
     private String event;
+    private boolean addHeader;
 
-    public ExportParameters(String tableName, String codigoInicio, String codigoFin) {
+    public ExportParameters(String tableName, String codigoInicio, String codigoFin, String evento) {
         this.tableName = tableName;
         this.codigoInicio = codigoInicio;
         this.codigoFin = codigoFin;
+        this.event = evento;
     }
 
     public String getTableName() {
@@ -49,7 +51,15 @@ public class ExportParameters {
         this.event = event;
     }
 
-    public boolean thereAreValues(){
+    public boolean isAddHeader() {
+        return addHeader;
+    }
+
+    public void setAddHeader(boolean addHeader) {
+        this.addHeader = addHeader;
+    }
+
+    public boolean thereAreCodes(){
         return (this.getCodigoInicio()!=null && this.getCodigoFin() !=null && !this.getCodigoInicio().isEmpty() && !this.getCodigoFin().isEmpty());
     }
 }
