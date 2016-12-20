@@ -106,7 +106,19 @@ public class ExportarController {
                         @RequestParam(value = "event", required = false) String event,
                         HttpServletResponse response) throws Exception {
         ExportParameters ep = new ExportParameters(Constants.TABLE_ZP02,codigoInicio,codigoFin,event);
-        StringBuffer registros = exportarService.getZp02ExportData(ep);
+        StringBuffer registros = new StringBuffer("");
+        if (!event.equalsIgnoreCase("all")) {
+            ep.setAddHeader(true);
+            registros = exportarService.getZp02ExportData(ep);
+        }else{
+            List<String> events = exportarService.getRedCapEvents();
+            for (String evento: events){
+                ep.setEvent(evento);
+                if (evento.equalsIgnoreCase(Constants.SCREENING)) ep.setAddHeader(true);
+                else ep.setAddHeader(false);
+                registros.append(exportarService.getZp02ExportData(ep));
+            }
+        }
         InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
         String mimeType = "text/csv";
         response.setContentType(mimeType);
