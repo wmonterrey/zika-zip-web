@@ -25,6 +25,7 @@ public class DashboardService {
 	public List<Object> tamizajesDia(UserSistema usuario, long date1, long date2){
 		// Retrieve session from Hibernate
 		Session session = sessionFactory.getCurrentSession();
+		date2 = date2 + (24*60*60*1000-1000);
 		Timestamp timeStampInicio = new Timestamp(date1);
 		Timestamp timeStampFinal = new Timestamp(date2);
 		// Create a Hibernate query (HQL)
