@@ -31,6 +31,9 @@ var Index = function () {
                 }, {
                     data: parametrosChart.cs3,
                     label: 'CSFB-('+parametrosChart.sumCs3+')'
+                }, {
+                    data: parametrosChart.cs4,
+                    label: 'CSEL-('+parametrosChart.sumCs4+')'
                 }], {
     				series : {
     					lines : {
@@ -104,7 +107,7 @@ var Index = function () {
                 "oLanguage": {
         			"sUrl": parametrosDateRange.lenguaje
                 },
-                "aoColumns" : [null,{sClass: "aw-right" },{sClass: "aw-right" },{sClass: "aw-right" },{sClass: "aw-right" }],bFilter: false, bInfo: true, bPaginate: true, 
+                "aoColumns" : [null,{sClass: "aw-right" },{sClass: "aw-right" },{sClass: "aw-right" },{sClass: "aw-right" },{sClass: "aw-right" }],bFilter: false, bInfo: true, bPaginate: true, 
                 "aLengthMenu": [[5, 10, 15, 20, -1],[5, 10, 15, 20, "Todos"]], iDisplayLength: 5});
         	
         	var tt = new $.fn.dataTable.TableTools( table1, {
@@ -183,11 +186,11 @@ var Index = function () {
     				ajax : 'true'
     			},function(data) {
     				table1.fnClearTable();
-    				var totales = []; var cs1 = [];var cs2 = [];var cs3 = [];var fechas = [];var sumTotal = 0;var sumCs1 = 0;var sumCs2 = 0;var sumCs3 = 0;
+    				var totales = []; var cs1 = [];var cs2 = [];var cs3 = [];var cs4 = [];var fechas = [];var sumTotal = 0;var sumCs1 = 0;var sumCs2 = 0;var sumCs3 = 0;var sumCs4 = 0;
     				for (var row in data.lista1) {
         				var d = new Date(data.lista1[row][0]);
     					table1.fnAddData(
-    							[d.yyyymmdd(), data.lista1[row][1], data.lista1[row][2], data.lista1[row][3], data.lista1[row][4]]);
+    							[d.yyyymmdd(), data.lista1[row][1], data.lista1[row][2], data.lista1[row][3], data.lista1[row][4], data.lista1[row][5]]);
     					fechas.push([d.yyyymmdd()]);
     					totales.push([d.yyyymmdd(), data.lista1[row][1]]);
     					sumTotal = sumTotal + parseInt(data.lista1[row][1]);
@@ -197,9 +200,11 @@ var Index = function () {
     					sumCs2 = sumCs2 + parseInt(data.lista1[row][3]);
     					cs3.push([d.yyyymmdd(), data.lista1[row][4]]);
     					sumCs3 = sumCs3 + parseInt(data.lista1[row][4]);
+    					cs4.push([d.yyyymmdd(), data.lista1[row][5]]);
+    					sumCs4 = sumCs4 + parseInt(data.lista1[row][5]);
         			}
-    				nParametrosChart = {fechas: fechas,totales: totales, cs1: cs1, cs2: cs2, cs3:cs3
-    						, sumTotal: sumTotal, sumCs1: sumCs1, sumCs2: sumCs2, sumCs3: sumCs3, total: parametrosDateRange.total};
+    				nParametrosChart = {fechas: fechas,totales: totales, cs1: cs1, cs2: cs2, cs3:cs3, cs4:cs4
+    						, sumTotal: sumTotal, sumCs1: sumCs1, sumCs2: sumCs2, sumCs3: sumCs3, sumCs4: sumCs4, total: parametrosDateRange.total};
         			Index.initCharts(nParametrosChart);
     				App.unblockUI(pageContent);
     				

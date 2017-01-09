@@ -33,7 +33,8 @@ public class DashboardService {
         		"count(zpPre.cs) as total, " +
         		"sum(case zpPre.cs when 'Socrates Flores' then 1 else 0 end) as CSSFV, " +
         		"sum(case zpPre.cs when 'Villa Libertad' then 1 else 0 end) as CSVL, " +
-        		"sum(case zpPre.cs when 'Francisco Buitrago' then 1 else 0 end) as CSFB " +
+        		"sum(case zpPre.cs when 'Francisco Buitrago' then 1 else 0 end) as CSFB, " +
+        		"sum(case zpPre.cs when 'Edgard Lang' then 1 else 0 end) as CSEL " +
         		"FROM Zp00Screening zp00 , ZpPreScreening zpPre " +
         		"where zp00.preScreenId = zpPre.recId and zp00.pasive = '0' and zp00.preScreenId in (select recId from ZpPreScreening zpPre where zpPre.pasive = '0' and zpPre.cs in " +
         		"(Select uc.centro.cs from UserCenter uc where uc.user.username =:usuarioactual and uc.pasive = '0')) "+
