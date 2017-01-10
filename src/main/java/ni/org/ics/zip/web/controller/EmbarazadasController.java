@@ -1,11 +1,13 @@
 package ni.org.ics.zip.web.controller;
 
 import ni.org.ics.zip.service.EmbarazadaService;
+import ni.org.ics.zip.utils.ZpDetalleEventoPanelControl;
 import ni.org.ics.zip.utils.ZpPanelControlEmbarazada;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -39,6 +41,21 @@ public class EmbarazadasController {
         }
         model.addAttribute("registros", estadoEmbarazadas);
         return "pregnants/dashboard";
+    }
+
+    @RequestMapping(value = "dashboard/{code}/{event}", method = RequestMethod.GET)
+    public String initUpdateUserForm(@PathVariable("code") String code, @PathVariable("event") String event, Model model) {
+        logger.info("obtener detalle de evento embarazada");
+        ZpDetalleEventoPanelControl zpDetalleEventoPanelControl = new ZpDetalleEventoPanelControl();
+        zpDetalleEventoPanelControl.setCodigo(code);
+        zpDetalleEventoPanelControl.setEvento(event);
+        try {
+             zpDetalleEventoPanelControl = embarazadaService.getZpDetalleEventoPanelControl(zpDetalleEventoPanelControl);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        model.addAttribute("detalle", zpDetalleEventoPanelControl);
+        return "pregnants/dashboardDetail";
     }
 
 	

@@ -25,8 +25,10 @@ public class ExportarService {
 
     private static final String SEPARADOR = ",";
     private static final String SALTOLINEA = "\n";
+    private static final String ENTER = "\r\n";
     private static final String QUOTE = "\"";
     private static final String COMILLA = "\"";
+    private static final String ESPACIO = " ";
 
     @Resource(name="sessionFactory")
     private SessionFactory sessionFactory;
@@ -130,12 +132,13 @@ public class ExportarService {
                                 else valores += SEPARADOR + val.toString();
                             }else {
                                 if (val instanceof String) {
+                                    String valFormat = val.toString().replaceAll(ENTER,ESPACIO).replaceAll(SALTOLINEA,ESPACIO);
                                     //si contiene uno de estos caracteres especiales escapar
-                                    if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)){
-                                        valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
-                                    }else {
-                                        if (valores.isEmpty()) valores += val.toString();
-                                        else valores += SEPARADOR + val.toString();
+                                    if (valFormat.contains(SEPARADOR) || valFormat.contains(COMILLA) || valFormat.contains(SALTOLINEA)) {
+                                        valores += SEPARADOR + QUOTE + valFormat.trim() + QUOTE;
+                                    } else {
+                                        if (valores.isEmpty()) valores += valFormat.trim();
+                                        else valores += SEPARADOR + valFormat.trim();
                                     }
                                 } else if (val instanceof Integer) {
                                     if (valores.isEmpty()) valores += String.valueOf(res.getInt(col));
@@ -214,12 +217,13 @@ public class ExportarService {
                     Object val = res.getObject(col);
                     if (val!=null){
                         if (val instanceof String) {
+                            String valFormat = val.toString().replaceAll(ENTER,ESPACIO).replaceAll(SALTOLINEA,ESPACIO);
                             //si contiene uno de estos caracteres especiales escapar
-                            if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)){
-                                valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
-                            }else {
-                                if (valores.isEmpty()) valores += val.toString();
-                                else valores += SEPARADOR + val.toString();
+                            if (valFormat.contains(SEPARADOR) || valFormat.contains(COMILLA) || valFormat.contains(SALTOLINEA)) {
+                                valores += SEPARADOR + QUOTE + valFormat.trim() + QUOTE;
+                            } else {
+                                if (valores.isEmpty()) valores += valFormat.trim();
+                                else valores += SEPARADOR + valFormat.trim();
                             }
                         } else if (val instanceof Integer) {
                             if (valores.isEmpty()) valores += String.valueOf(res.getInt(col));
@@ -358,12 +362,13 @@ public class ExportarService {
 
                         }else {
                             if (val instanceof String) {
+                                String valFormat = val.toString().replaceAll(ENTER,ESPACIO).replaceAll(SALTOLINEA,ESPACIO);
                                 //si contiene uno de estos caracteres especiales escapar
-                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)){
-                                    valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
-                                }else {
-                                    if (valores.isEmpty()) valores += val.toString();
-                                    else valores += SEPARADOR + val.toString();
+                                if (valFormat.contains(SEPARADOR) || valFormat.contains(COMILLA) || valFormat.contains(SALTOLINEA)) {
+                                    valores += SEPARADOR + QUOTE + valFormat.trim() + QUOTE;
+                                } else {
+                                    if (valores.isEmpty()) valores += valFormat.trim();
+                                    else valores += SEPARADOR + valFormat.trim();
                                 }
                             } else if (val instanceof Integer) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getInt(col));
@@ -478,12 +483,13 @@ public class ExportarService {
                             else valores += SEPARADOR + val.toString().substring(0,5);
                         } else {
                             if (val instanceof String) {
+                                String valFormat = val.toString().replaceAll(ENTER,ESPACIO).replaceAll(SALTOLINEA,ESPACIO);
                                 //si contiene uno de estos caracteres especiales escapar
-                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
-                                    valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
+                                if (valFormat.contains(SEPARADOR) || valFormat.contains(COMILLA) || valFormat.contains(SALTOLINEA)) {
+                                    valores += SEPARADOR + QUOTE + valFormat.trim() + QUOTE;
                                 } else {
-                                    if (valores.isEmpty()) valores += val.toString();
-                                    else valores += SEPARADOR + val.toString();
+                                    if (valores.isEmpty()) valores += valFormat.trim();
+                                    else valores += SEPARADOR + valFormat.trim();
                                 }
                             } else if (val instanceof Integer) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getInt(col));
@@ -605,12 +611,13 @@ public class ExportarService {
                             //defecto
                         } else {
                             if (val instanceof String) {
+                                String valFormat = val.toString().replaceAll(ENTER,ESPACIO).replaceAll(SALTOLINEA,ESPACIO);
                                 //si contiene uno de estos caracteres especiales escapar
-                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
-                                    valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
+                                if (valFormat.contains(SEPARADOR) || valFormat.contains(COMILLA) || valFormat.contains(SALTOLINEA)) {
+                                    valores += SEPARADOR + QUOTE + valFormat.trim() + QUOTE;
                                 } else {
-                                    if (valores.isEmpty()) valores += val.toString();
-                                    else valores += SEPARADOR + val.toString();
+                                    if (valores.isEmpty()) valores += valFormat.trim();
+                                    else valores += SEPARADOR + valFormat.trim();
                                 }
                             } else if (val instanceof Integer) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getInt(col));
@@ -846,12 +853,13 @@ public class ExportarService {
                             else valores += SEPARADOR + val.toString().substring(0,5);
                         } else {
                             if (val instanceof String) {
+                                String valFormat = val.toString().replaceAll(ENTER,ESPACIO).replaceAll(SALTOLINEA,ESPACIO);
                                 //si contiene uno de estos caracteres especiales escapar
-                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)){
-                                    valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
-                                }else {
-                                    if (valores.isEmpty()) valores += val.toString();
-                                    else valores += SEPARADOR + val.toString();
+                                if (valFormat.contains(SEPARADOR) || valFormat.contains(COMILLA) || valFormat.contains(SALTOLINEA)) {
+                                    valores += SEPARADOR + QUOTE + valFormat.trim() + QUOTE;
+                                } else {
+                                    if (valores.isEmpty()) valores += valFormat.trim();
+                                    else valores += SEPARADOR + valFormat.trim();
                                 }
                             } else if (val instanceof Integer) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getInt(col));
@@ -970,12 +978,13 @@ public class ExportarService {
                             valores += setValuesMultipleField(val.toString(),animalTyp);
                         }else {
                             if (val instanceof String) {
+                                String valFormat = val.toString().replaceAll(ENTER,ESPACIO).replaceAll(SALTOLINEA,ESPACIO);
                                 //si contiene uno de estos caracteres especiales escapar
-                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
-                                    valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
+                                if (valFormat.contains(SEPARADOR) || valFormat.contains(COMILLA) || valFormat.contains(SALTOLINEA)) {
+                                    valores += SEPARADOR + QUOTE + valFormat.trim() + QUOTE;
                                 } else {
-                                    if (valores.isEmpty()) valores += val.toString();
-                                    else valores += SEPARADOR + val.toString();
+                                    if (valores.isEmpty()) valores += valFormat.trim();
+                                    else valores += SEPARADOR + valFormat.trim();
                                 }
                             } else if (val instanceof Integer) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getInt(col));
@@ -1066,12 +1075,13 @@ public class ExportarService {
                     Object val = res.getObject(col);
                     if (val!=null){
                         if (val instanceof String) {
+                            String valFormat = val.toString().replaceAll(ENTER,ESPACIO).replaceAll(SALTOLINEA,ESPACIO);
                             //si contiene uno de estos caracteres especiales escapar
-                            if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
-                                valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
+                            if (valFormat.contains(SEPARADOR) || valFormat.contains(COMILLA) || valFormat.contains(SALTOLINEA)) {
+                                valores += SEPARADOR + QUOTE + valFormat.trim() + QUOTE;
                             } else {
-                                if (valores.isEmpty()) valores += val.toString();
-                                else valores += SEPARADOR + val.toString();
+                                if (valores.isEmpty()) valores += valFormat.trim();
+                                else valores += SEPARADOR + valFormat.trim();
                             }
                         } else if (val instanceof Integer) {
                             if (valores.isEmpty()) valores += String.valueOf(res.getInt(col));
@@ -1161,12 +1171,13 @@ public class ExportarService {
                             else valores += SEPARADOR + val.toString().substring(0,5);
                         }else {
                             if (val instanceof String) {
+                                String valFormat = val.toString().replaceAll(ENTER,ESPACIO).replaceAll(SALTOLINEA,ESPACIO);
                                 //si contiene uno de estos caracteres especiales escapar
-                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
-                                    valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
+                                if (valFormat.contains(SEPARADOR) || valFormat.contains(COMILLA) || valFormat.contains(SALTOLINEA)) {
+                                    valores += SEPARADOR + QUOTE + valFormat.trim() + QUOTE;
                                 } else {
-                                    if (valores.isEmpty()) valores += val.toString();
-                                    else valores += SEPARADOR + val.toString();
+                                    if (valores.isEmpty()) valores += valFormat.trim();
+                                    else valores += SEPARADOR + valFormat.trim();
                                 }
                             } else if (val instanceof Integer) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getInt(col));
@@ -1262,12 +1273,13 @@ public class ExportarService {
                             valores += setValuesMultipleField(val.toString(), sSpecify1);
                         }else {
                             if (val instanceof String) {
+                                String valFormat = val.toString().replaceAll(ENTER,ESPACIO).replaceAll(SALTOLINEA,ESPACIO);
                                 //si contiene uno de estos caracteres especiales escapar
-                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
-                                    valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
+                                if (valFormat.contains(SEPARADOR) || valFormat.contains(COMILLA) || valFormat.contains(SALTOLINEA)) {
+                                    valores += SEPARADOR + QUOTE + valFormat.trim() + QUOTE;
                                 } else {
-                                    if (valores.isEmpty()) valores += val.toString();
-                                    else valores += SEPARADOR + val.toString();
+                                    if (valores.isEmpty()) valores += valFormat.trim();
+                                    else valores += SEPARADOR + valFormat.trim();
                                 }
                             } else if (val instanceof Integer) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getInt(col));
@@ -1405,12 +1417,13 @@ public class ExportarService {
 
                         }else {
                             if (val instanceof String) {
+                                String valFormat = val.toString().replaceAll(ENTER,ESPACIO).replaceAll(SALTOLINEA,ESPACIO);
                                 //si contiene uno de estos caracteres especiales escapar
-                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)){
-                                    valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
-                                }else {
-                                    if (valores.isEmpty()) valores += val.toString();
-                                    else valores += SEPARADOR + val.toString();
+                                if (valFormat.contains(SEPARADOR) || valFormat.contains(COMILLA) || valFormat.contains(SALTOLINEA)) {
+                                    valores += SEPARADOR + QUOTE + valFormat.trim() + QUOTE;
+                                } else {
+                                    if (valores.isEmpty()) valores += valFormat.trim();
+                                    else valores += SEPARADOR + valFormat.trim();
                                 }
                             } else if (val instanceof Integer) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getInt(col));
@@ -1507,12 +1520,13 @@ public class ExportarService {
                     Object val = res.getObject(col);
                     if (val!=null){
                         if (val instanceof String) {
+                            String valFormat = val.toString().replaceAll(ENTER,ESPACIO).replaceAll(SALTOLINEA,ESPACIO);
                             //si contiene uno de estos caracteres especiales escapar
-                            if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)){
-                                valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
-                            }else {
-                                if (valores.isEmpty()) valores += val.toString();
-                                else valores += SEPARADOR + val.toString();
+                            if (valFormat.contains(SEPARADOR) || valFormat.contains(COMILLA) || valFormat.contains(SALTOLINEA)) {
+                                valores += SEPARADOR + QUOTE + valFormat.trim() + QUOTE;
+                            } else {
+                                if (valores.isEmpty()) valores += valFormat.trim();
+                                else valores += SEPARADOR + valFormat.trim();
                             }
                         } else if (val instanceof Integer) {
                             if (valores.isEmpty()) valores += String.valueOf(res.getInt(col));
@@ -1815,12 +1829,13 @@ public class ExportarService {
                                             //defecto
                                         } else {
                                             if (val instanceof String) {
+                                                String valFormat = val.toString().replaceAll(ENTER,ESPACIO).replaceAll(SALTOLINEA,ESPACIO);
                                                 //si contiene uno de estos caracteres especiales escapar
-                                                if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
-                                                    valores += SEPARADOR + QUOTE + val.toString() + QUOTE;
+                                                if (valFormat.contains(SEPARADOR) || valFormat.contains(COMILLA) || valFormat.contains(SALTOLINEA)) {
+                                                    valores += SEPARADOR + QUOTE + valFormat.trim() + QUOTE;
                                                 } else {
-                                                    if (valores.isEmpty()) valores += val.toString();
-                                                    else valores += SEPARADOR + val.toString();
+                                                    if (valores.isEmpty()) valores += valFormat.trim();
+                                                    else valores += SEPARADOR + valFormat.trim();
                                                 }
                                             } else if (val instanceof Integer) {
                                                 if (valores.isEmpty())

@@ -1,7 +1,9 @@
 package ni.org.ics.zip.service;
 
+import ni.org.ics.zip.domain.*;
 import ni.org.ics.zip.utils.Constants;
 import ni.org.ics.zip.utils.DateUtil;
+import ni.org.ics.zip.utils.ZpDetalleEventoPanelControl;
 import ni.org.ics.zip.utils.ZpPanelControlEmbarazada;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -142,5 +144,201 @@ public class EmbarazadaService {
         else {
             return Constants.GREEN;
         }
+    }
+
+    public ZpDetalleEventoPanelControl getZpDetalleEventoPanelControl(ZpDetalleEventoPanelControl zpDetalle){
+        List<String[]> formularios = new ArrayList<String[]>();
+        String[] formulario = new String[3];
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from Zp00Screening where recordId = :codigo");
+        query.setParameter("codigo", zpDetalle.getCodigo());
+
+        Zp00Screening screening = (Zp00Screening) query.uniqueResult();
+        if (screening!=null) zpDetalle.setFechaIngreso(DateUtil.DateToString(screening.getScrVisitDate(), "dd/MM/yyyy"));
+
+        //sólo ingreso
+        if (zpDetalle.getEvento().equalsIgnoreCase(Constants.ENTRY)){
+            //Zp01StudyEntrySectionAtoD
+            query = session.createQuery("from Zp01StudyEntrySectionAtoD where recordId = :codigo and redcapEventName = :evento");
+            query.setParameter("codigo", zpDetalle.getCodigo());
+            query.setParameter("evento",zpDetalle.getEvento());
+            Zp01StudyEntrySectionAtoD zp01a = (Zp01StudyEntrySectionAtoD)query.uniqueResult();
+            formulario[0] = "zp01AD";
+            formulario[1] = "pending";
+            formulario[2] = "";
+            if (zp01a!=null){
+                formulario[1] = "realized";
+                formulario[2] = DateUtil.DateToString(zp01a.getSeaVdate(),"dd/MM/yyyy");
+            }
+            formularios.add(formulario);
+
+            //Zp01StudyEntrySectionE
+            query = session.createQuery("from Zp01StudyEntrySectionE where recordId = :codigo and redcapEventName = :evento");
+            query.setParameter("codigo", zpDetalle.getCodigo());
+            query.setParameter("evento",zpDetalle.getEvento());
+            Zp01StudyEntrySectionE zp01e = (Zp01StudyEntrySectionE)query.uniqueResult();
+            formulario = new String[3];
+            formulario[0] = "zp01E";
+            formulario[1] = "pending";
+            formulario[2] = "";
+            if (zp01e!=null){
+                formulario[1] = "realized";
+                formulario[2] = DateUtil.DateToString(zp01e.getRecordDate(),"dd/MM/yyyy");
+            }
+            formularios.add(formulario);
+
+            //Zp01StudyEntrySectionFtoK
+            query = session.createQuery("from Zp01StudyEntrySectionFtoK where recordId = :codigo and redcapEventName = :evento");
+            query.setParameter("codigo", zpDetalle.getCodigo());
+            query.setParameter("evento",zpDetalle.getEvento());
+            Zp01StudyEntrySectionFtoK zp01f = (Zp01StudyEntrySectionFtoK)query.uniqueResult();
+            formulario = new String[3];
+            formulario[0] = "zp01FK";
+            formulario[1] = "pending";
+            formulario[2] = "";
+            if (zp01f!=null){
+                formulario[1] = "realized";
+                formulario[2] = DateUtil.DateToString(zp01f.getRecordDate(),"dd/MM/yyyy");
+            }
+            formularios.add(formulario);
+        }
+
+        //ingreso y mensual
+        if (zpDetalle.getEvento().equalsIgnoreCase(Constants.ENTRY)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK4) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK8)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK12) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK16)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK20) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK24)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK28) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK32)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK36) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK40)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK44)){
+
+            //Zp04TrimesterVisitSectionAtoD
+            query = session.createQuery("from Zp04TrimesterVisitSectionAtoD where recordId = :codigo and redcapEventName = :evento");
+            query.setParameter("codigo", zpDetalle.getCodigo());
+            query.setParameter("evento",zpDetalle.getEvento());
+            Zp04TrimesterVisitSectionAtoD zp04a = (Zp04TrimesterVisitSectionAtoD)query.uniqueResult();
+            formulario = new String[3];
+            formulario[0] = "zp04AD";
+            formulario[1] = "pending";
+            formulario[2] = "";
+            if (zp04a!=null){
+                formulario[1] = "realized";
+                formulario[2] = DateUtil.DateToString(zp04a.getRecordDate(),"dd/MM/yyyy");
+            }
+            formularios.add(formulario);
+
+            //Zp04TrimesterVisitSectionE
+            query = session.createQuery("from Zp04TrimesterVisitSectionE where recordId = :codigo and redcapEventName = :evento");
+            query.setParameter("codigo", zpDetalle.getCodigo());
+            query.setParameter("evento",zpDetalle.getEvento());
+            Zp04TrimesterVisitSectionE zp04e = (Zp04TrimesterVisitSectionE)query.uniqueResult();
+            formulario = new String[3];
+            formulario[0] = "zp04E";
+            formulario[1] = "pending";
+            formulario[2] = "";
+            if (zp04e!=null){
+                formulario[1] = "realized";
+                formulario[2] = DateUtil.DateToString(zp04e.getRecordDate(),"dd/MM/yyyy");
+            }
+            formularios.add(formulario);
+
+            //Zp04TrimesterVisitSectionFtoH
+            query = session.createQuery("from Zp04TrimesterVisitSectionFtoH where recordId = :codigo and redcapEventName = :evento");
+            query.setParameter("codigo", zpDetalle.getCodigo());
+            query.setParameter("evento",zpDetalle.getEvento());
+            Zp04TrimesterVisitSectionFtoH zp04f = (Zp04TrimesterVisitSectionFtoH)query.uniqueResult();
+            formulario = new String[3];
+            formulario[0] = "zp04FH";
+            formulario[1] = "pending";
+            formulario[2] = "";
+            if (zp04f!=null){
+                formulario[1] = "realized";
+                formulario[2] = DateUtil.DateToString(zp04f.getRecordDate(),"dd/MM/yyyy");
+            }
+            formularios.add(formulario);
+
+            //Zp05UltrasoundExam
+            query = session.createQuery("from Zp05UltrasoundExam where recordId = :codigo and redcapEventName = :evento");
+            query.setParameter("codigo", zpDetalle.getCodigo());
+            query.setParameter("evento",zpDetalle.getEvento());
+            Zp05UltrasoundExam zp05 = (Zp05UltrasoundExam)query.uniqueResult();
+            formulario = new String[3];
+            formulario[0] = "zp05";
+            formulario[1] = "pending";
+            formulario[2] = "";
+            if (zp05!=null){
+                formulario[1] = "realized";
+                formulario[2] = DateUtil.DateToString(zp05.getRecordDate(),"dd/MM/yyyy");
+            }
+            formularios.add(formulario);
+
+        }
+
+        //sólo mensual
+        if (zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK4) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK8)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK12) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK16)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK20) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK24)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK28) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK32)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK36) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK40)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK44)){
+            query = session.createQuery("from Zp03MonthlyVisit where recordId = :codigo and redcapEventName = :evento");
+            query.setParameter("codigo", zpDetalle.getCodigo());
+            query.setParameter("evento",zpDetalle.getEvento());
+            Zp03MonthlyVisit zp03 = (Zp03MonthlyVisit)query.uniqueResult();
+            formulario = new String[3];
+            formulario[0] = "zp03";
+            formulario[1] = "pending";
+            formulario[2] = "";
+            if (zp03!=null){
+                formulario[1] = "realized";
+                formulario[2] = DateUtil.DateToString(zp03.getRecordDate(),"dd/MM/yyyy");
+            }
+            formularios.add(formulario);
+
+        }
+        //ingreso, mensual y de 2 semanas
+        if (zpDetalle.getEvento().equalsIgnoreCase(Constants.ENTRY)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK4) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK8)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK12) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK16)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK20) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK24)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK28) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK32)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK36) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK40)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK44) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK2)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK6) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK10)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK14) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK18)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK22) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK26)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK30) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK34)
+                || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK38) || zpDetalle.getEvento().equalsIgnoreCase(Constants.WEEK42)){
+
+            //Zp02BiospecimenCollection
+            query = session.createQuery("from Zp02BiospecimenCollection where recordId = :codigo and redcapEventName = :evento");
+            query.setParameter("codigo", zpDetalle.getCodigo());
+            query.setParameter("evento",zpDetalle.getEvento());
+            Zp02BiospecimenCollection zp02 = (Zp02BiospecimenCollection)query.uniqueResult();
+            formulario = new String[3];
+            formulario[0] = "zp02";
+            formulario[1] = "pending";
+            formulario[2] = "";
+            if (zp02!=null){
+                formulario[1] = "realized";
+                formulario[2] = DateUtil.DateToString(zp02.getRecordDate(),"dd/MM/yyyy");
+            }
+            formularios.add(formulario);
+        }
+        zpDetalle.setFormularios(formularios);
+
+        //obtener descripcion del evento según el codigo recibido
+        if (zpDetalle.getEvento().equalsIgnoreCase(Constants.ENTRY)){
+            zpDetalle.setEvento("entry");
+        }else if (zpDetalle.getEvento().equalsIgnoreCase(Constants.DELIVERY)){
+            zpDetalle.setEvento("delivery");
+        }else if (zpDetalle.getEvento().equalsIgnoreCase(Constants.AFTERDELIVERY)){
+            zpDetalle.setEvento("postdeli");
+        }else{
+            zpDetalle.setEvento("week"+zpDetalle.getEvento().substring(0,zpDetalle.getEvento().indexOf("_")));
+        }
+
+        return zpDetalle;
+
     }
 }

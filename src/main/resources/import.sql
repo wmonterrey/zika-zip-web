@@ -240,8 +240,10 @@ INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('week44', '0', 
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('entry', '0', 'Ingreso');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('delivery', '0', 'Parto');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('postdeli', '0', 'Postparto');
-
-
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('detail', '0', 'Detalle');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('realized', '0', 'Realizado');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('pending', '0', 'Pendiente');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('status', '0', 'Estado');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('subjects', '0', 'Participantes');
 
 //Dashboard panel principal
@@ -270,5 +272,5 @@ INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('october', '0',
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('november', '0', 'Noviembre');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('december', '0', 'Diciembre');
 
-INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('screenxday', '0', 'Tamizajes por día');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('screenxday', '0', 'Tamizajes por dï¿½a');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('total', '0', 'Total');

@@ -111,151 +111,301 @@
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.ingreso}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.ingreso}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.ingreso}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana2}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px" alt="${registro.semana2}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="2_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px" alt="${registro.semana2}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana4}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px" alt="${registro.semana4}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="4_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px" alt="${registro.semana4}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana6}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana6}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="6_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana6}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana8}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana8}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="8_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana8}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana10}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana10}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="10_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana10}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana12}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana12}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="12_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana12}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana14}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana14}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="14_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana14}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana16}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana16}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="16_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana16}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana18}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana18}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="18_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana18}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana20}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana20}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="20_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana20}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana22}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana22}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="22_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana22}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana24}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana24}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="24_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana24}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana26}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana26}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="26_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana26}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana28}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana28}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="28_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana28}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana30}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana30}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="30_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana30}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana32}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana32}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="32_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana32}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana34}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana34}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="34_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana34}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana36}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana36}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="36_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana36}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana38}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana38}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="38_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana38}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana40}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana40}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="40_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana40}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana42}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana42}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="42_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana42}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.semana44}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana44}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="44_week_post_entry_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.semana44}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.parto}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.parto}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="delivery_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.parto}" />
+                                                </a>
                                             </td>
                                             <td align="center">
                                                 <spring:url value="/resources/img/{imagen}.png" var="imgestado">
                                                     <spring:param name="imagen" value="${registro.posparto}" />
                                                 </spring:url>
-                                                <img src="${imgestado}" width="16px" height="16px"  alt="${registro.posparto}" />
+                                                <spring:url value="/pregnants/dashboard/{code}/{event}" htmlEscape="true" var="detalle">
+                                                    <spring:param name="code" value="${registro.codigo}" />
+                                                    <spring:param name="event" value="6_week_post_partum_arm_1" />
+                                                </spring:url>
+                                                <a href="${detalle}">
+                                                    <img src="${imgestado}" width="16px" height="16px"  alt="${registro.posparto}" />
+                                                </a>
                                             </td>
                                         </tr>
                                     </c:forEach>
