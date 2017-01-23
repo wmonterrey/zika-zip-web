@@ -53,6 +53,7 @@ public class Zp00Screening extends BaseMetaData implements Auditable{
     private Date scrDateReviewed;
     private String scrIdDataEntry;
     private Date scrDateEntered;
+    private char studyInm = '2';
 
     @Id
     @Column(name = "record_id", nullable = false, length = 25)
@@ -378,6 +379,15 @@ public class Zp00Screening extends BaseMetaData implements Auditable{
     public void setScrDateEntered(Date scrDateEntered) {
         this.scrDateEntered = scrDateEntered;
     }
+   
+    @Column(name = "inmunologico", nullable = false)
+	public char getStudyInm() {
+		return studyInm;
+	}
+
+	public void setStudyInm(char studyInm) {
+		this.studyInm = studyInm;
+	}
 
 	@Override
 	public boolean isFieldAuditable(String fieldname) {
