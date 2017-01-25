@@ -65,7 +65,8 @@ public class ExportarService {
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("start") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("today") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("prescreen_id") &&
-                        !res.getString("COLUMN_NAME").contains("_addt_") //_addt_ se usa para campos adiciones que no son de redacp
+                        !res.getString("COLUMN_NAME").contains("_addt_") &&//_addt_ se usa para campos adicionales que no son de redcap
+                        !res.getString("COLUMN_NAME").equalsIgnoreCase("inmunologico")
                         ) {
                     if (res.getString("COLUMN_NAME").equalsIgnoreCase("record_id") && !columns.isEmpty()) {
                         //el record_id siempre debe ser el primer campo
@@ -1585,7 +1586,8 @@ public class ExportarService {
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("prescreen_id") &&
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("record_id") &&
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("redcap_event_name") &&
-                            !res.getString("COLUMN_NAME").contains("_addt_") //_addt_ se usa para campos adiciones que no son de redacp
+                            !res.getString("COLUMN_NAME").contains("_addt_") && //_addt_ se usa para campos adicionales que no son de redcap
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("inmunologico")
                             ) {
 
                         String[] columna = {res.getString("TABLE_NAME"),res.getString("COLUMN_NAME")};

@@ -202,7 +202,7 @@ public class AgendaService {
             query.setParameter("codigo",screening.getRecordId());
             query.setParameter("event", Constants.ENTRY);
             Zp01StudyEntrySectionFtoK entrySectionFtoK = (Zp01StudyEntrySectionFtoK)query.uniqueResult();
-            if (entrySectionFtoK!=null) {
+            if (entrySectionFtoK!=null && entrySectionFtoK.getSeaNextDate()!=null) {
                 fechaAcordada = DateUtil.StringToDate(DateUtil.DateToString(entrySectionFtoK.getSeaNextDate(),"dd/MM/yyyy"),"dd/MM/yyyy");
                 fechaProgramada = DateUtil.addDaystoDate(fechaIngreso, 28);
                 if (fechaAcordada.compareTo(fechaValidar) == 0) {
@@ -232,7 +232,7 @@ public class AgendaService {
             query.setParameter("codigo",screening.getRecordId());
             query.setParameter("event", Constants.WEEK4);
             Zp03MonthlyVisit monthlyVisit = (Zp03MonthlyVisit)query.uniqueResult();
-            if (monthlyVisit!=null) {
+            if (monthlyVisit!=null && monthlyVisit.getMonNextDate()!=null) {
                 fechaAcordada = DateUtil.StringToDate(DateUtil.DateToString(monthlyVisit.getMonNextDate(),"dd/MM/yyyy"),"dd/MM/yyyy");
                 fechaProgramada = DateUtil.addDaystoDate(fechaIngreso, 56);
                 if (fechaAcordada.compareTo(fechaValidar) == 0) {
@@ -254,8 +254,8 @@ public class AgendaService {
             query.setParameter("codigo",screening.getRecordId());
             query.setParameter("event", Constants.WEEK8);
             monthlyVisit = (Zp03MonthlyVisit)query.uniqueResult();
-            if (monthlyVisit!=null) {
-                fechaAcordada = DateUtil.StringToDate(DateUtil.DateToString(monthlyVisit.getMonNextDate(),"dd/MM/yyyy"),"dd/MM/yyyy");
+            if (monthlyVisit!=null && monthlyVisit.getMonNextDate()!=null) {
+                fechaAcordada = DateUtil.StringToDate(DateUtil.DateToString(monthlyVisit.getMonNextDate(), "dd/MM/yyyy"), "dd/MM/yyyy");
                 fechaProgramada = DateUtil.addDaystoDate(fechaIngreso, 84);
                 if (fechaAcordada.compareTo(fechaValidar) == 0) {
                     agendaEmbarazada = new ZpAgendaEmbarazada();
@@ -276,7 +276,7 @@ public class AgendaService {
             query.setParameter("codigo",screening.getRecordId());
             query.setParameter("event", Constants.WEEK12);
             monthlyVisit = (Zp03MonthlyVisit)query.uniqueResult();
-            if (monthlyVisit!=null) {
+            if (monthlyVisit!=null && monthlyVisit.getMonNextDate()!=null) {
                 fechaAcordada = DateUtil.StringToDate(DateUtil.DateToString(monthlyVisit.getMonNextDate(),"dd/MM/yyyy"),"dd/MM/yyyy");
                 fechaProgramada = DateUtil.addDaystoDate(fechaIngreso, 112);
                 if (fechaAcordada.compareTo(fechaValidar) == 0) {
@@ -298,7 +298,7 @@ public class AgendaService {
             query.setParameter("codigo",screening.getRecordId());
             query.setParameter("event", Constants.WEEK16);
             monthlyVisit = (Zp03MonthlyVisit)query.uniqueResult();
-            if (monthlyVisit!=null) {
+            if (monthlyVisit!=null && monthlyVisit.getMonNextDate()!=null) {
                 fechaAcordada = DateUtil.StringToDate(DateUtil.DateToString(monthlyVisit.getMonNextDate(),"dd/MM/yyyy"),"dd/MM/yyyy");
                 fechaProgramada = DateUtil.addDaystoDate(fechaIngreso, 140);
                 if (fechaAcordada.compareTo(fechaValidar) == 0) {
@@ -320,7 +320,7 @@ public class AgendaService {
             query.setParameter("codigo",screening.getRecordId());
             query.setParameter("event", Constants.WEEK20);
             monthlyVisit = (Zp03MonthlyVisit)query.uniqueResult();
-            if (monthlyVisit!=null) {
+            if (monthlyVisit!=null && monthlyVisit.getMonNextDate()!=null) {
                 fechaAcordada = DateUtil.StringToDate(DateUtil.DateToString(monthlyVisit.getMonNextDate(),"dd/MM/yyyy"),"dd/MM/yyyy");
                 fechaProgramada = DateUtil.addDaystoDate(fechaIngreso, 168);
                 if (fechaAcordada.compareTo(fechaValidar) == 0) {
@@ -342,7 +342,7 @@ public class AgendaService {
             query.setParameter("codigo",screening.getRecordId());
             query.setParameter("event", Constants.WEEK24);
             monthlyVisit = (Zp03MonthlyVisit)query.uniqueResult();
-            if (monthlyVisit!=null) {
+            if (monthlyVisit!=null && monthlyVisit.getMonNextDate()!=null) {
                 fechaAcordada = DateUtil.StringToDate(DateUtil.DateToString(monthlyVisit.getMonNextDate(),"dd/MM/yyyy"),"dd/MM/yyyy");
                 fechaProgramada = DateUtil.addDaystoDate(fechaIngreso, 196);
                 if (fechaAcordada.compareTo(fechaValidar) == 0) {
@@ -364,7 +364,7 @@ public class AgendaService {
             query.setParameter("codigo",screening.getRecordId());
             query.setParameter("event", Constants.WEEK28);
             monthlyVisit = (Zp03MonthlyVisit)query.uniqueResult();
-            if (monthlyVisit!=null) {
+            if (monthlyVisit!=null && monthlyVisit.getMonNextDate()!=null) {
                 fechaAcordada = DateUtil.StringToDate(DateUtil.DateToString(monthlyVisit.getMonNextDate(),"dd/MM/yyyy"),"dd/MM/yyyy");
                 fechaProgramada = DateUtil.addDaystoDate(fechaIngreso, 224);
                 if (fechaAcordada.compareTo(fechaValidar) == 0) {
@@ -386,7 +386,7 @@ public class AgendaService {
             query.setParameter("codigo",screening.getRecordId());
             query.setParameter("event", Constants.WEEK32);
             monthlyVisit = (Zp03MonthlyVisit)query.uniqueResult();
-            if (monthlyVisit!=null) {
+            if (monthlyVisit!=null && monthlyVisit.getMonNextDate()!=null) {
                 fechaAcordada = DateUtil.StringToDate(DateUtil.DateToString(monthlyVisit.getMonNextDate(),"dd/MM/yyyy"),"dd/MM/yyyy");
                 fechaProgramada = DateUtil.addDaystoDate(fechaIngreso, 252);
                 if (fechaAcordada.compareTo(fechaValidar) == 0) {
@@ -408,7 +408,7 @@ public class AgendaService {
             query.setParameter("codigo",screening.getRecordId());
             query.setParameter("event", Constants.WEEK36);
             monthlyVisit = (Zp03MonthlyVisit)query.uniqueResult();
-            if (monthlyVisit!=null) {
+            if (monthlyVisit!=null && monthlyVisit.getMonNextDate()!=null) {
                 fechaAcordada = DateUtil.StringToDate(DateUtil.DateToString(monthlyVisit.getMonNextDate(),"dd/MM/yyyy"),"dd/MM/yyyy");
                 fechaProgramada = DateUtil.addDaystoDate(fechaIngreso, 280);
                 if (fechaAcordada.compareTo(fechaValidar) == 0) {
@@ -430,7 +430,7 @@ public class AgendaService {
             query.setParameter("codigo",screening.getRecordId());
             query.setParameter("event", Constants.WEEK40);
             monthlyVisit = (Zp03MonthlyVisit)query.uniqueResult();
-            if (monthlyVisit!=null) {
+            if (monthlyVisit!=null && monthlyVisit.getMonNextDate()!=null) {
                 fechaAcordada = DateUtil.StringToDate(DateUtil.DateToString(monthlyVisit.getMonNextDate(),"dd/MM/yyyy"),"dd/MM/yyyy");
                 fechaProgramada = DateUtil.addDaystoDate(fechaIngreso, 308);
                 if (fechaAcordada.compareTo(fechaValidar) == 0) {
@@ -456,31 +456,33 @@ public class AgendaService {
 
             if (trimesterVisitSectionFtoHs!=null){
                 for(Zp04TrimesterVisitSectionFtoH trimesterVisit : trimesterVisitSectionFtoHs){
-                    fechaAcordada = DateUtil.StringToDate(DateUtil.DateToString(trimesterVisit.getTriNextVisitDat(),"dd/MM/yyyy"),"dd/MM/yyyy");
-                    if (fechaAcordada.compareTo(fechaValidar)==0) {
-                        int semana = DateUtil.getWeek(screening.getScrVisitDate(), trimesterVisit.getTriNextVisitDat());
-                        agendaEmbarazada = new ZpAgendaEmbarazada();
-                        agendaEmbarazada.setCodigo(screening.getRecordId());
-                        agendaEmbarazada.setEvento(String.valueOf(semana) + " " + Constants.WEEK_LABEL);
-                        agendaEmbarazada.setFechaIngreso(DateUtil.DateToString(screening.getScrVisitDate(), "dd/MM/yyyy"));
-                        agendaEmbarazada.setFechaProgramada("");
-                        agendaEmbarazada.setFechaCita(DateUtil.DateToString(fechaAcordada, "dd/MM/yyyy"));
-                        agendaEmbarazada.setHoraCita(DateUtil.DateToString(DateUtil.StringToDate(fecha + " " + trimesterVisit.getTriNextVisitTime(), "dd/MM/yyyy HH:mm:ss"), "hh:mm a"));
-                        if (trimesterVisit.getRedcapEventName().equalsIgnoreCase(Constants.ENTRY)) {
-                            agendaEmbarazada.setFormulario(Constants.TRIMESTER_VISIT + " 1");
-                        }else{
-                            agendaEmbarazada.setFormulario(Constants.TRIMESTER_VISIT + " 2");
+                    if (trimesterVisit.getTriNextVisitDat()!=null) {
+                        fechaAcordada = DateUtil.StringToDate(DateUtil.DateToString(trimesterVisit.getTriNextVisitDat(), "dd/MM/yyyy"), "dd/MM/yyyy");
+                        if (fechaAcordada.compareTo(fechaValidar) == 0) {
+                            int semana = DateUtil.getWeek(screening.getScrVisitDate(), trimesterVisit.getTriNextVisitDat());
+                            agendaEmbarazada = new ZpAgendaEmbarazada();
+                            agendaEmbarazada.setCodigo(screening.getRecordId());
+                            agendaEmbarazada.setEvento(String.valueOf(semana) + " " + Constants.WEEK_LABEL);
+                            agendaEmbarazada.setFechaIngreso(DateUtil.DateToString(screening.getScrVisitDate(), "dd/MM/yyyy"));
+                            agendaEmbarazada.setFechaProgramada("");
+                            agendaEmbarazada.setFechaCita(DateUtil.DateToString(fechaAcordada, "dd/MM/yyyy"));
+                            agendaEmbarazada.setHoraCita(DateUtil.DateToString(DateUtil.StringToDate(fecha + " " + trimesterVisit.getTriNextVisitTime(), "dd/MM/yyyy HH:mm:ss"), "hh:mm a"));
+                            if (trimesterVisit.getRedcapEventName().equalsIgnoreCase(Constants.ENTRY)) {
+                                agendaEmbarazada.setFormulario(Constants.TRIMESTER_VISIT + " 1");
+                            } else {
+                                agendaEmbarazada.setFormulario(Constants.TRIMESTER_VISIT + " 2");
+                            }
+                            //Obtener fecha de visita que se encuentra en la primera parte del formulario (AtoD)
+                            query = session.createQuery("from Zp04TrimesterVisitSectionAtoD zp04 " +
+                                    "where zp04.recordId = :codigo and zp04.redcapEventName = :event ");
+                            query.setParameter("codigo", trimesterVisit.getRecordId());
+                            query.setParameter("event", trimesterVisit.getRedcapEventName());
+                            Zp04TrimesterVisitSectionAtoD tvAtoD = (Zp04TrimesterVisitSectionAtoD) query.uniqueResult();
+                            if (tvAtoD != null) {
+                                agendaEmbarazada.setFechaProgramacionCita(DateUtil.DateToString(tvAtoD.getTriDov(), "dd/MM/yyyy"));
+                            }
+                            agendaEmbarazadas.add(agendaEmbarazada);
                         }
-                        //Obtener fecha de visita que se encuentra en la primera parte del formulario (AtoD)
-                        query = session.createQuery("from Zp04TrimesterVisitSectionAtoD zp04 " +
-                                "where zp04.recordId = :codigo and zp04.redcapEventName = :event ");
-                        query.setParameter("codigo",trimesterVisit.getRecordId());
-                        query.setParameter("event",trimesterVisit.getRedcapEventName());
-                        Zp04TrimesterVisitSectionAtoD tvAtoD = (Zp04TrimesterVisitSectionAtoD)query.uniqueResult();
-                        if (tvAtoD != null){
-                            agendaEmbarazada.setFechaProgramacionCita(DateUtil.DateToString(tvAtoD.getTriDov(), "dd/MM/yyyy"));
-                        }
-                        agendaEmbarazadas.add(agendaEmbarazada);
                     }
                 }
             }
