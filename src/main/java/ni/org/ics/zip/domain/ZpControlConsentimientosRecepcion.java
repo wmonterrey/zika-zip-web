@@ -34,7 +34,6 @@ public class ZpControlConsentimientosRecepcion extends BaseMetaData implements A
         this.codigo = codigo;
     }
 
-    @Id
     @Column(name="fecha_llegada", nullable = false, length = 50)
     public Date getFechaHoraLLegada() {
         return fechaHoraLLegada;
@@ -61,6 +60,6 @@ public class ZpControlConsentimientosRecepcion extends BaseMetaData implements A
 
     @Override
     public boolean isFieldAuditable(String fieldname) {
-        return false;
+        return true;
     }
 }
