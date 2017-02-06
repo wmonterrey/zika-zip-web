@@ -26,6 +26,21 @@ public class ZpControlReporteUSRecepcionController {
     private ZpControlReporteUSRecepcionService zpControlReporteUSRecepcionService;
     private static final Logger logger = LoggerFactory.getLogger(ZpControlReporteUSRecepcionController.class);
 
+    
+    /**
+     * Acepta una solicitud GET para JSON
+     * @return JSON
+     */
+    @RequestMapping(value = "zpRecepcionUS", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    List<ZpControlReporteUSRecepcion> getZpControlReporteUSRecepcion() {
+        logger.info("Descargando toda la informacion de los datos de los formulario ZpControlReporteUSRecepcion");
+        List<ZpControlReporteUSRecepcion> mZpControlReporteUSRecepcion = zpControlReporteUSRecepcionService.getZpControlReporteUSRecepcion();
+        if (mZpControlReporteUSRecepcion == null){
+            logger.debug("Nulo");
+        }
+        return mZpControlReporteUSRecepcion;
+    }
 
     /**
      * Acepta una solicitud POST con un par�metro JSON

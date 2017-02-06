@@ -21,6 +21,8 @@ public class ZpControlReporteUSRecepcion extends BaseMetaData implements Auditab
 	 */
 	private static final long serialVersionUID = 1L;
 	private String codigo;
+	private String evento;
+	private Date fechaDato;
 	private Date fechaHoraLLegada;
     private String lugarLlegada;
     private String persona;
@@ -33,9 +35,22 @@ public class ZpControlReporteUSRecepcion extends BaseMetaData implements Auditab
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-
+    @Column(name="evento", nullable = false, length = 50)
+    public String getEvento() {
+		return evento;
+	}
+	public void setEvento(String evento) {
+		this.evento = evento;
+	}
     @Id
-    @Column(name="fecha_llegada", nullable = false, length = 50)
+    @Column(name="fecha_dato", nullable = false, length = 50)
+    public Date getFechaDato() {
+		return fechaDato;
+	}
+	public void setFechaDato(Date fechaDato) {
+		this.fechaDato = fechaDato;
+	}
+	@Column(name="fecha_llegada", nullable = false, length = 50)
     public Date getFechaHoraLLegada() {
         return fechaHoraLLegada;
     }
@@ -61,6 +76,6 @@ public class ZpControlReporteUSRecepcion extends BaseMetaData implements Auditab
 
     @Override
     public boolean isFieldAuditable(String fieldname) {
-        return false;
+        return true;
     }
 }

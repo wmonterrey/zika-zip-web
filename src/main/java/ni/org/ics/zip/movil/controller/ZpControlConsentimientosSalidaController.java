@@ -27,6 +27,21 @@ public class ZpControlConsentimientosSalidaController {
     private ZpControlConsentimientosSalidaService zpControlConsentimientosSalidaService;
     private static final Logger logger = LoggerFactory.getLogger(ZpControlConsentimientosSalidaController.class);
 
+    
+    /**
+     * Acepta una solicitud GET para JSON
+     * @return JSON
+     */
+    @RequestMapping(value = "zpSalidaCons", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    List<ZpControlConsentimientosSalida> getZpControlConsentimientosSalida() {
+        logger.info("Descargando toda la informacion de los datos de los formulario ZpControlConsentimientosSalida");
+        List<ZpControlConsentimientosSalida> mZpControlConsentimientosSalida = zpControlConsentimientosSalidaService.getZpControlConsentimientosSalida();
+        if (mZpControlConsentimientosSalida == null){
+            logger.debug("Nulo");
+        }
+        return mZpControlConsentimientosSalida;
+    }
 
     /**
      * Acepta una solicitud POST con un par�metro JSON
