@@ -30,6 +30,9 @@ public class ZpInfantData extends BaseMetaData implements Auditable {
     private String infantFetalOutcome;
     private String infantCauseDeath;
     private String infantSexBaby;
+    private String infantConsentInfant;
+    private String infantReasonNoconsent;
+    private String infantNoconsentOther;
 
     @Id
     @Column(name = "record_id", nullable = false, length = 25)
@@ -147,6 +150,33 @@ public class ZpInfantData extends BaseMetaData implements Auditable {
 
     public void setInfantSexBaby(String infantSexBaby) {
         this.infantSexBaby = infantSexBaby;
+    }
+
+    @Column(name = "infant_consent_infant", nullable = true, length = 1)
+    public String getInfantConsentInfant() {
+        return infantConsentInfant;
+    }
+
+    public void setInfantConsentInfant(String infantConsentInfant) {
+        this.infantConsentInfant = infantConsentInfant;
+    }
+
+    @Column(name = "infant_reason_noconsent", nullable = true, length = 1)
+    public String getInfantReasonNoconsent() {
+        return infantReasonNoconsent;
+    }
+
+    public void setInfantReasonNoconsent(String infantReasonNoconsent) {
+        this.infantReasonNoconsent = infantReasonNoconsent;
+    }
+
+    @Column(name = "infant_noconsent_other", nullable = true)
+    public String getInfantNoconsentOther() {
+        return infantNoconsentOther;
+    }
+
+    public void setInfantNoconsentOther(String infantNoconsentOther) {
+        this.infantNoconsentOther = infantNoconsentOther;
     }
 
     @Override
