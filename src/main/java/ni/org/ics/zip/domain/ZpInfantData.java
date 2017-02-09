@@ -27,7 +27,7 @@ public class ZpInfantData extends BaseMetaData implements Auditable {
     private String infantClinicId;
     private String infantDeliveryOther;
     private String infantNumBirth;
-    private String infantFetalOutcome1;
+    private String infantFetalOutcome;
     private String infantCauseDeath;
     private String infantSexBaby;
 
@@ -123,12 +123,12 @@ public class ZpInfantData extends BaseMetaData implements Auditable {
     }
 
     @Column(name = "infant_fetal_outcome", nullable = true, length = 2)
-    public String getInfantFetalOutcome1() {
-        return infantFetalOutcome1;
+    public String getInfantFetalOutcome() {
+        return infantFetalOutcome;
     }
 
-    public void setInfantFetalOutcome1(String infantFetalOutcome1) {
-        this.infantFetalOutcome1 = infantFetalOutcome1;
+    public void setInfantFetalOutcome(String infantFetalOutcome1) {
+        this.infantFetalOutcome = infantFetalOutcome1;
     }
 
     @Column(name = "infant_cause_death", nullable = true)
