@@ -5,15 +5,20 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import ni.org.ics.zip.domain.audit.Auditable;
+
 /**
  * Created by FIRSTICT on 2/10/2017.
  * V1.0
  */
 @Entity
 @Table(name = "zp_estado_infante", catalog = "zika_zip")
-public class ZpEstadoInfante {
-    private static final long serialVersionUID = 1L;
-    private String recordId;
+public class ZpEstadoInfante extends BaseMetaData implements Auditable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String recordId;
     private char nacimiento = '0';
     private char mes3 = '0';
     private char mes6 = '0';
@@ -64,4 +69,30 @@ public class ZpEstadoInfante {
     public void setMes12(char mes12) {
         this.mes12 = mes12;
     }
+
+	@Override
+	public boolean isFieldAuditable(String fieldname) {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	
+	@Override
+	public String toString(){
+		return this.recordId;
+	}
+	
+	@Override
+	public boolean equals(Object other) {
+		
+		if ((this == other))
+			return true;
+		if ((other == null))
+			return false;
+		if (!(other instanceof ZpEstadoInfante))
+			return false;
+		
+		ZpEstadoInfante castOther = (ZpEstadoInfante) other;
+
+		return (this.getRecordId().equals(castOther.getRecordId()));
+	}
 }
