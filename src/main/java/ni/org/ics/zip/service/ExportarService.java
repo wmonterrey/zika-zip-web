@@ -1562,6 +1562,242 @@ public class ExportarService {
         return sb;
     }
 
+    public StringBuffer getZp07ExportData(ExportParameters exportParameters) throws Exception{
+
+        StringBuffer sb = new StringBuffer();
+        Connection con = getConnection();
+        PreparedStatement pStatement = null;
+        ResultSet res = null;
+        String columnas = "";
+        String valores = "";
+
+        try {
+            //recuperar los nombres de las columnas
+            List<String> columns = getTableMetaData(exportParameters.getTableName());
+            columnas = parseColumns(columns);
+
+            //pasar a recuperar los datos. Setear parámetro si los hay
+            StringBuilder sqlStrBuilder = new StringBuilder();
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
+
+            if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) sqlStrBuilder.append(" and redcap_event_name = ?");
+
+            pStatement = con.prepareStatement(sqlStrBuilder.toString());
+            if (exportParameters.thereAreCodes()){
+                pStatement.setString(1, exportParameters.getCodigoInicio());
+                pStatement.setString(2, exportParameters.getCodigoFin());
+            }
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) pStatement.setString(exportParameters.thereAreCodes()?3:1,exportParameters.getEvent());
+
+            res = pStatement.executeQuery();
+
+            //Valores de campos múltiples
+            String[] whichEye = "1,2".split(",");
+            String[] otherIssue = "1,2,3,4,5,6,7,8,9".split(",");
+            String[] whichEar = "1,2".split(",");
+            String[] breastReason = "1,2,3,4,5,6".split(",");
+            String[] neurodeveType = "1,2,3,4,5,6".split(",");
+            String[] exhibited = "1,2,3,4,5,6,7,8,9,10".split(",");
+
+            //columnas que necesita redcap y no estan en la tabla
+            columnas = columnas.replaceAll("infant_which_eye","infant_which_eye___1,infant_which_eye___2");
+            columnas = columnas.replaceAll("infant_other_issue","infant_other_issue___1,infant_other_issue___2,infant_other_issue___3,infant_other_issue___4,infant_other_issue___5,infant_other_issue___6,infant_other_issue___7,infant_other_issue___8,infant_other_issue___9");
+            columnas = columnas.replaceAll("infant_which_ear","infant_which_ear___1,infant_which_ear___2");
+            columnas = columnas.replaceAll("infant_breast_reason","infant_breast_reason___1,infant_breast_reason___2,infant_breast_reason___3,infant_breast_reason___4,infant_breast_reason___5,infant_breast_reason___6");
+            columnas = columnas.replaceAll("infant_neurodeve_type","infant_neurodeve_type___1,infant_neurodeve_type___2,infant_neurodeve_type___3,infant_neurodeve_type___4,infant_neurodeve_type___5,infant_neurodeve_type___6");
+            columnas = columnas.replaceAll("infant_exhibited","infant_exhibited___1,infant_exhibited___2,infant_exhibited___3,infant_exhibited___4,infant_exhibited___5,infant_exhibited___6,infant_exhibited___7,infant_exhibited___8,infant_exhibited___9,infant_exhibited___10");
+            columnas = columnas.replaceAll("infant_wtpercen_na","infant_wtpercen_na___99");
+            columnas = columnas.replaceAll("infant_lenpercen_na","infant_lenpercen_na___99");
+            columnas = columnas.replaceAll("infant_heapercen_na","infant_heapercen_na___99");
+            columnas = columnas.replaceAll("infant_apgar_na","infant_apgar_na___99");
+
+
+            //columnas que necesita redcap y no estan en la tabla
+            columnas += SEPARADOR + "zp07_infant_assessment_complete";
+
+            sb.append(columnas);
+            sb.append(SALTOLINEA);
+
+            while(res.next()){
+                for(String col : columns){
+                    Object val = res.getObject(col);
+                    if (val!=null){
+                        if (col.equalsIgnoreCase("infant_which_eye")) {
+                            valores += setValuesMultipleField(val.toString(), whichEye);
+
+                        }else if (col.equalsIgnoreCase("infant_other_issue")) {
+                            valores += setValuesMultipleField(val.toString(), otherIssue);
+
+                        }else if (col.equalsIgnoreCase("infant_which_ear")) {
+                            valores += setValuesMultipleField(val.toString(), whichEar);
+
+                        }else if (col.equalsIgnoreCase("infant_breast_reason")) {
+                            valores += setValuesMultipleField(val.toString(), breastReason);
+
+                        }else if (col.equalsIgnoreCase("infant_neurodeve_type")) {
+                            valores += setValuesMultipleField(val.toString(), neurodeveType);
+
+                        }else if (col.equalsIgnoreCase("infant_exhibited")) {
+                            valores += setValuesMultipleField(val.toString(), exhibited);
+
+                        }else {
+                            if (val instanceof String) {
+                                String valFormat = val.toString().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
+                                //si contiene uno de estos caracteres especiales escapar
+                                if (valFormat.contains(SEPARADOR) || valFormat.contains(COMILLA) || valFormat.contains(SALTOLINEA)) {
+                                    valores += SEPARADOR + QUOTE + valFormat.trim() + QUOTE;
+                                } else {
+                                    if (valores.isEmpty()) valores += valFormat.trim();
+                                    else valores += SEPARADOR + valFormat.trim();
+                                }
+                            } else if (val instanceof Integer) {
+                                if (valores.isEmpty()) valores += String.valueOf(res.getInt(col));
+                                else valores += SEPARADOR + String.valueOf(res.getInt(col));
+
+                            } else if (val instanceof java.util.Date) {
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyyy");
+
+                            } else if (val instanceof Float) {
+                                if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
+                                else valores += SEPARADOR + String.valueOf(res.getFloat(col));
+                            }
+                        }
+                    }else{
+                        if (col.equalsIgnoreCase("infant_which_eye")){
+                            for(int i = 0 ; i< whichEye.length; i++){
+                                valores += SEPARADOR;
+                            }
+                        }else if (col.equalsIgnoreCase("infant_other_issue")){
+                            for(int i = 0 ; i< otherIssue.length; i++){
+                                valores += SEPARADOR;
+                            }
+                        }else if (col.equalsIgnoreCase("infant_which_ear")){
+                            for(int i = 0 ; i< whichEar.length; i++){
+                                valores += SEPARADOR;
+                            }
+                        }else if (col.equalsIgnoreCase("infant_breast_reason")){
+                            for(int i = 0 ; i< breastReason.length; i++){
+                                valores += SEPARADOR;
+                            }
+                        }else if (col.equalsIgnoreCase("infant_neurodeve_type")){
+                            for(int i = 0 ; i< neurodeveType.length; i++){
+                                valores += SEPARADOR;
+                            }
+                        }else if (col.equalsIgnoreCase("infant_exhibited")){
+                            for(int i = 0 ; i< exhibited.length; i++){
+                                valores += SEPARADOR;
+                            }
+                        }else {
+                            valores += SEPARADOR;
+                        }
+
+                    }
+                }
+                //valor para zp07_infant_assessment_complete
+                valores += SEPARADOR + "1";
+                sb.append(valores);
+                valores = "";
+                sb.append(SALTOLINEA);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if (res !=null) res.close();
+            if (pStatement !=null) pStatement.close();
+            if (con !=null) con.close();
+        }
+        return sb;
+    }
+
+    public StringBuffer getZp02dExportData(ExportParameters exportParameters) throws Exception{
+
+        StringBuffer sb = new StringBuffer();
+        Connection con = getConnection();
+        PreparedStatement pStatement = null;
+        ResultSet res = null;
+        String columnas = "";
+        String valores = "";
+
+        try {
+            //recuperar los nombres de las columnas
+            List<String> columns = getTableMetaData(exportParameters.getTableName());
+            columnas = parseColumns(columns);
+
+            //pasar a recuperar los datos. Setear parámetro si los hay
+            StringBuilder sqlStrBuilder = new StringBuilder();
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
+
+            if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) sqlStrBuilder.append(" and redcap_event_name = ?");
+
+            pStatement = con.prepareStatement(sqlStrBuilder.toString());
+            if (exportParameters.thereAreCodes()){
+                pStatement.setString(1, exportParameters.getCodigoInicio());
+                pStatement.setString(2, exportParameters.getCodigoFin());
+            }
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")) pStatement.setString(exportParameters.thereAreCodes()?3:1,exportParameters.getEvent());
+
+            res = pStatement.executeQuery();
+
+            //columnas que necesita redcap y no estan en la tabla
+            columnas += SEPARADOR + "zp02d_infant_biospecimen_collection_complete";
+
+            sb.append(columnas);
+            sb.append(SALTOLINEA);
+
+            while(res.next()){
+                for(String col : columns){
+                    Object val = res.getObject(col);
+                    if (val!=null){
+                        if (col.equalsIgnoreCase("infant_mat_bld_time") || col.equalsIgnoreCase("infant_mat_slva_time") || col.equalsIgnoreCase("infant_mat_vst_urn_time")){ //campo tipo hora HH:mm
+                            if (valores.isEmpty()) valores += val.toString().substring(0,5);
+                            else valores += SEPARADOR + val.toString().substring(0,5);
+                        }else {
+                            if (val instanceof String) {
+                                String valFormat = val.toString().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
+                                //si contiene uno de estos caracteres especiales escapar
+                                if (valFormat.contains(SEPARADOR) || valFormat.contains(COMILLA) || valFormat.contains(SALTOLINEA)) {
+                                    valores += SEPARADOR + QUOTE + valFormat.trim() + QUOTE;
+                                } else {
+                                    if (valores.isEmpty()) valores += valFormat.trim();
+                                    else valores += SEPARADOR + valFormat.trim();
+                                }
+                            } else if (val instanceof Integer) {
+                                if (valores.isEmpty()) valores += String.valueOf(res.getInt(col));
+                                else valores += SEPARADOR + String.valueOf(res.getInt(col));
+
+                            } else if (val instanceof java.util.Date) {
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyyy");
+
+                            } else if (val instanceof Float) {
+                                if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
+                                else valores += SEPARADOR + String.valueOf(res.getFloat(col));
+                            }
+                        }
+                    }else{
+                        valores += SEPARADOR;
+
+                    }
+                }
+                //valor para zp02d_infant_biospecimen_collection_complete
+                valores += SEPARADOR + "1";
+                sb.append(valores);
+                valores = "";
+                sb.append(SALTOLINEA);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if (res !=null) res.close();
+            if (pStatement !=null) pStatement.close();
+            if (con !=null) con.close();
+        }
+        return sb;
+    }
+
     private List<String[]> getAllTableMetaData(String[] tableNames) throws Exception{
         Connection con = getConnection();
         List<String[]> columns = new ArrayList<String[]>();
@@ -1640,6 +1876,12 @@ public class ExportarService {
             String[] mosqRepTyp = "1,2,3,4,5".split(",");
             String[] fyesSpecify1 = "1,2,3,4,5".split(",");
             String[] sSpecify1 = "1,2,3,4,5".split(",");
+            String[] whichEye = "1,2".split(",");
+            String[] otherIssue = "1,2,3,4,5,6,7,8,9".split(",");
+            String[] whichEar = "1,2".split(",");
+            String[] breastReason = "1,2,3,4,5,6".split(",");
+            String[] neurodeveType = "1,2,3,4,5,6".split(",");
+            String[] exhibited = "1,2,3,4,5,6,7,8,9,10".split(",");
 
             //for (String redCapEvent : redCapEvents){
                 for (String participante : participantes) {
@@ -1828,8 +2070,30 @@ public class ExportarService {
 
                                         } else if (col[1].equalsIgnoreCase("deli_tingling_face") || col[1].equalsIgnoreCase("deli_numb_face") || col[1].equalsIgnoreCase("deli_para_face")) {
                                             valores += setValuesMultipleField(val.toString(), face);
-                                            //defecto
-                                        } else {
+                                          //ZP07
+                                        } else if (col[1].equalsIgnoreCase("infant_which_eye")) {
+                                            valores += setValuesMultipleField(val.toString(), whichEye);
+
+                                        }else if (col[1].equalsIgnoreCase("infant_other_issue")) {
+                                            valores += setValuesMultipleField(val.toString(), otherIssue);
+
+                                        }else if (col[1].equalsIgnoreCase("infant_which_ear")) {
+                                            valores += setValuesMultipleField(val.toString(), whichEar);
+
+                                        }else if (col[1].equalsIgnoreCase("infant_breast_reason")) {
+                                            valores += setValuesMultipleField(val.toString(), breastReason);
+
+                                        }else if (col[1].equalsIgnoreCase("infant_neurodeve_type")) {
+                                            valores += setValuesMultipleField(val.toString(), neurodeveType);
+
+                                        }else if (col[1].equalsIgnoreCase("infant_exhibited")) {
+                                            valores += setValuesMultipleField(val.toString(), exhibited);
+                                            //ZP02d (Infante)
+                                        } else if (col[1].equalsIgnoreCase("infant_mat_bld_time") || col[1].equalsIgnoreCase("infant_mat_slva_time") || col[1].equalsIgnoreCase("infant_mat_vst_urn_time")){ //campo tipo hora HH:mm
+                                            if (valores.isEmpty()) valores += val.toString().substring(0,5);
+                                            else valores += SEPARADOR + val.toString().substring(0,5);
+
+                                        } else { //defecto
                                             if (val instanceof String) {
                                                 String valFormat = val.toString().replaceAll(ENTER,ESPACIO).replaceAll(SALTOLINEA,ESPACIO);
                                                 //si contiene uno de estos caracteres especiales escapar
@@ -1979,6 +2243,31 @@ public class ExportarService {
                                                 col[1].equalsIgnoreCase("deli_tingling_foot") || col[1].equalsIgnoreCase("deli_numb_foot") || col[1].equalsIgnoreCase("deli_para_foot") ||
                                                 col[1].equalsIgnoreCase("deli_tingling_face") || col[1].equalsIgnoreCase("deli_numb_face") || col[1].equalsIgnoreCase("deli_para_face")) {
                                             valores += SEPARADOR + SEPARADOR;
+
+                                        }else if (col[1].equalsIgnoreCase("infant_which_eye")){
+                                            for(int i = 0 ; i< whichEye.length; i++){
+                                                valores += SEPARADOR;
+                                            }
+                                        }else if (col[1].equalsIgnoreCase("infant_other_issue")){
+                                            for(int i = 0 ; i< otherIssue.length; i++){
+                                                valores += SEPARADOR;
+                                            }
+                                        }else if (col[1].equalsIgnoreCase("infant_which_ear")){
+                                            for(int i = 0 ; i< whichEar.length; i++){
+                                                valores += SEPARADOR;
+                                            }
+                                        }else if (col[1].equalsIgnoreCase("infant_breast_reason")){
+                                            for(int i = 0 ; i< breastReason.length; i++){
+                                                valores += SEPARADOR;
+                                            }
+                                        }else if (col[1].equalsIgnoreCase("infant_neurodeve_type")){
+                                            for(int i = 0 ; i< neurodeveType.length; i++){
+                                                valores += SEPARADOR;
+                                            }
+                                        }else if (col[1].equalsIgnoreCase("infant_exhibited")){
+                                            for(int i = 0 ; i< exhibited.length; i++){
+                                                valores += SEPARADOR;
+                                            }
                                             //defecto
                                         } else {
                                             valores += SEPARADOR;
@@ -2108,6 +2397,22 @@ public class ExportarService {
 
                         } else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP08)) {
                             columnasT += SEPARADOR + "zp08_study_exit_complete";
+
+                        } else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP07)) {
+                            columnasT = columnasT.replaceAll("infant_which_eye","infant_which_eye___1,infant_which_eye___2");
+                            columnasT = columnasT.replaceAll("infant_other_issue","infant_other_issue___1,infant_other_issue___2,infant_other_issue___3,infant_other_issue___4,infant_other_issue___5,infant_other_issue___6,infant_other_issue___7,infant_other_issue___8,infant_other_issue___9");
+                            columnasT = columnasT.replaceAll("infant_which_ear","infant_which_ear___1,infant_which_ear___2");
+                            columnasT = columnasT.replaceAll("infant_breast_reason","infant_breast_reason___1,infant_breast_reason___2,infant_breast_reason___3,infant_breast_reason___4,infant_breast_reason___5,infant_breast_reason___6");
+                            columnasT = columnasT.replaceAll("infant_neurodeve_type","infant_neurodeve_type___1,infant_neurodeve_type___2,infant_neurodeve_type___3,infant_neurodeve_type___4,infant_neurodeve_type___5,infant_neurodeve_type___6");
+                            columnasT = columnasT.replaceAll("infant_exhibited","infant_exhibited___1,infant_exhibited___2,infant_exhibited___3,infant_exhibited___4,infant_exhibited___5,infant_exhibited___6,infant_exhibited___7,infant_exhibited___8,infant_exhibited___9,infant_exhibited___10");
+                            columnasT = columnasT.replaceAll("infant_wtpercen_na","infant_wtpercen_na___99");
+                            columnasT = columnasT.replaceAll("infant_lenpercen_na","infant_lenpercen_na___99");
+                            columnasT = columnasT.replaceAll("infant_heapercen_na","infant_heapercen_na___99");
+                            columnasT = columnasT.replaceAll("infant_apgar_na","infant_apgar_na___99");
+                            columnasT += SEPARADOR + "zp07_infant_assessment_complete";
+                        }else if (tableName.equalsIgnoreCase(Constants.TABLE_ZP02d)) {
+                            columnasT += SEPARADOR + "zp02d_infant_biospecimen_collection_complete";
+
                         }
 
                         if (primerRegistro == 0) {
@@ -2278,6 +2583,10 @@ public class ExportarService {
         redCapEvents.add(Constants.UNSHED4);
         redCapEvents.add(Constants.UNSHED5);
         redCapEvents.add(Constants.EXIT);
+        redCapEvents.add(Constants.BIRTH);
+        redCapEvents.add(Constants.MONTHS3);
+        redCapEvents.add(Constants.MONTHS6);
+        redCapEvents.add(Constants.MONTHS12);
         return redCapEvents;
     }
 
@@ -2291,7 +2600,16 @@ public class ExportarService {
             query.setString("inicio", exportParameters.getCodigoInicio());
             query.setString("fin", exportParameters.getCodigoFin());
         }
-        return query.list();
+        List<String> subjects = query.list();
+        sqlStrBuilder = new StringBuilder("select zpID.recordId from ZpInfantData zpID");
+        if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" where zpID.recordId between :inicio and :fin ");
+        query = session.createQuery(sqlStrBuilder.toString());
+        if (exportParameters.thereAreCodes()){
+            query.setString("inicio", exportParameters.getCodigoInicio());
+            query.setString("fin", exportParameters.getCodigoFin());
+        }
+        subjects.addAll(query.list());
+        return subjects;
     }
 
     private static String setValuesMultipleField(String val, String[] valuesField ){

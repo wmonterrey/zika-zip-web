@@ -145,6 +145,8 @@
                                                         <option value="Zp05"><spring:message code="zp05" /></option>
                                                         <option value="Zp06"><spring:message code="zp06" /></option>
                                                         <option value="Zp08"><spring:message code="zp08" /></option>
+                                                        <option value="Zp07"><spring:message code="zp07" /></option>
+                                                        <option value="Zp02d"><spring:message code="zp02d" /></option>
                                                         <option value="all"><spring:message code="allforms" /></option>
                                                     </select>
                                                 </div>
@@ -245,7 +247,8 @@
 <spring:url value="/admin/export/getZp06"	var="getZp06"/>
 <spring:url value="/admin/export/getZp08"	var="getZp08"/>
 <spring:url value="/admin/export/getAll"	var="getAll"/>
-
+<spring:url value="/admin/export/getZp07"	var="getZp07"/>
+<spring:url value="/admin/export/getZp02d"	var="getZp02d"/>
 
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
@@ -269,6 +272,8 @@
             getZp06 : "${getZp06}",
             getZp05 : "${getZp05}",
             getZp08 : "${getZp08}",
+            getZp07 : "${getZp07}",
+            getZp02d : "${getZp02d}",
             getAll : "${getAll}"
         };
 

@@ -38,6 +38,11 @@ public class Constants {
     public static final String UNSHED4 = "unscheduled_visit_arm_1d";
     public static final String UNSHED5 = "unscheduled_visit_arm_1e";
     public static final String EXIT = "study_exit_arm_1";
+    public static final String BIRTH = "birth_arm_2";
+    public static final String MONTHS3 = "3_months_arm_2";
+    public static final String MONTHS6 = "6_months_arm_2";
+    public static final String MONTHS12 = "12_months_arm_2";
+
 
     /*etiquetas para cada evento*/
     public static final String SCREENING_LABEL = "Tamizaje";
@@ -97,4 +102,6 @@ public class Constants {
     public static final String TABLE_ZP05 = "zp05_ultrasound_exam";
     public static final String TABLE_ZP06 = "zp06_delivery_and_6week_visit";
     public static final String TABLE_ZP08 = "zp08_study_exit";
+    public static final String TABLE_ZP07 = "zp07_infant_assessment";
+    public static final String TABLE_ZP02d = "zp02d_infant_biospecimen_collection";
 }

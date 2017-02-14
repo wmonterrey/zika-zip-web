@@ -100,6 +100,10 @@ var Export = function () {
                     urlForm = parametros.getZp06;
                 }else if (form == 'Zp08'){
                     urlForm = parametros.getZp08;
+                }else if (form == 'Zp07'){
+                    urlForm = parametros.getZp07;
+                }else if (form == 'Zp02d'){
+                    urlForm = parametros.getZp02d;
                 }else{
                     urlForm = parametros.getAll;
                 }

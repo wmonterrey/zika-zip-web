@@ -274,3 +274,11 @@ INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('december', '0'
 
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('screenxday', '0', 'Tamizajes por d�a');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('total', '0', 'Total');
+
+/*INFANTE*/
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp07', '0', 'Formulario Zp07 Evaluacion del Infante');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp02d', '0', 'Formulario Zp02d Muestras Biologicas de Infante');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('birth_arm_2', '0', 'Nacimiento');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('3_months_arm_2', '0', '3 Meses');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('6_months_arm_2', '0', '6 Meses');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('12_months_arm_2', '0', '12 Meses');
