@@ -74,6 +74,11 @@
                                     <i class="fa fa-question-circle"></i>
                                     <spring:message code="lbl.query" /></a>
                             </li>
+                            <li class="editdata">
+                                <a href="<spring:url value="/admin/editdata/" htmlEscape="true "/>">
+                                    <i class="fa fa-pencil-square-o"></i>
+                                    <spring:message code="editdata" /></a>
+                            </li>
                         </ul>
                     </li>
                 </sec:authorize>

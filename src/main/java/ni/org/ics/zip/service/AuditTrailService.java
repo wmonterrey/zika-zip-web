@@ -34,5 +34,13 @@ public class AuditTrailService {
 		query.setParameter("id", id);
 		return query.list();
 	}
-	
+
+    /**
+     * Guardar un formulario AuditTrail
+     * @param auditTrail a guardar
+     */
+    public void saveAuditTrail(AuditTrail auditTrail){
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(auditTrail);
+    }
 }

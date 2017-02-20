@@ -42,6 +42,7 @@ INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ('diary', 'Agend
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'admin', 'Administracion','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'adminusers', 'Usuarios','0');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('lbl.query', '0', 'Consulta');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('editdata', '0', 'Editar datos');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'profile', 'Perfil','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'changepass', 'Cambiar contrasena..','0');
 INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'logout', 'Salir','0');
@@ -272,7 +273,7 @@ INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('october', '0',
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('november', '0', 'Noviembre');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('december', '0', 'Diciembre');
 
-INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('screenxday', '0', 'Tamizajes por d�a');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('screenxday', '0', 'Tamizajes por dia');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('total', '0', 'Total');
 
 /*INFANTE*/
@@ -282,3 +283,7 @@ INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('bir
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('3_months_arm_2', '0', '3 Meses');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('6_months_arm_2', '0', '6 Meses');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('12_months_arm_2', '0', '12 Meses');
+
+/*Editar datos de formularios*/
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('setnull', '0', 'Establecer como Null');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('editdata.help', '0', 'Para campos tipo fecha usar formato dd/mm/yyyy. Para campos fecha y hora usar formato dd/mm/yyyy HH:mm (24 horas)');
