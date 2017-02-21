@@ -31,7 +31,6 @@ var EditData = function () {
                 errorElement: 'span', //default input error message container
                 errorClass: 'help-block', // default input error message class
                 focusInvalid: false, // do not focus the last invalid input
-                ignore: "",
                 rules: {
                     propiedad: {required: true},
                     valor: {required: function () {
@@ -43,6 +42,12 @@ var EditData = function () {
                     recordId: {
                         required: true,
                         pattern: /^07[0-9][0-9][0-9][0-9][0-3][A-Y]$/
+                    },
+                    zpEventRC: {
+                        required: true
+                    },
+                    zpEventUS: {
+                        required: true
                     }
                 },
                 invalidHandler: function (event, validator) { //display error alert on form submit
@@ -73,6 +78,7 @@ var EditData = function () {
 
 
             $('#zpform').change(function () {
+                $( "#propiedad").val("");
                 if ($(this).val().length > 0) {
                     $.getJSON(parametros.getPropertiesName, {
                          ajax: 'true',
@@ -87,15 +93,36 @@ var EditData = function () {
                     ).fail(function(jqXHR) {
                             desbloquearUI();
                         });
+
+                    if ($(this).val() === "zp_reporte_us_recepcion" || $(this).val() === "zp_reporte_us_salida" ){
+                        $("#divEventosUS").show();
+                        $("#divEventosRCap").hide();
+                    }else if ($(this).val() === "zp_cons_recepcion" || $(this).val() === "zp_cons_salida" ){
+                        $("#divEventosRCap").hide();
+                        $("#divEventosUS").hide();
+                    } else {
+                        $("#divEventosRCap").show();
+                        $("#divEventosUS").hide();
+                    }
+                }else{
+                    $("#divEventosRCap").show();
+                    $("#divEventosUS").hide();
                 }
             });
 
             function run() {
                 bloquearUI("");
+                var tabla = $('#zpform').find('option:selected').val();
+                var evento = "";
+                if (tabla === "zp_reporte_us_recepcion" || tabla === "zp_reporte_us_salida"){
+                    evento = $('#zpEventUS').find('option:selected').val();
+                }else{
+                    evento = $('#zpEventRC').find('option:selected').val();
+                }
                 var conceptObj = {};
                 conceptObj['mensaje'] = '';
-                conceptObj['tabla'] = $('#zpform').find('option:selected').val();
-                conceptObj['evento'] = $('#zpEvent').find('option:selected').val();
+                conceptObj['tabla'] = tabla;
+                conceptObj['evento'] = evento;
                 conceptObj['id'] = $('#recordId').val();
                 conceptObj['propiedad'] = $('#propiedad').val();
                 conceptObj['valor'] = $('#valor').val();

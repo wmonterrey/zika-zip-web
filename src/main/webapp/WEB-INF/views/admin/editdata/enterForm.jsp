@@ -99,22 +99,6 @@
                                         </div>
                                         <div class="col col-sm-12 col-md-6 col-lg-6">
                                             <div class="form-group">
-                                                <label class="control-label col-md-4"><spring:message code="event" />
-                                                </label>
-                                                <div class="col-md-6">
-                                                    <select class="form-control" id="zpEvent" name="zpEvent">
-                                                        <option value=""><spring:message code="lbl.select" /> ...</option>
-                                                        <c:forEach items="${eventos}" var="evento">
-                                                            <option value="${evento}"><spring:message code="${evento}" /></option>
-                                                        </c:forEach>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col col-sm-12 col-md-6 col-lg-6">
-                                            <div class="form-group">
                                                 <label class="control-label col-md-4"><spring:message code="form" />
                                                 <span class="required">
                                                      *
@@ -137,6 +121,49 @@
                                                         <option value="zp08_study_exit"><spring:message code="zp08" /></option>
                                                         <option value="zp07_infant_assessment"><spring:message code="zp07" /></option>
                                                         <option value="zp02d_infant_biospecimen_collection"><spring:message code="zp02d" /></option>
+                                                        <option value="zp_cons_recepcion"><spring:message code="zpCR" /></option>
+                                                        <option value="zp_cons_salida"><spring:message code="zpCS" /></option>
+                                                        <option value="zp_reporte_us_recepcion"><spring:message code="zpRRUS" /></option>
+                                                        <option value="zp_reporte_us_salida"><spring:message code="zpSRUS" /></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-sm-12 col-md-6 col-lg-6" id="divEventosRCap">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4"><spring:message code="event" />
+                                                    <span class="required">
+                                                     *
+                                                </span>
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <select class="form-control" id="zpEventRC" name="zpEventRC">
+                                                        <option value=""><spring:message code="lbl.select" /> ...</option>
+                                                        <c:forEach items="${eventos}" var="evento">
+                                                            <option value="${evento}"><spring:message code="${evento}" /></option>
+                                                        </c:forEach>
+                                                        <option value="any"><spring:message code="lbl.any" /> ...</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col col-sm-12 col-md-6 col-lg-6" id="divEventosUS">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4"><spring:message code="event" />
+                                                    <span class="required">
+                                                     *
+                                                </span>
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <select class="form-control" id="zpEventUS" name="zpEventUS">
+                                                        <option value=""><spring:message code="lbl.select" /> ...</option>
+                                                        <option value="SCREENING"><spring:message code="us_event_screening" /></option>
+                                                        <option value="TRI2"><spring:message code="us_event_tri2" /></option>
+                                                        <option value="TRI3"><spring:message code="us_event_tri3" /></option>
+                                                        <option value="UNSCHED"><spring:message code="us_event_unsched" /></option>
+                                                        <option value="any"><spring:message code="lbl.any" /> ...</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -303,6 +330,8 @@
         };
 
         EditData.init(parametros);
+
+        $("#divEventosUS").hide();
 	});
 </script>
 <!-- END JAVASCRIPTS -->

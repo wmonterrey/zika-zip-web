@@ -82,7 +82,7 @@ public class EditarDatosController {
             if(jsonpObject.get("tabla") != null && !jsonpObject.get("tabla").getAsString().isEmpty() ) {
                 tabla = jsonpObject.get("tabla").getAsString();
             }
-            if(jsonpObject.get("evento") != null && !jsonpObject.get("evento").getAsString().isEmpty() ) {
+            if(jsonpObject.get("evento") != null && !jsonpObject.get("evento").getAsString().isEmpty() && !jsonpObject.get("evento").getAsString().equalsIgnoreCase("any") ) {
                 evento = jsonpObject.get("evento").getAsString();
             }
             if(jsonpObject.get("id") != null && !jsonpObject.get("id").getAsString().isEmpty() ) {

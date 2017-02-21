@@ -287,3 +287,12 @@ INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('12_
 /*Editar datos de formularios*/
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('setnull', '0', 'Establecer como Null');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('editdata.help', '0', 'Para campos tipo fecha usar formato dd/mm/yyyy. Para campos fecha y hora usar formato dd/mm/yyyy HH:mm (24 horas)');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zpCR', '0', 'Recepcion de consentimientos');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zpCS', '0', 'Salida de consentimientos');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zpRRUS', '0', 'Recepción de reportes US');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zpSRUS', '0', 'Salida de reportes US');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('us_event_screening', '0', 'Ingreso');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('us_event_tri2', '0', '2do Trimestre');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('us_event_tri3', '0', '3er Trimestre');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('us_event_unsched', '0', 'No programado');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('lbl.any', '0', 'Nunguno');

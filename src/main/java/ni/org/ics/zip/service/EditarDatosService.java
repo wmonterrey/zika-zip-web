@@ -76,8 +76,7 @@ public class EditarDatosService {
         return columns;
     }
 
-    public int getColumnType(String tableName, String columnName) throws Exception{
-        Connection con = getConnection();
+    public int getColumnType(String tableName, String columnName, Connection con) throws Exception{
         int type = 0;
         try {
             DatabaseMetaData meta = con.getMetaData();
@@ -90,59 +89,77 @@ public class EditarDatosService {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            if (con !=null)
-                con.close();
         }
         return type;
     }
 
+    /***
+     * Método que actualiza el valor de cualquier campo de cualquier tabla en la base de datos
+     * @param tabla nombre de la tabla a modificar
+     * @param evento indica el evento de redcap al que pertenece el registro a modificar (no es obligatorio)
+     * @param id código del participante a modificar
+     * @param propiedad nombre del campo a actualizar
+     * @param valor nuevo valor para el campo
+     * @param setNull si es true el nuevo valor del campo será NULL, en caso contrario se toma el valor del párametro @valor
+     * @param actorId username del usuario que realiza la modificación
+     * @return cantidad de registros modificados
+     * @throws Exception
+     */
     public int updateProperty(String tabla, String evento, String id, String propiedad, String valor, boolean setNull, String actorId) throws Exception {
         Connection connection = getConnection();
         int registros = 0;
         int resultado = 0;
-        StringBuilder stringBuilder = null;
+        StringBuilder sbUpdate = null;
+        String nombreCampoId = "record_id", nombreCampoEvento = "redcap_event_name";
 
-        StringBuilder stringBuilder2 = new StringBuilder("select ");
-        stringBuilder2.append(propiedad)
-                .append(", redcap_event_name from ")
+        if (tabla.equalsIgnoreCase("zp_reporte_us_recepcion") || tabla.equalsIgnoreCase("zp_reporte_us_salida")) {
+            nombreCampoId = "codigo";
+            nombreCampoEvento = "evento";
+        }else if(tabla.equalsIgnoreCase("zp_cons_recepcion") || tabla.equalsIgnoreCase("zp_cons_salida")) {
+            nombreCampoId = "codigo";
+            nombreCampoEvento = "";
+        }
+
+        /*determinar los registros que se van a actualizar*/
+        StringBuilder sbSelect = new StringBuilder("select ");
+        sbSelect.append(propiedad);
+        if (!nombreCampoEvento.isEmpty())
+                sbSelect.append(", ").append (nombreCampoEvento);
+
+        sbSelect.append (" from ")
                 .append(tabla)
-                .append(" where ")
-                .append(" record_id = '")
-                .append(id).append("'");
-        if (evento!=null)
-            stringBuilder2.append(" and redcap_event_name = '")
+                .append(" where ");
+
+        sbSelect.append(nombreCampoId).append(" = '").append(id).append("'");
+
+        if (evento!=null && !nombreCampoEvento.isEmpty())
+            sbSelect.append(" and ").append(nombreCampoEvento).append(" = '")
                     .append(evento).append("'");
 
+        int type = getColumnType(tabla, propiedad, connection);
+
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(stringBuilder2.toString());
+        ResultSet resultSet = statement.executeQuery(sbSelect.toString());
         while(resultSet.next()) {
-            stringBuilder = new StringBuilder("update ");
-            stringBuilder.append(tabla)
+            //por cada registro armar update
+            sbUpdate = new StringBuilder("update ");
+            sbUpdate.append(tabla)
                     .append(" set ")
                     .append(propiedad)
                     .append((setNull?" = null ":" = ? "))
-                    .append(" where ")
-                    .append(" record_id = '")
-                    .append(id).append("'")
-                    .append(" and redcap_event_name = '")
-                    .append(resultSet.getString(2)).append("'");
+                    .append(" where ");
 
-            AuditTrail auditTrail = new AuditTrail();
-            auditTrail.setEntityId(id+","+resultSet.getString(2));
-            auditTrail.setEntityName(tabla);
-            auditTrail.setEntityClass("editardatos." + tabla);
-            auditTrail.setEntityProperty(propiedad);
-            auditTrail.setEntityPropertyNewValue((setNull?null:valor));
-            auditTrail.setEntityPropertyOldValue((resultSet.getObject(1)!=null?resultSet.getObject(1).toString():null));
-            auditTrail.setOperationType("UPDATE");
-            auditTrail.setOperationDate(new Date());
-            auditTrail.setUsername(actorId);
+                    sbUpdate.append(nombreCampoId).append(" = '")
+                    .append(id).append("'");
 
-            PreparedStatement pstm = connection.prepareStatement(stringBuilder.toString());
+            if (!nombreCampoEvento.isEmpty()) {
+                sbUpdate.append(" and ").append(nombreCampoEvento).append(" = '")
+                        .append(resultSet.getString(2)).append("'");
+            }
 
+            PreparedStatement pstm = connection.prepareStatement(sbUpdate.toString());
+            //dependiendo del tipo de dato, puede requerir tratamiento especial
             if (!setNull) {
-                int type = getColumnType(tabla, propiedad);
                 if (type == Types.VARCHAR)
                     pstm.setString(1, valor);
                 else if (type == Types.DATE) {
@@ -162,8 +179,19 @@ public class EditarDatosService {
             }
 
             resultado=pstm.executeUpdate();
+            //si se actualizó el registro entonces registrar pistas de auditoria e incrementar contador de registros actualizados
             if (resultado>0){
-                registros+=resultado;
+                registros++;
+                AuditTrail auditTrail = new AuditTrail();
+                auditTrail.setEntityId(id+","+(nombreCampoEvento.isEmpty()?"":resultSet.getString(2)));
+                auditTrail.setEntityName(tabla);
+                auditTrail.setEntityClass("editardatos." + tabla);
+                auditTrail.setEntityProperty(propiedad);
+                auditTrail.setEntityPropertyNewValue((setNull?null:valor));
+                auditTrail.setEntityPropertyOldValue((resultSet.getObject(1)!=null?resultSet.getObject(1).toString():null));
+                auditTrail.setOperationType("UPDATE");
+                auditTrail.setOperationDate(new Date());
+                auditTrail.setUsername(actorId);
                 auditTrailService.saveAuditTrail(auditTrail);
             }
         }
