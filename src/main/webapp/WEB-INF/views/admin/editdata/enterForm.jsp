@@ -296,21 +296,6 @@
 <spring:url value="/resources/scripts/editdata/process-editdata.js" var="procEDScript" />
 <script src="${procEDScript}" type="text/javascript"></script>
 
-<spring:url value="/admin/export/getZp00"	var="getZp00"/>
-<spring:url value="/admin/export/getZp01AD"	var="getZp01AD"/>
-<spring:url value="/admin/export/getZp01E"	var="getZp01E"/>
-<spring:url value="/admin/export/getZp01FK"	var="getZp01FK"/>
-<spring:url value="/admin/export/getZp02"	var="getZp02"/>
-<spring:url value="/admin/export/getZp03"	var="getZp03"/>
-<spring:url value="/admin/export/getZp04AD"	var="getZp04AD"/>
-<spring:url value="/admin/export/getZp04E"	var="getZp04E"/>
-<spring:url value="/admin/export/getZp04FH"	var="getZp04FH"/>
-<spring:url value="/admin/export/getZp05"	var="getZp05"/>
-<spring:url value="/admin/export/getZp06"	var="getZp06"/>
-<spring:url value="/admin/export/getZp08"	var="getZp08"/>
-<spring:url value="/admin/export/getAll"	var="getAll"/>
-<spring:url value="/admin/export/getZp07"	var="getZp07"/>
-<spring:url value="/admin/export/getZp02d"	var="getZp02d"/>
 <spring:url value="/admin/editdata/getPropertiesName" var="getPropertiesName"/>
 <spring:url value="/admin/editdata/updatePropertie" var="updateUrl"/>
 
@@ -318,7 +303,7 @@
 <script>
     $(function () {
         $("li.admin").removeClass("open").addClass("active");
-        $("li.export").removeClass("addres").addClass("active");
+        $("li.editdata").removeClass("addres").addClass("active");
     });
 </script>
 <script>
