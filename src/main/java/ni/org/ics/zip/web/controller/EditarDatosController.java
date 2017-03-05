@@ -5,13 +5,9 @@ import com.google.gson.JsonObject;
 import ni.org.ics.zip.service.EditarDatosService;
 import ni.org.ics.zip.service.ExportarService;
 import ni.org.ics.zip.utils.Constants;
-import ni.org.ics.zip.utils.ZpAgendaEmbarazada;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -50,7 +46,7 @@ public class EditarDatosController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String obtenerUsuarios(Model model) throws ParseException, Exception {
         logger.debug("Pantalla de inicio editar datos de formularios JSP");
-        List<String> eventos = exportarService.getRedCapEvents();
+        List<String> eventos = exportarService.getCompleteRedCapEvents();
         List<String> nose = editarDatosService.getTableMetaData(Constants.TABLE_ZP00);
         model.addAttribute("eventos",eventos);
         model.addAttribute("nose",nose);

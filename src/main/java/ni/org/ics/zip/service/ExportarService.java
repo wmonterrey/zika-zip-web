@@ -2589,8 +2589,50 @@ public class ExportarService {
         redCapEvents.add(Constants.MONTHS12);
         return redCapEvents;
     }
+    
+    public List<String> getCompleteRedCapEvents(){
+        List<String> redCapEvents = new ArrayList<String>();
+        redCapEvents.add(Constants.SCREENING);
+        redCapEvents.add(Constants.ENTRY);
+        redCapEvents.add(Constants.WEEK2);
+        redCapEvents.add(Constants.WEEK4);
+        redCapEvents.add(Constants.WEEK6);
+        redCapEvents.add(Constants.WEEK8);
+        redCapEvents.add(Constants.WEEK10);
+        redCapEvents.add(Constants.WEEK12);
+        redCapEvents.add(Constants.WEEK14);
+        redCapEvents.add(Constants.WEEK16);
+        redCapEvents.add(Constants.WEEK18);
+        redCapEvents.add(Constants.WEEK20);
+        redCapEvents.add(Constants.WEEK22);
+        redCapEvents.add(Constants.WEEK24);
+        redCapEvents.add(Constants.WEEK26);
+        redCapEvents.add(Constants.WEEK28);
+        redCapEvents.add(Constants.WEEK30);
+        redCapEvents.add(Constants.WEEK32);
+        redCapEvents.add(Constants.WEEK34);
+        redCapEvents.add(Constants.WEEK36);
+        redCapEvents.add(Constants.WEEK38);
+        redCapEvents.add(Constants.WEEK40);
+        redCapEvents.add(Constants.WEEK42);
+        redCapEvents.add(Constants.WEEK44);
+        redCapEvents.add(Constants.DELIVERY);
+        redCapEvents.add(Constants.AFTERDELIVERY);
+        redCapEvents.add(Constants.UNSHED1);
+        redCapEvents.add(Constants.UNSHED2);
+        redCapEvents.add(Constants.UNSHED3);
+        redCapEvents.add(Constants.UNSHED4);
+        redCapEvents.add(Constants.UNSHED5);
+        redCapEvents.add(Constants.EXIT);
+        redCapEvents.add(Constants.BIRTH);
+        redCapEvents.add(Constants.MONTHS3);
+        redCapEvents.add(Constants.MONTHS6);
+        redCapEvents.add(Constants.MONTHS12);
+        return redCapEvents;
+    }
 
-    private List<String> getSubjects(ExportParameters exportParameters) throws SQLException{
+    @SuppressWarnings("unchecked")
+	private List<String> getSubjects(ExportParameters exportParameters) throws SQLException{
         StringBuilder sqlStrBuilder = new StringBuilder("select zp00.recordId from Zp00Screening zp00");
         if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" where zp00.recordId between :inicio and :fin ");
 
