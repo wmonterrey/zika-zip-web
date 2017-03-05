@@ -89,7 +89,7 @@
                                                 </label>
                                                 <div class="col-md-6">
                                                     <div class="input-group">
-                                                        <input id="recordId" name="recordId" type="text" value="" class="form-control" for/>
+                                                        <input id="recordId" name="recordId" type="text" value="" class="form-control"/>
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-sort-alpha-asc"></i>
                                                             </span>
