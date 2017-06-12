@@ -146,8 +146,8 @@ public class ExportarService {
                                     else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                                 } else if (val instanceof java.util.Date) {
-                                    if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyyy");
-                                    else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyyy");
+                                    if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
+                                    else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
 
                                 } else if (val instanceof Float) {
                                     if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -231,8 +231,8 @@ public class ExportarService {
                             else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                         } else if (val instanceof java.util.Date) {
-                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyyy");
-                            else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyyy");
+                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
+                            else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
 
                         } else if (val instanceof Float) {
                             if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -376,8 +376,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -497,8 +497,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -596,9 +596,9 @@ public class ExportarService {
                                     else valores += SEPARADOR + val.toString().substring(0, 5);
                                 } else if (col.equalsIgnoreCase("bsc_mat_hom_urn_dat1") || col.equalsIgnoreCase("bsc_mat_hom_urn_dat2") || col.equalsIgnoreCase("bsc_mat_hom_urn_dat3") || col.equalsIgnoreCase("bsc_mat_hom_urn_dat4")) {
                                     if (valores.isEmpty())
-                                        valores += DateToString(res.getDate(col), "dd/MM/yyyyy");
+                                        valores += DateToString(res.getDate(col), "dd/MM/yyyy");
                                     else
-                                        valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyyy");
+                                        valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
                                 } else {
                                     //si contiene uno de estos caracteres especiales escapar
                                     if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
@@ -625,8 +625,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -688,19 +688,19 @@ public class ExportarService {
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_specify", (res.getObject("bsc_mat_hom_urn_specify") != null ? res.getString("bsc_mat_hom_urn_specify") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_num", (res.getObject("bsc_mat_hom_urn_num") != null ? res.getString("bsc_mat_hom_urn_num") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id1", (res.getObject("bsc_mat_hom_urn_id1") != null ? res.getString("bsc_mat_hom_urn_id1") : ""));
-                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat1", (res.getObject("bsc_mat_hom_urn_dat1") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat1"), "dd/MM/yyyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat1", (res.getObject("bsc_mat_hom_urn_dat1") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat1"), "dd/MM/yyyy") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time1", (res.getObject("bsc_mat_hom_urn_time1") != null ? res.getString("bsc_mat_hom_urn_time1").substring(0, 5) : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com1", (res.getObject("bsc_mat_hom_urn_com1") != null ? res.getString("bsc_mat_hom_urn_com1") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id2", (res.getObject("bsc_mat_hom_urn_id2") != null ? res.getString("bsc_mat_hom_urn_id2") : ""));
-                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat2", (res.getObject("bsc_mat_hom_urn_dat2") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat2"), "dd/MM/yyyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat2", (res.getObject("bsc_mat_hom_urn_dat2") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat2"), "dd/MM/yyyy") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time2", (res.getObject("bsc_mat_hom_urn_time2") != null ? res.getString("bsc_mat_hom_urn_time2").substring(0, 5) : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com2", (res.getObject("bsc_mat_hom_urn_com2") != null ? res.getString("bsc_mat_hom_urn_com2") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id3", (res.getObject("bsc_mat_hom_urn_id3") != null ? res.getString("bsc_mat_hom_urn_id3") : ""));
-                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat3", (res.getObject("bsc_mat_hom_urn_dat3") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat3"), "dd/MM/yyyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat3", (res.getObject("bsc_mat_hom_urn_dat3") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat3"), "dd/MM/yyyy") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time3", (res.getObject("bsc_mat_hom_urn_time3") != null ? res.getString("bsc_mat_hom_urn_time3").substring(0, 5) : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com3", (res.getObject("bsc_mat_hom_urn_com3") != null ? res.getString("bsc_mat_hom_urn_com3") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id4", (res.getObject("bsc_mat_hom_urn_id4") != null ? res.getString("bsc_mat_hom_urn_id4") : ""));
-                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat4", (res.getObject("bsc_mat_hom_urn_dat4") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat4"), "dd/MM/yyyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat4", (res.getObject("bsc_mat_hom_urn_dat4") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat4"), "dd/MM/yyyy") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time4", (res.getObject("bsc_mat_hom_urn_time4") != null ? res.getString("bsc_mat_hom_urn_time4").substring(0, 5) : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com4", (res.getObject("bsc_mat_hom_urn_com4") != null ? res.getString("bsc_mat_hom_urn_com4") : ""));
                             break;
@@ -867,8 +867,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -992,8 +992,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -1089,8 +1089,8 @@ public class ExportarService {
                             else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                         } else if (val instanceof java.util.Date) {
-                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyyy");
-                            else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyyy");
+                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
+                            else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
 
                         } else if (val instanceof Float) {
                             if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -1185,8 +1185,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -1287,8 +1287,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -1431,8 +1431,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -1534,8 +1534,8 @@ public class ExportarService {
                             else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                         } else if (val instanceof java.util.Date) {
-                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyyy");
-                            else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyyy");
+                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
+                            else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
 
                         } else if (val instanceof Float) {
                             if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -1656,8 +1656,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -1769,8 +1769,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -1976,9 +1976,9 @@ public class ExportarService {
                                                     else valores += SEPARADOR + val.toString().substring(0, 5);
                                                 } else if (col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat4")) {
                                                     if (valores.isEmpty())
-                                                        valores += DateToString(res.getDate(col[1]), "dd/MM/yyyyy");
+                                                        valores += DateToString(res.getDate(col[1]), "dd/MM/yyyy");
                                                     else
-                                                        valores += SEPARADOR + DateToString(res.getDate(col[1]), "dd/MM/yyyyy");
+                                                        valores += SEPARADOR + DateToString(res.getDate(col[1]), "dd/MM/yyyy");
                                                 } else {
                                                     //si contiene uno de estos caracteres especiales escapar
                                                     if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
@@ -2110,9 +2110,9 @@ public class ExportarService {
 
                                             } else if (val instanceof java.util.Date) {
                                                 if (valores.isEmpty())
-                                                    valores += DateToString(res.getDate(col[1]), "dd/MM/yyyyy");
+                                                    valores += DateToString(res.getDate(col[1]), "dd/MM/yyyy");
                                                 else
-                                                    valores += SEPARADOR + DateToString(res.getDate(col[1]), "dd/MM/yyyyy");
+                                                    valores += SEPARADOR + DateToString(res.getDate(col[1]), "dd/MM/yyyy");
 
                                             } else if (val instanceof Float) {
                                                 if (valores.isEmpty())
@@ -2464,19 +2464,19 @@ public class ExportarService {
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_specify", (res.getObject("bsc_mat_hom_urn_specify") != null ? res.getString("bsc_mat_hom_urn_specify") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_num", (res.getObject("bsc_mat_hom_urn_num") != null ? res.getString("bsc_mat_hom_urn_num") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id1", (res.getObject("bsc_mat_hom_urn_id1") != null ? res.getString("bsc_mat_hom_urn_id1") : ""));
-                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat1", (res.getObject("bsc_mat_hom_urn_dat1") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat1"), "dd/MM/yyyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat1", (res.getObject("bsc_mat_hom_urn_dat1") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat1"), "dd/MM/yyyy") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time1", (res.getObject("bsc_mat_hom_urn_time1") != null ? res.getString("bsc_mat_hom_urn_time1").substring(0, 5) : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com1", (res.getObject("bsc_mat_hom_urn_com1") != null ? res.getString("bsc_mat_hom_urn_com1") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id2", (res.getObject("bsc_mat_hom_urn_id2") != null ? res.getString("bsc_mat_hom_urn_id2") : ""));
-                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat2", (res.getObject("bsc_mat_hom_urn_dat2") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat2"), "dd/MM/yyyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat2", (res.getObject("bsc_mat_hom_urn_dat2") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat2"), "dd/MM/yyyy") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time2", (res.getObject("bsc_mat_hom_urn_time2") != null ? res.getString("bsc_mat_hom_urn_time2").substring(0, 5) : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com2", (res.getObject("bsc_mat_hom_urn_com2") != null ? res.getString("bsc_mat_hom_urn_com2") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id3", (res.getObject("bsc_mat_hom_urn_id3") != null ? res.getString("bsc_mat_hom_urn_id3") : ""));
-                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat3", (res.getObject("bsc_mat_hom_urn_dat3") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat3"), "dd/MM/yyyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat3", (res.getObject("bsc_mat_hom_urn_dat3") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat3"), "dd/MM/yyyy") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time3", (res.getObject("bsc_mat_hom_urn_time3") != null ? res.getString("bsc_mat_hom_urn_time3").substring(0, 5) : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com3", (res.getObject("bsc_mat_hom_urn_com3") != null ? res.getString("bsc_mat_hom_urn_com3") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id4", (res.getObject("bsc_mat_hom_urn_id4") != null ? res.getString("bsc_mat_hom_urn_id4") : ""));
-                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat4", (res.getObject("bsc_mat_hom_urn_dat4") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat4"), "dd/MM/yyyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat4", (res.getObject("bsc_mat_hom_urn_dat4") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat4"), "dd/MM/yyyy") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time4", (res.getObject("bsc_mat_hom_urn_time4") != null ? res.getString("bsc_mat_hom_urn_time4").substring(0, 5) : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com4", (res.getObject("bsc_mat_hom_urn_com4") != null ? res.getString("bsc_mat_hom_urn_com4") : ""));
                             break;
