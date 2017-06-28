@@ -34,7 +34,7 @@ public class Zp01StudyEntrySectionEController {
     @RequestMapping(value = "zp01StudyEntrySectionEs", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody
     List<Zp01StudyEntrySectionE> getZp01StudyEntrySectionEs() {
-        logger.info("Descargando toda la informacion de los datos de los formulario Zp01StudyEntry sección E");
+        logger.info("Descargando toda la informacion de los datos de los formulario Zp01StudyEntry seccion E");
         List<Zp01StudyEntrySectionE> zp01StudyEntrySectionEs = zp01StudyEntrySectionEService.getZp01StudyEntrySectionE();
         if (zp01StudyEntrySectionEs == null){
             logger.debug("Nulo");
@@ -49,7 +49,7 @@ public class Zp01StudyEntrySectionEController {
     @RequestMapping(value = "zp01StudyEntrySectionEs/{username}", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody
     List<Zp01StudyEntrySectionE> getZp01StudyEntrySectionEs(@PathVariable String username) {
-        logger.info("Descargando toda la informacion de los datos de los formulario Zp01StudyEntry sección E para el usuario " +username);
+        logger.info("Descargando toda la informacion de los datos de los formulario Zp01StudyEntry seccion E para el usuario " +username);
         List<Zp01StudyEntrySectionE> zp01StudyEntrySectionEs = zp01StudyEntrySectionEService.getZp01StudyEntrySectionEByUser(username);
         if (zp01StudyEntrySectionEs == null){
             logger.debug("Nulo");
@@ -59,7 +59,7 @@ public class Zp01StudyEntrySectionEController {
 
 
     /**
-     * Acepta una solicitud POST con un parámetro JSON
+     * Acepta una solicitud POST con un parï¿½metro JSON
      * @param envio Objeto serializado de Zp01StudyEntrySectionE
      * @return String con el resultado
      */

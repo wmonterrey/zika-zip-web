@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * Servicio para el objeto Zp01StudyEntrySectionAtoD
- * Contiene la información del formulario Zp01StudyEntry desde la sección A a la D
+ * Contiene la informacion del formulario Zp01StudyEntry desde la seccion A a la D
  * Created by FIRSTICT on 10/11/2016.
  * V1.0
  */
@@ -59,7 +59,7 @@ public class Zp01StudyEntrySectionAtoDService {
     }
 
     /**
-     * Guardar un formulario Zp01StudyEntry desde la sección A a la D
+     * Guardar un formulario Zp01StudyEntry desde la seccion A a la D
      * @param zp01StudyEntrySectionAtoD a guardar
      */
     public void saveZp01StudyEntrySectionAtoD(Zp01StudyEntrySectionAtoD zp01StudyEntrySectionAtoD){
