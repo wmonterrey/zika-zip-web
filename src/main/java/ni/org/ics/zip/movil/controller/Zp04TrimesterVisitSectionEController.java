@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Manejo de las solicitudes a la aplicación mediante JSON para la sección E del formulario Zp04TrimesterVisit
+ * Manejo de las solicitudes a la aplicacion mediante JSON para la seccion E del formulario Zp04TrimesterVisit
  * Created by FIRSTICT on 10/11/2016.
  * V1.0
  */
@@ -59,7 +59,7 @@ public class Zp04TrimesterVisitSectionEController {
     }
 
     /**
-     * Acepta una solicitud POST con un parámetro JSON
+     * Acepta una solicitud POST con un parï¿½metro JSON
      * @param envio Objeto serializado de Zp04TrimesterVisitSectionE
      * @return String con el resultado
      */

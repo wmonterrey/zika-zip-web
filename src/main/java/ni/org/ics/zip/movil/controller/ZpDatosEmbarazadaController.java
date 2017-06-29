@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Manejo de las solicitudes a la aplicaci�n mediante JSON para el formulario Zp00Screening
+ * Manejo de las solicitudes a la aplicacion mediante JSON para el formulario Zp00Screening
  * Created by FIRSTICT on 10/11/2016.
  * V1.0
  */

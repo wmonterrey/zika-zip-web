@@ -31,7 +31,7 @@ import com.google.gson.Gson;
 /**
  * Controlador web de peticiones relacionadas a usuarios
  * 
- * @author William Avilés
+ * @author William Aviles
  */
 @Controller
 @RequestMapping("/users/*")

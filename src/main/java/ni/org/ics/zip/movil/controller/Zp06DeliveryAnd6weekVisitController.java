@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Manejo de las solicitudes a la aplicación mediante JSON para el formulario Zp06DeliveryAnd6weekVisit
+ * Manejo de las solicitudes a la aplicacion mediante JSON para el formulario Zp06DeliveryAnd6weekVisit
  * Created by FIRSTICT on 10/11/2016.
  * V1.0
  */
@@ -59,7 +59,7 @@ public class Zp06DeliveryAnd6weekVisitController {
     }
 
     /**
-     * Acepta una solicitud POST con un parámetro JSON
+     * Acepta una solicitud POST con un parï¿½metro JSON
      * @param envio Objeto serializado de Zp06DeliveryAnd6weekVisit
      * @return String con el resultado
      */

@@ -8,7 +8,7 @@
 		<a class="navbar-brand" href="<spring:url value="/" htmlEscape="true "/>">
 		<spring:url value="/resources/img/logo-pr.png" var="logo" />
 		<spring:url value="/resources/img/us.png" var="usflag" />
-		<spring:url value="/resources/img/es.png" var="spflag" />
+		<spring:url value="/resources/img/es.png" var="spflag" /> 
 		<img src="${logo}" alt="logo" class="img-responsive"/>
 		</a>
 		<!-- END LOGO -->

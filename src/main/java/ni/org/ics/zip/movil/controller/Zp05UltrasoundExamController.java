@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Manejo de las solicitudes a la aplicación mediante JSON para el formulario Zp05UltrasoundExam
+ * Manejo de las solicitudes a la aplicacion mediante JSON para el formulario Zp05UltrasoundExam
  * Created by FIRSTICT on 10/11/2016.
  * V1.0
  */
@@ -59,7 +59,7 @@ public class Zp05UltrasoundExamController {
     }
 
     /**
-     * Acepta una solicitud POST con un parámetro JSON
+     * Acepta una solicitud POST con un parametro JSON
      * @param envio Objeto serializado de Zp05UltrasoundExam
      * @return String con el resultado
      */

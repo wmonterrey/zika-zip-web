@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Manejo de las solicitudes a la aplicación mediante JSON para el formulario Zp00Screening
+ * Manejo de las solicitudes a la aplicacion mediante JSON para el formulario Zp00Screening
  * Created by FIRSTICT on 10/11/2016.
  * V1.0
  */
@@ -60,7 +60,7 @@ public class ZpEstadoEmbarazadaController {
     }
 
     /**
-     * Acepta una solicitud POST con un parámetro JSON
+     * Acepta una solicitud POST con un parï¿½metro JSON
      * @param envio Objeto serializado de ZpEstadoEmbarazada
      * @return String con el resultado
      */
