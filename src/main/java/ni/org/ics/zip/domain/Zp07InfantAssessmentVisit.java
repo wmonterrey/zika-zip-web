@@ -22,7 +22,16 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
     private String redcapEventName;
     private Date infantVisitDate;
     private String infantStatus;
+    private Date infantDeathDt;
     private String infantVisit;
+    private Date infantVisitDate2;
+    private String infantStatus2;
+    private Date infantDeathDt2;
+    private String infantVisit2;
+    private Date infantVisitDate3;
+    private String infantStatus3;
+    private Date infantDeathDt3;
+    private String infantVisit3;
     private Float infantTemp;
     private String infantTmpUnit;
     private Float infantWt;
@@ -35,7 +44,8 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
     private Float infantHeadcircu;
     private Float infantHeapercen;
     private String infantHeapercenNa;
-    private String infantReferralNeuro;
+    private String infantHeasize;//nuevo
+    //  private String infantReferralNeuro;//
     private String infantApgarNa;
     private Float infantApgar1min;
     private Float infantApgar5min;
@@ -46,60 +56,133 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
     private String infantAbdominal;
     private String infantLiverSpleen;
     private String infantOphth;
+    private String infantOphthType; //nuevo
     private String infantOphthAbno;
-    private String infantWhichEye;//multiple
-    private String infantEyeCalci;
-    private String infantChoriore;
-    private String infantEyeOther;
-    private String infantOtherIssue;//multiple
-    private String infantEyeOtherSpecify;
-    private String infantReferralOphth;
     private String infantOae;
-    private String infantOaeAbnormal;
-    private String infantWhichEar; //multiple
-    private String infantReferralAudio;
-    private String infantAdditionalAudio;
-    private Float infatnHearLeft;
-    private Float infantHearRight;
+    private String infantHearingTest;//nuevo
+    private String infantHearingOverall; //nuevo
+    private String infantRoae; //nuevo
+    private String infantRaabr; //nuevo
+    private String infantLoae;//nuevo
+    private String infantLaabr; //nuevo
     private String infantBreastfeeding;
     private String infantBreastReason;//multiple
     private String infantBreastOther;
     private String infantNeurodeve;
-    private String infantNeurodeveType;//multiple
-    private String infantOtherSpecify;
     private String infantExhibited; //multiple
-    private String infantOtherMovement;
+    private String infantAsymType; //nuevo
+    private String infantOtherMove; //cambio nombre
+    private String infantExhibitOther; //nuevo
+    private String infantMicroce; //nuevo
+    private String infantDefinition; //nuevo
     private String infantFurtherNeuro;
-    private String infantHeadAltra;
-    private String infantUltraObtained;
-    private Date infantUltraDt;
-    private String infantResultsUltra;
-    private String infantResultsSpecify;
-    private String infantHeadCt;
-    private String infantCtObtained;
-    private Date infantCtDt;
-    private String infantResultsCt;
-    private String infantCtSpecify;
-    private String infantCerebrospinal;
-    private String infantCerebroStored;
-    private Date infantCerebroDt;
-    private Float infantCerebroAmount;
-    private String infantResultsCerebro;
-    private String infantCerebroSpecify;
-    private String infantMri;
-    private String infantMriObtained;
-    private Date infantMriDt;
-    private String infantResultsMri;
-    private String infantMriSpecify;
-    private String infantPreviousResults;
-    private String infantReferrCounselling;
-    private String infantOtherLabCollect;
+    private String infantEvaluation; //nuevo
+    private String infantNeuroAsq; //nuevo
+    private Float infantAsqCommuni; //nuevo
+    private Float infantAsqGross; //nuevo
+    private Float infantAsqFine; //nuevo
+    private Float infantAsqProblem; //nuevo
+    private Float infantAsqPersonal; //nuevo
+    private String infantNeuroBisd; //nuevo
+    private Float infantCgScore; //nuevo
+    private String infantCgRisk; //nuevo
+    private Float infantRpScore; //nuevo
+    private String infantRpRisk;//nuevo
+    private Float infantEpScore; //nuevo
+    private String infantEpRisk; //nuevo
+    private Float infantFmScore; //nuevo
+    private String infantFmRisk; //nuevo
+    private Float infantGmScore; //nuevo
+    private String infantGmRisk; //nuevo
+    private String infantNeuroOther; //nuevo
+    private String infantOtherName; //nuevo
+    private Float infantOtherScore; //nuevo
+    private String infantResultScreening; //nuevo
+    private String infantReferTesting; //nuevo
+    private String infantFeverSymptom; //nuevo
+    private String infantRashSymptom; //nuevo
+    private String infantItch; //nuevo
+    private String infantRashFirst;
+    private String infantRashDy; //nuevo
+    private String infantRashMn; //nuevo
+    private String infantRashYr; //nuevo
+    private Float infantRashDur;//nuevo
+    private String infantRashSpread; //nuevo
+    private String infantSpreadPart; //nuevo
+    private String infantFeverExperience; //nuevo
+    private String infantTempMeasure; //nuevo
+    private Float infantHighTemp; //nuevo
+    private String infantHightemUnit; //nuevo
+    private String infantTempunknown; //nuevo
+    private String infantFeverDy; //nuevo
+    private String infantFeverMn; //nuevo
+    private String infantFeverYr; //nuevo
+    private Float infantFeverDur; //nuevo
+    private String infantRedeyes; //nuevo
+    private String infantRedeyesDy; //nuevo
+    private String infantRedeyesMn; //nuevo
+    private String infantRedeyesYr; //nuevo
+    private Float infantRedeyesDur; //nuevo
+    private String infantJoint; //nuevo
+    private String infantJointDy; //nuevo
+    private String infantJointMn; //nuevo
+    private String infantJointYr; //nuevo
+    private Float infantJointDur; //nuevo
+    private String infantHeadache; //nuevo
+    private String infantHeadacheDy; //nuevo
+    private String infantHeadacheMn; //nuevo
+    private String infantHeadacheYr; //nuevo
+    private Float infantHeadaDur; //nuevo
+    private String infantSymptomOther; //nuevo
+    private String infantSpecifySymptom; //nuevo
+    private String infantOtherSymptom; //nuevo
+    private String infantMedicare; //nuevo
+    private String infantCareDy; //nuevo
+    private String infantCareMn; //nuevo
+    private String infantCareYr; //nuevo
+    private String infantCareFacility; //nuevo
+    private String infantHospitalized; //nuevo
+    private String infantHospital; //nuevo
+    private String infantDiagRubella; //nuevo
+    private String infantDiagDengue; //nuevo
+    private String infantDiagChikung; //nuevo
+    private String infantDiagZika; //nuevo
+    private String infantDiagCytome; //nuevo
+    private String infantMedicine; //nuevo
+    private String infantMedName; //nuevo
+    private String infantSpDiary; //nuevo
+    private String infantPreResults; //nuevo
+    private String infantReferr; //nuevo
+    private String infantOtherLab; //nuevo
+    private String infantCommentsYn; //nuevo
+    private String infantComments2; //nuevo
+    private String infantCommentsYn2; //nuevo
+    private String infantComments2_2; //nuevo
+    private String infantCommentsYn3; //nuevo
+    private String infantComments2_3; //nuevo
     private String infantIdCompleting;
-    private Date infantDateCompleted;
+    private Date infantDtComp; //cambio nombre
     private String infantIdReviewer;
-    private Date infantDateReviewed;
+    private Date infantDtReview; //cambio nombre
     private String infantIdDataEntry;
-    private Date infantDateEntered;
+    private Date infantDtEnter; //cambio nombre
+    private String infantIdCompleting2;
+    private Date infantDtComp2; //cambio nombre
+    private String infantIdReviewer2;
+    private Date infantDtReview2; //cambio nombre
+    private String infantIdDataEntry2;
+    private Date infantDtEnter2; //cambio nombre
+    private String infantIdCompleting3;
+    private Date infantDtComp3; //cambio nombre
+    private String infantIdReviewer3;
+    private Date infantDtReview3; //cambio nombre
+    private String infantIdDataEntry3;
+    private Date infantDtEnter3; //cambio nombre
+    private Integer part1;
+    private Integer part2;
+    private Integer part3;
+    private Integer idInstancia2;
+    private Integer idInstancia3;
 
     @Id
     @Column(name = "record_id", nullable = false, length = 25)
@@ -121,7 +204,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.redcapEventName = redcapEventName;
     }
 
-    @Column(name = "infant_visit_date", nullable = true)
+    @Column(name = "infant_visit_date")
     public Date getInfantVisitDate() {
         return infantVisitDate;
     }
@@ -130,7 +213,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantVisitDate = infantVisitDate;
     }
 
-    @Column(name = "infant_status", nullable = true, length = 1)
+    @Column(name = "infant_status", length = 1)
     public String getInfantStatus() {
         return infantStatus;
     }
@@ -139,7 +222,16 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantStatus = infantStatus;
     }
 
-    @Column(name = "infant_visit", nullable = true, length = 1)
+    @Column(name = "infant_death_dt")
+    public Date getInfantDeathDt() {
+        return infantDeathDt;
+    }
+
+    public void setInfantDeathDt(Date infantDeathDt) {
+        this.infantDeathDt = infantDeathDt;
+    }
+
+    @Column(name = "infant_visit", length = 1)
     public String getInfantVisit() {
         return infantVisit;
     }
@@ -148,7 +240,79 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantVisit = infantVisit;
     }
 
-    @Column(name = "infant_temp", nullable = true)
+    @Column(name = "infant_visit_date2", length = 1)
+    public Date getInfantVisitDate2() {
+        return infantVisitDate2;
+    }
+
+    public void setInfantVisitDate2(Date infantVisitDate2) {
+        this.infantVisitDate2 = infantVisitDate2;
+    }
+
+    @Column(name = "infant_status2", length = 1)
+    public String getInfantStatus2() {
+        return infantStatus2;
+    }
+
+    public void setInfantStatus2(String infantStatus2) {
+        this.infantStatus2 = infantStatus2;
+    }
+
+    @Column(name = "infant_death_dt2")
+    public Date getInfantDeathDt2() {
+        return infantDeathDt2;
+    }
+
+    public void setInfantDeathDt2(Date infantDeathDt2) {
+        this.infantDeathDt2 = infantDeathDt2;
+    }
+
+    @Column(name = "infant_visit2", length = 1)
+    public String getInfantVisit2() {
+        return infantVisit2;
+    }
+
+    public void setInfantVisit2(String infantVisit2) {
+        this.infantVisit2 = infantVisit2;
+    }
+
+    @Column(name = "infant_visit_date3", length = 1)
+    public Date getInfantVisitDate3() {
+        return infantVisitDate3;
+    }
+
+    public void setInfantVisitDate3(Date infantVisitDate3) {
+        this.infantVisitDate3 = infantVisitDate3;
+    }
+
+    @Column(name = "infant_status3", length = 1)
+    public String getInfantStatus3() {
+        return infantStatus3;
+    }
+
+    public void setInfantStatus3(String infantStatus3) {
+        this.infantStatus3 = infantStatus3;
+    }
+
+    @Column(name = "infant_death_dt3")
+    public Date getInfantDeathDt3() {
+        return infantDeathDt3;
+    }
+
+    public void setInfantDeathDt3(Date infantDeathDt3) {
+        this.infantDeathDt3 = infantDeathDt3;
+    }
+
+    @Column(name = "infant_visit3", length = 1)
+    public String getInfantVisit3() {
+        return infantVisit3;
+    }
+
+    public void setInfantVisit3(String infantVisit3) {
+        this.infantVisit3 = infantVisit3;
+    }
+
+    @Column(name = "infant_temp")
     public Float getInfantTemp() {
         return infantTemp;
     }
@@ -157,7 +321,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantTemp = infantTemp;
     }
 
-    @Column(name = "infant_tmp_unit", nullable = true, length = 1)
+    @Column(name = "infant_tmp_unit", length = 1)
     public String getInfantTmpUnit() {
         return infantTmpUnit;
     }
@@ -166,7 +330,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantTmpUnit = infantTmpUnit;
     }
 
-    @Column(name = "infant_wt", nullable = true)
+    @Column(name = "infant_wt")
     public Float getInfantWt() {
         return infantWt;
     }
@@ -175,7 +339,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantWt = infantWt;
     }
 
-    @Column(name = "infant_wt_unit", nullable = true, length = 1)
+    @Column(name = "infant_wt_unit", length = 1)
     public String getInfantWtUnit() {
         return infantWtUnit;
     }
@@ -184,7 +348,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantWtUnit = infantWtUnit;
     }
 
-    @Column(name = "infant_wt_percen", nullable = true)
+    @Column(name = "infant_wt_percen")
     public Float getInfantWtPercen() {
         return infantWtPercen;
     }
@@ -193,7 +357,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantWtPercen = infantWtPercen;
     }
 
-    @Column(name = "infant_wtpercen_na", nullable = true, length = 2)
+    @Column(name = "infant_wtpercen_na", length = 2)
     public String getInfantWtpercenNa() {
         return infantWtpercenNa;
     }
@@ -202,7 +366,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantWtpercenNa = infantWtpercenNa;
     }
 
-    @Column(name = "infant_length", nullable = true)
+    @Column(name = "infant_length")
     public Float getInfantLength() {
         return infantLength;
     }
@@ -211,7 +375,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantLength = infantLength;
     }
 
-    @Column(name = "infant_length_percen", nullable = true)
+    @Column(name = "infant_length_percen")
     public Float getInfantLengthPercen() {
         return infantLengthPercen;
     }
@@ -220,7 +384,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantLengthPercen = infantLengthPercen;
     }
 
-    @Column(name = "infant_lenpercen_na", nullable = true, length = 2)
+    @Column(name = "infant_lenpercen_na", length = 2)
     public String getInfantLenpercenNa() {
         return infantLenpercenNa;
     }
@@ -229,7 +393,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantLenpercenNa = infantLenpercenNa;
     }
 
-    @Column(name = "infant_headcircu", nullable = true)
+    @Column(name = "infant_headcircu")
     public Float getInfantHeadcircu() {
         return infantHeadcircu;
     }
@@ -238,7 +402,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantHeadcircu = infantHeadcircu;
     }
 
-    @Column(name = "infant_heapercen", nullable = true)
+    @Column(name = "infant_heapercen")
     public Float getInfantHeapercen() {
         return infantHeapercen;
     }
@@ -247,7 +411,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantHeapercen = infantHeapercen;
     }
 
-    @Column(name = "infant_heapercen_na", nullable = true, length = 2)
+    @Column(name = "infant_heapercen_na", length = 2)
     public String getInfantHeapercenNa() {
         return infantHeapercenNa;
     }
@@ -256,15 +420,24 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantHeapercenNa = infantHeapercenNa;
     }
 
-    @Column(name = "infant_referral_neuro", nullable = true, length = 2)
-    public String getInfantReferralNeuro() {
-        return infantReferralNeuro;
+    @Column(name = "infant_heasize", length = 2)
+    public String getInfantHeasize() {
+        return infantHeasize;
     }
 
-    public void setInfantReferralNeuro(String infantReferralNeuro) {
-        this.infantReferralNeuro = infantReferralNeuro;
+    public void setInfantHeasize(String infantHeasize) {
+        this.infantHeasize = infantHeasize;
     }
 
+    /* @Column(name = "infant_referral_neuro", nullable = true, length = 2)
+     public String getInfantReferralNeuro() {
+         return infantReferralNeuro;
+     }
+
+     public void setInfantReferralNeuro(String infantReferralNeuro) {
+         this.infantReferralNeuro = infantReferralNeuro;
+     }
+ */
     @Column(name = "infant_apgar_na", nullable = true, length = 2)
     public String getInfantApgarNa() {
         return infantApgarNa;
@@ -355,76 +528,22 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantOphth = infantOphth;
     }
 
-    @Column(name = "infant_ophth_abno", nullable = true, length = 2)
+    @Column(name = "infant_ophth_type", length = 2)
+    public String getInfantOphthType() {
+        return infantOphthType;
+    }
+
+    public void setInfantOphthType(String infantOphthType) {
+        this.infantOphthType = infantOphthType;
+    }
+
+    @Column(name = "infant_ophth_abno", length = 2)
     public String getInfantOphthAbno() {
         return infantOphthAbno;
     }
 
     public void setInfantOphthAbno(String infantOphthAbno) {
         this.infantOphthAbno = infantOphthAbno;
-    }
-
-    @Column(name = "infant_which_eye", nullable = true, length = 4)
-    public String getInfantWhichEye() {
-        return infantWhichEye;
-    }
-
-    public void setInfantWhichEye(String infantWhichEye) {
-        this.infantWhichEye = infantWhichEye;
-    }
-
-    @Column(name = "infant_eye_calci", nullable = true, length = 2)
-    public String getInfantEyeCalci() {
-        return infantEyeCalci;
-    }
-
-    public void setInfantEyeCalci(String infantEyeCalci) {
-        this.infantEyeCalci = infantEyeCalci;
-    }
-
-    @Column(name = "infant_choriore", nullable = true, length = 2)
-    public String getInfantChoriore() {
-        return infantChoriore;
-    }
-
-    public void setInfantChoriore(String infantChoriore) {
-        this.infantChoriore = infantChoriore;
-    }
-
-    @Column(name = "infant_eye_other", nullable = true, length = 2)
-    public String getInfantEyeOther() {
-        return infantEyeOther;
-    }
-
-    public void setInfantEyeOther(String infantEyeOther) {
-        this.infantEyeOther = infantEyeOther;
-    }
-
-    @Column(name = "infant_other_issue", nullable = true, length = 20)
-    public String getInfantOtherIssue() {
-        return infantOtherIssue;
-    }
-
-    public void setInfantOtherIssue(String infantOtherIssue) {
-        this.infantOtherIssue = infantOtherIssue;
-    }
-
-    @Column(name = "infant_eye_other_specify", nullable = true)
-    public String getInfantEyeOtherSpecify() {
-        return infantEyeOtherSpecify;
-    }
-
-    public void setInfantEyeOtherSpecify(String infantEyeOtherSpecify) {
-        this.infantEyeOtherSpecify = infantEyeOtherSpecify;
-    }
-
-    @Column(name = "infant_referral_ophth", nullable = true, length = 2)
-    public String getInfantReferralOphth() {
-        return infantReferralOphth;
-    }
-
-    public void setInfantReferralOphth(String infantReferralOphth) {
-        this.infantReferralOphth = infantReferralOphth;
     }
 
     @Column(name = "infant_oae", nullable = true, length = 2)
@@ -436,58 +555,58 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantOae = infantOae;
     }
 
-    @Column(name = "infant_oae_abnormal", nullable = true, length = 2)
-    public String getInfantOaeAbnormal() {
-        return infantOaeAbnormal;
+    @Column(name = "infant_hearing_test", length = 2)
+    public String getInfantHearingTest() {
+        return infantHearingTest;
     }
 
-    public void setInfantOaeAbnormal(String infantOaeAbnormal) {
-        this.infantOaeAbnormal = infantOaeAbnormal;
+    public void setInfantHearingTest(String infantHearingTest) {
+        this.infantHearingTest = infantHearingTest;
     }
 
-    @Column(name = "infant_which_ear", nullable = true, length = 4)
-    public String getInfantWhichEar() {
-        return infantWhichEar;
+    @Column(name = "infant_hearing_overall", length = 2)
+    public String getInfantHearingOverall() {
+        return infantHearingOverall;
     }
 
-    public void setInfantWhichEar(String infantWhichEar) {
-        this.infantWhichEar = infantWhichEar;
+    public void setInfantHearingOverall(String infantHearingOverall) {
+        this.infantHearingOverall = infantHearingOverall;
     }
 
-    @Column(name = "infant_referral_audio", nullable = true, length = 2)
-    public String getInfantReferralAudio() {
-        return infantReferralAudio;
+    @Column(name = "infant_roae", length = 2)
+    public String getInfantRoae() {
+        return infantRoae;
     }
 
-    public void setInfantReferralAudio(String infantReferralAudio) {
-        this.infantReferralAudio = infantReferralAudio;
+    public void setInfantRoae(String infantRoae) {
+        this.infantRoae = infantRoae;
     }
 
-    @Column(name = "infant_additional_audio", nullable = true, length = 2)
-    public String getInfantAdditionalAudio() {
-        return infantAdditionalAudio;
+    @Column(name = "infant_raabr", nullable = true, length = 2)
+    public String getInfantRaabr() {
+        return infantRaabr;
     }
 
-    public void setInfantAdditionalAudio(String infantAdditionalAudio) {
-        this.infantAdditionalAudio = infantAdditionalAudio;
+    public void setInfantRaabr(String infantRaabr) {
+        this.infantRaabr = infantRaabr;
     }
 
-    @Column(name = "infatn_hear_left", nullable = true)
-    public Float getInfatnHearLeft() {
-        return infatnHearLeft;
+    @Column(name = "infant_loae", nullable = true, length = 2)
+    public String getInfantLoae() {
+        return infantLoae;
     }
 
-    public void setInfatnHearLeft(Float infatnHearLeft) {
-        this.infatnHearLeft = infatnHearLeft;
+    public void setInfantLoae(String infantLoae) {
+        this.infantLoae = infantLoae;
     }
 
-    @Column(name = "infant_hear_right", nullable = true)
-    public Float getInfantHearRight() {
-        return infantHearRight;
+    @Column(name = "infant_laabr", nullable = true, length = 2)
+    public String getInfantLaabr() {
+        return infantLaabr;
     }
 
-    public void setInfantHearRight(Float infantHearRight) {
-        this.infantHearRight = infantHearRight;
+    public void setInfantLaabr(String infantLaabr) {
+        this.infantLaabr = infantLaabr;
     }
 
     @Column(name = "infant_breastfeeding", nullable = true, length = 2)
@@ -526,25 +645,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantNeurodeve = infantNeurodeve;
     }
 
-    @Column(name = "infant_neurodeve_type", nullable = true, length = 20)
-    public String getInfantNeurodeveType() {
-        return infantNeurodeveType;
-    }
-
-    public void setInfantNeurodeveType(String infantNeurodeveType) {
-        this.infantNeurodeveType = infantNeurodeveType;
-    }
-
-    @Column(name = "infant_other_specify", nullable = true)
-    public String getInfantOtherSpecify() {
-        return infantOtherSpecify;
-    }
-
-    public void setInfantOtherSpecify(String infantOtherSpecify) {
-        this.infantOtherSpecify = infantOtherSpecify;
-    }
-
-    @Column(name = "infant_exhibited", nullable = true, length = 25)
+    @Column(name = "infant_exhibited", nullable = true, length = 50)
     public String getInfantExhibited() {
         return infantExhibited;
     }
@@ -553,16 +654,52 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantExhibited = infantExhibited;
     }
 
-    @Column(name = "infant_other_movement", nullable = true)
-    public String getInfantOtherMovement() {
-        return infantOtherMovement;
+    @Column(name = "infant_asym_type", nullable = true, length = 25)
+    public String getInfantAsymType() {
+        return infantAsymType;
     }
 
-    public void setInfantOtherMovement(String infantOtherMovement) {
-        this.infantOtherMovement = infantOtherMovement;
+    public void setInfantAsymType(String infantAsymType) {
+        this.infantAsymType = infantAsymType;
     }
 
-    @Column(name = "infant_further_neuro", nullable = true, length = 2)
+    @Column(name = "infant_other_move", nullable = true)
+    public String getInfantOtherMove() {
+        return infantOtherMove;
+    }
+
+    public void setInfantOtherMove(String infantOtherMove) {
+        this.infantOtherMove = infantOtherMove;
+    }
+
+    @Column(name = "infant_exhibit_other", nullable = true, length = 25)
+    public String getInfantExhibitOther() {
+        return infantExhibitOther;
+    }
+
+    public void setInfantExhibitOther(String infantExhibitOther) {
+        this.infantExhibitOther = infantExhibitOther;
+    }
+
+    @Column(name = "infant_microce", length = 2)
+    public String getInfantMicroce() {
+        return infantMicroce;
+    }
+
+    public void setInfantMicroce(String infantMicroce) {
+        this.infantMicroce = infantMicroce;
+    }
+
+    @Column(name = "infant_definition",  length = 50)
+    public String getInfantDefinition() {
+        return infantDefinition;
+    }
+
+    public void setInfantDefinition(String infantDefinition) {
+        this.infantDefinition = infantDefinition;
+    }
+
+    @Column(name = "infant_further_neuro", length = 2)
     public String getInfantFurtherNeuro() {
         return infantFurtherNeuro;
     }
@@ -571,220 +708,760 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantFurtherNeuro = infantFurtherNeuro;
     }
 
-    @Column(name = "infant_head_altra", nullable = true, length = 2)
-    public String getInfantHeadAltra() {
-        return infantHeadAltra;
+    @Column(name = "infant_evaluation", length = 2)
+    public String getInfantEvaluation() {
+        return infantEvaluation;
     }
 
-    public void setInfantHeadAltra(String infantHeadAltra) {
-        this.infantHeadAltra = infantHeadAltra;
+    public void setInfantEvaluation(String infantEvaluation) {
+        this.infantEvaluation = infantEvaluation;
     }
 
-    @Column(name = "infant_ultra_obtained", nullable = true, length = 2)
-    public String getInfantUltraObtained() {
-        return infantUltraObtained;
+    @Column(name = "infant_neuro_asq", nullable = true, length = 2)
+    public String getInfantNeuroAsq() {
+        return infantNeuroAsq;
     }
 
-    public void setInfantUltraObtained(String infantUltraObtained) {
-        this.infantUltraObtained = infantUltraObtained;
+    public void setInfantNeuroAsq(String infantNeuroAsq) {
+        this.infantNeuroAsq = infantNeuroAsq;
     }
 
-    @Column(name = "infant_ultra_dt", nullable = true)
-    public Date getInfantUltraDt() {
-        return infantUltraDt;
+    @Column(name = "infant_asq_communi", nullable = true)
+    public Float getInfantAsqCommuni() {
+        return infantAsqCommuni;
     }
 
-    public void setInfantUltraDt(Date infantUltraDt) {
-        this.infantUltraDt = infantUltraDt;
+    public void setInfantAsqCommuni(Float infantAsqCommuni) {
+        this.infantAsqCommuni = infantAsqCommuni;
     }
 
-    @Column(name = "infant_results_ultra", nullable = true, length = 2)
-    public String getInfantResultsUltra() {
-        return infantResultsUltra;
+    @Column(name = "infant_asq_gross", nullable = true)
+    public Float getInfantAsqGross() {
+        return infantAsqGross;
     }
 
-    public void setInfantResultsUltra(String infantResultsUltra) {
-        this.infantResultsUltra = infantResultsUltra;
+    public void setInfantAsqGross(Float infantAsqGross) {
+        this.infantAsqGross = infantAsqGross;
     }
 
-    @Column(name = "infant_results_specify", nullable = true)
-    public String getInfantResultsSpecify() {
-        return infantResultsSpecify;
+    @Column(name = "infant_asq_fine", nullable = true)
+    public Float getInfantAsqFine() {
+        return infantAsqFine;
     }
 
-    public void setInfantResultsSpecify(String infantResultsSpecify) {
-        this.infantResultsSpecify = infantResultsSpecify;
+    public void setInfantAsqFine(Float infantAsqFine) {
+        this.infantAsqFine = infantAsqFine;
     }
 
-    @Column(name = "infant_head_ct", nullable = true, length = 2)
-    public String getInfantHeadCt() {
-        return infantHeadCt;
+    @Column(name = "infant_asq_problem", nullable = true)
+    public Float getInfantAsqProblem() {
+        return infantAsqProblem;
     }
 
-    public void setInfantHeadCt(String infantHeadCt) {
-        this.infantHeadCt = infantHeadCt;
+    public void setInfantAsqProblem(Float infantAsqProblem) {
+        this.infantAsqProblem = infantAsqProblem;
     }
 
-    @Column(name = "infant_ct_obtained", nullable = true, length = 2)
-    public String getInfantCtObtained() {
-        return infantCtObtained;
+    @Column(name = "infant_asq_personal", nullable = true)
+    public Float getInfantAsqPersonal() {
+        return infantAsqPersonal;
     }
 
-    public void setInfantCtObtained(String infantCtObtained) {
-        this.infantCtObtained = infantCtObtained;
+    public void setInfantAsqPersonal(Float infantAsqPersonal) {
+        this.infantAsqPersonal = infantAsqPersonal;
     }
 
-    @Column(name = "infant_ct_dt", nullable = true)
-    public Date getInfantCtDt() {
-        return infantCtDt;
+    @Column(name = "infant_neuro_bisd", nullable = true, length = 2)
+    public String getInfantNeuroBisd() {
+        return infantNeuroBisd;
     }
 
-    public void setInfantCtDt(Date infantCtDt) {
-        this.infantCtDt = infantCtDt;
+    public void setInfantNeuroBisd(String infantNeuroBisd) {
+        this.infantNeuroBisd = infantNeuroBisd;
     }
 
-    @Column(name = "infant_results_ct", nullable = true, length = 2)
-    public String getInfantResultsCt() {
-        return infantResultsCt;
+    @Column(name = "infant_cg_score", nullable = true)
+    public Float getInfantCgScore() {
+        return infantCgScore;
     }
 
-    public void setInfantResultsCt(String infantResultsCt) {
-        this.infantResultsCt = infantResultsCt;
+    public void setInfantCgScore(Float infantCgScore) {
+        this.infantCgScore = infantCgScore;
     }
 
-    @Column(name = "infant_ct_specify", nullable = true)
-    public String getInfantCtSpecify() {
-        return infantCtSpecify;
+    @Column(name = "infant_cg_risk", nullable = true, length = 2)
+    public String getInfantCgRisk() {
+        return infantCgRisk;
     }
 
-    public void setInfantCtSpecify(String infantCtSpecify) {
-        this.infantCtSpecify = infantCtSpecify;
+    public void setInfantCgRisk(String infantCgRisk) {
+        this.infantCgRisk = infantCgRisk;
     }
 
-    @Column(name = "infant_cerebrospinal", nullable = true, length = 2)
-    public String getInfantCerebrospinal() {
-        return infantCerebrospinal;
+    @Column(name = "infant_rp_score", nullable = true)
+    public Float getInfantRpScore() {
+        return infantRpScore;
     }
 
-    public void setInfantCerebrospinal(String infantCerebrospinal) {
-        this.infantCerebrospinal = infantCerebrospinal;
+    public void setInfantRpScore(Float infantRpScore) {
+        this.infantRpScore = infantRpScore;
     }
 
-    @Column(name = "infant_cerebro_stored", nullable = true, length = 2)
-    public String getInfantCerebroStored() {
-        return infantCerebroStored;
+    @Column(name = "infant_rp_risk", nullable = true, length = 2)
+    public String getInfantRpRisk() {
+        return infantRpRisk;
     }
 
-    public void setInfantCerebroStored(String infantCerebroStored) {
-        this.infantCerebroStored = infantCerebroStored;
+    public void setInfantRpRisk(String infantRpRisk) {
+        this.infantRpRisk = infantRpRisk;
     }
 
-    @Column(name = "infant_cerebro_dt", nullable = true)
-    public Date getInfantCerebroDt() {
-        return infantCerebroDt;
+    @Column(name = "infant_ep_score", nullable = true)
+    public Float getInfantEpScore() {
+        return infantEpScore;
     }
 
-    public void setInfantCerebroDt(Date infantCerebroDt) {
-        this.infantCerebroDt = infantCerebroDt;
+    public void setInfantEpScore(Float infantEpScore) {
+        this.infantEpScore = infantEpScore;
     }
 
-    @Column(name = "infant_cerebro_amount", nullable = true)
-    public Float getInfantCerebroAmount() {
-        return infantCerebroAmount;
+    @Column(name = "infant_ep_risk", nullable = true, length = 2)
+    public String getInfantEpRisk() {
+        return infantEpRisk;
     }
 
-    public void setInfantCerebroAmount(Float infantCerebroAmount) {
-        this.infantCerebroAmount = infantCerebroAmount;
+    public void setInfantEpRisk(String infantEpRisk) {
+        this.infantEpRisk = infantEpRisk;
     }
 
-    @Column(name = "infant_results_cerebro", nullable = true, length = 2)
-    public String getInfantResultsCerebro() {
-        return infantResultsCerebro;
+    @Column(name = "infant_fm_score", nullable = true)
+    public Float getInfantFmScore() {
+        return infantFmScore;
     }
 
-    public void setInfantResultsCerebro(String infantResultsCerebro) {
-        this.infantResultsCerebro = infantResultsCerebro;
+    public void setInfantFmScore(Float infantFmScore) {
+        this.infantFmScore = infantFmScore;
     }
 
-    @Column(name = "infant_cerebro_specify", nullable = true)
-    public String getInfantCerebroSpecify() {
-        return infantCerebroSpecify;
+    @Column(name = "infant_fm_risk", nullable = true, length = 2)
+    public String getInfantFmRisk() {
+        return infantFmRisk;
     }
 
-    public void setInfantCerebroSpecify(String infantCerebroSpecify) {
-        this.infantCerebroSpecify = infantCerebroSpecify;
+    public void setInfantFmRisk(String infantFmRisk) {
+        this.infantFmRisk = infantFmRisk;
     }
 
-    @Column(name = "infant_mri", nullable = true, length = 2)
-    public String getInfantMri() {
-        return infantMri;
+    @Column(name = "infant_gm_score", nullable = true)
+    public Float getInfantGmScore() {
+        return infantGmScore;
     }
 
-    public void setInfantMri(String infantMri) {
-        this.infantMri = infantMri;
+    public void setInfantGmScore(Float infantGmScore) {
+        this.infantGmScore = infantGmScore;
     }
 
-    @Column(name = "infant_mri_obtained", nullable = true, length = 2)
-    public String getInfantMriObtained() {
-        return infantMriObtained;
+    @Column(name = "infant_gm_risk", nullable = true, length = 2)
+    public String getInfantGmRisk() {
+        return infantGmRisk;
     }
 
-    public void setInfantMriObtained(String infantMriObtained) {
-        this.infantMriObtained = infantMriObtained;
+    public void setInfantGmRisk(String infantGmRisk) {
+        this.infantGmRisk = infantGmRisk;
     }
 
-    @Column(name = "infant_mri_dt", nullable = true)
-    public Date getInfantMriDt() {
-        return infantMriDt;
+    @Column(name = "infant_neuro_other", nullable = true, length = 2)
+    public String getInfantNeuroOther() {
+        return infantNeuroOther;
     }
 
-    public void setInfantMriDt(Date infantMriDt) {
-        this.infantMriDt = infantMriDt;
+    public void setInfantNeuroOther(String infantNeuroOther) {
+        this.infantNeuroOther = infantNeuroOther;
     }
 
-    @Column(name = "infant_results_mri", nullable = true, length = 2)
-    public String getInfantResultsMri() {
-        return infantResultsMri;
+    @Column(name = "infant_other_name", nullable = true, length = 50)
+    public String getInfantOtherName() {
+        return infantOtherName;
     }
 
-    public void setInfantResultsMri(String infantResultsMri) {
-        this.infantResultsMri = infantResultsMri;
+    public void setInfantOtherName(String infantOtherName) {
+        this.infantOtherName = infantOtherName;
     }
 
-    @Column(name = "infant_mri_specify", nullable = true)
-    public String getInfantMriSpecify() {
-        return infantMriSpecify;
+    @Column(name = "infant_other_score", nullable = true)
+    public Float getInfantOtherScore() {
+        return infantOtherScore;
     }
 
-    public void setInfantMriSpecify(String infantMriSpecify) {
-        this.infantMriSpecify = infantMriSpecify;
+    public void setInfantOtherScore(Float infantOtherScore) {
+        this.infantOtherScore = infantOtherScore;
     }
 
-    @Column(name = "infant_previous_results", nullable = true, length = 2)
-    public String getInfantPreviousResults() {
-        return infantPreviousResults;
+    @Column(name = "infant_result_screening", length = 2)
+    public String getInfantResultScreening() {
+        return infantResultScreening;
     }
 
-    public void setInfantPreviousResults(String infantPreviousResults) {
-        this.infantPreviousResults = infantPreviousResults;
+    public void setInfantResultScreening(String infantResultScreening) {
+        this.infantResultScreening = infantResultScreening;
     }
 
-    @Column(name = "infant_referr_counselling", nullable = true, length = 2)
-    public String getInfantReferrCounselling() {
-        return infantReferrCounselling;
+    @Column(name = "infant_refer_testing", length = 2)
+    public String getInfantReferTesting() {
+        return infantReferTesting;
     }
 
-    public void setInfantReferrCounselling(String infantReferrCounselling) {
-        this.infantReferrCounselling = infantReferrCounselling;
+    public void setInfantReferTesting(String infantReferTesting) {
+        this.infantReferTesting = infantReferTesting;
     }
 
-    @Column(name = "infant_other_lab_collect", nullable = true, length = 2)
-    public String getInfantOtherLabCollect() {
-        return infantOtherLabCollect;
+    @Column(name = "infant_fever_symptom", length = 2)
+    public String getInfantFeverSymptom() {
+        return infantFeverSymptom;
     }
 
-    public void setInfantOtherLabCollect(String infantOtherLabCollect) {
-        this.infantOtherLabCollect = infantOtherLabCollect;
+    public void setInfantFeverSymptom(String infantFeverSymptom) {
+        this.infantFeverSymptom = infantFeverSymptom;
+    }
+
+    @Column(name = "infant_rash_symptom", length = 2)
+    public String getInfantRashSymptom() {
+        return infantRashSymptom;
+    }
+
+    public void setInfantRashSymptom(String infantRashSymptom) {
+        this.infantRashSymptom = infantRashSymptom;
+    }
+
+    @Column(name = "infant_itch", length = 2)
+    public String getInfantItch() {
+        return infantItch;
+    }
+
+    public void setInfantItch(String infantItch) {
+        this.infantItch = infantItch;
+    }
+
+    @Column(name = "infant_rash_first", length = 2)
+    public String getInfantRashFirst() {
+        return infantRashFirst;
+    }
+
+    public void setInfantRashFirst(String infantRashFirst) {
+        this.infantRashFirst = infantRashFirst;
+    }
+
+    @Column(name = "infant_rash_dy", length = 2)
+    public String getInfantRashDy() {
+        return infantRashDy;
+    }
+
+    public void setInfantRashDy(String infantRashDy) {
+        this.infantRashDy = infantRashDy;
+    }
+
+    @Column(name = "infant_rash_mn", length = 2)
+    public String getInfantRashMn() {
+        return infantRashMn;
+    }
+
+    public void setInfantRashMn(String infantRashMn) {
+        this.infantRashMn = infantRashMn;
+    }
+
+    @Column(name = "infant_rash_yr", length = 4)
+    public String getInfantRashYr() {
+        return infantRashYr;
+    }
+
+    public void setInfantRashYr(String infantRashYr) {
+        this.infantRashYr = infantRashYr;
+    }
+
+    @Column(name = "infant_rash_dur")
+    public Float getInfantRashDur() {
+        return infantRashDur;
+    }
+
+    public void setInfantRashDur(Float infantRashDur) {
+        this.infantRashDur = infantRashDur;
+    }
+
+    @Column(name = "infant_rash_spread", length = 2)
+    public String getInfantRashSpread() {
+        return infantRashSpread;
+    }
+
+    public void setInfantRashSpread(String infantRashSpread) {
+        this.infantRashSpread = infantRashSpread;
+    }
+
+    @Column(name = "infant_spread_part", length = 15)
+    public String getInfantSpreadPart() {
+        return infantSpreadPart;
+    }
+
+    public void setInfantSpreadPart(String infantSpreadPart) {
+        this.infantSpreadPart = infantSpreadPart;
+    }
+
+    @Column(name = "infant_fever_experience", length = 2)
+    public String getInfantFeverExperience() {
+        return infantFeverExperience;
+    }
+
+    public void setInfantFeverExperience(String infantFeverExperience) {
+        this.infantFeverExperience = infantFeverExperience;
+    }
+
+    @Column(name = "infant_temp_measure", length = 2)
+    public String getInfantTempMeasure() {
+        return infantTempMeasure;
+    }
+
+    public void setInfantTempMeasure(String infantTempMeasure) {
+        this.infantTempMeasure = infantTempMeasure;
+    }
+
+    @Column(name = "infant_high_temp")
+    public Float getInfantHighTemp() {
+        return infantHighTemp;
+    }
+
+    public void setInfantHighTemp(Float infantHighTemp) {
+        this.infantHighTemp = infantHighTemp;
+    }
+
+    @Column(name = "infant_hightem_unit", length = 2)
+    public String getInfantHightemUnit() {
+        return infantHightemUnit;
+    }
+
+    public void setInfantHightemUnit(String infantHightemUnit) {
+        this.infantHightemUnit = infantHightemUnit;
+    }
+
+    @Column(name = "infant_tempunknown", length = 2)
+    public String getInfantTempunknown() {
+        return infantTempunknown;
+    }
+
+    public void setInfantTempunknown(String infantTempunknown) {
+        this.infantTempunknown = infantTempunknown;
+    }
+
+    @Column(name = "infant_fever_dy", length = 2)
+    public String getInfantFeverDy() {
+        return infantFeverDy;
+    }
+
+    public void setInfantFeverDy(String infantFeverDy) {
+        this.infantFeverDy = infantFeverDy;
+    }
+
+    @Column(name = "infant_fever_mn", length = 2)
+    public String getInfantFeverMn() {
+        return infantFeverMn;
+    }
+
+    public void setInfantFeverMn(String infantFeverMn) {
+        this.infantFeverMn = infantFeverMn;
+    }
+
+    @Column(name = "infant_fever_yr", length = 4)
+    public String getInfantFeverYr() {
+        return infantFeverYr;
+    }
+
+    public void setInfantFeverYr(String infantFeverYr) {
+        this.infantFeverYr = infantFeverYr;
+    }
+
+    @Column(name = "infant_fever_dur")
+    public Float getInfantFeverDur() {
+        return infantFeverDur;
+    }
+
+    public void setInfantFeverDur(Float infantFeverDur) {
+        this.infantFeverDur = infantFeverDur;
+    }
+
+    @Column(name = "infant_redeyes", length = 2)
+    public String getInfantRedeyes() {
+        return infantRedeyes;
+    }
+
+    public void setInfantRedeyes(String infantRedeyes) {
+        this.infantRedeyes = infantRedeyes;
+    }
+
+    @Column(name = "infant_redeyes_dy", length = 2)
+    public String getInfantRedeyesDy() {
+        return infantRedeyesDy;
+    }
+
+    public void setInfantRedeyesDy(String infantRedeyesDy) {
+        this.infantRedeyesDy = infantRedeyesDy;
+    }
+
+    @Column(name = "infant_redeyes_mn", length = 2)
+    public String getInfantRedeyesMn() {
+        return infantRedeyesMn;
+    }
+
+    public void setInfantRedeyesMn(String infantRedeyesMn) {
+        this.infantRedeyesMn = infantRedeyesMn;
+    }
+
+    @Column(name = "infant_redeyes_yr", length = 4)
+    public String getInfantRedeyesYr() {
+        return infantRedeyesYr;
+    }
+
+    public void setInfantRedeyesYr(String infantRedeyesYr) {
+        this.infantRedeyesYr = infantRedeyesYr;
+    }
+
+    @Column(name = "infant_redeyes_dur")
+    public Float getInfantRedeyesDur() {
+        return infantRedeyesDur;
+    }
+
+    public void setInfantRedeyesDur(Float infantRedeyesDur) {
+        this.infantRedeyesDur = infantRedeyesDur;
+    }
+
+    @Column(name = "infant_joint", length = 2)
+    public String getInfantJoint() {
+        return infantJoint;
+    }
+
+    public void setInfantJoint(String infantJoint) {
+        this.infantJoint = infantJoint;
+    }
+
+    @Column(name = "infant_joint_dy", length = 2)
+    public String getInfantJointDy() {
+        return infantJointDy;
+    }
+
+    public void setInfantJointDy(String infantJointDy) {
+        this.infantJointDy = infantJointDy;
+    }
+
+    @Column(name = "infant_joint_mn", length = 2)
+    public String getInfantJointMn() {
+        return infantJointMn;
+    }
+
+    public void setInfantJointMn(String infantJointMn) {
+        this.infantJointMn = infantJointMn;
+    }
+
+    @Column(name = "infant_joint_yr", length = 4)
+    public String getInfantJointYr() {
+        return infantJointYr;
+    }
+
+    public void setInfantJointYr(String infantJointYr) {
+        this.infantJointYr = infantJointYr;
+    }
+
+    @Column(name = "infant_joint_dur")
+    public Float getInfantJointDur() {
+        return infantJointDur;
+    }
+
+    public void setInfantJointDur(Float infantJointDur) {
+        this.infantJointDur = infantJointDur;
+    }
+
+    @Column(name = "infant_headache", length = 2)
+    public String getInfantHeadache() {
+        return infantHeadache;
+    }
+
+    public void setInfantHeadache(String infantHeadache) {
+        this.infantHeadache = infantHeadache;
+    }
+
+    @Column(name = "infant_headache_dy", length = 2)
+    public String getInfantHeadacheDy() {
+        return infantHeadacheDy;
+    }
+
+    public void setInfantHeadacheDy(String infantHeadacheDy) {
+        this.infantHeadacheDy = infantHeadacheDy;
+    }
+
+    @Column(name = "infant_headache_mn", length = 2)
+    public String getInfantHeadacheMn() {
+        return infantHeadacheMn;
+    }
+
+    public void setInfantHeadacheMn(String infantHeadacheMn) {
+        this.infantHeadacheMn = infantHeadacheMn;
+    }
+
+    @Column(name = "infant_headache_yr", length = 4)
+    public String getInfantHeadacheYr() {
+        return infantHeadacheYr;
+    }
+
+    public void setInfantHeadacheYr(String infantHeadacheYr) {
+        this.infantHeadacheYr = infantHeadacheYr;
+    }
+
+    @Column(name = "infant_heada_dur")
+    public Float getInfantHeadaDur() {
+        return infantHeadaDur;
+    }
+
+    public void setInfantHeadaDur(Float infantHeadaDur) {
+        this.infantHeadaDur = infantHeadaDur;
+    }
+
+    @Column(name = "infant_symptom_other", length = 2)
+    public String getInfantSymptomOther() {
+        return infantSymptomOther;
+    }
+
+    public void setInfantSymptomOther(String infantSymptomOther) {
+        this.infantSymptomOther = infantSymptomOther;
+    }
+
+    @Column(name = "infant_specify_symptom", length = 50)
+    public String getInfantSpecifySymptom() {
+        return infantSpecifySymptom;
+    }
+
+    public void setInfantSpecifySymptom(String infantSpecifySymptom) {
+        this.infantSpecifySymptom = infantSpecifySymptom;
+    }
+
+    @Column(name = "infant_other_symptom", length = 50)
+    public String getInfantOtherSymptom() {
+        return infantOtherSymptom;
+    }
+
+    public void setInfantOtherSymptom(String infantOtherSymptom) {
+        this.infantOtherSymptom = infantOtherSymptom;
+    }
+
+    @Column(name = "infant_medicare", length = 2)
+    public String getInfantMedicare() {
+        return infantMedicare;
+    }
+
+    public void setInfantMedicare(String infantMedicare) {
+        this.infantMedicare = infantMedicare;
+    }
+
+    @Column(name = "infant_care_dy", length = 2)
+    public String getInfantCareDy() {
+        return infantCareDy;
+    }
+
+    public void setInfantCareDy(String infantCareDy) {
+        this.infantCareDy = infantCareDy;
+    }
+
+    @Column(name = "infant_care_mn", length = 2)
+    public String getInfantCareMn() {
+        return infantCareMn;
+    }
+
+    public void setInfantCareMn(String infantCareMn) {
+        this.infantCareMn = infantCareMn;
+    }
+
+    @Column(name = "infant_care_yr", length = 4)
+    public String getInfantCareYr() {
+        return infantCareYr;
+    }
+
+    public void setInfantCareYr(String infantCareYr) {
+        this.infantCareYr = infantCareYr;
+    }
+
+    @Column(name = "infant_care_facility", length = 8)
+    public String getInfantCareFacility() {
+        return infantCareFacility;
+    }
+
+    public void setInfantCareFacility(String infantCareFacility) {
+        this.infantCareFacility = infantCareFacility;
+    }
+
+    @Column(name = "infant_hospitalized", length = 2)
+    public String getInfantHospitalized() {
+        return infantHospitalized;
+    }
+
+    public void setInfantHospitalized(String infantHospitalized) {
+        this.infantHospitalized = infantHospitalized;
+    }
+
+    @Column(name = "infant_hospital", length = 50)
+    public String getInfantHospital() {
+        return infantHospital;
+    }
+
+    public void setInfantHospital(String infantHospital) {
+        this.infantHospital = infantHospital;
+    }
+
+    @Column(name = "infant_diag_rubella", length = 2)
+    public String getInfantDiagRubella() {
+        return infantDiagRubella;
+    }
+
+    public void setInfantDiagRubella(String infantDiagRubella) {
+        this.infantDiagRubella = infantDiagRubella;
+    }
+
+    @Column(name = "infant_diag_dengue", length = 2)
+    public String getInfantDiagDengue() {
+        return infantDiagDengue;
+    }
+
+    public void setInfantDiagDengue(String infantDiagDengue) {
+        this.infantDiagDengue = infantDiagDengue;
+    }
+
+    @Column(name = "infant_diag_chikung", length = 2)
+    public String getInfantDiagChikung() {
+        return infantDiagChikung;
+    }
+
+    public void setInfantDiagChikung(String infantDiagChikung) {
+        this.infantDiagChikung = infantDiagChikung;
+    }
+
+    @Column(name = "infant_diag_zika", length = 2)
+    public String getInfantDiagZika() {
+        return infantDiagZika;
+    }
+
+    public void setInfantDiagZika(String infantDiagZika) {
+        this.infantDiagZika = infantDiagZika;
+    }
+
+    @Column(name = "infant_diag_cytome", length = 2)
+    public String getInfantDiagCytome() {
+        return infantDiagCytome;
+    }
+
+    public void setInfantDiagCytome(String infantDiagCytome) {
+        this.infantDiagCytome = infantDiagCytome;
+    }
+
+    @Column(name = "infant_medicine", length = 2)
+    public String getInfantMedicine() {
+        return infantMedicine;
+    }
+
+    public void setInfantMedicine(String infantMedicine) {
+        this.infantMedicine = infantMedicine;
+    }
+
+    @Column(name = "infant_med_name", length = 25)
+    public String getInfantMedName() {
+        return infantMedName;
+    }
+
+    public void setInfantMedName(String infantMedName) {
+        this.infantMedName = infantMedName;
+    }
+
+    @Column(name = "infant_sp_diary", length = 2)
+    public String getInfantSpDiary() {
+        return infantSpDiary;
+    }
+
+    public void setInfantSpDiary(String infantSpDiary) {
+        this.infantSpDiary = infantSpDiary;
+    }
+
+    @Column(name = "infant_pre_results", length = 2)
+    public String getInfantPreResults() {
+        return infantPreResults;
+    }
+
+    public void setInfantPreResults(String infantPreResults) {
+        this.infantPreResults = infantPreResults;
+    }
+
+    @Column(name = "infant_referr", length = 2)
+    public String getInfantReferr() {
+        return infantReferr;
+    }
+
+    public void setInfantReferr(String infantReferr) {
+        this.infantReferr = infantReferr;
+    }
+
+    @Column(name = "infant_other_lab", length = 2)
+    public String getInfantOtherLab() {
+        return infantOtherLab;
+    }
+
+    public void setInfantOtherLab(String infantOtherLab) {
+        this.infantOtherLab = infantOtherLab;
+    }
+
+    @Column(name = "infant_comments_yn",  length = 2)
+    public String getInfantCommentsYn() {
+        return infantCommentsYn;
+    }
+
+    public void setInfantCommentsYn(String infantCommentsYn) {
+        this.infantCommentsYn = infantCommentsYn;
+    }
+
+    @Column(name = "infant_comments2", length = 100)
+    public String getInfantComments2() {
+        return infantComments2;
+    }
+
+    public void setInfantComments2(String infantComments2) {
+        this.infantComments2 = infantComments2;
+    }
+
+    @Column(name = "infant_comments_yn2",  length = 2)
+    public String getInfantCommentsYn2() {
+        return infantCommentsYn2;
+    }
+
+    public void setInfantCommentsYn2(String infantCommentsYn2) {
+        this.infantCommentsYn2 = infantCommentsYn2;
+    }
+
+    @Column(name = "infant_comments_yn2_2", length = 100)
+    public String getInfantComments2_2() {
+        return infantComments2_2;
+    }
+
+    public void setInfantComments2_2(String infantComments2_2) {
+        this.infantComments2_2 = infantComments2_2;
+    }
+
+    @Column(name = "infant_comments_yn3", length = 2)
+    public String getInfantCommentsYn3() {
+        return infantCommentsYn3;
+    }
+
+    public void setInfantCommentsYn3(String infantCommentsYn3) {
+        this.infantCommentsYn3 = infantCommentsYn3;
+    }
+
+    @Column(name = "infant_comments_yn2_3", length = 100)
+    public String getInfantComments2_3() {
+        return infantComments2_3;
+    }
+
+    public void setInfantComments2_3(String infantComments2_3) {
+        this.infantComments2_3 = infantComments2_3;
     }
 
     @Column(name = "infant_id_completing", nullable = true, length = 50)
@@ -796,13 +1473,13 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantIdCompleting = infantIdCompleting;
     }
 
-    @Column(name = "infant_date_completed", nullable = true)
-    public Date getInfantDateCompleted() {
-        return infantDateCompleted;
+    @Column(name = "infant_dt_comp", nullable = true)
+    public Date getInfantDtComp() {
+        return infantDtComp;
     }
 
-    public void setInfantDateCompleted(Date infantDateCompleted) {
-        this.infantDateCompleted = infantDateCompleted;
+    public void setInfantDtComp(Date infantDtComp) {
+        this.infantDtComp = infantDtComp;
     }
 
     @Column(name = "infant_id_reviewer", nullable = true, length = 50)
@@ -814,13 +1491,13 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantIdReviewer = infantIdReviewer;
     }
 
-    @Column(name = "infant_date_reviewed", nullable = true)
-    public Date getInfantDateReviewed() {
-        return infantDateReviewed;
+    @Column(name = "infant_dt_review", nullable = true)
+    public Date getInfantDtReview() {
+        return infantDtReview;
     }
 
-    public void setInfantDateReviewed(Date infantDateReviewed) {
-        this.infantDateReviewed = infantDateReviewed;
+    public void setInfantDtReview(Date infantDtReview) {
+        this.infantDtReview = infantDtReview;
     }
 
     @Column(name = "infant_id_data_entry", nullable = true, length = 50)
@@ -832,14 +1509,168 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantIdDataEntry = infantIdDataEntry;
     }
 
-    @Column(name = "infant_date_entered", nullable = true)
-    public Date getInfantDateEntered() {
-        return infantDateEntered;
+    @Column(name = "infant_dt_enter", nullable = true)
+    public Date getInfantDtEnter() {
+        return infantDtEnter;
     }
 
-    public void setInfantDateEntered(Date infantDateEntered) {
-        this.infantDateEntered = infantDateEntered;
+    public void setInfantDtEnter(Date infantDtEnter) {
+        this.infantDtEnter = infantDtEnter;
     }
+
+    @Column(name = "infant_id_completing2", nullable = true, length = 50)
+    public String getInfantIdCompleting2() {
+        return infantIdCompleting2;
+    }
+
+    public void setInfantIdCompleting2(String infantIdCompleting2) {
+        this.infantIdCompleting2 = infantIdCompleting2;
+    }
+    @Column(name = "infant_dt_comp2", nullable = true)
+    public Date getInfantDtComp2() {
+        return infantDtComp2;
+    }
+
+    public void setInfantDtComp2(Date infantDtComp2) {
+        this.infantDtComp2 = infantDtComp2;
+    }
+
+    @Column(name = "infant_id_reviewer2", nullable = true, length = 50)
+    public String getInfantIdReviewer2() {
+        return infantIdReviewer2;
+    }
+
+    public void setInfantIdReviewer2(String infantIdReviewer2) {
+        this.infantIdReviewer2 = infantIdReviewer2;
+    }
+
+    @Column(name = "infant_dt_review2", nullable = true)
+    public Date getInfantDtReview2() {
+        return infantDtReview2;
+    }
+
+    public void setInfantDtReview2(Date infantDtReview2) {
+        this.infantDtReview2 = infantDtReview2;
+    }
+
+    @Column(name = "infant_id_data_entry2", nullable = true, length = 50)
+    public String getInfantIdDataEntry2() {
+        return infantIdDataEntry2;
+    }
+
+    public void setInfantIdDataEntry2(String infantIdDataEntry2) {
+        this.infantIdDataEntry2 = infantIdDataEntry2;
+    }
+
+    @Column(name = "infant_dt_enter2", nullable = true)
+    public Date getInfantDtEnter2() {
+        return infantDtEnter2;
+    }
+
+    public void setInfantDtEnter2(Date infantDtEnter2) {
+        this.infantDtEnter2 = infantDtEnter2;
+    }
+
+    @Column(name = "infant_id_completing3", nullable = true, length = 50)
+    public String getInfantIdCompleting3() {
+        return infantIdCompleting3;
+    }
+
+    public void setInfantIdCompleting3(String infantIdCompleting3) {
+        this.infantIdCompleting3 = infantIdCompleting3;
+    }
+
+    @Column(name = "infant_dt_comp3", nullable = true)
+    public Date getInfantDtComp3() {
+        return infantDtComp3;
+    }
+
+    public void setInfantDtComp3(Date infantDtComp3) {
+        this.infantDtComp3 = infantDtComp3;
+    }
+
+    @Column(name = "infant_id_reviewer3", nullable = true, length = 50)
+    public String getInfantIdReviewer3() {
+        return infantIdReviewer3;
+    }
+
+    public void setInfantIdReviewer3(String infantIdReviewer3) {
+        this.infantIdReviewer3 = infantIdReviewer3;
+    }
+
+    @Column(name = "infant_dt_review3", nullable = true)
+    public Date getInfantDtReview3() {
+        return infantDtReview3;
+    }
+
+    public void setInfantDtReview3(Date infantDtReview3) {
+        this.infantDtReview3 = infantDtReview3;
+    }
+
+    @Column(name = "infant_id_data_entry3", nullable = true, length = 50)
+    public String getInfantIdDataEntry3() {
+        return infantIdDataEntry3;
+    }
+
+    public void setInfantIdDataEntry3(String infantIdDataEntry3) {
+        this.infantIdDataEntry3 = infantIdDataEntry3;
+    }
+
+    @Column(name = "infant_dt_enter3", nullable = true)
+    public Date getInfantDtEnter3() {
+        return infantDtEnter3;
+    }
+
+    public void setInfantDtEnter3(Date infantDtEnter3) {
+        this.infantDtEnter3 = infantDtEnter3;
+    }
+
+    @Column(name = "part1")
+    public Integer getPart1() {
+        return part1;
+    }
+
+    public void setPart1(Integer part1) {
+        this.part1 = part1;
+    }
+
+    @Column(name = "part2")
+    public Integer getPart2() {
+        return part2;
+    }
+
+    public void setPart2(Integer part2) {
+        this.part2 = part2;
+    }
+
+
+    @Column(name = "part3")
+    public Integer getPart3() {
+        return part3;
+    }
+
+    public void setPart3(Integer part3) {
+        this.part3 = part3;
+    }
+
+    @Column(name = "id_instancia2")
+    public Integer getIdInstancia2() {
+        return idInstancia2;
+    }
+
+    public void setIdInstancia2(Integer idInstancia2) {
+        this.idInstancia2 = idInstancia2;
+    }
+
+    @Column(name = "id_instancia3")
+    public Integer getIdInstancia3() {
+        return idInstancia3;
+    }
+
+    public void setIdInstancia3(Integer idInstancia3) {
+        this.idInstancia3 = idInstancia3;
+    }
+
 
     @Override
     public boolean isFieldAuditable(String fieldname) {
