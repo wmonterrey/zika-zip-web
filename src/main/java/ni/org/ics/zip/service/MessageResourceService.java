@@ -39,7 +39,7 @@ public class MessageResourceService {
 		addT.setMessageKey("civil3");
 		addT.setCatKey("3");
 		addT.setEnglish("Test english");
-		addT.setSpanish("Prueba español");
+		addT.setSpanish("Prueba espaÃ±ol");
 		session.saveOrUpdate(addT);
 		
 	}
