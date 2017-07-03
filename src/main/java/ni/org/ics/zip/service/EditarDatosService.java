@@ -162,6 +162,8 @@ public class EditarDatosService {
             if (!setNull) {
                 if (type == Types.VARCHAR)
                     pstm.setString(1, valor);
+                else if (type == Types.CHAR)
+                    pstm.setString(1, String.valueOf(valor.charAt(0)));
                 else if (type == Types.DATE) {
                     if (valor.trim().contains(" ")) {
                         pstm.setDate(1, new java.sql.Date(DateUtil.StringToDate(valor, "dd/MM/yyyy").getTime()));
