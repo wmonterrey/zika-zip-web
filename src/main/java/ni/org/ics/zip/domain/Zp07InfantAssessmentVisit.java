@@ -31,7 +31,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
     private Date infantVisitDate3;
     private String infantStatus3;
     private Date infantDeathDt3;
-    private String infantVisit3;
+    private String infantVisit3; 
     private Float infantTemp;
     private String infantTmpUnit;
     private Float infantWt;
@@ -1670,9 +1670,41 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
     public void setIdInstancia3(Integer idInstancia3) {
         this.idInstancia3 = idInstancia3;
     }
+    
+    //added v2.4
+    private Date infantDob;
+    private Integer infantWeeks;
+    private Integer infantDays;
 
+    
+    @Column(name = "infant_dob", nullable=true)
+    public Date getInfantDob() {
+		return infantDob;
+	}
 
-    @Override
+	public void setInfantDob(Date infantDob) {
+		this.infantDob = infantDob;
+	}
+
+	@Column(name = "infant_weeks", nullable=true)
+	public Integer getInfantWeeks() {
+		return infantWeeks;
+	}
+
+	public void setInfantWeeks(Integer infantWeeks) {
+		this.infantWeeks = infantWeeks;
+	}
+	
+	@Column(name = "infant_days", nullable=true)
+	public Integer getInfantDays() {
+		return infantDays;
+	}
+
+	public void setInfantDays(Integer infantDays) {
+		this.infantDays = infantDays;
+	}
+
+	@Override
     public boolean isFieldAuditable(String fieldname) {
         return true;
     }

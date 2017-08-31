@@ -1,6 +1,7 @@
 INSERT INTO `roles` (`ROL`) VALUES ('ROLE_ADMIN');
 INSERT INTO `roles` (`ROL`) VALUES ('ROLE_MOVIL');
 INSERT INTO `roles` (`ROL`) VALUES ('ROLE_QC');
+INSERT INTO `roles` (`ROL`) VALUES ('ROLE_CATALOG');
 
 INSERT INTO `centers` (`CS`) VALUES ('Socrates Flores');
 INSERT INTO `centers` (`CS`) VALUES ('Francisco Buitrago');
@@ -216,6 +217,7 @@ INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('lbl.select', '
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('class ni.org.ics.zip.domain.relationships.UserCenter', '0', 'Centro del usuario');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('class ni.org.ics.zip.users.model.UserSistema', '0', 'Usuario');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('class ni.org.ics.zip.users.model.Authority', '0', 'Rol del usuario');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('class ni.org.ics.zip.domain.catalogs.Provider', '0', 'Proveedor');
 /*Agenda*/
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('subjectId', '0', 'Codigo Participante');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('diary.registerdate', '0', 'Fecha Ingreso');
@@ -307,3 +309,29 @@ INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('us_
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('us_event_tri3', '0', '3er Trimestre');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('us_event_unsched', '0', 'No programado');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('lbl.any', '0', 'Nunguno');
+
+/*Catalogos*/
+INSERT INTO `roles` (`ROL`) VALUES ('ROLE_CATALOG');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'ROLE_CATALOG', 'Catálogos','0');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('catalog', '0', 'Catálogos');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('catalogcenter', '0', 'Unidad de Salud');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('centers', '0', 'Unidades de Salud');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('centerName', '0', 'Nombre Unidad de Salud');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('catalogsubjtype', '0', 'Tipo de agenda');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('subjtypes', '0', 'Tipos de agenda');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('subjtypeName', '0', 'Nombre Tipo de Agenda'); 
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('specialities', '0', 'Especialidades');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('speciality', '0', 'Especialidad');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('catalogspeciality', '0', 'Especialidades'); 
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('appointmentTypes', '0', 'Tipos de citas');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('appointmentType', '0', 'Tipo de cita');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('catalogapptype', '0', 'Tipos de citas'); 
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('catalogprovider', '0', 'Proveedores de salud');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('providers', '0', 'Proveedores');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('providername', '0', 'Nombre');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('providerus', '0', 'Unidad de salud');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('providersp', '0', 'Especialidad');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catKey`, `en`, `catPasive`, `es`) VALUES ('providerid', NULL, NULL, '0', 'Codigo Proveedor');
+INSERT INTO `messages` (`messageKey`, `catKey`, `en`, `catPasive`, `es`) VALUES ('provider.enabled', NULL, NULL, '0', 'Proveedor habilitado');
+INSERT INTO `messages` (`messageKey`, `catKey`, `en`, `catPasive`, `es`) VALUES ('provider.disabled', NULL, NULL, '0', 'Proveedor deshabilitado');
+

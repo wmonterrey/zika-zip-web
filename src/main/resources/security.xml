@@ -6,6 +6,7 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 	
 	<http auto-config="true" request-matcher="regex">
+	    <intercept-url pattern="/catalog/.*" access="ROLE_CATALOG" />
 	    <intercept-url pattern="/admin/.*" access="ROLE_ADMIN" />
 	    <intercept-url pattern="/movil/.*" access="ROLE_MOVIL" />
 		<intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY" />

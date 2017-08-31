@@ -82,7 +82,45 @@
                         </ul>
                     </li>
                 </sec:authorize>
-
+				<sec:authorize url="/catalog/">
+				<li class="catalog">
+					<a href="javascript:;">
+					<i class="fa fa-th-large"></i>
+					<span class="title">
+						<spring:message code="catalog" />
+					</span>
+					<span class="arrow ">
+					</span>
+					</a>
+					<ul class="sub-menu">
+						<li class="catalogcenter">
+							<a href="<spring:url value="/catalog/centers/" htmlEscape="true "/>">
+							<i class="fa fa-building"></i>
+							<spring:message code="catalogcenter" /></a>
+						</li>
+						<li class="catalogsubjtype">
+							<a href="<spring:url value="/catalog/subjectTypes/" htmlEscape="true "/>">
+							<i class="fa fa-info-circle"></i>
+							<spring:message code="catalogsubjtype" /></a>
+						</li>
+						<li class="catalogspeciality">
+							<a href="<spring:url value="/catalog/specialities/" htmlEscape="true "/>">
+							<i class="fa fa-stethoscope"></i>
+							<spring:message code="catalogspeciality" /></a>
+						</li>
+						<li class="catalogapptype">
+							<a href="<spring:url value="/catalog/appointmenttypes/" htmlEscape="true "/>">
+							<i class="fa fa-sliders"></i>
+							<spring:message code="catalogapptype" /></a>
+						</li>
+						<li class="catalogprovider">
+							<a href="<spring:url value="/catalog/providers/" htmlEscape="true "/>">
+							<i class="fa fa-group"></i>
+							<spring:message code="catalogprovider" /></a>
+						</li>
+					</ul>
+				</li>
+				</sec:authorize>
                 <li class="last ">
                     <a href="<spring:url value="/logout" htmlEscape="true" />">
                         <i class="fa fa-sign-out"></i>
