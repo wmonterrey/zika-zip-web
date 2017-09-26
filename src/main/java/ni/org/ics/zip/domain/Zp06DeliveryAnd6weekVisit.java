@@ -147,6 +147,13 @@ public class Zp06DeliveryAnd6weekVisit extends BaseMetaData implements Auditable
     private Date deliDateReviewed;
     private String deliIdDataEntry;
     private Date deliDateEntered;
+    
+    //v2.4
+    private String deliHyperDisease;
+    private String deliPreterm1;
+    private String deliPreterm2;
+    private String deliPreterm3;
+    private String deliDeliverEarly;
 
     @Id
     @Column(name = "record_id", nullable = false, length = 25)
@@ -1319,15 +1326,62 @@ public class Zp06DeliveryAnd6weekVisit extends BaseMetaData implements Auditable
     public void setDeliDateEntered(Date deliDateEntered) {
         this.deliDateEntered = deliDateEntered;
     }
+    
+    //v2.4
+    @Column(name = "deli_hyper_disease", nullable = true)
+    public String getDeliHyperDisease() {
+		return deliHyperDisease;
+	}
 
-    @Override
-    public boolean isFieldAuditable(String fieldname) {
-        return true;
-    }
+	public void setDeliHyperDisease(String deliHyperDisease) {
+		this.deliHyperDisease = deliHyperDisease;
+	}
+	
+	
+	@Column(name = "deli_preterm1", nullable = true)
+	public String getDeliPreterm1() {
+		return deliPreterm1;
+	}
 
-    @Override
+	public void setDeliPreterm1(String deliPreterm1) {
+		this.deliPreterm1 = deliPreterm1;
+	}
+
+	@Column(name = "deli_preterm2", nullable = true)
+	public String getDeliPreterm2() {
+		return deliPreterm2;
+	}
+
+	public void setDeliPreterm2(String deliPreterm2) {
+		this.deliPreterm2 = deliPreterm2;
+	}
+
+	@Column(name = "deli_preterm3", nullable = true)
+	public String getDeliPreterm3() {
+		return deliPreterm3;
+	}
+
+	public void setDeliPreterm3(String deliPreterm3) {
+		this.deliPreterm3 = deliPreterm3;
+	}
+
+	@Column(name = "deli_deliver_early", nullable = true)
+	public String getDeliDeliverEarly() {
+		return deliDeliverEarly;
+	}
+
+	public void setDeliDeliverEarly(String deliDeliverEarly) {
+		this.deliDeliverEarly = deliDeliverEarly;
+	}
+
+	@Override
     public String toString() {
         return this.recordId;
+    }
+	
+	@Override
+    public boolean isFieldAuditable(String fieldname) {
+        return true;
     }
 
     @Override

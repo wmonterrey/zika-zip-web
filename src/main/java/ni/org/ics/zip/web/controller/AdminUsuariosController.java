@@ -402,6 +402,7 @@ public class AdminUsuariosController {
 			String encodedPass = encoder.encode(password);
 			user.setPassword(encodedPass);
 			user.setLastCredentialChange(new Date());
+			user.setCredentialsNonExpired(true);
 			this.usuarioService.saveUser(user);
 			return createJsonResponse(user);
     	}
