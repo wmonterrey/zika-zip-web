@@ -2,6 +2,8 @@ package ni.org.ics.zip.domain.catalogs;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,17 +22,19 @@ public class Provider extends BaseMetaData implements Auditable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String id;
+	private int id;
 	private String name;
-	private Cs us;
-	private Speciality speciality;
+	private String us;
+	private String speciality;
 	
 	@Id
-	@Column(name = "ID", nullable = false, length =50)
-	public String getId() {
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "ID", nullable = false, length =11)
+	
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	@Column(name = "NOMBRE", nullable = false, length =255)
@@ -40,6 +44,26 @@ public class Provider extends BaseMetaData implements Auditable{
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
+	@Column(name = "ESPECIALIDAD", nullable = true, length =255)
+	public String getSpeciality() {
+		return speciality;
+	}
+	public void setSpeciality(String speciality) {
+		this.speciality = speciality;
+	}
+	
+	@Column(name = "CS", nullable = true, length =255)
+	public String getUs() {
+		return us;
+	}
+	
+	public void setUs(String us) {
+		this.us = us;
+	}
+	
+	/*
 	@ManyToOne
 	@JoinColumn(name="CS", insertable = false, updatable = false)
 	@ForeignKey(name = "US_PROVEEDORES_FK")
@@ -58,6 +82,8 @@ public class Provider extends BaseMetaData implements Auditable{
 	public void setSpeciality(Speciality speciality) {
 		this.speciality = speciality;
 	}
+	
+	*/
 	@Override
 	public String toString(){
 		return name;
@@ -74,7 +100,7 @@ public class Provider extends BaseMetaData implements Auditable{
 		
 		Provider castOther = (Provider) other;
 
-		return (this.getId().equals(castOther.getId()));
+		return (this.id == castOther.id);
 	}
 	@Override
 	public boolean isFieldAuditable(String fieldname) {

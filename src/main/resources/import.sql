@@ -334,4 +334,23 @@ INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('pro
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catKey`, `en`, `catPasive`, `es`) VALUES ('providerid', NULL, NULL, '0', 'Codigo Proveedor');
 INSERT INTO `messages` (`messageKey`, `catKey`, `en`, `catPasive`, `es`) VALUES ('provider.enabled', NULL, NULL, '0', 'Proveedor habilitado');
 INSERT INTO `messages` (`messageKey`, `catKey`, `en`, `catPasive`, `es`) VALUES ('provider.disabled', NULL, NULL, '0', 'Proveedor deshabilitado');
+INSERT INTO `messages` (`messageKey`, `catKey`, `en`, `catPasive`, `es`) VALUES ('superstudies', NULL, NULL, '0', 'Especialidad');
+INSERT INTO `zika_zip`.`Messages` (`messageKey`, `catPasive`, `es`) VALUES ('agenda_fecha', '0', 'Fecha de Cita');
+INSERT INTO `zika_zip`.`Messages` (`messageKey`, `catPasive`, `es`) VALUES ('agenda_hora', '0', 'Hora de Cita');
+INSERT INTO `zika_zip`.`Messages` (`messageKey`, `catPasive`,`es`) VALUES ('phone_number', '0', 'Número Teléfono');
+INSERT INTO `zika_zip`.`Messages` (`messageKey`, `catPasive`,`es`) VALUES ('sms_number', '0', 'Número Mensaje');
+INSERT INTO `zika_zip`.`Messages` (`messageKey`, `catPasive`,`es`) VALUES ('asistencia', '0', '¿Asistio?');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('provider', '0', 'Proveedor');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('newAppointment', '0', 'Nueva cita');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('additionalText', '0', 'Observaciones');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('hora_inicio', '0', 'Inicio');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('hora_fin', '0', 'Fin');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('confirmQuestion', '0', '¿Seguro de seguir con el proceso?');
+
+/*Parametros */
+INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('HoraInicioAtencion', '8');
+INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('HoraFinAtencion', '17');
+INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('TiempoCita', '30');
+
+
 

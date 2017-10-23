@@ -1,3 +1,5 @@
+
+//CatalogosController
 package ni.org.ics.zip.web.controller;
 
 
@@ -7,9 +9,12 @@ import ni.org.ics.zip.domain.catalogs.Cs;
 import ni.org.ics.zip.domain.catalogs.Provider;
 import ni.org.ics.zip.domain.catalogs.Speciality;
 import ni.org.ics.zip.domain.catalogs.SubjectType;
+import ni.org.ics.zip.domain.relationships.UserCenter;
 import ni.org.ics.zip.service.AuditTrailService;
 import ni.org.ics.zip.service.CatalogosService;
 import ni.org.ics.zip.service.UsuarioService;
+import ni.org.ics.zip.users.model.Authority;
+import ni.org.ics.zip.users.model.UserAccess;
 import ni.org.ics.zip.users.model.UserSistema;
 
 import org.slf4j.Logger;
@@ -26,6 +31,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.Gson;
@@ -47,7 +53,7 @@ public class CatalogosController {
 	private UsuarioService usuarioService;
     @Resource(name="auditTrailService")
 	private AuditTrailService auditTrailService;
-
+    
     @RequestMapping(value = "centers", method = RequestMethod.GET)
     public String obtenerUnidades(Model model) throws ParseException {
         logger.debug("Mostrando unidades de salud en JSP");
@@ -57,10 +63,36 @@ public class CatalogosController {
         return "catalogos/centers/list";
     }
     
+    @RequestMapping(value = "showCenter/{centername}", method = RequestMethod.GET)
+    public String showUnidad(Model model, @PathVariable(value = "centername") String centername) throws ParseException {
+        logger.debug("Mostrando unidad de salud en JSP " + centername);
+
+        Cs centro = catalogosService.getCs(centername);
+       
+        model.addAttribute("centro", centro);
+        return "catalogos/centers/viewCenter";
+    }
+    
+
+    
     @RequestMapping(value = "newCenter", method = RequestMethod.GET)
 	public String initCreationCenter(Model model) {
+    	
+    	 model.addAttribute("agregando",true);
+         model.addAttribute("editando",false);
+         
 		return "catalogos/centers/enterForm";
 	}
+    
+    @RequestMapping(value = "editcenter/{centername}", method = RequestMethod.GET)
+   	public String initEditCenter(Model model, @PathVariable(value = "centername") String centername) throws ParseException {
+    	   logger.debug("Editando unidad de salud en JSP " + centername);      
+        Cs centro = catalogosService.getCs(centername);  
+        model.addAttribute("unidad", centro);
+    	 model.addAttribute("agregando",false);
+         model.addAttribute("editando",true);
+   		return "catalogos/centers/enterForm";
+    }
     
     @RequestMapping( value="saveCenter", method=RequestMethod.POST)
 	public ResponseEntity<String> processCenterForm( @RequestParam(value="centerName", required=true) String centerName)
@@ -222,7 +254,7 @@ public class CatalogosController {
     
     @RequestMapping(value = "viewProvider/{provider}/", method = RequestMethod.GET)
     public String initViewProvider(Model model, @PathVariable(value = "provider") String providerId){
-    	Provider provider = this.catalogosService.getProvider(providerId);
+    	Provider provider = this.catalogosService.getProvider(Integer.parseInt(providerId));
     	if (provider!=null){
     		model.addAttribute("provider", provider);
     		List<Speciality> especialidades = catalogosService.getSpecialities();
@@ -240,11 +272,12 @@ public class CatalogosController {
     
     @RequestMapping(value = "editProvider/{provider}/", method = RequestMethod.GET)
     public String initEditionProvider(Model model, @PathVariable(value = "provider") String providerId){
-    	Provider provider = this.catalogosService.getProvider(providerId);
+    	Provider provider = this.catalogosService.getProvider(Integer.parseInt(providerId));
     	if (provider!=null){
     		model.addAttribute("provider", provider);
     		List<Speciality> especialidades = catalogosService.getSpecialities();
             model.addAttribute("especialidades", especialidades);
+            
             List<Cs> centros = catalogosService.getCss();
             model.addAttribute("centros", centros);
     		return "catalogos/providers/enterForm";
@@ -255,23 +288,23 @@ public class CatalogosController {
     }
     
     @RequestMapping( value="saveProvider", method=RequestMethod.POST)
-	public ResponseEntity<String> processProviderForm( @RequestParam(value="id", required=false, defaultValue="") String id
-			, @RequestParam( value="name", required=true ) String name
-			, @RequestParam( value="us", required=true ) String us
-			, @RequestParam( value="speciality", required=true ) String speciality)
+	public ResponseEntity<String> processProviderForm( 
+			@RequestParam(value="id", required=false, defaultValue="") String id
+			, @RequestParam( value="providerName", required=true ) String name
+			, @RequestParam( value="unidadSalud", required=true ) String us
+			, @RequestParam( value="especialidadProveedor", required=true ) String speciality)
 	{
     	try{
     		UserSistema usuario = usuarioService.getUser(SecurityContextHolder.getContext().getAuthentication().getName());
     		Provider provider = new Provider();
-    		if (id.equals("")){
-    			provider.setId(id);
+    		if (!id.equals("")){
+    		
+    			provider =  this.catalogosService.getProvider(Integer.parseInt(id));
     		}
-    		else{
-    			provider =  this.catalogosService.getProvider(id);
-    		}
+    		else provider.setId(0);
     		provider.setName(name);
-    		provider.setUs(this.catalogosService.getCs(us));
-    		provider.setSpeciality(this.catalogosService.getSpeciality(speciality));
+    		provider.setUs(us);// this.catalogosService.getCs(us));
+    		provider.setSpeciality(speciality);// this.catalogosService.getSpeciality(speciality));
     		provider.setRecordUser(usuario.getUsername());
     		provider.setRecordDate(new Date());
 			WebAuthenticationDetails wad  = (WebAuthenticationDetails) SecurityContextHolder.getContext().getAuthentication().getDetails();
@@ -330,7 +363,7 @@ public class CatalogosController {
         else{
         	return redirecTo;
         }
-    	Provider proveedoraEditar = this.catalogosService.getProvider(providerId);
+    	Provider proveedoraEditar = this.catalogosService.getProvider(Integer.parseInt( providerId));
     	if(proveedoraEditar==null){
     		redirecTo="404";
 		}

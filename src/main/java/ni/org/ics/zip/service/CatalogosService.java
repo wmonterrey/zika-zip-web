@@ -1,3 +1,5 @@
+
+// CatalogosService
 package ni.org.ics.zip.service;
 
 import ni.org.ics.zip.domain.catalogs.AppointmentType;
@@ -93,10 +95,10 @@ public class CatalogosService {
     }
     
 
-    public Provider getProvider(String id){
+    public Provider getProvider(int id){
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("FROM Provider p where p.id=:id");
-        query.setParameter("id", id);
+        query.setParameter("id", (Integer)id);
         return (Provider) query.uniqueResult();
     }
     

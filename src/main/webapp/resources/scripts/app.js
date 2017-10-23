@@ -752,7 +752,7 @@ var App = function () {
 
 
             if (sidebarOption == "fixed" && headerOption == "default") {
-                alert('Esta opcion no está soportada. Para dejar fijo el menu tiene que dejar fijo el encabezado.');
+                alert('Esta opcion no estï¿½ soportada. Para dejar fijo el menu tiene que dejar fijo el encabezado.');
                 $('.header-option', panel).val("fixed");
                 $('.sidebar-option', panel).val("fixed");
                 sidebarOption = 'fixed';
@@ -854,6 +854,8 @@ var App = function () {
         null!=localStorage.getItem("sm-style-color")?setColor(localStorage.getItem("sm-style-color")):setColor("default");
     };
     //* END:CORE HANDLERS *//
+    
+
 
     return {
 

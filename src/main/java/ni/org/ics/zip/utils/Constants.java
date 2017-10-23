@@ -104,4 +104,13 @@ public class Constants {
     public static final String TABLE_ZP08 = "zp08_study_exit";
     public static final String TABLE_ZP07 = "zp07_infant_assessment";
     public static final String TABLE_ZP02d = "zp02d_infant_biospecimen_collection";
+    
+    /*tablas para cada parametro*/
+    public static final String  HORAINICIO_CITA= "HoraInicioAtencion";
+    public static final String HORAFIN_CITA = "HoraFinAtencion";
+    
+    /*TIPOS DE AGENDAS*/
+    public static final String  _MUJER= "MUJER";
+    public static final String _NINO = "NIÑO";
+    
 }

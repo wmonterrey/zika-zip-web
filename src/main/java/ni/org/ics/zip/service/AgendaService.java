@@ -1,6 +1,8 @@
 package ni.org.ics.zip.service;
 
+import java.util.Calendar;
 import ni.org.ics.zip.domain.*;
+import ni.org.ics.zip.domain.catalogs.Provider;
 import ni.org.ics.zip.utils.Constants;
 import ni.org.ics.zip.utils.DateUtil;
 import ni.org.ics.zip.utils.ZpAgendaEmbarazada;
@@ -29,6 +31,7 @@ public class AgendaService {
 
     @SuppressWarnings("unchecked")
 	public List<ZpAgendaEmbarazada> getDiary(String fecha) throws ParseException{
+
         List<ZpAgendaEmbarazada> agendaEmbarazadas = new ArrayList<ZpAgendaEmbarazada>();
         List<Zp00Screening> screenings;
         List<Zp04TrimesterVisitSectionFtoH> trimesterVisitSectionFtoHs = new ArrayList<Zp04TrimesterVisitSectionFtoH>();
@@ -490,5 +493,91 @@ public class AgendaService {
 
         return  agendaEmbarazadas;
     }
+
+
+		@SuppressWarnings("unchecked")
+		public List<ZpAgendaEstudio> getCitas(Date fechaFiltro, String tipoCita) {
+			
+			List<ZpAgendaEstudio> agenda = new ArrayList<ZpAgendaEstudio>();
+			
+			  Session session = sessionFactory.getCurrentSession();
+		
+			  Calendar c = Calendar.getInstance();
+			  c.setTime(fechaFiltro);
+			  c.add(Calendar.DAY_OF_YEAR, 1);
+			 Date fechaF = c.getTime();
+		        Query query = session.createQuery("from ZpAgendaEstudio as  z where z.appointmentDateTime >= :fecha and z.appointmentDateTime < :fechaF");
+		        query.setParameter("fecha",fechaFiltro);
+		        query.setParameter("fechaF",fechaF);
+		       // query.setParameter("tipoAgenda",tipoCita);
+		        
+		        agenda = query.list(); 
+			return agenda;
+		
+		}
+		/// Para motivos de prueba
+		@SuppressWarnings("unchecked")
+		public List<ZpAgendaEstudio> getCitas() {
+			
+			List<ZpAgendaEstudio> agenda = new ArrayList<ZpAgendaEstudio>();
+			
+			  Session session = sessionFactory.getCurrentSession();
+		
+			  Calendar c = Calendar.getInstance();
+			 
+			  c.add(Calendar.DAY_OF_YEAR, 1);
+			 Date fechaF = c.getTime();
+		        Query query = session.createQuery("from ZpAgendaEstudio as z");
+		       
+		       
+		        agenda = query.list(); 
+			return agenda;
+		
+		}
+		
+		@SuppressWarnings("unchecked")
+		public List<ZpAgendaEstudio> getCitas(Date fechaInicio, Date fechaFin, String tipo_agenda, String unidad_salud) {
+			
+			List<ZpAgendaEstudio> agenda = new ArrayList<ZpAgendaEstudio>();
+			
+			  Session session = sessionFactory.getCurrentSession();		
+			  String qst = "from ZpAgendaEstudio as  z where z.appointmentDateTime >= :fecha "
+			  		+ "and z.appointmentDateTime <= :fechaF "
+					+ " and (z.healtUnit = :unidad or :unidad  = '')"
+			  		+ " and (z.subjectType = :tipoagenda or :tipoagenda = '')";
+			 
+		        Query query = session.createQuery(qst);
+		        query.setParameter("fecha",fechaInicio);
+		        query.setParameter("fechaF",fechaFin);
+		        query.setParameter("unidad",unidad_salud);
+		        query.setParameter("tipoagenda",tipo_agenda);
+		        
+		        agenda = query.list(); 
+			return agenda;
+		
+		}
+
+		public void saveAppointment(ZpAgendaEstudio agenda){
+	        Session session = sessionFactory.getCurrentSession();
+	        
+	        session.saveOrUpdate(agenda);
+	    }
+		
+		public ZpAgendaEstudio getZpAgendaEstudio(Integer id){
+			
+	        Session session = sessionFactory.getCurrentSession();
+	        Query query = session.createQuery("FROM ZpAgendaEstudio p WHERE p.id=:id");
+	        query.setParameter("id", id);
+	        return (ZpAgendaEstudio) query.uniqueResult();
+	    }
+		
+		public ZpAgendaEstudio getZpAgendaEstudio(String tipoAgenda, Date fechahora){
+			
+	        Session session = sessionFactory.getCurrentSession();
+	        Query query = session.createQuery("FROM ZpAgendaEstudio p WHERE p.appointmentType=:tipoagenda AND p.appointmentDateTime = :fecha");
+	        query.setParameter("tipoagenda",tipoAgenda);
+	        query.setParameter("fecha",fechahora);
+	        return (ZpAgendaEstudio) query.uniqueResult();
+		}
 
 }

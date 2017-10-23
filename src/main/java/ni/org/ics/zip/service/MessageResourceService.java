@@ -1,6 +1,7 @@
 package ni.org.ics.zip.service;
 
 import java.util.List;
+import java.util.Locale;
 
 import javax.annotation.Resource;
 
@@ -9,6 +10,7 @@ import ni.org.ics.zip.language.MessageResource;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -71,4 +73,28 @@ public class MessageResourceService {
         query.setParameter("key",key);
         return (MessageResource) query.uniqueResult();
     }
+	
+	public String getMessageByKey(String key)
+	{
+		try {
+		  Session session = sessionFactory.getCurrentSession();
+		  Locale loc =  LocaleContextHolder.getLocale();
+	      Query query = session.createQuery("FROM MessageResource mens where mens.messageKey = :key and mens.pasive = '0' ");
+	      query.setParameter("key",key);
+	      
+	   
+	      MessageResource mres =  (MessageResource) query.uniqueResult();
+	      
+	      if(loc.toString().equals("en"))
+	    	  return mres.getEnglish();
+	      
+	      
+	      return mres.getSpanish();
+		}
+		catch(Exception ex){
+			return key;
+		}
+	    
+	      
+	}
 }

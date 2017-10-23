@@ -118,7 +118,7 @@
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>${org.codehaus.jackson-version}</version>
 		</dependency>
-		
+
 		<!-- Google JSON Processor -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
@@ -172,19 +172,15 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- MySQL --> 
+		<!-- MySQL -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.9</version>
 		</dependency>
 
-		<!-- Postgresql 
-		<dependency>
-			<groupId>postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>9.0-801.jdbc4</version>
-		</dependency>-->
+		<!-- Postgresql <dependency> <groupId>postgresql</groupId> <artifactId>postgresql</artifactId> 
+			<version>9.0-801.jdbc4</version> </dependency> -->
 
 		<!-- Hibernate -->
 		<dependency>
@@ -194,7 +190,7 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-c3p0</artifactId>
@@ -202,17 +198,17 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>4.3.0.Final</version>
-        </dependency>
-        
-        <dependency>
-		   <groupId>org.hibernate</groupId>
-		   <artifactId>hibernate-search-orm</artifactId>
-		   <version>4.5.1.Final</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.3.0.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-search-orm</artifactId>
+			<version>4.5.1.Final</version>
 		</dependency>
 
 
@@ -233,14 +229,14 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<!-- JODA -->
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
 			<version>1.6</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time-hibernate</artifactId>
@@ -292,14 +288,25 @@
 			<artifactId>usertype.jodatime</artifactId>
 			<version>1.8</version>
 		</dependency>
-		
+
 		<dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.3.2</version>
-        </dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+		
+		<!--AL 19-10-17 |  https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml</artifactId>
+		    <version>3.9</version>
+		</dependency>
 
 	</dependencies>
+	
+	
+
+	
 	<repositories>
 		<!-- For testing against latest Spring snapshots -->
 		<repository>
