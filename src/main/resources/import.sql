@@ -346,11 +346,17 @@ INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('add
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('hora_inicio', '0', 'Inicio');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('hora_fin', '0', 'Fin');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('confirmQuestion', '0', '¿Seguro de seguir con el proceso?');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('autoriaSMS', '0', 'Autoriza Envio Mesaje SMS');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('err_msg_participante_no_existe', '0', 'EL codigo de participante no existe');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('err_msg_participante_ya_agendado', '0', 'Ya se encuentra agendado un participante para esta fecha y hora.');
+
 
 /*Parametros */
-INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('HoraInicioAtencion', '8');
-INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('HoraFinAtencion', '17');
-INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('TiempoCita', '30');
+INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('agenda_HoraInicioAtencion', '8');
+INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('agenda_HoraFinAtencion', '17');
+INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('agenda_tiempo_cita', '30');
+INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('agenda_dias_semana_laborales', '1,2,3,4,5');
+INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('agenda_dias_feriados', '[{"dia":"1", "mes":"1"} ,{"dia":"14","mes":"9"},{"dia":"15" ,"mes":,"9"}]');
 
 
 

@@ -32,11 +32,13 @@ public class ZpAgendaEstudio extends BaseMetaData implements Auditable, Serializ
     private String provider;
     private String healtUnit;
     private String recordId;
-    private String subjectType; // Tipo de agenda - Mujer o nino 
+ 
+	private String subjectType; // Tipo de agenda - Mujer o nino 
     private String appointmentType; // Tipo de cita  - General o Especialidad o Ultra Sonido
     private String specialityType; // si es especialidad , definir que tipo
-   // private String phoneNumber;
-    private String smsNumber;
+    private String cellNumAuth; // El paciente autoriza el uso de su telefono para envio de SMS
+   
+	private String smsNumber;
     private String asistio;
     private String obs;
     
@@ -123,6 +125,14 @@ public class ZpAgendaEstudio extends BaseMetaData implements Auditable, Serializ
 		this.smsNumber= number;
 	}
 	
+	@Column(name="AutorizaSms", nullable=false, length=1)
+	public String getCellNumAuth() {
+			return cellNumAuth;
+		}
+	public void setCellNumAuth(String cellNumAuth) {
+			this.cellNumAuth = cellNumAuth;
+		}
+	
 	
 	@Column(name = "OBSERVACIONES", nullable = false, length = 500)
 	public String getObs() {
@@ -140,6 +150,11 @@ public class ZpAgendaEstudio extends BaseMetaData implements Auditable, Serializ
 		this.asistio = st;
 	}
 	
+	public ZpAgendaEstudio() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
+	   
 	@Override
 	public boolean equals(Object other) {
 		
