@@ -349,6 +349,7 @@ INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('con
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('autoriaSMS', '0', 'Autoriza Envio Mesaje SMS');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('err_msg_participante_no_existe', '0', 'EL codigo de participante no existe');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('err_msg_participante_ya_agendado', '0', 'Ya se encuentra agendado un participante para esta fecha y hora.');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('horario_no_permitido', '0', 'Hora de cita no permitida.');
 
 
 /*Parametros */
