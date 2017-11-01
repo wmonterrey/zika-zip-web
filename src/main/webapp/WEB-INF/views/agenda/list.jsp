@@ -67,7 +67,7 @@
 									href="<spring:url value="/" htmlEscape="true "/>"><spring:message
 											code="home" /></a> <i class="fa fa-angle-right"></i> <spring:message
 										code="pregnants" /> <i class="fa fa-angle-right"></i> <a
-									href="<spring:url value="/pregnants/diary" htmlEscape="true "/>"><spring:message
+									href="#"><spring:message
 											code="diary" /></a></li>
 							</ul>
 							<!-- END PAGE TITLE & BREADCRUMB-->
@@ -94,10 +94,10 @@
 								<div class="portlet-body">
 								 <ul class="nav nav-tabs"> 
 									 	<li class="active">
-										<a href="#tab_1_1" data-toggle="tab">*Calendario</a>
+										<a href="#tab_1_1" data-toggle="tab"><spring:message code="calendario" /></a>
 										</li>
 										<li class="">
-											<a href="#tab_1_2" data-toggle="tab">*Lista</a>
+											<a href="#tab_1_2" data-toggle="tab"><spring:message code="listado" /></a>
 										</li>
 
 								 	
@@ -110,14 +110,14 @@
 											<div class="portlet calendar">
 													<div class="portlet-title">
 														<div class="caption">
-															<i class="fa fa-reorder"></i>Calendar
+															<i class="fa fa-reorder"></i>
 														</div>
 													</div>
 													<div class="portlet-body light-grey">
 														<div class="row">
 															<div class="col-md-3 col-sm-12">
 																<!-- BEGIN DRAGGABLE EVENTS PORTLET-->
-																<h3 class="event-form-title">*Rango</h3>
+																<h3 class="event-form-title"><spring:message code="filtrar" /></h3>
 																<div id="external-events">
 																	<form class="inline-form">
 																	<!-- UNIDAD DE SALUD  -->
@@ -177,7 +177,10 @@
 									<spring:url value="/agenda/calendar/agenda" var="downloadUrl" />
 	
 									<div class="btn-group pull-right">
-										<button type="button" class="btn btn-warning" onclick="downloadExcel();">Excel</button>
+										<a onclick="downloadExcel();"
+										class="btn btn-success"  >
+											<i class="fa fa-file-excel-o"> </i>  Excel</a>
+									<!--  <button type="button" class="btn btn-warning" onclick="downloadExcel();">Excel</button>  -->
 									</div>
 								</div>
 									  <div class="table-responsive">
@@ -415,7 +418,6 @@
 		         //   color: 'blue',   // a non-ajax option
 		            textColor: 'black', // a non-ajax option
 		            success: function(data){ 
-		            //	alert(JSON.stringify(data));
 		              //Mostrar datos obtenidos en la lista
 		               $('#lista_agenda').DataTable().fnClearTable();
 		         		
@@ -435,13 +437,11 @@
 		         			    '<div class="make-switch switch-small"><input type="checkbox" '+(obj.asistio == 'S'?'checked':'')+' data-on-text="<spring:message code="yes"/>"  data-off-text="No"  data-checkbox="'+obj.id.toString()+'" class="alert-status" id = "'+ckname+'" /></div>'   	
 		         			]		         						
 		         			)	;
-		         		  	//alert(obj.asistio);
 		         		  	if(obj.asistio == 'S'){
 		         				$('#'+ckname).checked = true;
-		         			//	alert('true');
+		         		
 		         		  	}
 		         		  	else{
-		         		  	//	alert('false');
 		         		  		$('#'+ckname).checked = false; 
 		         		  	}
 		         	      
@@ -491,11 +491,6 @@
 		                           $( ".modal fade" ).remove();
 		                       });
 		         		 //  }
-
-		                   
-		         			
-			         		  
-		             
 							
 		         		});
 
@@ -539,40 +534,42 @@
 		});
 	}
 	
-	function checkAsistencia(checkbox){
-		 if (checkbox.checked)
-		    {
-		        alert("si asistio");
-		    }
-		 else
-			 {
-			 alert("no asistio");
-			 }
-	}
 	function downloadExcel(){
 		     method =  "POST"; // Set method to post by default if not specified.
 
 		    // The rest of this code assumes you are not using a library.
 		    // It can be made less wordy if you use one.
-		     var objects = $('#calendar').fullCalendar('clientEvents' );
+		     var json = JSON.stringify($("#calendar").fullCalendar("clientEvents").map(function(e) {
+				    var rv = {};
+				    Object.keys(e)
+				        .filter(function(k) {
+				            return k != "source" && !k.startsWith("_");
+				         })
+				        .forEach(function(k) {
+				            rv[k] = e[k];
+				        });
+				    return rv;
+				}));
+		     
+		     
+			 //  alert(json); 
+			//     $.post("${downloadUrl}"
+	    	 //       , { sources: json}
+	    	            
+	    	//			);
+			       // Fin post   
+			       
 		    var form = document.createElement("form");
 		    form.setAttribute("method", method);
 		    form.setAttribute("action", "${downloadUrl}");
 		    var hiddenField = document.createElement("input");
 		    hiddenField.setAttribute("type", "hidden");
             hiddenField.setAttribute("name", "sources");
-            hiddenField.setAttribute("value", JSON.stringify(objects));
+            hiddenField.setAttribute("value", json);
 		    form.appendChild(hiddenField);    
 		    document.body.appendChild(form);
 		    form.submit();
 		   
-		  //  alert(JSON.stringify(objects)); 
-		    //   $.post("${downloadUrl}"
-    	      //      , { sources: JSON.stringify(objects)}
-    	            
-    		  	//		);
-		       // Fin post   
-		    
 		    
 	}
 </script>
@@ -605,33 +602,7 @@
         
         
      
-       
-        /*
-           $('#tipo_agenda, #unidadSalud').on('change', function() { 
-        	
-	        	 $('#calendar').fullCalendar('destroy');           
-	             RenderCalendar($(this).val());
-        		//	alert( $(this).val());
-        		}
-        			
-        		);
-        
-	    select.change( function() { 
-	    	
-	    	//alert( $(this).val());
-	    	//table.fnFilter( $(this).val() ); 
-	    	$('#calendar').fullCalendar('removeEventSource');
-	    	 $('#calendar').fullCalendar("refetchEvents");
-	       });
-	    
-	   
-	    select2.change( function() { 
-	    	//alert( $(this).val());
-	    //	table.fnFilter( $(this).val() ); 
-	    	 $('#calendar').fullCalendar("refetchEvents");
-	       });
-	    
-	    */
+     
 	    $.extend($.fn.dataTable.defaults, {
       	  dom: 'Bfrtip'
       	});
@@ -656,48 +627,10 @@
             }
         });
 		
-	    /*
-		var tt = new $.fn.dataTable.TableTools( table, {
-        	"sSwfPath": "${dataTablesTTSWF}",
-        	"aButtons": [
-        	                {
-        	                    "sExtends":    "collection",
-        	                    "sButtonText": "${exportar}",
-        	                    "aButtons": [
-        	                                 {
-        	                                     "sExtends": "csv",
-        	                                     "oSelectorOpts": { filter: 'applied', order: 'current' },
-        	                                     "mColumns": [ 0, 1, 2, 3, 4 ,5,6,7]
-        	                                 },
-        	                                 {
-        	                                     "sExtends": "pdf",
-        	                                     "oSelectorOpts": { filter: 'applied', order: 'current' },
-        	                                     "mColumns": [ 0, 1, 2, 3, 4,5,6,7 ],
-        	                                     "sPdfOrientation": "landscape",
-        	                                 }
-        	                                 ]
-        	                }
-        	            ]
-        } );
-		 
-	    $( tt.fnContainer() ).insertBefore('div.table-toolbar');        
-	    
-	   */
         /// Calendario
          RenderCalendar('','')
         
-         
-      /*   $('.make-switch').live('click', function (e) {
-             e.preventDefault();
-			
-             if (confirm("¿Seguro de marcar como que asistio? "+ e) == false) {
-            	 e.stopPropagation();
-                 return;
-             }
-
-          
-         });*/
-       	
+     
         
 
 	});

@@ -37,6 +37,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -136,23 +137,8 @@ public class CitasController {
     @RequestMapping(value = "newAppointment", method = RequestMethod.GET)
     public String nuevaCita(Model model) throws ParseException {
         logger.debug("Mostrando formulario para creacion de nueva cita en JSP");
-
        
-       List<Parametros> parametros = parametersService.getParametoPorOpcion("agenda");
-       
-       
-       /*for(Parametros p : listParam) {
-    	   if(p.getName().equals(Constants.HORAINICIO_CITA)) {
-    		   minTime = p.getValue();
-    		
-    	   }
-    	   if(p.getName().equals(Constants.HORAFIN_CITA)) {
-    		   maxTime = p.getValue();
-    		
-    	   }
-       }
-       */
-       
+     
        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
        
         model.addAttribute("today",new Date());
@@ -172,12 +158,7 @@ public class CitasController {
         List<Provider> proveedores = catalogosService.getProviders();
         model.addAttribute("proveedores", proveedores);
         
-        for(Parametros parametro:parametros) {
-        	  model.addAttribute(parametro.getName(), parametro.getValue());
-        }
-        
-      
-        
+        ni.org.ics.zip.utils.Tool.SetPatametersToModel(model,parametersService, "agenda");      
         
         return "agenda/enterForm";
     }
@@ -192,27 +173,29 @@ public class CitasController {
     		) throws ParseException {
     	
     	/// long uSec = Long.parseLong(start);
-    	 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+    	  SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     	  
     	  SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
     	  
     	  SimpleDateFormat fsdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-    	 // fsdf.setTimeZone(TimeZone.getTimeZone("GMT"));
     	  
+    	  SimpleDateFormat tdf = new SimpleDateFormat("HH:mm");
+    	 // fsdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+    	 int tiempoCita = Integer.parseInt( parametersService.getParametoPorNombre("agenda_tiempo_cita").getValue());
     	  Date fechaI = df.parse(start);
     	//  uSec = Long.parseLong(end);
     	  Date fechaF = df.parse(end); // new Date(uSec*1000L);
-    	  List<Evento> listaEventos = new ArrayList<Evento>();
-     
+    	  List<Evento> listaEventos = new ArrayList<Evento>();     
       
-    	  
+    	 
     	  List<ZpAgendaEstudio> citas = agendaService.getCitas(fechaI,fechaF,tipoagenda,unidadsalud);
     	  for(ZpAgendaEstudio cita:citas) {
     		  Date fechaInicio = cita.getAppointmentDateTime();
     		  Calendar c = Calendar.getInstance();
 			  c.setTime(fechaInicio);
 			  String tipoAgenda = cita.getSubjectType();
-			  c.add(Calendar.MINUTE, 30);
+			  
+			  c.add(Calendar.MINUTE, tiempoCita);
 			  Date fechaFin = c.getTime();		
 			  String[] headers = {
 					  datosMensajes.getMessageByKey("catalogsubjtype"),
@@ -236,12 +219,12 @@ public class CitasController {
 					   	+headers[3] + " : " + cita.getProvider() + "\n"
 					   	+headers[4] + " : " + cita.getSpecialityType() + "\n"
 					    +headers[5] + " : " + simpleDateFormat.format(cita.getAppointmentDateTime()) + "\n"
-					    +headers[6] + " : " + sdf.format(cita.getAppointmentDateTime()) + " - " + 	sdf.format(fechaFin)
+					    +headers[6] + " : " + tdf.format(cita.getAppointmentDateTime()) + " - " + 	sdf.format(fechaFin)
 					    +headers[7] + " : " + cita.getAsistio()					    
 					    ,cita.getRecordId() , simpleDateFormat.format(cita.getAppointmentDateTime())
 					    ,sdf.format(cita.getAppointmentDateTime()),cita.getHealtUnit()
 					    ,cita.getProvider(),cita.getSpecialityType(),cita.getSMSNumber(),cita.getAsistio()	
-					    ,StringToUnicode(cita.getSubjectType())
+					    ,ni.org.ics.zip.utils.Tool.StringToUnicode(cita.getSubjectType())
 					  
 					  );
 			  
@@ -255,12 +238,13 @@ public class CitasController {
     		  
     	  }
     	  
-    	return createJsonResponse(listaEventos);
+    	return ni.org.ics.zip.utils.Tool.createJsonResponse(listaEventos);
     }
     
     
     @RequestMapping(value = "/calendar/{file_name}", method = RequestMethod.POST /*, produces = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"*/)
-    public void obtenerExcel( Model model,@PathVariable(value = "file_name") String fileName, HttpServletResponse response
+    public void obtenerExcel( Model model  	//	,  @ModelAttribute("agenda_tiempo_cita") int tiempoCita
+    		,@PathVariable(value = "file_name") String fileName, HttpServletResponse response
     		 
           ,@RequestParam(value="sources", required=true ) String eventos
     		
@@ -271,7 +255,7 @@ public class CitasController {
     	 Evento[] arrEventos = gson.fromJson(eventos, Evento[].class);    	
   
     	 XSSFWorkbook workbook = new XSSFWorkbook();
-    	 SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
+    	// SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
     	 try {
     	 
     		 String[] headers = {
@@ -290,7 +274,7 @@ public class CitasController {
     		
 
     	        int rowNum = 0;
-    	        List<ZpAgendaEstudio> citas = agendaService.getCitas();
+    	        //List<ZpAgendaEstudio> citas = agendaService.getCitas();
     	        
     	        System.out.println("Creating excel");
     	        Row firsterow = sheet.createRow(rowNum++);
@@ -388,196 +372,7 @@ public class CitasController {
     	      //workbook.close();
 
     		}
-  /*  
-   *   	 fileName += ".xlsx";
-    	 Gson gson = new Gson();
-    	 Evento[] arrEventos = gson.fromJson(eventos, Evento[].class);
-    	//    	 ServletContext servletContext = request.getSession().getServletContext();
-//    	    
-//    	 String filePath = servletContext.getRealPath("/WEB-INF/downloads/");
-  	 //  String fileName = "citas.xls";
-//    	 String fullPath = filePath +"/"+ fileName;   
-    	 ServletContext servletContext = request.getSession().getServletContext();
-//    	    
-    	 String filePath = servletContext.getRealPath("/WEB-INF/downloads/");
-  	   
-    	 String fullPath = filePath +"/"+ fileName;     
-    	 XSSFWorkbook workbook = new XSSFWorkbook();
-    	 SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
-    	 try {
-    	 
-    	 
-    		 XSSFSheet sheet = workbook.createSheet("Agenda");
-    		
-
-    	        int rowNum = 0;
-    	        List<ZpAgendaEstudio> citas = agendaService.getCitas();
-    	        
-    	        System.out.println("Creating excel");
-    	        Row firsterow = sheet.createRow(rowNum++);
-    	        int colNum = 0;
-    	        Cell cell = firsterow.createCell(colNum++);
-    	        cell.setCellValue((String) "Código Participante");
-    	        
-    	        Cell cell2 = firsterow.createCell(colNum++);
-    	        cell2.setCellValue((String) "Tipo Agenda");
-    	        
-    	        Cell cell3 = firsterow.createCell(colNum++);
-    	        cell3.setCellValue((String) "Fecha Cita");
-    	        
-    	        Cell cell4 = firsterow.createCell(colNum++);
-    	        cell4.setCellValue((String) "Hora Cita");
-    	        
-    	      //  Cell cell0 = firsterow.createCell(colNum++);
-    	      //  cell0.setCellValue((String) "Hora Fin");
-    	        
-    	        Cell cell5 = firsterow.createCell(colNum++);
-    	        cell5.setCellValue((String) "Unidad de Salud");
-    	        
-    	        Cell cell6 = firsterow.createCell(colNum++);
-    	        cell6.setCellValue((String) "Proveedor");
-    	        
-    	        Cell cell7 = firsterow.createCell(colNum++);
-    	        cell7.setCellValue((String) "Especialidad");
-    	        
-    	        Cell cell8 = firsterow.createCell(colNum++);
-    	        cell8.setCellValue((String) "Número Teléfono");
-    	        
-    	        Cell cell9 = firsterow.createCell(colNum++);
-    	        cell9.setCellValue((String) "¿Asistio?");
-    	        
-    	     for(Evento evento:arrEventos) {
-    	    	 	colNum = 0;
-    	    	     Row row = sheet.createRow(rowNum++);
-    	    	 	 	
-    	    	     Cell cellev = row.createCell(colNum++);	             
-    	    	     cellev.setCellValue(evento.getNumeroid());
-    	    	     
-    	    	     Cell cellev2 = row.createCell(colNum++);	             
-    	    	     cellev2.setCellValue(evento.getTipoAgenda());
-    	    	     
-    	    	     Cell cellev3 = row.createCell(colNum++);	             
-    	    	     cellev3.setCellValue(evento.getFechacita());
-    	    	     
-    	    	     Cell cellev4 = row.createCell(colNum++);	             
-    	    	     cellev4.setCellValue(evento.getHoracita());        	     
-    	    	   
-    	    	     
-    	    	     Cell cellev5 = row.createCell(colNum++);	             
-    	    	     cellev5.setCellValue(evento.getUnidadsalud());
-    	    	     
-    	    	     Cell cellev6 = row.createCell(colNum++);	             
-    	    	     cellev6.setCellValue(evento.getProveedor());
-    	    	     
-    	    	     Cell cellev7 = row.createCell(colNum++);	             
-    	    	     cellev7.setCellValue(evento.getEspecialidad());
-    	    	     
-    	    	     Cell cellev8 = row.createCell(colNum++);	             
-    	    	     cellev8.setCellValue(evento.getNumerotelefono());
-    	    	     
-    	    	     Cell cellev9 = row.createCell(colNum++);	             
-    	    	     cellev9.setCellValue(evento.getAsistio());	             
-    	    	     
-    	    		  
-    	    	  }
-    	        
-    	        
-    	      /*  for (Object[] datatype : datatypes) {
-    	            Row row = sheet.createRow(rowNum++);
-    	            colNum = 0;
-    	            for (Object field : datatype) {
-    	                Cell cell = row.createCell(colNum++);
-    	                if (field instanceof String) {
-    	                    cell.setCellValue((String) field);
-    	                } else if (field instanceof Integer) {
-    	                    cell.setCellValue((Integer) field);
-    	                }
-    	            }
-    	        }
-    	        
-    	        FileOutputStream outputStream = new FileOutputStream(fullPath);    	
-    	        
-    	        workbook.write(outputStream);
-    	        
-    	        outputStream.close();
-    	        
-    	        File downloadFile = new File(fullPath);
-    	        FileInputStream inputStream = new FileInputStream(downloadFile);
-    	        org.apache.commons.io.IOUtils.copy(inputStream, response.getOutputStream());
-    	        downloadFile.deleteOnExit();
-    	        inputStream.close();
-    	        
-               // workbook.write(response.getOutputStream());
-          
-             //  response.setContentType(                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-  	         //  response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
-  	           response.flushBuffer();
-  	          
-		    } catch (IOException e) {
-		        e.printStackTrace();
-		    }
-    		
-    		finally {
-    	      //workbook.close();
-
-    		}
-   * 	 long uSec = Long.parseLong(start);
-    	 // SimpleDateFormat df = new SimpleDateFormat("MMddyyHHmm");
-    	  
-    	   SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
-   
-    	  Date fechaI = new Date(uSec*1000L);
-    	  uSec = Long.parseLong(end);
-    	  Date fechaF =  new Date(uSec*1000L);
-    	  List<Evento> listaEventos = new ArrayList<Evento>();
-    
-    	  
-    	  List<ZpAgendaEstudio> citas = agendaService.getCitas(fechaI,fechaF,tipoagenda,unidadsalud);
-    	  for(ZpAgendaEstudio cita:citas) {
-    		  Date fechaInicio = cita.getAppointmentDateTime();
-    		  Calendar c = Calendar.getInstance();
-			  c.setTime(fechaInicio);
-			  String tipoAgenda = cita.getSubjectType();
-			  c.add(Calendar.MINUTE, 30);
-			  Date fechaFin = c.getTime();		
-
-			  Evento evento = new Evento(cita.getRecordId()
-					  , String.valueOf((fechaInicio.getTime() / 1000L)) 
-						,String.valueOf((fechaFin.getTime()/1000L)),false,"red"
-					    ,cita.getId()
-					    ,"Tipo: " + cita.getAppointmentType() + "\n"     // descripcion
-					    +"Codigo: " + cita.getRecordId() + "\n"     // descripcion
-					    +"Unidad de Salud: " + cita.getHealtUnit() + "\n"
-					   	+"Proveedor: " + cita.getProvider() + "\n"
-					   	+"Especialidad: " + cita.getSpecialityType() + "\n"
-					    +"Fecha: " + simpleDateFormat.format(cita.getAppointmentDateTime()) + "\n"
-					    +"Desde " + sdf.format(cita.getAppointmentDateTime()) + "Hasta " + 	sdf.format(fechaFin)
-					    +"Asistio?: " + cita.getAsistio()					    
-					    ,cita.getRecordId() , simpleDateFormat.format(cita.getAppointmentDateTime())
-					    ,sdf.format(cita.getAppointmentDateTime()),cita.getHealtUnit()
-					    ,cita.getProvider(),cita.getSpecialityType(),cita.getPhonenumber(),cita.getAsistio()	
-					    ,cita.getSubjectType()
-					  
-					  );
-			  
-    		 // Evento evento = new Evento(cita.getRecordId(),df2.format(fechaInicio)
-    		//		  							,df2.format(fechaFin),"grey");
-    		  if(tipoAgenda.equals(Constants._MUJER))
-    			  evento.setColor("red");
-    		  else evento.setColor("blue");
-    		  
-    		  listaEventos.add(evento);
-    		  
-    	  }*/
-    	 // try {
-	    	  
-	         // File downloadFile = new File(fullPath);
-	       //   FileInputStream inputStream = new FileInputStream(downloadFile);
-	          // copy it to response's OutputStream
-	       //   org.apache.commons.io.IOUtils.copy(inputStream, response.getOutputStream());
-	        
-	          //inputStream.close();
-    	  
+  
 	   
     }
     
@@ -586,7 +381,7 @@ public class CitasController {
 	public ResponseEntity<String> processCitaForm( 
 			@RequestParam(value="id", required=false, defaultValue="") String id
 			,@RequestParam(value="recordid", required=true) String recordid
-			, @RequestParam(value="tipoAgenda", required=true, defaultValue="" ) String tipoAgenda
+			//, @RequestParam(value="tipoAgenda", required=true, defaultValue="" ) String tipoAgenda -  ESTE CAMPO SE CALCULARA SEGUN SI ESTA EN UNA TABLA U OTRA
 			, @RequestParam(value="diarydate", required=true ) String diarydate
 			, @RequestParam(value="timepicker", required=true ) String timepicker
 			, @RequestParam(value="tipoCita", required=true, defaultValue="" ) String tipoCita
@@ -609,9 +404,12 @@ public class CitasController {
     		// Existe el código registrado?
     		ZpEstadoEmbarazada zpEmbarazada =datosEmbarazadas.getZpEstadoEmbarazada(recordid) ;
     		// Si esta en esta tabla de embarazada entoncees es tipo de agenda = " MUJER "
+    		String tipoAgenda = Constants._MUJER;
+    		
     		if(zpEmbarazada == null) {
     			
     			ZpEstadoInfante zpInfante =datosInfantes.getZpEstadoInfante(recordid) ;
+    			tipoAgenda = Constants._NINO;
     			// Si esta en esta tabla de embarazada entoncees es tipo de agenda = " INFANTE "
     			if( zpInfante == null) {
     				mensajeError = datosMensajes.getMessageByKey("err_msg_participante_no_existe");
@@ -632,7 +430,7 @@ public class CitasController {
     	    	String message = pe.getMessage();
         		Gson gson = new Gson();
         	    String json = gson.toJson(message);
-        		return new ResponseEntity<String>( json, HttpStatus.CREATED);
+        		return new ResponseEntity<String>( json, HttpStatus.BAD_REQUEST);
     	    }
     	 // Verificar que la la fecha y hora no se encuentren agendadas por tipo de agenda
     		ZpAgendaEstudio zpAgendaVerificacion = agendaService.getZpAgendaEstudio(tipoCita, utilDate);
@@ -656,7 +454,7 @@ public class CitasController {
     	    zpAgenda.setSMSNumber(smsNumber);
     	    zpAgenda.setSpecialityType(tipoespecialidad);
     	    zpAgenda.setSubjectType(tipoAgenda);    	 
-    	    zpAgenda.setAsistio("P");
+    	    zpAgenda.setAsistio("N");
     		zpAgenda.setRecordUser(usuario.getUsername());
     		zpAgenda.setRecordDate(new Date());
 			WebAuthenticationDetails wad  = (WebAuthenticationDetails) SecurityContextHolder.getContext().getAuthentication().getDetails();
@@ -665,7 +463,7 @@ public class CitasController {
         	zpAgenda.setDeviceid(idSesion + "-"+ direccionIp);
         	zpAgenda.setEstado("1");
 			this.agendaService.saveAppointment(zpAgenda);
-			return createJsonResponse(zpAgenda);
+			return ni.org.ics.zip.utils.Tool.createJsonResponse(zpAgenda);
     	}
     	catch (DataIntegrityViolationException e){
     		String message = e.getMostSpecificCause().getMessage();
@@ -699,55 +497,22 @@ public class CitasController {
 			resp.setMessage("OK");
 			resp.setHttpStatus(HttpStatus.ACCEPTED);
 			
-			return createJsonResponse(resp);
+			return ni.org.ics.zip.utils.Tool.createJsonResponse(resp);
 		}
 		catch(Exception e)
 		{
 			resp.setMessage(e.toString());
 			resp.setHttpStatus(HttpStatus.METHOD_FAILURE);
-			return createJsonResponse(resp);
+			return ni.org.ics.zip.utils.Tool.createJsonResponse(resp);
 		}
 		
 		
 				
 	}
     
-    private ResponseEntity<String> createJsonResponse( Object o )
-  	{
-  	    HttpHeaders headers = new HttpHeaders();
-  	    headers.set("Content-Type", "application/json");
-  	    Gson gson = new Gson();
-  	    String json = gson.toJson(o);
-  	    return new ResponseEntity<String>( json, headers, HttpStatus.CREATED );
-  	}
+
     
-    private ResponseEntity<String> createJsonResponse( Respuesta o )
-  	{
-  	    HttpHeaders headers = new HttpHeaders();
-  	    headers.set("Content-Type", "application/json");
-  	    Gson gson = new Gson();
-  	    String json = gson.toJson(o);
-  	    return new ResponseEntity<String>( json, headers, o.getHttpStatus() );
-  	}
     
-    private String StringToUnicode(String frase) {
-    	
-    	String fraseUnicode = frase.replaceAll("Á", "\\u00C1");
-    	fraseUnicode = frase.replaceAll("á", "\\u00E1");
-    	fraseUnicode = frase.replaceAll("É", "\\u00C9");
-    	fraseUnicode = frase.replaceAll("é", "\\u00E9");
-    	fraseUnicode = frase.replaceAll("Í", "\\u00CD");
-    	fraseUnicode = frase.replaceAll("í", "\\u00ED");
-    	fraseUnicode = frase.replaceAll("Ó", "\\u00D3");
-    	fraseUnicode = frase.replaceAll("ó", "\\u00F3");
-    	fraseUnicode = frase.replaceAll("Ú", "\\u00DA");
-    	fraseUnicode = frase.replaceAll("ú", "\\u00FA");
-    	fraseUnicode = frase.replaceAll("Ñ", "\\u00D1");
-    	fraseUnicode = frase.replaceAll("ñ", "\\u00F1");
-    	
-    	return fraseUnicode;
-    	
-    }
 
     
   

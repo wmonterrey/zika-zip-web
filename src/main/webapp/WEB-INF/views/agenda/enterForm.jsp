@@ -86,7 +86,7 @@
 					</div>
 					<!-- END PAGE HEADER-->
 					<!-- BEGIN PAGE CONTENT-->
-					<spring:url value="/calendar/" var="agendaUrl"></spring:url>
+					<spring:url value="/agenda/" var="agendaUrl"></spring:url>
 					
 					<c:set var="providerCreated">
 						<spring:message code="process.success" />
@@ -141,6 +141,7 @@
 													</div>
 												</div>
 											</div>
+											<!--  SE CALCULARA SEGUN EL CODIGO DE PARTICIPANTE INGRESADO
 											<div class="form-group">
 												<label class="control-label col-md-3"><spring:message
 														code="catalogsubjtype" />
@@ -163,13 +164,14 @@
 													</select>
 												</div>
 											</div>
+											-->
 										<div class="form-group">
 														<label class="control-label col-md-3"><spring:message
 																code="date" /> <span class="required"> * </span> </label>
 														<div class="col-md-5">
 															<div class="input-group">
 																<input class="form-control date-picker" type="text"
-																	name="diarydate[selectedDate]" id="diarydate"
+																	name="diarydate" id="diarydate"
 																	value="<fmt:formatDate value="${today}" pattern="dd/MM/yyyy" />" />
 																<span class="input-group-addon"> <i
 																	class="fa fa-calendar"></i>
@@ -440,10 +442,20 @@
 	<script>
 	jQuery(document).ready(function() {
 		 App.init();
-		 var picker= $('#timepicker').timepicker();
+		 var picker= $('#timepicker').timepicker({
+             minuteStep: '${agenda_tiempo_cita}'
+            
+         });
 		
-		// var jsonText = '${agenda_dias_feriados}';
-         var jsonObj  = ${agenda_dias_feriados} ;
+		 var test = '${agenda_tiempo_cita}';
+		 if(test == '')// esta variable esta vacia
+		 	alert("agenda_tiempo_cita = ''");
+         var jsonObj  = ${agenda_tiempo_cita} ;
+         test = '${agenda_dias_semana_nolaborales}';
+         if(test == '')// esta variable esta vacia
+ 		 	alert("agenda_dias_semana_nolaborales = ''");
+         
+         var diasNoLab =  ${agenda_dias_semana_nolaborales} ;
          var fechas = [];
          var currentYear  = (new Date()).getFullYear();
         // desabilitar varios años
@@ -463,14 +475,14 @@
                 var dayNr = currentDate.getDay();
                 var dateNr = moment(currentDate.getDate()).format("DD-MM-YYYY");
 
-                if (dayNr == 6) {//Domingos
+                if (!diasNoLab.indexOf(dayNr)) {
                     return false;
                 }
 
-                if (dayNr == 0) {//Sabados
-                    return false;
-                }
-                    if (fechas.length > 0) {
+              //  if (dayNr == 0) {//Sabados
+               //     return false;
+               // }
+                  if (fechas.length > 0) {
                         for (var i = 0; i < fechas.length; i++) {                        
                             if (moment(currentDate).unix()==moment(fechas[i],'DD.MM.YYYY').unix()){
                                 return false;
@@ -481,7 +493,6 @@
                 }
         });
 		
-		// alert(JSON.stringify(fechas));
 		 var parametros = {saveCitaUrl: "${saveCitaUrl}",
 					agendaUrl: "${agendaUrl}",
 					successmessage: "${successmessage}",
@@ -491,12 +502,8 @@
 					invalidTimeMessage:"${invalidTimeMessage}"
 					} ;
 		 procAgenda.init(parametros);
-		 $('#textid').hide();
-		 
-		 $('#diarydate').datepicker({ 
-		       beforeShowDay: $.datepicker.noWeekends 
-	     });
-		 
+		 $('#textid').hide();		 
+		
 		 
 		 $('.alert-status').bootstrapSwitch('state');
 		 
@@ -505,16 +512,14 @@
 			 if(state){
 				 document.getElementById("requieresms").style.visibility = "visible";
 				 document.getElementById("smsNumber").readOnly  = false;
-				 $('#smsNumber').rules('add',{required : true});
+				 $('#smsNumber').rules('add',{required : true,  minlength: 8, maxlength: 8});
 			 }
 			 else{
 			 	document.getElementById("requieresms").style.visibility = "hidden";
 			 	 document.getElementById("smsNumber").readOnly  = true;
 			 	 document.getElementById("smsNumber").value  = "";
 			 	 $('#smsNumber').rules('add',{required : false});
-			 }
-			// $('#requieresms').visible = state;
-			// $('#smsNumber').readonly = state;
+			 }			
 		 
 		 });
 		 

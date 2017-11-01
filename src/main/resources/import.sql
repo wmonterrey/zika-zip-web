@@ -350,14 +350,17 @@ INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('aut
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('err_msg_participante_no_existe', '0', 'EL codigo de participante no existe');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('err_msg_participante_ya_agendado', '0', 'Ya se encuentra agendado un participante para esta fecha y hora.');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('horario_no_permitido', '0', 'Hora de cita no permitida.');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('listado', '0', 'Listado');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('calendario', '0', 'Calendario');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('filtrar', '0', 'Filtrar');
 
 
 /*Parametros */
-INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('agenda_HoraInicioAtencion', '8');
-INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('agenda_HoraFinAtencion', '17');
+INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('agenda_HoraInicioAtencion', '8:00am');
+INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('agenda_HoraFinAtencion', '5:00pm');
 INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('agenda_tiempo_cita', '30');
-INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('agenda_dias_semana_laborales', '1,2,3,4,5');
-INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('agenda_dias_feriados', '[{"dia":"1", "mes":"1"} ,{"dia":"14","mes":"9"},{"dia":"15" ,"mes":,"9"}]');
+INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('agenda_dias_semana_laborales', '[0,6]');
+INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('agenda_dias_feriados', '[ {"dia":"1", "mes":"1"} ,{"dia":"14","mes":"9"},{"dia":"15" ,"mes":"9"},{"dia":"02","mes":"11"} ]');
 
 
 

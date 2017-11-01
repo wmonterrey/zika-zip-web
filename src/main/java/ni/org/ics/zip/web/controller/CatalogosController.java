@@ -101,7 +101,7 @@ public class CatalogosController {
 			Cs center = new Cs();
 			center.setCs(centerName);
 			this.catalogosService.saveCs(center);
-			return createJsonResponse(center);
+			return ni.org.ics.zip.utils.Tool.createJsonResponse(center);
     	}
     	catch (DataIntegrityViolationException e){
     		String message = e.getMostSpecificCause().getMessage();
@@ -140,7 +140,7 @@ public class CatalogosController {
     		SubjectType subject = new SubjectType();
     		subject.setSubjectType(subjectType);
 			this.catalogosService.saveSubjectType(subject);
-			return createJsonResponse(subject);
+			return ni.org.ics.zip.utils.Tool.createJsonResponse(subject);
     	}
     	catch (DataIntegrityViolationException e){
     		String message = e.getMostSpecificCause().getMessage();
@@ -179,7 +179,7 @@ public class CatalogosController {
     		Speciality specialityObj = new Speciality();
     		specialityObj.setSpeciality(speciality);
 			this.catalogosService.saveSpeciality(specialityObj);
-			return createJsonResponse(specialityObj);
+			return ni.org.ics.zip.utils.Tool.createJsonResponse(specialityObj);
     	}
     	catch (DataIntegrityViolationException e){
     		String message = e.getMostSpecificCause().getMessage();
@@ -218,7 +218,7 @@ public class CatalogosController {
     		AppointmentType appType = new AppointmentType();
     		appType.setAppointmentType(appointmentType);
 			this.catalogosService.saveAppointmentType(appType);
-			return createJsonResponse(appType);
+			return ni.org.ics.zip.utils.Tool.createJsonResponse(appType);
     	}
     	catch (DataIntegrityViolationException e){
     		String message = e.getMostSpecificCause().getMessage();
@@ -313,7 +313,7 @@ public class CatalogosController {
         	provider.setDeviceid(idSesion + "-"+ direccionIp);
         	provider.setEstado("1");
 			this.catalogosService.saveProvider(provider);
-			return createJsonResponse(provider);
+			return ni.org.ics.zip.utils.Tool.createJsonResponse(provider);
     	}
     	catch (DataIntegrityViolationException e){
     		String message = e.getMostSpecificCause().getMessage();
@@ -376,13 +376,6 @@ public class CatalogosController {
     }
 
     
-    private ResponseEntity<String> createJsonResponse( Object o )
-	{
-	    HttpHeaders headers = new HttpHeaders();
-	    headers.set("Content-Type", "application/json");
-	    Gson gson = new Gson();
-	    String json = gson.toJson(o);
-	    return new ResponseEntity<String>( json, headers, HttpStatus.CREATED );
-	}
+
     
 }

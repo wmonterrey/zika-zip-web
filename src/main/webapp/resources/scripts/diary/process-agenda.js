@@ -5,7 +5,6 @@ var procAgenda = function () {
         init: function (parametros) {
         	//var pageContent = $('.page-content');
             
-        	//alert(JSON.stringify(parametros));
             var form1 = $('#add-agenda-form');
             var error1 = $('.alert-danger', form1);
             var success1 = $('.alert-success', form1);
@@ -27,9 +26,9 @@ var procAgenda = function () {
                          minlength: 8,
                          maxlength: 8
                      },
-                	tipoAgenda: {
-                        required: true
-                    },
+                	//tipoAgenda: {
+                    //    required: true
+                    //},
                     diarydate: {
                     	required: true,
                     	date: true
@@ -91,9 +90,9 @@ var procAgenda = function () {
 
                 submitHandler: function (form) {
                 	
-                    //success1.show();
-                    //error1.hide();
-                    //processAgenda();
+                    success1.show();
+                    error1.hide();
+                    processAgenda();
                 }
             });
             
@@ -102,7 +101,7 @@ var procAgenda = function () {
             function processAgenda()
         	{
             	App.blockUI();
-            //	alert(form1.serialize());
+             //	alert(form1.serialize());
             
         	    $.post( parametros.saveCitaUrl
         	            , form1.serialize()
@@ -127,10 +126,9 @@ var procAgenda = function () {
         						$('#guardar').prop( "disabled", true );
         						toastr.success(parametros.successmessage,cita.name);
         						window.setTimeout(function(){
-        	    			        window.location.href = parametros.providerUrl;
+        	    			        window.location.href = parametros.agendaUrl;
         	    			    }, 1500);
         					}
-        	            	//$('#providername').focus();
         	    			App.unblockUI();
         	            }
         	            , 'text' )
@@ -176,8 +174,7 @@ var procesarAsistencia = function () {
             var error1 = $('.alert-danger');
             var success1 = $('.alert-success');            
             
-            //alert(parametros.saveCitaUrl);
-        
+           
     	    $.post(parametros.saveCitaUrl
     	            , { citaid: parametros.citaid, estado : !parametros.estado}
     	            , function( data )

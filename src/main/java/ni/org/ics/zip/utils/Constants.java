@@ -111,6 +111,6 @@ public class Constants {
     
     /*TIPOS DE AGENDAS*/
     public static final String  _MUJER= "MUJER";
-    public static final String _NINO = "NIÑO";
+    public static final String _NINO = "INFANTE";
     
 }
