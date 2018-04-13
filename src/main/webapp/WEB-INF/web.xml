@@ -45,7 +45,7 @@
     <location>/404</location>
   </error-page>
   <session-config>
-    <session-timeout>15</session-timeout>
+    <session-timeout>30</session-timeout>
   </session-config>
   <listener>
     <listener-class>

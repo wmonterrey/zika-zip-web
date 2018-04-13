@@ -60,6 +60,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
     private String infantOphthAbno;
     private String infantOae;
     private String infantHearingTest;//nuevo
+    private Date infantHearDt; //version 2.5
     private String infantHearingOverall; //nuevo
     private String infantRoae; //nuevo
     private String infantRaabr; //nuevo
@@ -68,10 +69,26 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
     private String infantBreastfeeding;
     private String infantBreastReason;//multiple
     private String infantBreastOther;
+    private Date infantNeuroDt; //version 2.5
     private String infantNeurodeve;
-    private String infantExhibited; //multiple
+  //  private String infantExhibited; //no utilizado en version 2.5
+    private String infantExhibited1; //version 2.5
+    private String infantExhibited2; //version 2.5
+    private String infantExhibited3; //version 2.5
+    private String infantExhibited4; //version 2.5
+    private String infantExhibited5; //version 2.5
+    private String infantExhibited6; //version 2.5
     private String infantAsymType; //nuevo
+    private String infantExhibited7; //version 2.5
+    private String infantExhibited8; //version 2.5
     private String infantOtherMove; //cambio nombre
+    private String infantExhibited9; //version 2.5
+    private String infantExhibited10; //version 2.5
+    private String infantExhibited11; //version 2.5
+    private String infantExhibited12; //version 2.5
+    private String infantExhibited13; //version 2.5
+    private String infantExhibited14; //version 2.5
+    private Date infantOpDt; //version 2.5
     private String infantExhibitOther; //nuevo
     private String infantMicroce; //nuevo
     private String infantDefinition; //nuevo
@@ -97,6 +114,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
     private String infantNeuroOther; //nuevo
     private String infantOtherName; //nuevo
     private Float infantOtherScore; //nuevo
+    private Date infantNedeveDt;  //version 2.5
     private String infantResultScreening; //nuevo
     private String infantReferTesting; //nuevo
     private String infantFeverSymptom; //nuevo
@@ -528,7 +546,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantOphth = infantOphth;
     }
 
-    @Column(name = "infant_ophth_type", length = 2)
+    @Column(name = "infant_ophth_type", length = 4)
     public String getInfantOphthType() {
         return infantOphthType;
     }
@@ -643,15 +661,6 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
 
     public void setInfantNeurodeve(String infantNeurodeve) {
         this.infantNeurodeve = infantNeurodeve;
-    }
-
-    @Column(name = "infant_exhibited", nullable = true, length = 50)
-    public String getInfantExhibited() {
-        return infantExhibited;
-    }
-
-    public void setInfantExhibited(String infantExhibited) {
-        this.infantExhibited = infantExhibited;
     }
 
     @Column(name = "infant_asym_type", nullable = true, length = 25)
@@ -1704,7 +1713,179 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
 		this.infantDays = infantDays;
 	}
 
-	@Override
+	//added version 2.5
+    @Column(name = "infant_hear_dt")
+    public Date getInfantHearDt() {
+        return infantHearDt;
+    }
+
+    public void setInfantHearDt(Date infantHearDt) {
+        this.infantHearDt = infantHearDt;
+    }
+
+    @Column(name = "infant_neuro_dt")
+    public Date getInfantNeuroDt() {
+        return infantNeuroDt;
+    }
+
+    public void setInfantNeuroDt(Date infantNeuroDt) {
+        this.infantNeuroDt = infantNeuroDt;
+    }
+
+    @Column(name = "infant_exhibited_1", length = 1)
+    public String getInfantExhibited1() {
+        return infantExhibited1;
+    }
+
+    public void setInfantExhibited1(String infantExhibited1) {
+        this.infantExhibited1 = infantExhibited1;
+    }
+
+    @Column(name = "infant_exhibited_2", length = 1)
+    public String getInfantExhibited2() {
+        return infantExhibited2;
+    }
+
+    public void setInfantExhibited2(String infantExhibited2) {
+        this.infantExhibited2 = infantExhibited2;
+    }
+
+    @Column(name = "infant_exhibited_3", length = 1)
+    public String getInfantExhibited3() {
+        return infantExhibited3;
+    }
+
+    public void setInfantExhibited3(String infantExhibited3) {
+        this.infantExhibited3 = infantExhibited3;
+    }
+
+    @Column(name = "infant_exhibited_4", length = 1)
+    public String getInfantExhibited4() {
+        return infantExhibited4;
+    }
+
+    public void setInfantExhibited4(String infantExhibited4) {
+        this.infantExhibited4 = infantExhibited4;
+    }
+
+    @Column(name = "infant_exhibited_5", length = 1)
+    public String getInfantExhibited5() {
+        return infantExhibited5;
+    }
+
+    public void setInfantExhibited5(String infantExhibited5) {
+        this.infantExhibited5 = infantExhibited5;
+    }
+
+    @Column(name = "infant_exhibited_6", length = 1)
+    public String getInfantExhibited6() {
+        return infantExhibited6;
+    }
+
+    public void setInfantExhibited6(String infantExhibited6) {
+        this.infantExhibited6 = infantExhibited6;
+    }
+
+    @Column(name = "infant_exhibited_7", length = 1)
+    public String getInfantExhibited7() {
+        return infantExhibited7;
+    }
+
+    public void setInfantExhibited7(String infantExhibited7) {
+        this.infantExhibited7 = infantExhibited7;
+    }
+
+    @Column(name = "infant_exhibited_8", length = 1)
+    public String getInfantExhibited8() {
+        return infantExhibited8;
+    }
+
+    public void setInfantExhibited8(String infantExhibited8) {
+        this.infantExhibited8 = infantExhibited8;
+    }
+
+    @Column(name = "infant_exhibited_9", length = 1)
+    public String getInfantExhibited9() {
+        return infantExhibited9;
+    }
+
+    public void setInfantExhibited9(String infantExhibited9) {
+        this.infantExhibited9 = infantExhibited9;
+    }
+
+    @Column(name = "infant_exhibited_10", length = 1)
+    public String getInfantExhibited10() {
+        return infantExhibited10;
+    }
+
+    public void setInfantExhibited10(String infantExhibited10) {
+        this.infantExhibited10 = infantExhibited10;
+    }
+
+    @Column(name = "infant_exhibited_11", length = 1)
+    public String getInfantExhibited11() {
+        return infantExhibited11;
+    }
+
+    public void setInfantExhibited11(String infantExhibited11) {
+        this.infantExhibited11 = infantExhibited11;
+    }
+
+    @Column(name = "infant_exhibited_12", length = 1)
+    public String getInfantExhibited12() {
+        return infantExhibited12;
+    }
+
+    public void setInfantExhibited12(String infantExhibited12) {
+        this.infantExhibited12 = infantExhibited12;
+    }
+
+    @Column(name = "infant_exhibited_13", length = 1)
+    public String getInfantExhibited13() {
+        return infantExhibited13;
+    }
+
+    public void setInfantExhibited13(String infantExhibited13) {
+        this.infantExhibited13 = infantExhibited13;
+    }
+
+    @Column(name = "infant_exhibited_14", length = 1)
+    public String getInfantExhibited14() {
+        return infantExhibited14;
+    }
+
+    public void setInfantExhibited14(String infantExhibited14) {
+        this.infantExhibited14 = infantExhibited14;
+    }
+
+    @Column(name = "infant_nedeve_dt")
+    public Date getInfantNedeveDt() {
+        return infantNedeveDt;
+    }
+
+    public void setInfantNedeveDt(Date infantNedeveDt) {
+        this.infantNedeveDt = infantNedeveDt;
+    }
+
+    @Column(name = "infant_op_dt")
+    public Date getInfantOpDt() {
+        return infantOpDt;
+    }
+
+    public void setInfantOpDt(Date infantOpDt) {
+        this.infantOpDt = infantOpDt;
+    }
+
+   /* @Column(name = "infant_exhibited", length = 10)
+    public String getInfantExhibited() {
+        return infantExhibited;
+    }
+
+    public void setInfantExhibited(String infantExhibited) {
+        this.infantExhibited = infantExhibited;
+    }*/
+
+    @Override
     public boolean isFieldAuditable(String fieldname) {
         return true;
     }

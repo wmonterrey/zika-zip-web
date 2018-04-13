@@ -78,9 +78,9 @@ var Export = function () {
                 var urlForm = "";
                 if (form == 'Zp00'){
                     urlForm = parametros.getZp00;
-                }else if (form == 'Zp01AD'){
+                } else if (form == 'Zp01AD') {
                     urlForm = parametros.getZp01AD;
-                }else if (form == 'Zp01E'){
+                } else if (form == 'Zp01E') {
                     urlForm = parametros.getZp01E;
                 }else if (form == 'Zp01FK'){
                     urlForm = parametros.getZp01FK;
@@ -98,13 +98,23 @@ var Export = function () {
                     urlForm = parametros.getZp05;
                 }else if (form == 'Zp06'){
                     urlForm = parametros.getZp06;
-                }else if (form == 'Zp08'){
+                } else if (form == 'Zp08') {
                     urlForm = parametros.getZp08;
-                }else if (form == 'Zp07'){
+                } else if (form == 'Zp07') {
                     urlForm = parametros.getZp07;
-                }else if (form == 'Zp02d'){
+                } else if (form == 'Zp07a') {
+                    urlForm = parametros.getZp07a;
+                } else if (form == 'Zp07b') {
+                    urlForm = parametros.getZp07b;
+                } else if (form == 'Zp07c') {
+                    urlForm = parametros.getZp07c;
+                } else if (form == 'Zp07d') {
+                    urlForm = parametros.getZp07d;
+                } else if (form == 'Zp02d') {
                     urlForm = parametros.getZp02d;
-                }else{
+                } else if (form == 'Zp00a') {
+                    urlForm = parametros.getZp00a;
+                } else {
                     urlForm = parametros.getAll;
                 }
                 var iframe = document.createElement('iframe');
@@ -114,7 +124,6 @@ var Export = function () {
                 iframe.src = urlForm+"?codigoInicio="+$("#codigoInicio").val()+"&codigoFin="+$("#codigoFin").val()+"&event="+$('#zpEvent').find('option:selected').val();
                 iframe.addEventListener("load", function () {
                     console.log("FILE LOAD DONE.. Download should start now");
-
                 });
                 desbloquearUI();
             }

@@ -158,6 +158,7 @@ INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'theme.sidebar
 /*exportar*/
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('download', '0', 'Descargar');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp00', '0', 'Formulario Zp00 Tamizaje');
+INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp00a', '0', 'Formulario Zp00a Tamizaje Infantes');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp01AD', '0', 'Formulario Zp01 Ingreso Seccion A-D');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp01E', '0', 'Formulario Zp01 Ingreso Seccion E');
 INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp01FK', '0', 'Formulario Zp01 Ingreso Seccion F-K');
@@ -291,6 +292,10 @@ INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('total', '0', '
 
 /*INFANTE*/
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp07', '0', 'Formulario Zp07 Evaluacion del Infante');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp07a', '0', 'Formulario Zp07a Resultados Oftalmológicos de Infante');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp07b', '0', 'Formulario Zp07b Resultados de Exámenes Audiológicos de Infante');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp07c', '0', 'Formulario Zp07c Estudios de Imágenes de Infante');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp07d', '0', 'Formulario Zp07d Escala de Bayley de desarrollo infantil');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp02d', '0', 'Formulario Zp02d Muestras Biologicas de Infante');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('birth_arm_2', '0', 'Nacimiento');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('3_months_arm_2', '0', '3 Meses');

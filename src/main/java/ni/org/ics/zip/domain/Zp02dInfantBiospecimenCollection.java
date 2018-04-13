@@ -72,6 +72,11 @@ public class Zp02dInfantBiospecimenCollection extends BaseMetaData implements Au
     private String infantPerson3;
     private Date infantCompleteDate3;
 
+    //added v2.5
+    private Date infantMatBldDt;
+    private Date infantMatSlvaDt;
+    private Date infantMatUrineDt;
+
     @Id
     @Column(name = "record_id", nullable = false, length = 25)
     public String getRecordId() {
@@ -558,6 +563,34 @@ public class Zp02dInfantBiospecimenCollection extends BaseMetaData implements Au
 
     public void setInfantCompleteDate3(Date infantCompleteDate3) {
         this.infantCompleteDate3 = infantCompleteDate3;
+    }
+
+    //v2.5
+    @Column(name = "infant_mat_bld_dt")
+    public Date getInfantMatBldDt() {
+        return infantMatBldDt;
+    }
+
+    public void setInfantMatBldDt(Date infantMatBldDt) {
+        this.infantMatBldDt = infantMatBldDt;
+    }
+
+    @Column(name = "infant_mat_slva_dt")
+    public Date getInfantMatSlvaDt() {
+        return infantMatSlvaDt;
+    }
+
+    public void setInfantMatSlvaDt(Date infantMatSlvaDt) {
+        this.infantMatSlvaDt = infantMatSlvaDt;
+    }
+
+    @Column(name = "infant_mat_urine_dt")
+    public Date getInfantMatUrineDt() {
+        return infantMatUrineDt;
+    }
+
+    public void setInfantMatUrineDt(Date infantMatUrineDt) {
+        this.infantMatUrineDt = infantMatUrineDt;
     }
 
     @Override

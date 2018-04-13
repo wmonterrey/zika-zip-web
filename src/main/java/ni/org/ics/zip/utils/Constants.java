@@ -104,7 +104,12 @@ public class Constants {
     public static final String TABLE_ZP08 = "zp08_study_exit";
     public static final String TABLE_ZP07 = "zp07_infant_assessment";
     public static final String TABLE_ZP02d = "zp02d_infant_biospecimen_collection";
-    
+    public static final String TABLE_ZP00a = "zp00a_infant_screening";
+    public static final String TABLE_ZP07a = "zp07a_infant_opht_results";
+    public static final String TABLE_ZP07b = "zp07b_infant_audio_results";
+    public static final String TABLE_ZP07c = "zp07c_infant_image_studies";
+    public static final String TABLE_ZP07d = "zp07d_bayley_scales";
+
     /*tablas para cada parametro*/
     public static final String  HORAINICIO_CITA= "HoraInicioAtencion";
     public static final String HORAFIN_CITA = "HoraFinAtencion";

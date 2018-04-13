@@ -32,7 +32,7 @@ public class Zp07aInfantOphtResults extends BaseMetaData implements Auditable {
     private String infantStrabismus;
     private String infantEyeOther;
     private String infantEyeOtherSpecify;
-    private String infantReferralOphth;
+ //   private String infantReferralOphth;
     private String infantEyeFile;
     private String infantEyeCom;
     private String infantEyComdetail;
@@ -42,6 +42,38 @@ public class Zp07aInfantOphtResults extends BaseMetaData implements Auditable {
     private Date infantEydtRevi;
     private String infantEyidEntry;
     private Date infantEydtEnt;
+
+    //v2.6
+    private String infantMicrocep;
+    private String infantCongCataract;
+    private String infantGlaucoma;
+    private String infantMyopia;
+    private String infantBlindness;
+    private String infantOtherDisease;
+    private String infantOtherSpecify;
+    private Float infantGestAge;
+    private String infantLight;
+    private String infantFixFollow;
+    private String infantFacialExpression;
+    private String infantSmile;
+    private String infantPtosis;
+    private String infantCataract;
+    private String infantOtherLens;
+    private String infantLenOhterSpec;
+    private String infantNystagmus;
+    private String infantIntraPress;
+    private Integer infantTonoLeft;
+    private Integer infantTonoRight;
+    private String infantFocalSpecify;
+    private String infantAbnoVascu;
+    private String infantFovealLoss;
+    private String infantRetinaColoboma;
+    private String infantAtrophy;
+    private String infantColoboma;
+    private Float infantDiscLeft;
+    private Float infantDiscRight;
+    private String infantHypoplasia;
+
 
     @Id
     @Column(name = "record_id", nullable = false, length = 25)
@@ -72,7 +104,7 @@ public class Zp07aInfantOphtResults extends BaseMetaData implements Auditable {
         this.infantOphthDt = infantOphthDt;
     }
 
-    @Column(name = "infant_oph_type", length = 1)
+    @Column(name = "infant_oph_type", length = 6)
     public String getInfantOphType() {
         return infantOphType;
     }
@@ -81,7 +113,7 @@ public class Zp07aInfantOphtResults extends BaseMetaData implements Auditable {
         this.infantOphType = infantOphType;
     }
 
-    @Column(name = "infant_eye_calci", length = 1)
+    @Column(name = "infant_eye_calci", length = 2)
     public String getInfantEyeCalci() {
         return infantEyeCalci;
     }
@@ -90,7 +122,7 @@ public class Zp07aInfantOphtResults extends BaseMetaData implements Auditable {
         this.infantEyeCalci = infantEyeCalci;
     }
 
-    @Column(name = "infant_choriore", length = 1)
+    @Column(name = "infant_choriore", length = 2)
     public String getInfantChoriore() {
         return infantChoriore;
     }
@@ -99,7 +131,7 @@ public class Zp07aInfantOphtResults extends BaseMetaData implements Auditable {
         this.infantChoriore = infantChoriore;
     }
 
-    @Column(name = "infant_focal_pm", length = 1)
+    @Column(name = "infant_focal_pm", length = 2)
     public String getInfantFocalPm() {
         return infantFocalPm;
     }
@@ -108,7 +140,7 @@ public class Zp07aInfantOphtResults extends BaseMetaData implements Auditable {
         this.infantFocalPm = infantFocalPm;
     }
 
-    @Column(name = "infant_choriore_atro", length = 1)
+    @Column(name = "infant_choriore_atro", length = 2)
     public String getInfantChorioreAtro() {
         return infantChorioreAtro;
     }
@@ -117,7 +149,7 @@ public class Zp07aInfantOphtResults extends BaseMetaData implements Auditable {
         this.infantChorioreAtro = infantChorioreAtro;
     }
 
-    @Column(name = "infant_microph", length = 1)
+    @Column(name = "infant_microph", length = 2)
     public String getInfantMicroph() {
         return infantMicroph;
     }
@@ -126,7 +158,7 @@ public class Zp07aInfantOphtResults extends BaseMetaData implements Auditable {
         this.infantMicroph = infantMicroph;
     }
 
-    @Column(name = "infant_microcornea", length = 1)
+    @Column(name = "infant_microcornea", length = 2)
     public String getInfantMicrocornea() {
         return infantMicrocornea;
     }
@@ -135,7 +167,7 @@ public class Zp07aInfantOphtResults extends BaseMetaData implements Auditable {
         this.infantMicrocornea = infantMicrocornea;
     }
 
-    @Column(name = "infant_iris_colobo", length = 1)
+    @Column(name = "infant_iris_colobo", length = 2)
     public String getInfantIrisColobo() {
         return infantIrisColobo;
     }
@@ -144,7 +176,7 @@ public class Zp07aInfantOphtResults extends BaseMetaData implements Auditable {
         this.infantIrisColobo = infantIrisColobo;
     }
 
-    @Column(name = "infant_optic_nerve", length = 1)
+    @Column(name = "infant_optic_nerve", length = 2)
     public String getInfantOpticNerve() {
         return infantOpticNerve;
     }
@@ -153,7 +185,7 @@ public class Zp07aInfantOphtResults extends BaseMetaData implements Auditable {
         this.infantOpticNerve = infantOpticNerve;
     }
 
-    @Column(name = "infant_sub_luxated", length = 1)
+    @Column(name = "infant_sub_luxated", length = 2)
     public String getInfantSubLuxated() {
         return infantSubLuxated;
     }
@@ -162,7 +194,7 @@ public class Zp07aInfantOphtResults extends BaseMetaData implements Auditable {
         this.infantSubLuxated = infantSubLuxated;
     }
 
-    @Column(name = "infant_strabismus", length = 1)
+    @Column(name = "infant_strabismus", length = 2)
     public String getInfantStrabismus() {
         return infantStrabismus;
     }
@@ -189,14 +221,14 @@ public class Zp07aInfantOphtResults extends BaseMetaData implements Auditable {
         this.infantEyeOtherSpecify = infantEyeOtherSpecify;
     }
 
-    @Column(name = "infant_referral_ophth", length = 1)
+   /* @Column(name = "infant_referral_ophth", length = 1)
     public String getInfantReferralOphth() {
         return infantReferralOphth;
     }
 
     public void setInfantReferralOphth(String infantReferralOphth) {
         this.infantReferralOphth = infantReferralOphth;
-    }
+    }*/
 
     @Column(name = "infant_eye_file", length = 100)
     public String getInfantEyeFile() {
@@ -280,6 +312,269 @@ public class Zp07aInfantOphtResults extends BaseMetaData implements Auditable {
 
     public void setInfantEydtEnt(Date infantEydtEnt) {
         this.infantEydtEnt = infantEydtEnt;
+    }
+
+    //v2.6
+
+    @Column(name = "infant_microcep", length = 2)
+    public String getInfantMicrocep() {
+        return infantMicrocep;
+    }
+
+    public void setInfantMicrocep(String infantMicrocep) {
+        this.infantMicrocep = infantMicrocep;
+    }
+
+    @Column(name = "infant_cong_cataract", length = 2)
+    public String getInfantCongCataract() {
+        return infantCongCataract;
+    }
+
+    public void setInfantCongCataract(String infantCongCataract) {
+        this.infantCongCataract = infantCongCataract;
+    }
+
+    @Column(name = "infant_glaucoma", length = 2)
+    public String getInfantGlaucoma() {
+        return infantGlaucoma;
+    }
+
+    public void setInfantGlaucoma(String infantGlaucoma) {
+        this.infantGlaucoma = infantGlaucoma;
+    }
+
+    @Column(name = "infant_myopia", length = 2)
+    public String getInfantMyopia() {
+        return infantMyopia;
+    }
+
+    public void setInfantMyopia(String infantMyopia) {
+        this.infantMyopia = infantMyopia;
+    }
+
+    @Column(name = "infant_blindness", length = 2)
+    public String getInfantBlindness() {
+        return infantBlindness;
+    }
+
+    public void setInfantBlindness(String infantBlindness) {
+        this.infantBlindness = infantBlindness;
+    }
+
+    @Column(name = "infant_other_disease", length = 2)
+    public String getInfantOtherDisease() {
+        return infantOtherDisease;
+    }
+
+    public void setInfantOtherDisease(String infantOtherDisease) {
+        this.infantOtherDisease = infantOtherDisease;
+    }
+
+    @Column(name = "infant_other_specify", length = 100)
+    public String getInfantOtherSpecify() {
+        return infantOtherSpecify;
+    }
+
+    public void setInfantOtherSpecify(String infantOtherSpecify) {
+        this.infantOtherSpecify = infantOtherSpecify;
+    }
+
+    @Column(name = "infant_gest_age")
+    public Float getInfantGestAge() {
+        return infantGestAge;
+    }
+
+    public void setInfantGestAge(Float infantGestAge) {
+        this.infantGestAge = infantGestAge;
+    }
+
+    @Column(name = "infant_light", length = 2)
+    public String getInfantLight() {
+        return infantLight;
+    }
+
+    public void setInfantLight(String infantLight) {
+        this.infantLight = infantLight;
+    }
+
+    @Column(name = "infant_fix_follow", length = 2)
+    public String getInfantFixFollow() {
+        return infantFixFollow;
+    }
+
+    public void setInfantFixFollow(String infantFixFollow) {
+        this.infantFixFollow = infantFixFollow;
+    }
+
+    @Column(name = "infant_facial_expression", length = 2)
+    public String getInfantFacialExpression() {
+        return infantFacialExpression;
+    }
+
+    public void setInfantFacialExpression(String infantFacialExpression) {
+        this.infantFacialExpression = infantFacialExpression;
+    }
+
+    @Column(name = "infant_smile", length = 2)
+    public String getInfantSmile() {
+        return infantSmile;
+    }
+
+    public void setInfantSmile(String infantSmile) {
+        this.infantSmile = infantSmile;
+    }
+
+    @Column(name = "infant_ptosis", length = 2)
+    public String getInfantPtosis() {
+        return infantPtosis;
+    }
+
+    public void setInfantPtosis(String infantPtosis) {
+        this.infantPtosis = infantPtosis;
+    }
+
+    @Column(name = "infant_cataract", length = 2)
+    public String getInfantCataract() {
+        return infantCataract;
+    }
+
+    public void setInfantCataract(String infantCataract) {
+        this.infantCataract = infantCataract;
+    }
+
+    @Column(name = "infant_other_lens", length = 2)
+    public String getInfantOtherLens() {
+        return infantOtherLens;
+    }
+
+    public void setInfantOtherLens(String infantOtherLens) {
+        this.infantOtherLens = infantOtherLens;
+    }
+
+    @Column(name = "infant_len_ohter_spec", length = 100)
+    public String getInfantLenOhterSpec() {
+        return infantLenOhterSpec;
+    }
+
+    public void setInfantLenOhterSpec(String infantLenOhterSpec) {
+        this.infantLenOhterSpec = infantLenOhterSpec;
+    }
+
+    @Column(name = "infant_nystagmus", length = 2)
+    public String getInfantNystagmus() {
+        return infantNystagmus;
+    }
+
+    public void setInfantNystagmus(String infantNystagmus) {
+        this.infantNystagmus = infantNystagmus;
+    }
+
+    @Column(name = "infant_intra_press", length = 2)
+    public String getInfantIntraPress() {
+        return infantIntraPress;
+    }
+
+    public void setInfantIntraPress(String infantIntraPress) {
+        this.infantIntraPress = infantIntraPress;
+    }
+
+    @Column(name = "infant_tono_left")
+    public Integer getInfantTonoLeft() {
+        return infantTonoLeft;
+    }
+
+    public void setInfantTonoLeft(Integer infantTonoLeft) {
+        this.infantTonoLeft = infantTonoLeft;
+    }
+
+    @Column(name = "infant_tono_right")
+    public Integer getInfantTonoRight() {
+        return infantTonoRight;
+    }
+
+    public void setInfantTonoRight(Integer infantTonoRight) {
+        this.infantTonoRight = infantTonoRight;
+    }
+
+    @Column(name = "infant_focal_specify", length = 100)
+    public String getInfantFocalSpecify() {
+        return infantFocalSpecify;
+    }
+
+    public void setInfantFocalSpecify(String infantFocalSpecify) {
+        this.infantFocalSpecify = infantFocalSpecify;
+    }
+
+    @Column(name = "infant_abno_vascu", length = 2)
+    public String getInfantAbnoVascu() {
+        return infantAbnoVascu;
+    }
+
+    public void setInfantAbnoVascu(String infantAbnoVascu) {
+        this.infantAbnoVascu = infantAbnoVascu;
+    }
+
+    @Column(name = "infant_foveal_loss", length = 2)
+    public String getInfantFovealLoss() {
+        return infantFovealLoss;
+    }
+
+    public void setInfantFovealLoss(String infantFovealLoss) {
+        this.infantFovealLoss = infantFovealLoss;
+    }
+
+    @Column(name = "infant_retina_coloboma", length = 2)
+    public String getInfantRetinaColoboma() {
+        return infantRetinaColoboma;
+    }
+
+    public void setInfantRetinaColoboma(String infantRetinaColoboma) {
+        this.infantRetinaColoboma = infantRetinaColoboma;
+    }
+
+    @Column(name = "infant_atrophy", length = 2)
+    public String getInfantAtrophy() {
+        return infantAtrophy;
+    }
+
+    public void setInfantAtrophy(String infantAtrophy) {
+        this.infantAtrophy = infantAtrophy;
+    }
+
+    @Column(name = "infant_coloboma", length = 2)
+    public String getInfantColoboma() {
+        return infantColoboma;
+    }
+
+    public void setInfantColoboma(String infantColoboma) {
+        this.infantColoboma = infantColoboma;
+    }
+
+    @Column(name = "infant_disc_left")
+    public Float getInfantDiscLeft() {
+        return infantDiscLeft;
+    }
+
+    public void setInfantDiscLeft(Float infantDiscLeft) {
+        this.infantDiscLeft = infantDiscLeft;
+    }
+
+    @Column(name = "infant_disc_right")
+    public Float getInfantDiscRight() {
+        return infantDiscRight;
+    }
+
+    public void setInfantDiscRight(Float infantDiscRight) {
+        this.infantDiscRight = infantDiscRight;
+    }
+
+    @Column(name = "infant_hypoplasia", length = 2)
+    public String getInfantHypoplasia() {
+        return infantHypoplasia;
+    }
+
+    public void setInfantHypoplasia(String infantHypoplasia) {
+        this.infantHypoplasia = infantHypoplasia;
     }
 
     @Override

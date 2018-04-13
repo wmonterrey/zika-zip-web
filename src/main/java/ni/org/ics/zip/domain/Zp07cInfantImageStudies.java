@@ -108,7 +108,7 @@ public class Zp07cInfantImageStudies extends BaseMetaData implements Auditable {
         this.infantUltraDt = infantUltraDt;
     }
 
-    @Column(name = "infant_results_specify", length = 1)
+    @Column(name = "infant_results_specify", length = 6)
     public String getInfantResultsSpecify() {
         return infantResultsSpecify;
     }
@@ -163,7 +163,7 @@ public class Zp07cInfantImageStudies extends BaseMetaData implements Auditable {
         this.infantCtDt = infantCtDt;
     }
 
-    @Column(name = "infant_ctspecify", length = 1)
+    @Column(name = "infant_ctspecify", length = 7)
     public String getInfantCtspecify() {
         return infantCtspecify;
     }
@@ -272,7 +272,7 @@ public class Zp07cInfantImageStudies extends BaseMetaData implements Auditable {
         this.infantMriDt = infantMriDt;
     }
 
-    @Column(name = "infant_mri_specify", length = 1)
+    @Column(name = "infant_mri_specify", length = 7)
     public String getInfantMriSpecify() {
         return infantMriSpecify;
     }

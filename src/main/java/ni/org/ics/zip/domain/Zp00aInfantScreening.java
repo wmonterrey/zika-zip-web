@@ -132,7 +132,7 @@ public class Zp00aInfantScreening extends BaseMetaData implements Auditable {
         this.infInfid = infInfid;
     }
 
-    @Column(name = "inf_reasonno", length = 2)
+    @Column(name = "inf_reasonno", length = 5)
     public String getInfReasonno() {
         return infReasonno;
     }

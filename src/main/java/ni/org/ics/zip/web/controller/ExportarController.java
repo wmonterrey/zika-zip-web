@@ -234,21 +234,21 @@ public class ExportarController {
 
     @RequestMapping(value = "getAll", method = RequestMethod.GET)
     public void getAllForms(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
-                        @RequestParam(value = "codigoFin", required = false) String codigoFin,
-                        @RequestParam(value = "event", required = false) String event,
-                        HttpServletResponse response) throws Exception {
+                            @RequestParam(value = "codigoFin", required = false) String codigoFin,
+                            @RequestParam(value = "event", required = false) String event,
+                            HttpServletResponse response) throws Exception {
         //String todasTablas = Constants.TABLE_ZP00+","+Constants.TABLE_ZP01AD+","+Constants.TABLE_ZP01E+","+Constants.TABLE_ZP01FK+","+Constants.TABLE_ZP02+","+Constants.TABLE_ZP03+","+
         //        Constants.TABLE_ZP04AD+","+Constants.TABLE_ZP04E+","+Constants.TABLE_ZP04FH+","+Constants.TABLE_ZP05+","+Constants.TABLE_ZP06+","+Constants.TABLE_ZP07+","+Constants.TABLE_ZP02d+","+Constants.TABLE_ZP08;
-        String todasTablas = Constants.TABLE_ZP00+","+Constants.TABLE_ZP01AD+","+Constants.TABLE_ZP01E+","+Constants.TABLE_ZP01FK+","+Constants.TABLE_ZP02+","+Constants.TABLE_ZP03+","+
-                Constants.TABLE_ZP04AD+","+Constants.TABLE_ZP04E+","+Constants.TABLE_ZP04FH+","+Constants.TABLE_ZP05+","+Constants.TABLE_ZP06+","+Constants.TABLE_ZP08;
-        ExportParameters ep = new ExportParameters(todasTablas,codigoInicio,codigoFin,event);
+        String todasTablas = Constants.TABLE_ZP00 + "," + Constants.TABLE_ZP01AD + "," + Constants.TABLE_ZP01E + "," + Constants.TABLE_ZP01FK + "," + Constants.TABLE_ZP02 + "," + Constants.TABLE_ZP03 + "," +
+                Constants.TABLE_ZP04AD + "," + Constants.TABLE_ZP04E + "," + Constants.TABLE_ZP04FH + "," + Constants.TABLE_ZP05 + "," + Constants.TABLE_ZP06 + "," + Constants.TABLE_ZP00a + "," + Constants.TABLE_ZP07 + "," + Constants.TABLE_ZP07a + "," + Constants.TABLE_ZP07b + "," + Constants.TABLE_ZP07c + "," + Constants.TABLE_ZP07d + "," + Constants.TABLE_ZP02d + "," + Constants.TABLE_ZP08;
+        ExportParameters ep = new ExportParameters(todasTablas, codigoInicio, codigoFin, event);
         StringBuffer registros = new StringBuffer("");
         if (!event.equalsIgnoreCase("all")) {
             ep.setAddHeader(true);
             registros = exportarService.getAllExportData(ep);
-        }else{
+        } else {
             List<String> events = exportarService.getRedCapEvents();
-            for (String evento: events){
+            for (String evento : events) {
                 ep.setEvent(evento);
                 if (evento.equalsIgnoreCase(Constants.SCREENING)) ep.setAddHeader(true);
                 else ep.setAddHeader(false);
@@ -292,4 +292,85 @@ public class ExportarController {
         response.setContentLength(registros.length());
         FileCopyUtils.copy(inputStream, response.getOutputStream());
     }
+
+    //export para ultimos formularios creados
+    //Screening infantes
+
+    @RequestMapping(value = "getZp00a", method = RequestMethod.GET)
+    public void getZp00a(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
+                         @RequestParam(value = "codigoFin", required = false) String codigoFin,
+                         @RequestParam(value = "event", required = false) String event,
+                         HttpServletResponse response) throws Exception {
+        ExportParameters ep = new ExportParameters(Constants.TABLE_ZP00a,codigoInicio,codigoFin,event);
+        StringBuffer registros = exportarService.getZp00aExportData(ep);
+        InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
+        String mimeType = "text/csv";
+        response.setContentType(mimeType);
+        response.setHeader("Content-Disposition", String.format("inline; filename=\"" + "Zp00a.csv" +"\""));
+        response.setContentLength(registros.length());
+        FileCopyUtils.copy(inputStream, response.getOutputStream());
+    }
+
+    @RequestMapping(value = "getZp07a", method = RequestMethod.GET)
+    public void getZp07a(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
+                         @RequestParam(value = "codigoFin", required = false) String codigoFin,
+                         @RequestParam(value = "event", required = false) String event,
+                         HttpServletResponse response) throws Exception {
+        ExportParameters ep = new ExportParameters(Constants.TABLE_ZP07a,codigoInicio,codigoFin,event);
+        StringBuffer registros = exportarService.getZp07aExportData(ep);
+        InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
+        String mimeType = "text/csv";
+        response.setContentType(mimeType);
+        response.setHeader("Content-Disposition", String.format("inline; filename=\"" + "Zp07a.csv" +"\""));
+        response.setContentLength(registros.length());
+        FileCopyUtils.copy(inputStream, response.getOutputStream());
+    }
+
+    @RequestMapping(value = "getZp07b", method = RequestMethod.GET)
+    public void getZp07b(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
+                         @RequestParam(value = "codigoFin", required = false) String codigoFin,
+                         @RequestParam(value = "event", required = false) String event,
+                         HttpServletResponse response) throws Exception {
+        ExportParameters ep = new ExportParameters(Constants.TABLE_ZP07b,codigoInicio,codigoFin,event);
+        StringBuffer registros = exportarService.getZp07bExportData(ep);
+        InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
+        String mimeType = "text/csv";
+        response.setContentType(mimeType);
+        response.setHeader("Content-Disposition", String.format("inline; filename=\"" + "Zp07b.csv" +"\""));
+        response.setContentLength(registros.length());
+        FileCopyUtils.copy(inputStream, response.getOutputStream());
+    }
+
+    @RequestMapping(value = "getZp07c", method = RequestMethod.GET)
+    public void getZp07c(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
+                         @RequestParam(value = "codigoFin", required = false) String codigoFin,
+                         @RequestParam(value = "event", required = false) String event,
+                         HttpServletResponse response) throws Exception {
+        ExportParameters ep = new ExportParameters(Constants.TABLE_ZP07c,codigoInicio,codigoFin,event);
+        StringBuffer registros = exportarService.getZp07cExportData(ep);
+        InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
+        String mimeType = "text/csv";
+        response.setContentType(mimeType);
+        response.setHeader("Content-Disposition", String.format("inline; filename=\"" + "Zp07c.csv" +"\""));
+        response.setContentLength(registros.length());
+        FileCopyUtils.copy(inputStream, response.getOutputStream());
+    }
+
+    @RequestMapping(value = "getZp07d", method = RequestMethod.GET)
+    public void getZp07d(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
+                         @RequestParam(value = "codigoFin", required = false) String codigoFin,
+                         @RequestParam(value = "event", required = false) String event,
+                         HttpServletResponse response) throws Exception {
+        ExportParameters ep = new ExportParameters(Constants.TABLE_ZP07d,codigoInicio,codigoFin,event);
+        StringBuffer registros = exportarService.getZp07dExportData(ep);
+        InputStream inputStream = new ByteArrayInputStream(registros.toString().getBytes());
+        String mimeType = "text/csv";
+        response.setContentType(mimeType);
+        response.setHeader("Content-Disposition", String.format("inline; filename=\"" + "Zp07d.csv" +"\""));
+        response.setContentLength(registros.length());
+        FileCopyUtils.copy(inputStream, response.getOutputStream());
+    }
+
+
+
 }

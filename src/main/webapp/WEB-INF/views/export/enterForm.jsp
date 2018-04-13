@@ -135,6 +135,7 @@
 															<select class="form-control" id="zpform" name="zpform">
 																<option value=""><spring:message code="lbl.select" /> ...</option>
 																<option value="Zp00"><spring:message code="zp00" /></option>
+																<option value="Zp00a"><spring:message code="zp00a" /></option>
 																<option value="Zp01AD"><spring:message code="zp01AD" /></option>
 																<option value="Zp01E"><spring:message code="zp01E" /></option>
 																<option value="Zp01FK"><spring:message code="zp01FK" /></option>
@@ -147,6 +148,10 @@
 																<option value="Zp06"><spring:message code="zp06" /></option>
 																<option value="Zp08"><spring:message code="zp08" /></option>
 																<option value="Zp07"><spring:message code="zp07" /></option>
+																<option value="Zp07a"><spring:message code="zp07a" /></option>
+																<option value="Zp07b"><spring:message code="zp07b" /></option>
+																<option value="Zp07c"><spring:message code="zp07c" /></option>
+																<option value="Zp07d"><spring:message code="zp07d" /></option>
 																<option value="Zp02d"><spring:message code="zp02d" /></option>
 																<option value="all"><spring:message code="allforms" /></option>
 															</select>
@@ -262,6 +267,7 @@
 	<script src="${procExportScript}" type="text/javascript"></script>
 
 	<spring:url value="/admin/export/getZp00" var="getZp00" />
+	<spring:url value="/admin/export/getZp00a" var="getZp00a" />
 	<spring:url value="/admin/export/getZp01AD" var="getZp01AD" />
 	<spring:url value="/admin/export/getZp01E" var="getZp01E" />
 	<spring:url value="/admin/export/getZp01FK" var="getZp01FK" />
@@ -275,6 +281,10 @@
 	<spring:url value="/admin/export/getZp08" var="getZp08" />
 	<spring:url value="/admin/export/getAll" var="getAll" />
 	<spring:url value="/admin/export/getZp07" var="getZp07" />
+	<spring:url value="/admin/export/getZp07a" var="getZp07a" />
+	<spring:url value="/admin/export/getZp07b" var="getZp07b" />
+	<spring:url value="/admin/export/getZp07c" var="getZp07c" />
+	<spring:url value="/admin/export/getZp07d" var="getZp07d" />
 	<spring:url value="/admin/export/getZp02d" var="getZp02d" />
 
 	<!-- END PAGE LEVEL SCRIPTS -->
@@ -288,7 +298,8 @@
 	jQuery(document).ready(function() {
 		App.init();
 		var parametros = {getZp00 : "${getZp00}",
-            getZp01AD : "${getZp01AD}",
+            getZp00a : "${getZp00a}",
+			getZp01AD : "${getZp01AD}",
             getZp01E : "${getZp01E}",
             getZp01FK : "${getZp01FK}",
             getZp02 : "${getZp02}",
@@ -300,7 +311,11 @@
             getZp05 : "${getZp05}",
             getZp08 : "${getZp08}",
             getZp07 : "${getZp07}",
+			getZp07a : "${getZp07a}",
             getZp02d : "${getZp02d}",
+			getZp07b : "${getZp07b}",
+			getZp07c : "${getZp07c}",
+			getZp07d : "${getZp07d}",
             getAll : "${getAll}"
         };
 
