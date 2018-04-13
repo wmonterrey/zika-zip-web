@@ -951,7 +951,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
         this.infantItch = infantItch;
     }
 
-    @Column(name = "infant_rash_first", length = 2)
+    @Column(name = "infant_rash_first", length = 10)
     public String getInfantRashFirst() {
         return infantRashFirst;
     }
