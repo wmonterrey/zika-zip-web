@@ -37,6 +37,13 @@ public class Zp08StudyExit extends BaseMetaData implements Auditable {
     private String extIdDataEntry;
     private Date extDateEntered;
 
+    //v2.3
+    private Date extDeathDt3; //v2.3
+    private Date extDeathDt2; //v2.3
+    private String extReasonIneligi; //v.2.3
+    private String extIneigiOther; //v2.3
+    private Date extDeathDt1; //v2.3
+
     @Id
     @Column(name = "record_id", nullable = false, length = 25)
     public String getRecordId() {
@@ -203,6 +210,53 @@ public class Zp08StudyExit extends BaseMetaData implements Auditable {
 
     public void setExtDateEntered(Date extDateEntered) {
         this.extDateEntered = extDateEntered;
+    }
+
+    //v2.3
+
+    @Column(name = "ext_reason_ineligi", length = 2)
+    public String getExtReasonIneligi() {
+        return extReasonIneligi;
+    }
+
+    public void setExtReasonIneligi(String extReasonIneligi) {
+        this.extReasonIneligi = extReasonIneligi;
+    }
+
+    @Column(name = "ext_ineigi_other", length = 50)
+    public String getExtIneigiOther() {
+        return extIneigiOther;
+    }
+
+    public void setExtIneigiOther(String extIneigiOther) {
+        this.extIneigiOther = extIneigiOther;
+    }
+
+    @Column(name = "ext_death_dt1")
+    public Date getExtDeathDt1() {
+        return extDeathDt1;
+    }
+
+    public void setExtDeathDt1(Date extDeathDt1) {
+        this.extDeathDt1 = extDeathDt1;
+    }
+
+    @Column(name = "ext_death_dt2")
+    public Date getExtDeathDt2() {
+        return extDeathDt2;
+    }
+
+    public void setExtDeathDt2(Date extDeathDt2) {
+        this.extDeathDt2 = extDeathDt2;
+    }
+
+    @Column(name = "ext_death_dt3")
+    public Date getExtDeathDt3() {
+        return extDeathDt3;
+    }
+
+    public void setExtDeathDt3(Date extDeathDt3) {
+        this.extDeathDt3 = extDeathDt3;
     }
 
     @Override
