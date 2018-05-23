@@ -292,9 +292,9 @@ INSERT INTO `messages` (`messageKey`, `catPasive`, `es`) VALUES ('total', '0', '
 
 /*INFANTE*/
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp07', '0', 'Formulario Zp07 Evaluacion del Infante');
-INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp07a', '0', 'Formulario Zp07a Resultados Oftalmológicos de Infante');
-INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp07b', '0', 'Formulario Zp07b Resultados de Exámenes Audiológicos de Infante');
-INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp07c', '0', 'Formulario Zp07c Estudios de Imágenes de Infante');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp07a', '0', 'Formulario Zp07a Resultados Oftalmolï¿½gicos de Infante');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp07b', '0', 'Formulario Zp07b Resultados de Exï¿½menes Audiolï¿½gicos de Infante');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp07c', '0', 'Formulario Zp07c Estudios de Imï¿½genes de Infante');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp07d', '0', 'Formulario Zp07d Escala de Bayley de desarrollo infantil');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('zp02d', '0', 'Formulario Zp02d Muestras Biologicas de Infante');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('birth_arm_2', '0', 'Nacimiento');
@@ -317,8 +317,8 @@ INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('lbl
 
 /*Catalogos*/
 INSERT INTO `roles` (`ROL`) VALUES ('ROLE_CATALOG');
-INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'ROLE_CATALOG', 'Catálogos','0');
-INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('catalog', '0', 'Catálogos');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'ROLE_CATALOG', 'Catï¿½logos','0');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('catalog', '0', 'Catï¿½logos');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('catalogcenter', '0', 'Unidad de Salud');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('centers', '0', 'Unidades de Salud');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('centerName', '0', 'Nombre Unidad de Salud');
@@ -342,15 +342,15 @@ INSERT INTO `messages` (`messageKey`, `catKey`, `en`, `catPasive`, `es`) VALUES 
 INSERT INTO `messages` (`messageKey`, `catKey`, `en`, `catPasive`, `es`) VALUES ('superstudies', NULL, NULL, '0', 'Especialidad');
 INSERT INTO `zika_zip`.`Messages` (`messageKey`, `catPasive`, `es`) VALUES ('agenda_fecha', '0', 'Fecha de Cita');
 INSERT INTO `zika_zip`.`Messages` (`messageKey`, `catPasive`, `es`) VALUES ('agenda_hora', '0', 'Hora de Cita');
-INSERT INTO `zika_zip`.`Messages` (`messageKey`, `catPasive`,`es`) VALUES ('phone_number', '0', 'Número Teléfono');
-INSERT INTO `zika_zip`.`Messages` (`messageKey`, `catPasive`,`es`) VALUES ('sms_number', '0', 'Número Mensaje');
-INSERT INTO `zika_zip`.`Messages` (`messageKey`, `catPasive`,`es`) VALUES ('asistencia', '0', '¿Asistio?');
+INSERT INTO `zika_zip`.`Messages` (`messageKey`, `catPasive`,`es`) VALUES ('phone_number', '0', 'Nï¿½mero Telï¿½fono');
+INSERT INTO `zika_zip`.`Messages` (`messageKey`, `catPasive`,`es`) VALUES ('sms_number', '0', 'Nï¿½mero Mensaje');
+INSERT INTO `zika_zip`.`Messages` (`messageKey`, `catPasive`,`es`) VALUES ('asistencia', '0', 'ï¿½Asistio?');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('provider', '0', 'Proveedor');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('newAppointment', '0', 'Nueva cita');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('additionalText', '0', 'Observaciones');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('hora_inicio', '0', 'Inicio');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('hora_fin', '0', 'Fin');
-INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('confirmQuestion', '0', '¿Seguro de seguir con el proceso?');
+INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('confirmQuestion', '0', 'ï¿½Seguro de seguir con el proceso?');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('autoriaSMS', '0', 'Autoriza Envio Mesaje SMS');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('err_msg_participante_no_existe', '0', 'EL codigo de participante no existe');
 INSERT INTO `zika_zip`.`messages` (`messageKey`, `catPasive`, `es`) VALUES ('err_msg_participante_ya_agendado', '0', 'Ya se encuentra agendado un participante para esta fecha y hora.');
@@ -367,5 +367,19 @@ INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('agenda_tiempo_cit
 INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('agenda_dias_semana_laborales', '[0,6]');
 INSERT INTO `zika_zip`.`parameters` (`Name`, `Value`) VALUES ('agenda_dias_feriados', '[ {"dia":"1", "mes":"1"} ,{"dia":"14","mes":"9"},{"dia":"15" ,"mes":"9"},{"dia":"02","mes":"11"} ]');
 
+/* Nuevo menu*/
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'infants', 'Infantes','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'registerInfant', 'Registrar Infante','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'register', 'Registro','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'deliveryDay', 'Fecha del parto','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'consent', 'Â¿Se obtuvo consentimiento para enrolar al infante?','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'numBirth', 'NÃºmero de infantes nacidos','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'lbl_yes', 'Si','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'lbl_no', 'No','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'lbl_not_apply', 'No Aplica','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'msj_exit_records', 'Se encontraron registros de salida asociados al codigo de la participante ingresada','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'msj_existing_records', 'Se encontraron registros de infantes asociados al codigo de la participante ingresada','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'msj_saved_record', 'Se ha realizado el registro de infante(s) con exito','0');
+INSERT INTO `messages` (`messageKey`, `es`, `catPasive`) VALUES ( 'msj_record_not_found', 'No se encontraron registros de embarazada asociados al codigo de participante ingresada','0');
 
 

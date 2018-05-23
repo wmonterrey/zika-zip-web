@@ -36,7 +36,23 @@
 							</a></li>
 						</ul></li>
 				</sec:authorize>
-				<sec:authorize url="/admin/">
+
+                <sec:authorize url="/">
+                <li class="infants"><a href="javascript:;"> <i
+                        class="fa fa-child"></i> <span class="title"> <spring:message
+                        code="infants" />
+						</span> <span class="arrow "> </span>
+                </a>
+                    <ul class="sub-menu">
+                        <li class="registerInfant"><a
+                                href="<spring:url value="/infants/" htmlEscape="true "/>">
+                            <i class="fa fa-file"></i> <spring:message
+                                code="registerInfant" />
+                        </a></li>
+                    </ul></li>
+                </sec:authorize>
+
+                <sec:authorize url="/admin/">
 					<li class="admin"><a href="javascript:;"> <i
 							class="fa fa-cogs"></i> <span class="title"> <spring:message
 									code="admin" />
