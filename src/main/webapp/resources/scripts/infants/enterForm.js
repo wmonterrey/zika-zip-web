@@ -34,7 +34,8 @@ var EnterForm = function () {
                 ignore: "",
                 rules: {
                     pregnantId: {
-                        required: true
+                        required: true,
+                        pattern: /^07[0-9][0-9][0-9][0-9][0-3][A-Y]$/
                     },
                     deliveryDate: {
                         required: true
