@@ -145,6 +145,7 @@ public class ExportarService {
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_ultra_dt") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_ultra_obtained") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("infatn_hear_left") &&
+                        !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_additional_audio") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("inmunologico")
                         ) {
                     if (res.getString("COLUMN_NAME").equalsIgnoreCase("record_id") && !columns.isEmpty()) {
@@ -2540,6 +2541,7 @@ public class ExportarService {
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_ultra_dt") &&
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_ultra_obtained") &&
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("infatn_hear_left") &&
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_additional_audio") &&
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("inmunologico")
                             ) {
 
