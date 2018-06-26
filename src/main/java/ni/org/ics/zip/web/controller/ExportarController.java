@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.util.List;
@@ -864,4 +861,27 @@ public class ExportarController {
         w.close();
     }
 
+
+    @RequestMapping(value = "getZp07oae", method = RequestMethod.GET)
+    public void getZp07oae (@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
+                               @RequestParam(value = "codigoFin", required = false) String codigoFin,
+                               @RequestParam(value = "event", required = false) String event,
+                               HttpServletResponse res)
+            throws ServletException, IOException {
+
+        res.setContentType("application/csv");
+        res.setHeader("Content-Disposition", String.format("inline; filename=\"" + "Zp07oae.csv" +"\""));
+        PrintWriter w = res.getWriter();
+        ExportParameters ep = new ExportParameters(Constants.TABLE_ZP07oae,codigoInicio,codigoFin,event);
+        StringBuffer registros = null;
+        try {
+            registros = exportarService.getZp07oaeExportData(ep);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        w.println(registros);
+        w.flush();
+        w.close();
+    }
 }

@@ -106,7 +106,7 @@ public class RegisterInfantController {
                 //check if there is no exist
                 Zp08StudyExit exitRecord = zp08StudyExitService.getZp08StudyExit(id);
 
-                if (exitRecord == null){
+                if (exitRecord != null){
                     resultado = datosMensajes.getMessageByKey("msj_exit_records");
                     error = "error";
 

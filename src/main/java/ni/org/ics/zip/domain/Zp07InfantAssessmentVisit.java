@@ -124,7 +124,7 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
     private String infantRashDy; //nuevo
     private String infantRashMn; //nuevo
     private String infantRashYr; //nuevo
-    private Float infantRashDur;//nuevo
+    private Integer infantRashDur;//nuevo
     private String infantRashSpread; //nuevo
     private String infantSpreadPart; //nuevo
     private String infantFeverExperience; //nuevo
@@ -135,22 +135,22 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
     private String infantFeverDy; //nuevo
     private String infantFeverMn; //nuevo
     private String infantFeverYr; //nuevo
-    private Float infantFeverDur; //nuevo
+    private Integer infantFeverDur; //nuevo
     private String infantRedeyes; //nuevo
     private String infantRedeyesDy; //nuevo
     private String infantRedeyesMn; //nuevo
     private String infantRedeyesYr; //nuevo
-    private Float infantRedeyesDur; //nuevo
+    private Integer infantRedeyesDur; //nuevo
     private String infantJoint; //nuevo
     private String infantJointDy; //nuevo
     private String infantJointMn; //nuevo
     private String infantJointYr; //nuevo
-    private Float infantJointDur; //nuevo
+    private Integer infantJointDur; //nuevo
     private String infantHeadache; //nuevo
     private String infantHeadacheDy; //nuevo
     private String infantHeadacheMn; //nuevo
     private String infantHeadacheYr; //nuevo
-    private Float infantHeadaDur; //nuevo
+    private Integer infantHeadaDur; //nuevo
     private String infantSymptomOther; //nuevo
     private String infantSpecifySymptom; //nuevo
     private String infantOtherSymptom; //nuevo
@@ -988,13 +988,14 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
     }
 
     @Column(name = "infant_rash_dur")
-    public Float getInfantRashDur() {
+    public Integer getInfantRashDur() {
         return infantRashDur;
     }
 
-    public void setInfantRashDur(Float infantRashDur) {
+    public void setInfantRashDur(Integer infantRashDur) {
         this.infantRashDur = infantRashDur;
     }
+
 
     @Column(name = "infant_rash_spread", length = 2)
     public String getInfantRashSpread() {
@@ -1087,11 +1088,11 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
     }
 
     @Column(name = "infant_fever_dur")
-    public Float getInfantFeverDur() {
+    public Integer getInfantFeverDur() {
         return infantFeverDur;
     }
 
-    public void setInfantFeverDur(Float infantFeverDur) {
+    public void setInfantFeverDur(Integer infantFeverDur) {
         this.infantFeverDur = infantFeverDur;
     }
 
@@ -1132,11 +1133,11 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
     }
 
     @Column(name = "infant_redeyes_dur")
-    public Float getInfantRedeyesDur() {
+    public Integer getInfantRedeyesDur() {
         return infantRedeyesDur;
     }
 
-    public void setInfantRedeyesDur(Float infantRedeyesDur) {
+    public void setInfantRedeyesDur(Integer infantRedeyesDur) {
         this.infantRedeyesDur = infantRedeyesDur;
     }
 
@@ -1177,13 +1178,14 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
     }
 
     @Column(name = "infant_joint_dur")
-    public Float getInfantJointDur() {
+    public Integer getInfantJointDur() {
         return infantJointDur;
     }
 
-    public void setInfantJointDur(Float infantJointDur) {
+    public void setInfantJointDur(Integer infantJointDur) {
         this.infantJointDur = infantJointDur;
     }
+
 
     @Column(name = "infant_headache", length = 2)
     public String getInfantHeadache() {
@@ -1222,11 +1224,11 @@ public class Zp07InfantAssessmentVisit extends BaseMetaData implements Auditable
     }
 
     @Column(name = "infant_heada_dur")
-    public Float getInfantHeadaDur() {
+    public Integer getInfantHeadaDur() {
         return infantHeadaDur;
     }
 
-    public void setInfantHeadaDur(Float infantHeadaDur) {
+    public void setInfantHeadaDur(Integer infantHeadaDur) {
         this.infantHeadaDur = infantHeadaDur;
     }
 

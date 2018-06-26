@@ -102,6 +102,8 @@ var Export = function () {
                     urlForm = parametros.getZp08;
                 } else if (form == 'Zp07') {
                     urlForm = parametros.getZp07;
+                } else if (form == 'Zp07oae') {
+                    urlForm = parametros.getZp07oae;
                 } else if (form == 'Zp07a') {
                     urlForm = parametros.getZp07a;
                 } else if (form == 'Zp07b') {

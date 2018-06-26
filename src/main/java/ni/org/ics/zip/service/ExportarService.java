@@ -37,7 +37,7 @@ public class ExportarService {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUser("zikazip");
         dataSource.setPassword("jeKAQudi");
-        //dataSource.setPassword("123456");
+       // dataSource.setPassword("123456");
         dataSource.setServerName("localhost");
         dataSource.setPort(3306);
         dataSource.setDatabaseName("zika_zip");
@@ -146,6 +146,7 @@ public class ExportarService {
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_ultra_obtained") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("infatn_hear_left") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_additional_audio") &&
+                        !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_ageMonths") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("inmunologico")
                         ) {
                     if (res.getString("COLUMN_NAME").equalsIgnoreCase("record_id") && !columns.isEmpty()) {
@@ -2437,6 +2438,90 @@ public class ExportarService {
         return sb;
     }
 
+    public StringBuffer getZp07oaeExportData(ExportParameters exportParameters) throws Exception {
+        StringBuffer sb = new StringBuffer();
+        Connection con = getConnection();
+        PreparedStatement pStatement = null;
+        ResultSet res = null;
+        String columnas = "";
+        String valores = "";
+
+        try {
+            //recuperar los nombres de las columnas
+            List<String> columns = getTableMetaData(exportParameters.getTableName());
+            columnas = parseColumns(columns);
+
+            //pasar a recuperar los datos. Setear parámetro si los hay
+            StringBuilder sqlStrBuilder = new StringBuilder();
+            sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
+
+            if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
+            if (!exportParameters.getEvent().equalsIgnoreCase("all"))
+                sqlStrBuilder.append(" and redcap_event_name = ?");
+
+            pStatement = con.prepareStatement(sqlStrBuilder.toString());
+            if (exportParameters.thereAreCodes()) {
+                pStatement.setString(1, exportParameters.getCodigoInicio());
+                pStatement.setString(2, exportParameters.getCodigoFin());
+            }
+            if (!exportParameters.getEvent().equalsIgnoreCase("all"))
+                pStatement.setString(exportParameters.thereAreCodes() ? 3 : 1, exportParameters.getEvent());
+
+            res = pStatement.executeQuery();
+
+            //columnas que necesita redcap y no estan en la tabla
+            columnas += SEPARADOR + "zp07_infant_otoacoustic_ems";
+
+            sb.append(columnas);
+            sb.append(SALTOLINEA);
+
+            while (res.next()) {
+                for (String col : columns) {
+                    Object val = res.getObject(col);
+                    if (val != null) {
+                        if (val instanceof String) {
+                            String valFormat = val.toString().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
+                            //si contiene uno de estos caracteres especiales escapar
+                            if (valFormat.contains(SEPARADOR) || valFormat.contains(COMILLA) || valFormat.contains(SALTOLINEA)) {
+                                valores += SEPARADOR + QUOTE + valFormat.trim() + QUOTE;
+                            } else {
+                                if (valores.isEmpty()) valores += valFormat.trim();
+                                else valores += SEPARADOR + valFormat.trim();
+                            }
+                        } else if (val instanceof Integer) {
+                            if (valores.isEmpty()) valores += String.valueOf(res.getInt(col));
+                            else valores += SEPARADOR + String.valueOf(res.getInt(col));
+
+                        } else if (val instanceof java.util.Date) {
+                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
+                            else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+
+                        } else if (val instanceof Float) {
+                            if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
+                            else valores += SEPARADOR + String.valueOf(res.getFloat(col));
+                        }
+                    } else {
+                        valores += SEPARADOR;
+
+                    }
+                }
+                //valor para zp07d_bayley_scales_assessment_complete
+                valores += SEPARADOR + "1";
+                sb.append(valores);
+                valores = "";
+                sb.append(SALTOLINEA);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (res != null) res.close();
+            if (pStatement != null) pStatement.close();
+            if (con != null) con.close();
+        }
+        return sb;
+
+    }
+
 
     private List<String[]> getAllTableMetaData(String[] tableNames) throws Exception {
         Connection con = getConnection();
@@ -2542,6 +2627,7 @@ public class ExportarService {
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_ultra_obtained") &&
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("infatn_hear_left") &&
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_additional_audio") &&
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_ageMonths") &&
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("inmunologico")
                             ) {
 

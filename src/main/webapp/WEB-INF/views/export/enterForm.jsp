@@ -148,6 +148,7 @@
 																<option value="Zp06"><spring:message code="zp06" /></option>
 																<option value="Zp08"><spring:message code="zp08" /></option>
 																<option value="Zp07"><spring:message code="zp07" /></option>
+																<option value="Zp07oae"><spring:message code="zp07oae" /></option>
 																<option value="Zp07a"><spring:message code="zp07a" /></option>
 																<option value="Zp07b"><spring:message code="zp07b" /></option>
 																<option value="Zp07c"><spring:message code="zp07c" /></option>
@@ -286,6 +287,7 @@
 	<spring:url value="/admin/export/getZp07c" var="getZp07c" />
 	<spring:url value="/admin/export/getZp07d" var="getZp07d" />
 	<spring:url value="/admin/export/getZp02d" var="getZp02d" />
+	<spring:url value="/admin/export/getZp07oae" var="getZp07oae" />
 
 	<!-- END PAGE LEVEL SCRIPTS -->
 	<script>
@@ -316,6 +318,7 @@
 			getZp07b : "${getZp07b}",
 			getZp07c : "${getZp07c}",
 			getZp07d : "${getZp07d}",
+            getZp07oae : "${getZp07oae}",
             getAll : "${getAll}"
         };
 

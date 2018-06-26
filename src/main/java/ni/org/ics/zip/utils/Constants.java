@@ -109,6 +109,7 @@ public class Constants {
     public static final String TABLE_ZP07b = "zp07b_infant_audio_results";
     public static final String TABLE_ZP07c = "zp07c_infant_image_studies";
     public static final String TABLE_ZP07d = "zp07d_bayley_scales";
+    public static final String TABLE_ZP07oae = "zp07_infant_otoacoustic_ems";
 
     /*tablas para cada parametro*/
     public static final String  HORAINICIO_CITA= "HoraInicioAtencion";
