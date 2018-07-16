@@ -37,7 +37,7 @@ public class ExportarService {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUser("zikazip");
         dataSource.setPassword("jeKAQudi");
-       // dataSource.setPassword("123456");
+        //dataSource.setPassword("123456");
         dataSource.setServerName("localhost");
         dataSource.setPort(3306);
         dataSource.setDatabaseName("zika_zip");
@@ -2469,8 +2469,11 @@ public class ExportarService {
 
             res = pStatement.executeQuery();
 
+            //Valores de campos múltiples
+            String[] ophthtype = "1,2,3".split(",");
+
             //columnas que necesita redcap y no estan en la tabla
-            columnas += SEPARADOR + "zp07_infant_otoacoustic_ems";
+            columnas = columnas.replaceAll("infant_ophth_type", "infant_ophth_type___1,infant_ophth_type___2,infant_ophth_type___3");
 
             sb.append(columnas);
             sb.append(SALTOLINEA);
@@ -2479,33 +2482,47 @@ public class ExportarService {
                 for (String col : columns) {
                     Object val = res.getObject(col);
                     if (val != null) {
-                        if (val instanceof String) {
-                            String valFormat = val.toString().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
-                            //si contiene uno de estos caracteres especiales escapar
-                            if (valFormat.contains(SEPARADOR) || valFormat.contains(COMILLA) || valFormat.contains(SALTOLINEA)) {
-                                valores += SEPARADOR + QUOTE + valFormat.trim() + QUOTE;
-                            } else {
-                                if (valores.isEmpty()) valores += valFormat.trim();
-                                else valores += SEPARADOR + valFormat.trim();
+
+                        if (col.equalsIgnoreCase("infant_ophth_type")) {
+                            valores += setValuesMultipleField(val.toString(), ophthtype);
+
+                        } else {
+                            if (val instanceof String) {
+                                String valFormat = val.toString().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
+                                //si contiene uno de estos caracteres especiales escapar
+                                if (valFormat.contains(SEPARADOR) || valFormat.contains(COMILLA) || valFormat.contains(SALTOLINEA)) {
+                                    valores += SEPARADOR + QUOTE + valFormat.trim() + QUOTE;
+                                } else {
+                                    if (valores.isEmpty()) valores += valFormat.trim();
+                                    else valores += SEPARADOR + valFormat.trim();
+                                }
+                            } else if (val instanceof Integer) {
+                                if (valores.isEmpty()) valores += String.valueOf(res.getInt(col));
+                                else valores += SEPARADOR + String.valueOf(res.getInt(col));
+
+                            } else if (val instanceof java.util.Date) {
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+
+                            } else if (val instanceof Float) {
+                                if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
+                                else valores += SEPARADOR + String.valueOf(res.getFloat(col));
                             }
-                        } else if (val instanceof Integer) {
-                            if (valores.isEmpty()) valores += String.valueOf(res.getInt(col));
-                            else valores += SEPARADOR + String.valueOf(res.getInt(col));
-
-                        } else if (val instanceof java.util.Date) {
-                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                            else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
-
-                        } else if (val instanceof Float) {
-                            if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
-                            else valores += SEPARADOR + String.valueOf(res.getFloat(col));
                         }
                     } else {
-                        valores += SEPARADOR;
+
+                        if (col.equalsIgnoreCase("infant_ophth_type")) {
+                            for (int i = 0; i < ophthtype.length; i++) {
+                                valores += SEPARADOR;
+                            }
+
+                        } else {
+                            valores += SEPARADOR;
+                        }
 
                     }
                 }
-                //valor para zp07d_bayley_scales_assessment_complete
+                //valor para zp07_infant_assessment_complete
                 valores += SEPARADOR + "1";
                 sb.append(valores);
                 valores = "";
@@ -2519,9 +2536,7 @@ public class ExportarService {
             if (con != null) con.close();
         }
         return sb;
-
     }
-
 
     private List<String[]> getAllTableMetaData(String[] tableNames) throws Exception {
         Connection con = getConnection();
