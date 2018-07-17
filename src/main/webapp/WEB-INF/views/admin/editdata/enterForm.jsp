@@ -110,6 +110,7 @@
 															<select class="form-control" id="zpform" name="zpform">
 																<option value=""><spring:message code="lbl.select" /> ...</option>
 																<option value="zp00_screening"><spring:message code="zp00" /></option>
+																<option value="zp00a_infant_screening"><spring:message code="zp00a" /></option>
 																<option value="zp01_study_entry_section_a_to_d"><spring:message code="zp01AD" /></option>
 																<option value="zp01_study_entry_section_e"><spring:message code="zp01E" /></option>
 																<option value="zp01_study_entry_section_f_to_k"><spring:message code="zp01FK" /></option>
@@ -122,7 +123,12 @@
 																<option value="zp06_delivery_and_6week_visit"><spring:message code="zp06" /></option>
 																<option value="zp08_study_exit"><spring:message code="zp08" /></option>
 																<option value="zp07_infant_assessment"><spring:message code="zp07" /></option>
+																<option value="zp07_infant_otoacoustic_ems"><spring:message code="zp07oae" /></option>
 																<option value="zp02d_infant_biospecimen_collection"><spring:message code="zp02d" /></option>
+																<option value="zp07a_infant_opht_results"><spring:message code="zp07a" /></option>
+																<option value="zp07b_infant_audio_results"><spring:message code="zp07b" /></option>
+																<option value="zp07c_infant_image_studies"><spring:message code="zp07c" /></option>
+																<option value="zp07d_bayley_scales"><spring:message code="zp07d" /></option>
 																<option value="zp_cons_recepcion"><spring:message code="zpCR" /></option>
 																<option value="zp_cons_salida"><spring:message code="zpCS" /></option>
 																<option value="zp_reporte_us_recepcion"><spring:message code="zpRRUS" /></option>

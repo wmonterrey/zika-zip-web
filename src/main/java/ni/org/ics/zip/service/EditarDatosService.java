@@ -27,6 +27,7 @@ public class EditarDatosService {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUser("zikazip");
         dataSource.setPassword("jeKAQudi");
+       // dataSource.setPassword("123456");
         dataSource.setServerName("localhost");
         dataSource.setPort(3306);
         dataSource.setDatabaseName("zika_zip");

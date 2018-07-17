@@ -3528,6 +3528,12 @@ public class ExportarService {
         redCapEvents.add(Constants.MONTHS3);
         redCapEvents.add(Constants.MONTHS6);
         redCapEvents.add(Constants.MONTHS12);
+        redCapEvents.add(Constants.EXAM1);
+        redCapEvents.add(Constants.EXAM2);
+        redCapEvents.add(Constants.EXAM3);
+        redCapEvents.add(Constants.EXAM4);
+        redCapEvents.add(Constants.EXAM5);
+        redCapEvents.add(Constants.EXAM6);
         return redCapEvents;
     }
 

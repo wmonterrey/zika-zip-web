@@ -43,6 +43,13 @@ public class Constants {
     public static final String MONTHS6 = "6_months_arm_2";
     public static final String MONTHS12 = "12_months_arm_2";
 
+    public static final String EXAM1 = "exam_1_arm_2";
+    public static final String EXAM2 = "exam_2_arm_2";
+    public static final String EXAM3 = "exam_3_arm_2";
+    public static final String EXAM4 = "exam_4_arm_2";
+    public static final String EXAM5 = "exam_5_arm_2";
+    public static final String EXAM6 = "exam_6_arm_2";
+
 
     /*etiquetas para cada evento*/
     public static final String SCREENING_LABEL = "Tamizaje";
