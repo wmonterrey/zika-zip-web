@@ -1,6 +1,8 @@
 package ni.org.ics.zip.domain;
 
 import ni.org.ics.zip.domain.audit.Auditable;
+import org.hibernate.annotations.Type;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -54,6 +56,7 @@ public class ZpInfantData extends BaseMetaData implements Auditable {
     }
 
     @Column(name = "infant_delivery_date", nullable = true)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     public Date getInfantBirthDate() {
         return infantBirthDate;
     }
