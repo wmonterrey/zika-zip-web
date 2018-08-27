@@ -104,7 +104,7 @@ public class Zp07aInfantOphtResults extends BaseMetaData implements Auditable {
         this.infantOphthDt = infantOphthDt;
     }
 
-    @Column(name = "infant_oph_type", length = 6)
+    @Column(name = "infant_oph_type", length = 12)
     public String getInfantOphType() {
         return infantOphType;
     }

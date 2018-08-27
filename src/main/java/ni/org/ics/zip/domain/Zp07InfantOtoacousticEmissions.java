@@ -37,6 +37,7 @@ public class Zp07InfantOtoacousticEmissions extends BaseMetaData implements Audi
     private Date infantDtReview;
     private String infantIdDataEntry;
     private Date infantDtEnter;
+    private Date infantHearDt;
 
     @Id
     @Column(name = "record_id", nullable = false, length = 25)
@@ -218,6 +219,16 @@ public class Zp07InfantOtoacousticEmissions extends BaseMetaData implements Audi
 
     public void setInfantDtEnter(Date infantDtEnter) {
         this.infantDtEnter = infantDtEnter;
+    }
+
+
+    @Column(name = "infant_hear_dt")
+    public Date getInfantHearDt() {
+        return infantHearDt;
+    }
+
+    public void setInfantHearDt(Date infantHearDt) {
+        this.infantHearDt = infantHearDt;
     }
 
     @Override
