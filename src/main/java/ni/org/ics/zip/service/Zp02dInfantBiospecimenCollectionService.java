@@ -39,8 +39,8 @@ public class Zp02dInfantBiospecimenCollectionService {
     @SuppressWarnings("unchecked")
     public List<Zp02dInfantBiospecimenCollection> getZp02dInfantBiospecimenCollectionByUser(String username){
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("FROM Zp02dInfantBiospecimenCollection zp02d where zp02d.pasive = '0' and zp02d.recordId in (select zp00.recordId from Zp00Screening zp00 where zp00.pasive = '0' and zp00.preScreenId in (select recId from ZpPreScreening zpPre where zpPre.pasive = '0' and zpPre.cs in " +
-                "(Select uc.centro.cs from UserCenter uc where uc.user.username =:usuarioactual and uc.pasive = '0')))");
+        Query query = session.createQuery("FROM Zp02dInfantBiospecimenCollection zp02d where zp02d.pasive = '0' and zp02d.recordId in (select dInf.recordId from ZpInfantData dInf where dInf.pasive = '0' and dInf.pregnantId in (select zp00.recordId from Zp00Screening zp00 where zp00.pasive = '0' and zp00.preScreenId in (select recId from ZpPreScreening zpPre where zpPre.pasive = '0' and zpPre.cs in " +
+                "(Select uc.centro.cs from UserCenter uc where uc.user.username =:usuarioactual and uc.pasive = '0'))))");
         query.setParameter("usuarioactual",username);
         return query.list();
     }
