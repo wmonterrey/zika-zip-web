@@ -72,8 +72,8 @@ public class QueryService {
                             else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                         } else if (val instanceof java.util.Date) {
-                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyyy");
-                            else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyyy");
+                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
+                            else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
 
                         } else if (val instanceof Float) {
                             if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
