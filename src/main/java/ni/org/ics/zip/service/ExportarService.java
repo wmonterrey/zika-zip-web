@@ -143,7 +143,8 @@ public class ExportarService {
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_results_specify") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_results_ultra") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_ultra_dt") &&
-                        !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_ultra_obtained") &&
+                        !res.getString("COLUMN_NAME").equalsIgnoreCase("infantSuScore") &&
+                                                                                                                                                                                                                                                                                                                                               !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_ultra_obtained") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("infatn_hear_left") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_additional_audio") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_ageMonths") &&
@@ -228,8 +229,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -315,8 +316,8 @@ public class ExportarService {
                             else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                         } else if (val instanceof java.util.Date) {
-                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                            else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                            else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                         } else if (val instanceof Float) {
                             if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -462,8 +463,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -584,8 +585,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -684,9 +685,9 @@ public class ExportarService {
                                     else valores += SEPARADOR + val.toString().substring(0, 5);
                                 } else if (col.equalsIgnoreCase("bsc_mat_hom_urn_dat1") || col.equalsIgnoreCase("bsc_mat_hom_urn_dat2") || col.equalsIgnoreCase("bsc_mat_hom_urn_dat3") || col.equalsIgnoreCase("bsc_mat_hom_urn_dat4")) {
                                     if (valores.isEmpty())
-                                        valores += DateToString(res.getDate(col), "dd/MM/yyyy");
+                                        valores += DateToString(res.getDate(col), "MM/dd/yyyy");
                                     else
-                                        valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                                        valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
                                 } else {
                                     //si contiene uno de estos caracteres especiales escapar
                                     if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
@@ -713,8 +714,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -957,8 +958,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -1083,8 +1084,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -1182,8 +1183,8 @@ public class ExportarService {
                             else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                         } else if (val instanceof java.util.Date) {
-                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                            else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                            else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                         } else if (val instanceof Float) {
                             if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -1280,8 +1281,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -1384,8 +1385,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -1530,8 +1531,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -1634,8 +1635,8 @@ public class ExportarService {
                             else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                         } else if (val instanceof java.util.Date) {
-                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                            else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                            else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                         } else if (val instanceof Float) {
                             if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -1681,8 +1682,11 @@ public class ExportarService {
             sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
             if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
-            if (!exportParameters.getEvent().equalsIgnoreCase("all"))
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")){
                 sqlStrBuilder.append(" and redcap_event_name = ?");
+            }else{
+                sqlStrBuilder.append(" and redcap_event_name NOT LIKE 'unscheduled%'");
+            }
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
             if (exportParameters.thereAreCodes()) {
@@ -1786,8 +1790,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -1885,8 +1889,11 @@ public class ExportarService {
             sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
             if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
-            if (!exportParameters.getEvent().equalsIgnoreCase("all"))
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")){
                 sqlStrBuilder.append(" and redcap_event_name = ?");
+            }else{
+                sqlStrBuilder.append(" and redcap_event_name NOT LIKE 'unscheduled%'");
+            }
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
             if (exportParameters.thereAreCodes()) {
@@ -1926,8 +1933,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -1976,8 +1983,11 @@ public class ExportarService {
             sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
             if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
-            if (!exportParameters.getEvent().equalsIgnoreCase("all"))
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")){
                 sqlStrBuilder.append(" and redcap_event_name = ?");
+            }else{
+                sqlStrBuilder.append(" and redcap_event_name NOT LIKE 'unscheduled%'");
+            }
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
             if (exportParameters.thereAreCodes()) {
@@ -2020,8 +2030,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -2073,8 +2083,11 @@ public class ExportarService {
             sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
             if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
-            if (!exportParameters.getEvent().equalsIgnoreCase("all"))
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")){
                 sqlStrBuilder.append(" and redcap_event_name = ?");
+            }else{
+                sqlStrBuilder.append(" and redcap_event_name NOT LIKE 'unscheduled%'");
+            }
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
             if (exportParameters.thereAreCodes()) {
@@ -2117,8 +2130,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -2170,9 +2183,11 @@ public class ExportarService {
             sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
             if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
-            if (!exportParameters.getEvent().equalsIgnoreCase("all"))
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")){
                 sqlStrBuilder.append(" and redcap_event_name = ?");
-
+            }else{
+                sqlStrBuilder.append(" and redcap_event_name NOT LIKE 'unscheduled%'");
+            }
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
             if (exportParameters.thereAreCodes()) {
                 pStatement.setString(1, exportParameters.getCodigoInicio());
@@ -2212,8 +2227,8 @@ public class ExportarService {
                             else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                         } else if (val instanceof java.util.Date) {
-                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                            else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                            else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                         } else if (val instanceof Float) {
                             if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -2258,8 +2273,11 @@ public class ExportarService {
             sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
             if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
-            if (!exportParameters.getEvent().equalsIgnoreCase("all"))
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")){
                 sqlStrBuilder.append(" and redcap_event_name = ?");
+            }else{
+                sqlStrBuilder.append(" and redcap_event_name NOT LIKE 'unscheduled%'");
+            }
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
             if (exportParameters.thereAreCodes()) {
@@ -2312,8 +2330,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -2373,8 +2391,11 @@ public class ExportarService {
             sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
             if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
-            if (!exportParameters.getEvent().equalsIgnoreCase("all"))
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")){
                 sqlStrBuilder.append(" and redcap_event_name = ?");
+            }else{
+                sqlStrBuilder.append(" and redcap_event_name NOT LIKE 'unscheduled%'");
+            }
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
             if (exportParameters.thereAreCodes()) {
@@ -2410,8 +2431,8 @@ public class ExportarService {
                             else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                         } else if (val instanceof java.util.Date) {
-                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                            else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                            if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                            else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                         } else if (val instanceof Float) {
                             if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -2456,8 +2477,12 @@ public class ExportarService {
             sqlStrBuilder.append("select ").append(columnas).append(" from ").append(exportParameters.getTableName()).append(" where 1=1 ");
 
             if (exportParameters.thereAreCodes()) sqlStrBuilder.append(" and record_id between ? and ? ");
-            if (!exportParameters.getEvent().equalsIgnoreCase("all"))
+            if (!exportParameters.getEvent().equalsIgnoreCase("all")){
                 sqlStrBuilder.append(" and redcap_event_name = ?");
+            }else{
+                sqlStrBuilder.append(" and redcap_event_name NOT LIKE 'unscheduled%'");
+            }
+
 
             pStatement = con.prepareStatement(sqlStrBuilder.toString());
             if (exportParameters.thereAreCodes()) {
@@ -2474,6 +2499,8 @@ public class ExportarService {
 
             //columnas que necesita redcap y no estan en la tabla
             columnas = columnas.replaceAll("infant_ophth_type", "infant_ophth_type___1,infant_ophth_type___2,infant_ophth_type___3");
+            columnas += SEPARADOR + "infant_neurodeve";
+            columnas += SEPARADOR + "zp07_infant_assessment_complete";
 
             sb.append(columnas);
             sb.append(SALTOLINEA);
@@ -2486,7 +2513,7 @@ public class ExportarService {
                         if (col.equalsIgnoreCase("infant_ophth_type")) {
                             valores += setValuesMultipleField(val.toString(), ophthtype);
 
-                        } else {
+                        }  else {
                             if (val instanceof String) {
                                 String valFormat = val.toString().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
                                 //si contiene uno de estos caracteres especiales escapar
@@ -2501,8 +2528,8 @@ public class ExportarService {
                                 else valores += SEPARADOR + String.valueOf(res.getInt(col));
 
                             } else if (val instanceof java.util.Date) {
-                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "dd/MM/yyyy");
-                                else valores += SEPARADOR + DateToString(res.getDate(col), "dd/MM/yyyy");
+                                if (valores.isEmpty()) valores += DateToString(res.getDate(col), "MM/dd/yyyy");
+                                else valores += SEPARADOR + DateToString(res.getDate(col), "MM/dd/yyyy");
 
                             } else if (val instanceof Float) {
                                 if (valores.isEmpty()) valores += String.valueOf(res.getFloat(col));
@@ -2522,6 +2549,8 @@ public class ExportarService {
 
                     }
                 }
+                //valor para infant_neurodeve
+                valores += SEPARADOR + "0";
                 //valor para zp07_infant_assessment_complete
                 valores += SEPARADOR + "1";
                 sb.append(valores);
@@ -2643,6 +2672,7 @@ public class ExportarService {
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("infatn_hear_left") &&
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_additional_audio") &&
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_ageMonths") &&
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("infantSuScore") &&
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("inmunologico")
                             ) {
 
