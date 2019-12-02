@@ -57,7 +57,7 @@ public class Zp07InfantOtocousticEmissionsController {
 
 
     /**
-     * Acepta una solicitud POST con un parámetro JSON
+     * Acepta una solicitud POST con un parametro JSON
      * @param envio Objeto serializado de Zp07InfantOtoacousticEmissions
      * @return String con el resultado
      */

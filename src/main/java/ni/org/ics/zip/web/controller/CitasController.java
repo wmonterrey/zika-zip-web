@@ -401,7 +401,7 @@ public class CitasController {
     		}
     		else zpAgenda.setId(0);
     		String mensajeError = "";
-    		// Existe el código registrado?
+    		// Existe el codigo registrado?
     		ZpEstadoEmbarazada zpEmbarazada =datosEmbarazadas.getZpEstadoEmbarazada(recordid) ;
     		// Si esta en esta tabla de embarazada entoncees es tipo de agenda = " MUJER "
     		String tipoAgenda = Constants._MUJER;

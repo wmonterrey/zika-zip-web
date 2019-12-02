@@ -57,7 +57,7 @@ public class Zp00aInfantScreeningController {
 
 
     /**
-     * Acepta una solicitud POST con un parámetro JSON
+     * Acepta una solicitud POST con un parametro JSON
      * @param envio Objeto serializado de Zp00aInfantScreening
      * @return String con el resultado
      */

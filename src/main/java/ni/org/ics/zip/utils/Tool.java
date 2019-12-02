@@ -55,18 +55,18 @@ public class Tool {
 	
     public static String StringToUnicode(String frase) {
     	
-    	String fraseUnicode = frase.replaceAll("¡", "\\u00C1");
-    	fraseUnicode = frase.replaceAll("·", "\\u00E1");
-    	fraseUnicode = frase.replaceAll("…", "\\u00C9");
-    	fraseUnicode = frase.replaceAll("È", "\\u00E9");
-    	fraseUnicode = frase.replaceAll("Õ", "\\u00CD");
-    	fraseUnicode = frase.replaceAll("Ì", "\\u00ED");
-    	fraseUnicode = frase.replaceAll("”", "\\u00D3");
-    	fraseUnicode = frase.replaceAll("Û", "\\u00F3");
-    	fraseUnicode = frase.replaceAll("⁄", "\\u00DA");
-    	fraseUnicode = frase.replaceAll("˙", "\\u00FA");
-    	fraseUnicode = frase.replaceAll("—", "\\u00D1");
-    	fraseUnicode = frase.replaceAll("Ò", "\\u00F1");
+    	String fraseUnicode = frase.replaceAll("√Å", "\\u00C1");
+    	fraseUnicode = frase.replaceAll("√°", "\\u00E1");
+    	fraseUnicode = frase.replaceAll("√â", "\\u00C9");
+    	fraseUnicode = frase.replaceAll("√©", "\\u00E9");
+    	fraseUnicode = frase.replaceAll("√ç", "\\u00CD");
+    	fraseUnicode = frase.replaceAll("√≠", "\\u00ED");
+    	fraseUnicode = frase.replaceAll("√ì", "\\u00D3");
+    	fraseUnicode = frase.replaceAll("√≥", "\\u00F3");
+    	fraseUnicode = frase.replaceAll("√ö", "\\u00DA");
+    	fraseUnicode = frase.replaceAll("√∫", "\\u00FA");
+    	fraseUnicode = frase.replaceAll("√ë", "\\u00D1");
+    	fraseUnicode = frase.replaceAll("√±", "\\u00F1");
     	
     	return fraseUnicode;
     	
