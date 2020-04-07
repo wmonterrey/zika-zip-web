@@ -1,8 +1,11 @@
 package ni.org.ics.zip.service;
 
+import com.google.common.base.Predicate;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+import ni.org.ics.zip.domain.Zp07InfantOtoacousticEmissions;
 import ni.org.ics.zip.utils.Constants;
 import ni.org.ics.zip.utils.ExportParameters;
+import ni.org.ics.zip.utils.FilterLists;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -33,14 +36,17 @@ public class ExportarService {
     @Resource(name = "sessionFactory")
     private SessionFactory sessionFactory;
 
+    @Resource(name="zp07InfantOtoacousticEmsService")
+    private Zp07InfantOtoacousticEmissionsService oaeService;
+
     private static Connection getConnection() throws Exception {
         MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setUser("zikazip");
+        dataSource.setUser( "zikazip" );
         dataSource.setPassword("jeKAQudi");
-        //dataSource.setPassword("123456");
-        dataSource.setServerName("localhost");
-        dataSource.setPort(3306);
-        dataSource.setDatabaseName("zika_zip");
+        //dataSource.setPassword( "123456" );
+        dataSource.setServerName( "localhost" );
+        dataSource.setPort( 3306 );
+        dataSource.setDatabaseName( "zika_zip" );
 
         return dataSource.getConnection();
     }
@@ -144,11 +150,12 @@ public class ExportarService {
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_results_ultra") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_ultra_dt") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("infantSuScore") &&
-                                                                                                                                                                                                                                                                                                                                               !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_ultra_obtained") &&
+                        !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_ultra_obtained") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("infatn_hear_left") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_additional_audio") &&
                         !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_ageMonths") &&
-                        !res.getString("COLUMN_NAME").equalsIgnoreCase("inmunologico")
+                        !res.getString("COLUMN_NAME").equalsIgnoreCase("inmunologico") &&
+                        !res.getString("COLUMN_NAME").equalsIgnoreCase("infantReferralNeuro")
                         ) {
                     if (res.getString("COLUMN_NAME").equalsIgnoreCase("record_id") && !columns.isEmpty()) {
                         //el record_id siempre debe ser el primer campo
@@ -777,19 +784,19 @@ public class ExportarService {
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_specify", (res.getObject("bsc_mat_hom_urn_specify") != null ? res.getString("bsc_mat_hom_urn_specify") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_num", (res.getObject("bsc_mat_hom_urn_num") != null ? res.getString("bsc_mat_hom_urn_num") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id1", (res.getObject("bsc_mat_hom_urn_id1") != null ? res.getString("bsc_mat_hom_urn_id1") : ""));
-                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat1", (res.getObject("bsc_mat_hom_urn_dat1") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat1"), "dd/MM/yyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat1", (res.getObject("bsc_mat_hom_urn_dat1") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat1"), "MM/dd/yyyy") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time1", (res.getObject("bsc_mat_hom_urn_time1") != null ? res.getString("bsc_mat_hom_urn_time1").substring(0, 5) : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com1", (res.getObject("bsc_mat_hom_urn_com1") != null ? res.getString("bsc_mat_hom_urn_com1") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id2", (res.getObject("bsc_mat_hom_urn_id2") != null ? res.getString("bsc_mat_hom_urn_id2") : ""));
-                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat2", (res.getObject("bsc_mat_hom_urn_dat2") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat2"), "dd/MM/yyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat2", (res.getObject("bsc_mat_hom_urn_dat2") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat2"), "MM/dd/yyyy") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time2", (res.getObject("bsc_mat_hom_urn_time2") != null ? res.getString("bsc_mat_hom_urn_time2").substring(0, 5) : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com2", (res.getObject("bsc_mat_hom_urn_com2") != null ? res.getString("bsc_mat_hom_urn_com2") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id3", (res.getObject("bsc_mat_hom_urn_id3") != null ? res.getString("bsc_mat_hom_urn_id3") : ""));
-                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat3", (res.getObject("bsc_mat_hom_urn_dat3") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat3"), "dd/MM/yyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat3", (res.getObject("bsc_mat_hom_urn_dat3") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat3"), "MM/dd/yyyy") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time3", (res.getObject("bsc_mat_hom_urn_time3") != null ? res.getString("bsc_mat_hom_urn_time3").substring(0, 5) : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com3", (res.getObject("bsc_mat_hom_urn_com3") != null ? res.getString("bsc_mat_hom_urn_com3") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id4", (res.getObject("bsc_mat_hom_urn_id4") != null ? res.getString("bsc_mat_hom_urn_id4") : ""));
-                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat4", (res.getObject("bsc_mat_hom_urn_dat4") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat4"), "dd/MM/yyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat4", (res.getObject("bsc_mat_hom_urn_dat4") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat4"), "MM/dd/yyyy") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time4", (res.getObject("bsc_mat_hom_urn_time4") != null ? res.getString("bsc_mat_hom_urn_time4").substring(0, 5) : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com4", (res.getObject("bsc_mat_hom_urn_com4") != null ? res.getString("bsc_mat_hom_urn_com4") : ""));
                             break;
@@ -2673,7 +2680,8 @@ public class ExportarService {
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_additional_audio") &&
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("infant_ageMonths") &&
                             !res.getString("COLUMN_NAME").equalsIgnoreCase("infantSuScore") &&
-                            !res.getString("COLUMN_NAME").equalsIgnoreCase("inmunologico")
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("inmunologico") &&
+                            !res.getString("COLUMN_NAME").equalsIgnoreCase("infantReferralNeuro")
                             ) {
 
                         String[] columna = {res.getString("TABLE_NAME"), res.getString("COLUMN_NAME")};
@@ -2705,6 +2713,9 @@ public class ExportarService {
             List<String[]> allColumns = getAllTableMetaData(tableNames);
             List<String> participantes = getSubjects(exportParameters);
             List<String> registros = new ArrayList<String>();
+            List<Zp07InfantOtoacousticEmissions> oaeList = oaeService.getZp07InfantOtoacousticEms();
+
+
             int primerRegistro = 0;
 
             //Valores de campos múltiples
@@ -2740,11 +2751,17 @@ public class ExportarService {
             //  String[] breastReason = "1,2,3,4,5,6".split(",");
             //  String[] neurodeveType = "1,2,3,4,5,6".split(",");
             //     String[] exhibited = "1,2,3,4,5,6,7,8,9,10".split(",");
+            //  String[] whichEye = "1,2".split(",");
+            //    String[] otherIssue = "1,2,3,4,5,6,7,8,9".split(",");
+            //   String[] whichEar = "1,2".split(",");
+            String[] breastReason = "1,2,3,4,5,6,7".split(",");
+            //  String[] neurodeveType = "1,2,3,4,5,6".split(",");
 
             //for (String redCapEvent : redCapEvents){
             for (String participante : participantes) {
                 String valores = participante + SEPARADOR + exportParameters.getEvent();
                 boolean existeDato = false;
+
                 for (String tableName : tableNames) {
                     String columnasT = getTableColumns(allColumns, tableName);
                     boolean encontroRegistros = false;
@@ -2754,14 +2771,34 @@ public class ExportarService {
                     pStatement.setString(2, participante);
 
                     res = pStatement.executeQuery();
+                    Zp07InfantOtoacousticEmissions tmp = new Zp07InfantOtoacousticEmissions();
 
+                    if (tableName.equals( Constants.TABLE_ZP07 )){
+                        final String recordId = participante;
+                        final String redcadEvent = exportParameters.getEvent();
+
+                        Predicate<Zp07InfantOtoacousticEmissions> infoOtoacusticByRecordIdEvent = new Predicate<Zp07InfantOtoacousticEmissions>() {
+                            @Override
+                            public boolean apply(Zp07InfantOtoacousticEmissions datosOto) {
+                                return datosOto.getRecordId().equals(recordId) && datosOto.getRedcapEventName().equals(redcadEvent);
+                            }
+                        };
+
+                        //aplicar filtro por recordId y redcadEvent
+                        Collection<Zp07InfantOtoacousticEmissions> otoacusticData = FilterLists.filter(oaeList, infoOtoacusticByRecordIdEvent);
+                        if (otoacusticData.size() > 0){
+                            tmp = otoacusticData.iterator().next();
+                        }
+
+                    }
 
                     String[] arrayColumnasT = columnasT.split(",");
                     while (res.next()) {
                         existeDato = true;
                         encontroRegistros = true;
+
                         for (String[] col : allColumns) {
-                            if (existeColumna(col[1], arrayColumnasT)) {
+                            if (existeColumna( col[1], arrayColumnasT )) {
                                 Object val = null;
                                 try {
                                     val = res.getObject(col[1]);
@@ -2770,8 +2807,9 @@ public class ExportarService {
                                 }
                                 if (val != null) {
                                     //campos que necesitan un trato especial
+
                                     //ZP01 E
-                                    if (col[1].equalsIgnoreCase("sea_diseases")) {
+                                   if (col[1].equalsIgnoreCase("sea_diseases")) {
                                         valores += setValuesMultipleField(val.toString(), diseases);
 
                                     } else if (col[1].equalsIgnoreCase("sea_rash_first")) {
@@ -2835,9 +2873,9 @@ public class ExportarService {
                                                 else valores += SEPARADOR + val.toString().substring(0, 5);
                                             } else if (col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat1") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat2") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat3") || col[1].equalsIgnoreCase("bsc_mat_hom_urn_dat4")) {
                                                 if (valores.isEmpty())
-                                                    valores += DateToString(res.getDate(col[1]), "dd/MM/yyyy");
+                                                    valores += DateToString(res.getDate(col[1]), "MM/dd/yyyy");
                                                 else
-                                                    valores += SEPARADOR + DateToString(res.getDate(col[1]), "dd/MM/yyyy");
+                                                    valores += SEPARADOR + DateToString(res.getDate(col[1]), "MM/dd/yyyy");
                                             } else {
                                                 //si contiene uno de estos caracteres especiales escapar
                                                 if (val.toString().contains(SEPARADOR) || val.toString().contains(COMILLA) || val.toString().contains(SALTOLINEA)) {
@@ -2933,10 +2971,137 @@ public class ExportarService {
                                     } else if (col[1].equalsIgnoreCase("infant_spread_part")) {
                                         valores += setValuesMultipleField(val.toString(), spreadPart);
                                     } else if (col[1].equalsIgnoreCase("infant_specify_symptom")) {
-                                        valores += setValuesMultipleField(val.toString(), specifySymptom07);
-                                    } else if (col[1].equalsIgnoreCase("infant_ophth_type")) {
-                                        valores += setValuesMultipleField(val.toString(), ophthtype);
-                                    } else if (col[1].equalsIgnoreCase("infant_hearing_test")) {
+                                       valores += setValuesMultipleField( val.toString(), specifySymptom07 );
+
+                                   } else if (col[1].equalsIgnoreCase("infant_breast_reason")) {
+                                           valores += setValuesMultipleField(val.toString(), breastReason);
+
+                                       //capturar valor de tabla emisiones otoacusticas
+                                   } else if (col[1].equalsIgnoreCase("infant_ophth_type")) {
+                                       if (tmp.getInfantOphthType() != null){
+                                           valores += setValuesMultipleField(tmp.getInfantOphthType(), ophthtype);
+                                       }else{
+                                           valores += setValuesMultipleField(val.toString(), ophthtype);
+                                       }
+
+                                       //capturar valor de tabla emisiones otoacusticas
+                                   } else if (col[1].equalsIgnoreCase("infant_oae")) {
+                                       if (tmp.getInfantOae() != null){
+                                               String value = tmp.getInfantOae().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
+                                               //si contiene uno de estos caracteres especiales escapar
+                                               if (value.contains(SEPARADOR) || value.contains(COMILLA) || value.contains(SALTOLINEA)) {
+                                                   valores += SEPARADOR + QUOTE + value.trim() + QUOTE;
+                                               } else {
+                                                   if (valores.isEmpty()) valores += value.trim();
+                                                   else valores += SEPARADOR + value.trim();
+                                               }
+                                       }else{
+                                           valores += SEPARADOR;
+                                       }
+
+                                       //capturar valor de tabla emisiones otoacusticas
+                                   } else if (col[1].equalsIgnoreCase("infant_hearing_overall")) {
+                                       if (tmp.getInfantHearingOverall() != null){
+                                           String value = tmp.getInfantHearingOverall().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
+                                           //si contiene uno de estos caracteres especiales escapar
+                                           if (value.contains(SEPARADOR) || value.contains(COMILLA) || value.contains(SALTOLINEA)) {
+                                               valores += SEPARADOR + QUOTE + value.trim() + QUOTE;
+                                           } else {
+                                               if (valores.isEmpty()) valores += value.trim();
+                                               else valores += SEPARADOR + value.trim();
+                                           }
+                                       }else{
+                                           valores += SEPARADOR;
+                                       }
+
+                                       //capturar valor de tabla emisiones otoacusticas
+                                   } else if (col[1].equalsIgnoreCase("infant_roae")) {
+                                       if (tmp.getInfantRoae() != null){
+                                           String value = tmp.getInfantRoae().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
+                                           //si contiene uno de estos caracteres especiales escapar
+                                           if (value.contains(SEPARADOR) || value.contains(COMILLA) || value.contains(SALTOLINEA)) {
+                                               valores += SEPARADOR + QUOTE + value.trim() + QUOTE;
+                                           } else {
+                                               if (valores.isEmpty()) valores += value.trim();
+                                               else valores += SEPARADOR + value.trim();
+                                           }
+                                       }else{
+                                           valores += SEPARADOR;
+                                       }
+
+                                       //capturar valor de tabla emisiones otoacusticas
+                                   } else if (col[1].equalsIgnoreCase("infant_raabr")) {
+                                       if (tmp.getInfantRaabr() != null){
+                                           String value = tmp.getInfantRaabr().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
+                                           //si contiene uno de estos caracteres especiales escapar
+                                           if (value.contains(SEPARADOR) || value.contains(COMILLA) || value.contains(SALTOLINEA)) {
+                                               valores += SEPARADOR + QUOTE + value.trim() + QUOTE;
+                                           } else {
+                                               if (valores.isEmpty()) valores += value.trim();
+                                               else valores += SEPARADOR + value.trim();
+                                           }
+                                       }else{
+                                           valores += SEPARADOR;
+                                       }
+
+                                       //capturar valor de tabla emisiones otoacusticas
+                                   } else if (col[1].equalsIgnoreCase("infant_loae")) {
+                                       if (tmp.getInfantLoae() != null){
+                                           String value = tmp.getInfantLoae().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
+                                           //si contiene uno de estos caracteres especiales escapar
+                                           if (value.contains(SEPARADOR) || value.contains(COMILLA) || value.contains(SALTOLINEA)) {
+                                               valores += SEPARADOR + QUOTE + value.trim() + QUOTE;
+                                           } else {
+                                               if (valores.isEmpty()) valores += value.trim();
+                                               else valores += SEPARADOR + value.trim();
+                                           }
+                                       }else{
+                                           valores += SEPARADOR;
+                                       }
+
+                                       //capturar valor de tabla emisiones otoacusticas
+                                   } else if (col[1].equalsIgnoreCase("infant_laabr")) {
+                                       if (tmp.getInfantLaabr() != null){
+                                           String value = tmp.getInfantLaabr().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
+                                           //si contiene uno de estos caracteres especiales escapar
+                                           if (value.contains(SEPARADOR) || value.contains(COMILLA) || value.contains(SALTOLINEA)) {
+                                               valores += SEPARADOR + QUOTE + value.trim() + QUOTE;
+                                           } else {
+                                               if (valores.isEmpty()) valores += value.trim();
+                                               else valores += SEPARADOR + value.trim();
+                                           }
+
+                                       }else{
+                                           valores += SEPARADOR;
+                                       }
+
+                                       //capturar valor de tabla emisiones otoacusticas
+                                   } else if (col[1].equalsIgnoreCase("infant_comments2")) {
+                                       if (tmp.getInfantComments2() != null){
+                                           String value = tmp.getInfantComments2().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
+                                           //si contiene uno de estos caracteres especiales escapar
+                                           if (value.contains(SEPARADOR) || value.contains(COMILLA) || value.contains(SALTOLINEA)) {
+                                               valores += SEPARADOR + QUOTE + value.trim() + QUOTE;
+                                           } else {
+                                               if (valores.isEmpty()) valores += value.trim();
+                                               else valores += SEPARADOR + value.trim();
+                                           }
+
+                                       }else{
+                                           valores += SEPARADOR;
+                                       }
+
+                                       //capturar valor de tabla emisiones otoacusticas
+                                   } else if (col[1].equalsIgnoreCase("infant_hear_dt")) {
+                                       if (tmp.getInfantHearDt() != null){
+                                           String dt = DateToString( tmp.getInfantHearDt(), "MM/dd/yyyy" );
+                                           valores += SEPARADOR + dt;
+                                       }else{
+                                           valores += SEPARADOR;
+                                       }
+
+
+                                   } else if (col[1].equalsIgnoreCase("infant_hearing_test")) {
                                         valores += setValuesMultipleField(val.toString(), hearingTest);
                                     } else if (col[1].equalsIgnoreCase("infant_rash_first")) {
                                         valores += setValuesMultipleField(val.toString(), rashFirst);
@@ -2946,7 +3111,7 @@ public class ExportarService {
                                         valores += setValuesMultipleField(val.toString(), infReasonno);
 
                                         //ZP07a
-                                    } else if (col[1].equalsIgnoreCase("infant_oph_type")) {
+                                    }else if (col[1].equalsIgnoreCase("infant_oph_type")) {
                                         valores += setValuesMultipleField(val.toString(), ophthtype);
 
                                         //ZP07c
@@ -2982,9 +3147,9 @@ public class ExportarService {
 
                                         } else if (val instanceof java.util.Date) {
                                             if (valores.isEmpty())
-                                                valores += DateToString(res.getDate(col[1]), "dd/MM/yyyy");
+                                                valores += DateToString(res.getDate(col[1]), "MM/dd/yyyy");
                                             else
-                                                valores += SEPARADOR + DateToString(res.getDate(col[1]), "dd/MM/yyyy");
+                                                valores += SEPARADOR + DateToString(res.getDate(col[1]), "MM/dd/yyyy");
 
                                         } else if (val instanceof Float) {
                                             if (valores.isEmpty())
@@ -2995,7 +3160,7 @@ public class ExportarService {
                                 } else {
                                     //campos que necesitan un trato especial
                                     //ZP01 E
-                                    if (col[1].equalsIgnoreCase("sea_diseases")) {
+                                   if (col[1].equalsIgnoreCase("sea_diseases")) {
                                         for (int i = 0; i < diseases.length; i++) {
                                             valores += SEPARADOR;
                                         }
@@ -3123,14 +3288,142 @@ public class ExportarService {
                                         }
 
                                     } else if (col[1].equalsIgnoreCase("infant_specify_symptom")) {
-                                        for (int i = 0; i < specifySymptom07.length; i++) {
+                                       for (int i = 0; i < specifySymptom07.length; i++) {
+                                           valores += SEPARADOR;
+                                       }
+
+                                   }   else  if (col[1].equalsIgnoreCase("infant_breast_reason")) {
+                                        for (int i = 0; i < breastReason.length; i++) {
                                             valores += SEPARADOR;
                                         }
 
                                     } else if (col[1].equalsIgnoreCase("infant_ophth_type")) {
-                                        for (int i = 0; i < ophthtype.length; i++) {
-                                            valores += SEPARADOR;
-                                        }
+
+                                       if (tmp.getInfantOphthType() != null){
+                                           valores += setValuesMultipleField(tmp.getInfantOphthType(), ophthtype);
+                                       }else{
+                                           for (int i = 0; i < ophthtype.length; i++) {
+                                               valores += SEPARADOR;
+                                           }
+                                       }
+
+                                       //capturar valor de tabla emisiones otoacusticas
+                                   } else if (col[1].equalsIgnoreCase("infant_oae")) {
+                                       if (tmp.getInfantOae() != null){
+                                           String value = tmp.getInfantOae().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
+                                           //si contiene uno de estos caracteres especiales escapar
+                                           if (value.contains(SEPARADOR) || value.contains(COMILLA) || value.contains(SALTOLINEA)) {
+                                               valores += SEPARADOR + QUOTE + value.trim() + QUOTE;
+                                           } else {
+                                               if (valores.isEmpty()) valores += value.trim();
+                                               else valores += SEPARADOR + value.trim();
+                                           }
+                                       }else{
+                                           valores += SEPARADOR;
+                                       }
+
+                                       //capturar valor de tabla emisiones otoacusticas
+                                   } else if (col[1].equalsIgnoreCase("infant_hearing_overall")) {
+                                       if (tmp.getInfantHearingOverall() != null){
+                                           String value = tmp.getInfantHearingOverall().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
+                                           //si contiene uno de estos caracteres especiales escapar
+                                           if (value.contains(SEPARADOR) || value.contains(COMILLA) || value.contains(SALTOLINEA)) {
+                                               valores += SEPARADOR + QUOTE + value.trim() + QUOTE;
+                                           } else {
+                                               if (valores.isEmpty()) valores += value.trim();
+                                               else valores += SEPARADOR + value.trim();
+                                           }
+
+                                       }else{
+                                           valores += SEPARADOR;
+                                       }
+
+                                       //capturar valor de tabla emisiones otoacusticas
+                                   } else if (col[1].equalsIgnoreCase("infant_roae")) {
+                                       if (tmp.getInfantRoae() != null){
+                                           String value = tmp.getInfantRoae().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
+                                           //si contiene uno de estos caracteres especiales escapar
+                                           if (value.contains(SEPARADOR) || value.contains(COMILLA) || value.contains(SALTOLINEA)) {
+                                               valores += SEPARADOR + QUOTE + value.trim() + QUOTE;
+                                           } else {
+                                               if (valores.isEmpty()) valores += value.trim();
+                                               else valores += SEPARADOR + value.trim();
+                                           }
+                                       }else{
+                                           valores += SEPARADOR;
+                                       }
+
+                                       //capturar valor de tabla emisiones otoacusticas
+                                   } else if (col[1].equalsIgnoreCase("infant_raabr")) {
+                                       if (tmp.getInfantRaabr() != null){
+                                           String value = tmp.getInfantRaabr().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
+                                           //si contiene uno de estos caracteres especiales escapar
+                                           if (value.contains(SEPARADOR) || value.contains(COMILLA) || value.contains(SALTOLINEA)) {
+                                               valores += SEPARADOR + QUOTE + value.trim() + QUOTE;
+                                           } else {
+                                               if (valores.isEmpty()) valores += value.trim();
+                                               else valores += SEPARADOR + value.trim();
+                                           }
+                                       }else{
+                                           valores += SEPARADOR;
+                                       }
+
+                                       //capturar valor de tabla emisiones otoacusticas
+                                   } else if (col[1].equalsIgnoreCase("infant_loae")) {
+                                       if (tmp.getInfantLoae() != null){
+                                           String value = tmp.getInfantLoae().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
+                                           //si contiene uno de estos caracteres especiales escapar
+                                           if (value.contains(SEPARADOR) || value.contains(COMILLA) || value.contains(SALTOLINEA)) {
+                                               valores += SEPARADOR + QUOTE + value.trim() + QUOTE;
+                                           } else {
+                                               if (valores.isEmpty()) valores += value.trim();
+                                               else valores += SEPARADOR + value.trim();
+                                           }
+                                       }else{
+                                           valores += SEPARADOR;
+                                       }
+
+                                       //capturar valor de tabla emisiones otoacusticas
+                                   } else if (col[1].equalsIgnoreCase("infant_laabr")) {
+                                       if (tmp.getInfantLaabr() != null){
+                                           String value = tmp.getInfantLaabr().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
+                                           //si contiene uno de estos caracteres especiales escapar
+                                           if (value.contains(SEPARADOR) || value.contains(COMILLA) || value.contains(SALTOLINEA)) {
+                                               valores += SEPARADOR + QUOTE + value.trim() + QUOTE;
+                                           } else {
+                                               if (valores.isEmpty()) valores += value.trim();
+                                               else valores += SEPARADOR + value.trim();
+                                           }
+                                       }else{
+                                           valores += SEPARADOR;
+                                       }
+
+                                       //capturar valor de tabla emisiones otoacusticas
+                                   } else if (col[1].equalsIgnoreCase("infant_comments2")) {
+                                       if (tmp.getInfantComments2() != null){
+                                           String value = tmp.getInfantComments2().replaceAll(ENTER, ESPACIO).replaceAll(SALTOLINEA, ESPACIO);
+                                           //si contiene uno de estos caracteres especiales escapar
+                                           if (value.contains(SEPARADOR) || value.contains(COMILLA) || value.contains(SALTOLINEA)) {
+                                               valores += SEPARADOR + QUOTE + value.trim() + QUOTE;
+                                           } else {
+                                               if (valores.isEmpty()) valores += value.trim();
+                                               else valores += SEPARADOR + value.trim();
+                                           }
+
+                                       }else{
+                                           valores += SEPARADOR;
+                                       }
+
+                                       //capturar valor de tabla emisiones otoacusticas
+                                   } else if (col[1].equalsIgnoreCase("infant_hear_dt")) {
+                                       if (tmp.getInfantHearDt() != null){
+                                           String dt = DateToString( tmp.getInfantHearDt(), "MM/dd/yyyy" );
+                                           valores += SEPARADOR + dt;
+                                       }else{
+                                           valores += SEPARADOR;
+                                       }
+
+
 
                                     } else if (col[1].equalsIgnoreCase("infant_hearing_test")) {
                                         for (int i = 0; i < hearingTest.length; i++) {
@@ -3149,7 +3442,7 @@ public class ExportarService {
                                         }
 
                                         //Zp07a
-                                    } else if (col[1].equalsIgnoreCase("infant_oph_type")) {
+                                    }else if (col[1].equalsIgnoreCase("infant_oph_type")) {
                                         for (int i = 0; i < infantOphType.length; i++) {
                                             valores += SEPARADOR;
                                         }
@@ -3392,19 +3685,19 @@ public class ExportarService {
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_specify", (res.getObject("bsc_mat_hom_urn_specify") != null ? res.getString("bsc_mat_hom_urn_specify") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_num", (res.getObject("bsc_mat_hom_urn_num") != null ? res.getString("bsc_mat_hom_urn_num") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id1", (res.getObject("bsc_mat_hom_urn_id1") != null ? res.getString("bsc_mat_hom_urn_id1") : ""));
-                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat1", (res.getObject("bsc_mat_hom_urn_dat1") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat1"), "dd/MM/yyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat1", (res.getObject("bsc_mat_hom_urn_dat1") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat1"), "MM/dd/yyyy") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time1", (res.getObject("bsc_mat_hom_urn_time1") != null ? res.getString("bsc_mat_hom_urn_time1").substring(0, 5) : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com1", (res.getObject("bsc_mat_hom_urn_com1") != null ? res.getString("bsc_mat_hom_urn_com1") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id2", (res.getObject("bsc_mat_hom_urn_id2") != null ? res.getString("bsc_mat_hom_urn_id2") : ""));
-                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat2", (res.getObject("bsc_mat_hom_urn_dat2") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat2"), "dd/MM/yyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat2", (res.getObject("bsc_mat_hom_urn_dat2") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat2"), "MM/dd/yyyy") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time2", (res.getObject("bsc_mat_hom_urn_time2") != null ? res.getString("bsc_mat_hom_urn_time2").substring(0, 5) : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com2", (res.getObject("bsc_mat_hom_urn_com2") != null ? res.getString("bsc_mat_hom_urn_com2") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id3", (res.getObject("bsc_mat_hom_urn_id3") != null ? res.getString("bsc_mat_hom_urn_id3") : ""));
-                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat3", (res.getObject("bsc_mat_hom_urn_dat3") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat3"), "dd/MM/yyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat3", (res.getObject("bsc_mat_hom_urn_dat3") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat3"), "MM/dd/yyyy") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time3", (res.getObject("bsc_mat_hom_urn_time3") != null ? res.getString("bsc_mat_hom_urn_time3").substring(0, 5) : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com3", (res.getObject("bsc_mat_hom_urn_com3") != null ? res.getString("bsc_mat_hom_urn_com3") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_id4", (res.getObject("bsc_mat_hom_urn_id4") != null ? res.getString("bsc_mat_hom_urn_id4") : ""));
-                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat4", (res.getObject("bsc_mat_hom_urn_dat4") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat4"), "dd/MM/yyyy") : ""));
+                            registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_dat4", (res.getObject("bsc_mat_hom_urn_dat4") != null ? DateToString(res.getDate("bsc_mat_hom_urn_dat4"), "MM/dd/yyyy") : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_time4", (res.getObject("bsc_mat_hom_urn_time4") != null ? res.getString("bsc_mat_hom_urn_time4").substring(0, 5) : ""));
                             registrotmp = registrotmp.replaceAll("bsc_mat_hom_urn_com4", (res.getObject("bsc_mat_hom_urn_com4") != null ? res.getString("bsc_mat_hom_urn_com4") : ""));
                             break;
@@ -3420,7 +3713,7 @@ public class ExportarService {
             if (exportParameters.isAddHeader()) {
                 sb.append(columnas);
             }
-            for (String registro : registros) {
+           for (String registro : registros) {
                 sb.append(SALTOLINEA);
                 //por si queda algun registro que no tiene toma de muestra 15 dias, se limpia
                 registro = registro.replaceAll("bsc_mat_hom_urn_col", "");

@@ -524,31 +524,57 @@ public class ExportarController {
     }
 
 
-
     @RequestMapping(value = "getAll", method = RequestMethod.GET)
     public void getAllFormsNuevo(@RequestParam(value = "codigoInicio", required = false) String codigoInicio,
-                            @RequestParam(value = "codigoFin", required = false) String codigoFin,
-                            @RequestParam(value = "event", required = false) String event,
-                            HttpServletResponse res) throws Exception {
+                                 @RequestParam(value = "codigoFin", required = false) String codigoFin,
+                                 @RequestParam(value = "event", required = false) String event,
+                                 HttpServletResponse res) throws Exception {
 
-        res.setContentType("application/csv");
-        res.setHeader("Content-Disposition", String.format("inline; filename=\"" + "allforms.csv" +"\""));
+        res.setContentType( "application/csv" );
+        res.setHeader( "Content-Disposition", String.format( "inline; filename=\"" + "allforms.csv" + "\"" ) );
         PrintWriter w = res.getWriter();
-        String todasTablas = Constants.TABLE_ZP00 + "," + Constants.TABLE_ZP01AD + "," + Constants.TABLE_ZP01E + "," + Constants.TABLE_ZP01FK + "," + Constants.TABLE_ZP02 + "," + Constants.TABLE_ZP03 + "," +
-                Constants.TABLE_ZP04AD + "," + Constants.TABLE_ZP04E + "," + Constants.TABLE_ZP04FH + "," + Constants.TABLE_ZP05 + "," + Constants.TABLE_ZP06 + "," + Constants.TABLE_ZP00a + "," + Constants.TABLE_ZP07 + "," + Constants.TABLE_ZP07a + "," + Constants.TABLE_ZP07b + "," + Constants.TABLE_ZP07c + "," + Constants.TABLE_ZP07d + "," + Constants.TABLE_ZP02d + "," + Constants.TABLE_ZP08;
-        ExportParameters ep = new ExportParameters(todasTablas,codigoInicio,codigoFin,event);
+        String todasTablas = null;
         StringBuffer registros = null;
+
+        //codigos madres
+        if (codigoInicio.matches( "^07[0-9][0-9][0-9][0-9][0][A-Y]$") && codigoFin.matches( "^07[0-9][0-9][0-9][0-9][0][A-Y]$" )) {
+            todasTablas = Constants.TABLE_ZP00 + "," + Constants.TABLE_ZP01AD + "," + Constants.TABLE_ZP01E + "," + Constants.TABLE_ZP01FK + "," + Constants.TABLE_ZP02 + "," + Constants.TABLE_ZP03 + "," +
+                    Constants.TABLE_ZP04AD + "," + Constants.TABLE_ZP04E + "," + Constants.TABLE_ZP04FH + "," + Constants.TABLE_ZP05 + "," + Constants.TABLE_ZP06 + "," + Constants.TABLE_ZP08;
+            //codigos infantes
+        } else if (codigoInicio.matches( "^07[0-9][0-9][0-9][0-9][1-3][A-Y]$") && codigoFin.matches( "^07[0-9][0-9][0-9][0-9][1-3][A-Y]$" )) {
+            todasTablas = Constants.TABLE_ZP00a + "," + Constants.TABLE_ZP07
+                    + "," + Constants.TABLE_ZP07a + "," + Constants.TABLE_ZP07b + "," + Constants.TABLE_ZP07c + "," + Constants.TABLE_ZP07d + "," + Constants.TABLE_ZP02d + "," + Constants.TABLE_ZP08;
+            //codigos madre e infantes
+        } else if (codigoInicio.matches( "^07[0-9][0-9][0-9][0-9][0][A-Y]$") || codigoFin.matches( "^07[0-9][0-9][0-9][0-9][1-3][A-Y]$" )) {
+            todasTablas = Constants.TABLE_ZP00 + "," + Constants.TABLE_ZP01AD + "," + Constants.TABLE_ZP01E + "," + Constants.TABLE_ZP01FK + "," + Constants.TABLE_ZP02 + "," + Constants.TABLE_ZP03 + "," +
+                    Constants.TABLE_ZP04AD + "," + Constants.TABLE_ZP04E + "," + Constants.TABLE_ZP04FH + "," + Constants.TABLE_ZP05 + "," + Constants.TABLE_ZP06 + "," + Constants.TABLE_ZP00a + "," + Constants.TABLE_ZP07
+                    + "," + Constants.TABLE_ZP07a + "," + Constants.TABLE_ZP07b + "," + Constants.TABLE_ZP07c + "," + Constants.TABLE_ZP07d + "," + Constants.TABLE_ZP02d + "," + Constants.TABLE_ZP08;
+        //codigo infante y madre
+        } else if (codigoInicio.matches( "^07[0-9][0-9][0-9][0-9][1-3][A-Y]$") && codigoFin.matches( "^07[0-9][0-9][0-9][0-9][0][A-Y]$" )) {
+            todasTablas = Constants.TABLE_ZP00 + "," + Constants.TABLE_ZP01AD + "," + Constants.TABLE_ZP01E + "," + Constants.TABLE_ZP01FK + "," + Constants.TABLE_ZP02 + "," + Constants.TABLE_ZP03 + "," +
+                    Constants.TABLE_ZP04AD + "," + Constants.TABLE_ZP04E + "," + Constants.TABLE_ZP04FH + "," + Constants.TABLE_ZP05 + "," + Constants.TABLE_ZP06 + "," + Constants.TABLE_ZP00a + "," + Constants.TABLE_ZP07
+                    + "," + Constants.TABLE_ZP07a + "," + Constants.TABLE_ZP07b + "," + Constants.TABLE_ZP07c + "," + Constants.TABLE_ZP07d + "," + Constants.TABLE_ZP02d + "," + Constants.TABLE_ZP08;
+
+        }else if (codigoInicio == null && codigoFin == null ){
+            todasTablas = Constants.TABLE_ZP00 + "," + Constants.TABLE_ZP01AD + "," + Constants.TABLE_ZP01E + "," + Constants.TABLE_ZP01FK + "," + Constants.TABLE_ZP02 + "," + Constants.TABLE_ZP03 + "," +
+                    Constants.TABLE_ZP04AD + "," + Constants.TABLE_ZP04E + "," + Constants.TABLE_ZP04FH + "," + Constants.TABLE_ZP05 + "," + Constants.TABLE_ZP06 + "," + Constants.TABLE_ZP00a + "," + Constants.TABLE_ZP07
+                    + "," + Constants.TABLE_ZP07a + "," + Constants.TABLE_ZP07b + "," + Constants.TABLE_ZP07c + "," + Constants.TABLE_ZP07d + "," + Constants.TABLE_ZP02d + "," + Constants.TABLE_ZP08;
+        }
+
+
+        ExportParameters ep = new ExportParameters( todasTablas, codigoInicio, codigoFin, event );
         try {
-            if (!event.equalsIgnoreCase("all")) {
-                ep.setAddHeader(true);
-                registros = exportarService.getAllExportData(ep);
+            if (!event.equalsIgnoreCase( "all" )) {
+                ep.setAddHeader( true );
+                registros = exportarService.getAllExportData( ep );
             } else {
+                registros = new StringBuffer();
                 List<String> events = exportarService.getRedCapEvents();
                 for (String evento : events) {
-                    ep.setEvent(evento);
-                    if (evento.equalsIgnoreCase(Constants.SCREENING)) ep.setAddHeader(true);
-                    else ep.setAddHeader(false);
-                    registros.append(exportarService.getAllExportData(ep));
+                    ep.setEvent( evento );
+                    if (evento.equalsIgnoreCase( Constants.SCREENING )) ep.setAddHeader( true );
+                    else ep.setAddHeader( false );
+                    registros.append( exportarService.getAllExportData( ep ) );
                 }
             }
         } catch (Exception e) {
