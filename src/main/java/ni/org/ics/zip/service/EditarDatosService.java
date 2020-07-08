@@ -28,7 +28,7 @@ public class EditarDatosService {
         dataSource.setUser("zikazip");
         dataSource.setPassword("jeKAQudi");
        // dataSource.setPassword("123456");
-        dataSource.setServerName("localhost");
+        dataSource.setServerName("141.211.217.99");
         dataSource.setPort(3306);
         dataSource.setDatabaseName("zika_zip");
 
@@ -108,7 +108,12 @@ public class EditarDatosService {
      */
     public int updateProperty(String tabla, String evento, String id, String propiedad, String valor, boolean setNull, String actorId) throws Exception {
         Connection connection = getConnection();
+
+        Statement statement = null;
+        ResultSet resultSet = null;
         int registros = 0;
+
+        try {
         int resultado = 0;
         StringBuilder sbUpdate = null;
         String nombreCampoId = "record_id", nombreCampoEvento = "redcap_event_name";
@@ -139,8 +144,8 @@ public class EditarDatosService {
 
         int type = getColumnType(tabla, propiedad, connection);
 
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(sbSelect.toString());
+        statement = connection.createStatement();
+        resultSet = statement.executeQuery(sbSelect.toString());
         while(resultSet.next()) {
             //por cada registro armar update
             sbUpdate = new StringBuilder("update ");
@@ -179,6 +184,9 @@ public class EditarDatosService {
                     pstm.setInt(1, Integer.valueOf(valor));
                 else if (type == Types.FLOAT || type == Types.REAL)
                     pstm.setFloat(1, Float.valueOf(valor));
+                else if (type == Types.DOUBLE) {
+                    pstm.setDouble(1, Double.valueOf(valor));
+                }
             }
 
             resultado=pstm.executeUpdate();
@@ -197,6 +205,13 @@ public class EditarDatosService {
                 auditTrail.setUsername(actorId);
                 auditTrailService.saveAuditTrail(auditTrail);
             }
+        }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if (resultSet !=null) resultSet.close();
+            if (statement !=null) statement.close();
+            if (connection !=null) connection.close();
         }
         return registros;
     }
